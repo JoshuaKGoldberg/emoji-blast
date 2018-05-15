@@ -54,53 +54,8 @@ emojisplosions();
 
 ### Configuration
 
-`emojisplosion` and `emojisplosions` also configurable.
+`emojisplosion` and `emojisplosions` are highly configurable.
 The following may be passed to both via configuration objects.
-
-#### `interval`
-
-Type: `number` or `() => number`
-
-How frequently to create explosions.
-Passed to `scheduler` as the delay _(typically in milliseconds)_ before each explosion.
-
-Pass a `number` to always delay that much.
-Pass a function for it to be called immediately for the delay before the first explosion, then again as each explosion is started to schedule the next explosion.
-
-The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [3500, 7000] subsequent times.
-
-As quickly as `setInterval` can fire (this will probably crash your browser!):
-
-```javascript
-emojisplosions({
-    interval: 0,
-});
-```
-
-Once a second:
-
-```javascript
-emojisplosions({
-    interval: 1000,
-});
-```
-
-0ms delay the first explosion, then 1000ms delay each subsequent explosion:
-
-```javascript
-let scheduled = false;
-
-emojisplosions({
-    interval() {
-        if (!scheduled) {
-            scheduled = true;
-            return 0;
-        }
-
-        return 1000;
-    },
-});
-```
 
 #### `position`
 
@@ -182,11 +137,57 @@ setTimeout(cancel, 10000);
 
 Additionally, these configurations are exclusively for `emojisplosions`:
 
+#### `interval`
+
+Type: `number` or `() => number`
+
+How frequently to create explosions.
+Passed to `scheduler` as the delay _(typically in milliseconds)_ before each explosion.
+
+Pass a `number` to always delay that much.
+Pass a function for it to be called immediately for the delay before the first explosion, then again as each explosion is started to schedule the next explosion.
+
+The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [3500, 7000] subsequent times.
+
+As quickly as `setInterval` can fire (this will probably crash your browser!):
+
+```javascript
+emojisplosions({
+    interval: 0,
+});
+```
+
+Once a second:
+
+```javascript
+emojisplosions({
+    interval: 1000,
+});
+```
+
+0ms delay the first explosion, then 1000ms delay each subsequent explosion:
+
+```javascript
+let scheduled = false;
+
+emojisplosions({
+    interval() {
+        if (!scheduled) {
+            scheduled = true;
+            return 0;
+        }
+
+        return 1000;
+    },
+});
+```
+
 #### `scheduler`
 
 Type: `(action: () => void, delay: number) => number`
 
-Schedules the next ...
+Schedules the next explosion to occur.
+This defaults to `setTimeout`, which is why `interval` is typically treated as milliseconds.
 
 ## Development
 
