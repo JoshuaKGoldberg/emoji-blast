@@ -18,14 +18,19 @@ Plop this 👇 at the end of your `.html` `<body>`:
 
 👌.
 
-Alternately, if you _need_ emojisplosions immediately:
+Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 
 ```html
 <script src="https://unpkg.com/emojisplosion/src/global.js"></script>
 <script>
+    emojisplosion();
     emojisplosions();
 </script>
 ```
+
+`emojisplosion` launches a single blast of emojis at random locations on the page.
+
+`emojisplosions` starts calling `emojisplosion` on a random interval of every few seconds.
 
 #### Explanation
 
@@ -44,7 +49,7 @@ With Webpack and other modern JavaScript bundlers:
 ```typescript
 import { emojisplosion, emojisplosions } from "emojisplosion";
 
-// Launch a single emojisplosion somewhere on the page!
+// Just one explosion, please.
 emojisplosion();
 
 // Commence explosions!
