@@ -1,0 +1,30 @@
+{
+  "name": "emojisplosion",
+  "version": "0.1.0",
+  "description": "Blasts emoji like fireworks all up in your HTML page.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuakgoldberg/emojisplosion.git"
+  },
+  "keywords": [
+    "emoji",
+    "explosion",
+    "fireworks",
+    "page",
+    "all",
+    "up",
+    "in",
+    "there",
+    "dom"
+  ],
+  "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshuakgoldberg/emojisplosion/issues"
+  },
+  "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme"
+}

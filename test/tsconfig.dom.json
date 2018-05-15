@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "lib": ["dom", "es5"]
+    },
+    "extends": "./tsconfig.json",
+    "files": [
+        "./test.dom.ts"
+    ]
+}
