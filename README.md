@@ -42,7 +42,7 @@ Each explosion contains around a dozen emoji, each of which are given CSS `anima
 
 After an emoji is completely hidden, it is removed from the page.
 
-### Advanced
+### Advanced Mode
 
 With Webpack and other modern JavaScript bundlers:
 
@@ -56,24 +56,80 @@ emojisplosion();
 emojisplosions();
 ```
 
+Oh, and Emojisplosion is written in TypeScript and ships with its own typings. 💣
 
 ### Configuration
 
 `emojisplosion` and `emojisplosions` are highly configurable.
 The following may be passed to both via configuration objects.
 
+#### `emojiCount`
+
+Type: `number` or `() => number`
+
+How many emojis to create per blast.
+Defaults to random number between 7 and 14.
+
+Creating 9001 emoji per blast:
+
+```javascript
+emojisplosions({
+    emojiCount: 9001,
+});
+```
+
+Creating a random number between 100 and 200 per blast:
+
+```javascript
+emojisplosions({
+    emojiCount: () => Math.random() * 100 + 100,
+});
+```
+
+#### `emojis`
+
+Type: `string[]` or `() => string[]`
+
+List of allowed emojis to randomly choose from for each explosion.
+The default list of emojis is in ***INSERT FILE HERE***; it excludes emojis with dubious reputations such as 💩 and 🍆.
+
+> Found an emoji not supposed to be in that list?
+> Please [file an issue](https://github.com/JoshuaKGoldberg/emojisplosion/issues/new)!
+
+Always choosing the 💖 emoji:
+
+```javascript
+emojisplosions({
+    emojis: ["💖"],
+});
+```
+
+Allowing any of the several wonderful heart emojis for each emoji within a blast:
+
+```javascript
+emojisplosions({
+    emojis: ["💖", "💕", "💗", "💓", "💝"],
+});
+```
+
 #### `position`
 
-Type: `{ x: number, y: number }` or `() => { x: number, y: number }`
+Type: `{ left: number, top: number }` or `() => { left: number, top: number }`
 
 How to determine where to place blasts of emojis around the page.
 These are absolutely positioned midpoints to center the blasts around.
-You can provide a static `{ x, y }` object or a function to create one.
+They're used directly as `left` and `top` CSS properties.
+You can provide a static object or a function to create one.
 
 The default `position` chooses rounded integers within the page:
 
 ```javascript
-emojisplosions
+emojisplosions({
+    position: () => ({
+        left: Math.floor(Math.random() * (innerWidth + 1)),
+        top: Math.floor(Math.random() * (innerHeight + 1)),
+    }),
+});
 ```
 
 Always exploding from a fixed position:
@@ -81,10 +137,10 @@ Always exploding from a fixed position:
 ```javascript
 emojisplosions({
     position: {
-        x: 35,
-        y: 35,
+        left: 35,
+        top: 35,
     },
-})
+});
 ```
 
 Exploding emoji around your favorite element on the page:
@@ -93,37 +149,79 @@ Exploding emoji around your favorite element on the page:
 const element = document.querySelector("#my-face");
 
 emojisplosions({
-    position: () => {
+    position() {
         // https://stackoverflow.com/questions/1480133
-        const { left, top } = cumulativeOffset(element);
+        const offset = cumulativeOffset(element);
 
         return {
-            x: Math.round(left + element.clientWidth / 2),
-            y: Math.round(top + element.clientHeight / 2),
+            x: Math.round(offset.left + element.clientWidth / 2),
+            y: Math.round(offset.top + element.clientHeight / 2),
         }
-    }
+    },
 });
 ```
 
 > Try to use rounded integers as your positions, as they're easier for browsers to render.
 
-#### `styles`
+#### `process`
 
-Type: `CSSProperties` (`object`)
+Type: `(element: Element) => void` or `() => (element: Element) => void`
 
-Inline CSS styles to apply to each emoji.
-These will be merged on top of the default inline styles, which are:
+Processes each element just before it's appended to the container.
+Useful if you'd like to apply custom attributes, class names, or styles to your elements.
 
-```css
-font-size: 1em;
-position: absolute;
-```
+Adding an `.emoji` class to each element:
 
 ```javascript
-// For when you really need to get the point across...
 emojisplosions({
-    styles: {
-        fontSize: "3.5em",
+    process(element) {
+        element.className = "emoji";
+    },
+});
+```
+
+#### `tagName`
+
+Type: `string` or `() => string`
+
+DOM element tag name to create elements as.
+Defaults to `"span"`.
+
+Creating `<div>`s instead:
+
+```javascript
+emojisplosions({
+    tagName: "div",
+});
+```
+
+#### `uniqueness`
+
+Type: `number` or `() => number`
+
+How many different types of emojis are allowed within a blast.
+Each blast will evaluate this to a number, U, and choose the first U emojis from a shuffled variant of the `emojis` list.
+If `U > emojis.length`, it will be ignored.
+
+`uniqueness` defaults to `Infinity`.
+
+Allowing only one emoji type per blast:
+
+```javascript
+emojisplosions({
+    uniqueness: 1,
+});
+```
+
+Allowing one more emoji type per blast each blast:
+
+```javascript
+let count = 0;
+
+emojisplosions({
+    uniqueness() {
+        count += 1;
+        return count;
     },
 });
 ```
@@ -194,6 +292,15 @@ Type: `(action: () => void, delay: number) => number`
 Schedules the next explosion to occur.
 This defaults to `setTimeout`, which is why `interval` is typically treated as milliseconds.
 
+```javascript
+emojisplosions({
+    scheduler(action, delay) {
+        console.log(`Will emoji in ${delay} ms!`);
+        action();
+    },
+});
+```
+
 ## Development
 
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo/):
@@ -202,5 +309,21 @@ After [forking the repo from GitHub](https://help.github.com/articles/fork-a-rep
 git clone https://github.com/<your-name-here>/emojisplosion
 cd emojisplosion
 npm install
+npm install --global typescript
 npm run verify
 ```
+
+That will create the project locally.
+In order to develop it, modify the `.ts` files under `src/.
+Run TypeScript locally to constantly compile your changes to `.js` files:
+
+```shell
+tsc --watch
+```
+
+### Tests
+
+Despite [previously advocating for 100% unit test coverage](https://medium.com/@joshuakgoldberg/in-defense-of-100-unit-test-coverage-7fd1a9873ca4), there are intentionally no unit tests in this project.
+Learning TypeScript is hard enough for many.
+
+Since it's so small and randomization-based, I'd rather make it easier for folks to contribute.
