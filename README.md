@@ -1,3 +1,6 @@
+# 😢 THIS ISN'T READY YET!
+# CHECK BACK LATER THIS SUMMER 😉
+
 # Emojisplosion
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/JoshuaKGoldberg/emojisplosion.svg)](https://greenkeeper.io/)
