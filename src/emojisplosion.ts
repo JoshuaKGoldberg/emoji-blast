@@ -93,7 +93,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
         emojis: shuffleArray(obtainValue(emojis))
             .slice(0, obtainValue(uniqueness)),
         position: obtainValue(position),
-        process: obtainValue<IEmojiProcess>(process),
+        process,
         tagName: obtainValue(tagName),
     };
 
