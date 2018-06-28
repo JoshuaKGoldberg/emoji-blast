@@ -52,9 +52,9 @@ export type ISettingValue<T> = T | (() => T);
 /**
  * Default emojiCount to choose a random number of emoji per blast.
  *
- * @returns Random integer within 7 to 14.
+ * @returns Random integer within 14 to 28.
  */
-const defaultEmojiCount = () => Math.floor(Math.random() * 7) + 8;
+const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
 /**
  * Default position to choose random locations within the page.

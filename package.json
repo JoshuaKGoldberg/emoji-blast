@@ -4,6 +4,7 @@
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
+    "build:easy": "webpack src/easy.ts -o lib/easy.js",
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
     "verify": "npm run tsc && npm run tslint"
@@ -30,8 +31,10 @@
   },
   "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme",
   "devDependencies": {
+    "ts-loader": "^4.4.1",
     "tslint": "5.10.0",
-    "typescript": "2.8.3",
-    "webpack": "^4.8.3"
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
   }
 }

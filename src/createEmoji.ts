@@ -1,3 +1,4 @@
+import { applyStyles } from "./styles";
 import { randomArrayMember } from "./utils";
 
 /**
@@ -55,10 +56,12 @@ export type IEmojiProcess = (element: Element) => void;
 export const createEmoji = (settings: IEmojiCreationSettings) => {
     const element = document.createElement(settings.tagName);
 
-    element.style.left = `${settings.position.left}px`;
-    element.style.top = `${settings.position.top}px`;
     element.style.marginLeft = element.style.marginTop = "-1em";
     element.textContent = randomArrayMember(settings.emojis);
+
+    applyStyles(element, {
+        position: settings.position,
+    });
 
     settings.process(element);
 

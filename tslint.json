@@ -6,6 +6,7 @@
         "linebreak-style": false,
         "max-line-length": [true, 175],
         "no-bitwise": false,
+        "no-dynamic-delete": false,
         "no-empty": false,
         "no-empty-interface": false,
         "no-magic-numbers": false,
