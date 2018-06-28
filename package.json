@@ -7,7 +7,8 @@
     "build:easy": "webpack src/easy.ts -o lib/easy.js",
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
-    "verify": "npm run tsc && npm run tslint"
+    "verify": "npm run tsc && npm run tslint",
+    "watch:easy": "chokidar \"src/**/*.ts\" -c \"webpack\""
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme",
   "devDependencies": {
+    "chokidar": "^2.0.4",
     "ts-loader": "^4.4.1",
     "tslint": "5.10.0",
     "typescript": "^2.9.2",
