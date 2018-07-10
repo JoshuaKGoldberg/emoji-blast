@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
     "verify": "npm run tsc && npm run tslint",
-    "watch:easy": "chokidar \"src/**/*.ts\" -c \"webpack\""
+    "watch:easy": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:easy\""
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,5 @@
-import { createEmoji, IEmojiPosition, IEmojiProcess } from "./createEmoji";
+import { EmojiActor, IEmojiPosition, IEmojiProcess } from "./actor";
+import { Animator } from "./animator";
 import { defaultEmojis } from "./emojis";
 import { obtainValue, shuffleArray } from "./utils";
 
@@ -6,6 +7,11 @@ import { obtainValue, shuffleArray } from "./utils";
  * Settings to launch an emojisplosion!
  */
 export interface IEmojisplosionSettings {
+    /**
+     * Tracking in-movement actors to push new emojis into.
+     */
+    animator: Animator;
+
     /**
      * Element container to append elements into.
      */
@@ -62,8 +68,8 @@ const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
  * @returns Random { left, top } integers within the page.
  */
 const defaultPosition = () => ({
-    left: Math.floor(Math.random() * (innerWidth + 1)),
-    top: Math.floor(Math.random() * (innerHeight + 1)),
+    x: Math.floor(Math.random() * (innerWidth + 1)),
+    y: Math.floor(Math.random() * (innerHeight + 1)),
 });
 
 /**
@@ -76,8 +82,9 @@ const defaultTagName = "span";
  *
  * @param settings   Settings to emojisplode.
  */
-export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): void => {
+export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) => {
     const {
+        animator = new Animator().start(),
         container = document.body,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
@@ -100,6 +107,8 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
     const blastEmojiCount = obtainValue(emojiCount);
 
     for (let i = 0; i < blastEmojiCount; i += 1) {
-        createEmoji(emojiSettings);
+        animator.add(new EmojiActor(emojiSettings));
     }
+
+    return animator;
 };
