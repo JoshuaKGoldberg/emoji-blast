@@ -1,4 +1,4 @@
-import { EmojiActor, IEmojiPosition, IEmojiProcess } from "./actor";
+import { EmojiActor, IEmojiPhysics, IEmojiPosition, IEmojiProcess } from "./actor";
 import { Animator } from "./animator";
 import { defaultEmojis } from "./emojis";
 import { createStyleElementAndClass } from "./styles";
@@ -34,6 +34,11 @@ export interface IEmojisplosionSettings {
     emojis: ISettingValue<string[]>;
 
     /**
+     * Runtime change constants for actor movements.
+     */
+    physics: IEmojiPhysics;
+
+    /**
      * How to determine where to place blasts of emojis around the page.
      */
     position: ISettingValue<IEmojiPosition>;
@@ -66,14 +71,24 @@ export type ISettingValue<T> = T | (() => T);
  *
  * @returns Random integer within 14 to 28.
  */
-const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
+export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
+
+/**
+ * Default runtime change constants for actor movements.
+ */
+export const defaultPhysics: IEmojiPhysics = {
+    framerate: 60,
+    gravity: 0.35,
+    opacityDecay: 100,
+    rotationAcceleration: 0.98,
+};
 
 /**
  * Default position to choose random locations within the page.
  *
  * @returns Random { left, top } integers within the page.
  */
-const defaultPosition = () => ({
+export const defaultPosition = () => ({
     x: Math.floor(Math.random() * (innerWidth + 1)),
     y: Math.floor(Math.random() * (innerHeight + 1)),
 });
@@ -81,7 +96,7 @@ const defaultPosition = () => ({
 /**
  * Default HTML tag name to create elements as.
  */
-const defaultTagName = "span";
+export const defaultTagName = "span";
 
 /**
  * Launches an emojisplosion across the page! 🎆
@@ -95,6 +110,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) =>
         container = document.body,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
+        physics = defaultPhysics,
         position = defaultPosition,
         process = () => {},
         tagName = defaultTagName,
@@ -107,6 +123,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) =>
         // Copy the input array to prevent modifications.
         emojis: shuffleArray(obtainValue(emojis))
             .slice(0, obtainValue(uniqueness)),
+        physics,
         position: obtainValue(position),
         process,
         tagName: obtainValue(tagName),

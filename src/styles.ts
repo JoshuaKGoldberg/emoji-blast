@@ -13,10 +13,11 @@ export const createStyleElementAndClass = (className: string = defaultClassName)
 
     element.appendChild(document.createTextNode(`
         .${className} {
-            cursor: inherit;
+            cursor: default;
             margin-left: -1em;
             margin-top: -1em;
             position: fixed;
+            user-select: none;
         }
     `));
 

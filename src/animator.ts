@@ -24,7 +24,7 @@ export class Animator {
             const actor = this.actors[i];
 
             // Todo: this.screen?
-            if (actor.isOutOfBounds(window) || actor.tick(timeElapsed)) {
+            if (actor.act(timeElapsed, window)) {
                 actor.dispose();
                 this.actors.splice(i, 1);
                 i -= 1;
