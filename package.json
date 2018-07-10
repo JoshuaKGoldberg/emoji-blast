@@ -4,11 +4,13 @@
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
-    "build:easy": "webpack src/easy.ts -o lib/easy.js",
+    "build:easy": "webpack src/mains/easy.ts -o lib/easy.js",
+    "build:onclick": "webpack src/mains/onclick.ts -o lib/onclick.js",
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
     "verify": "npm run tsc && npm run tslint",
-    "watch:easy": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:easy\""
+    "watch:easy": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:easy\"",
+    "watch:onclick": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:onclick\""
   },
   "repository": {
     "type": "git",

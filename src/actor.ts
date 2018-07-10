@@ -5,6 +5,11 @@ import { randomArrayMember } from "./utils";
  */
 export interface IEmojiActorSettings {
     /**
+     * Class name to add to the actor's element.
+     */
+    className: string;
+
+    /**
      * Element container to append the element into.
      */
     container: Element;
@@ -78,15 +83,13 @@ export class EmojiActor {
 
     public constructor(settings: IEmojiActorSettings) {
         this.element = document.createElement(settings.tagName);
+        this.element.className = settings.className;
+        this.element.textContent = randomArrayMember(settings.emojis);
 
+        // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
         this.element.setAttribute("aria-label", "Random emoji");
         this.element.setAttribute("role", "img");
-
         this.element.style.fontSize = `${Math.random() * 1.4 + 0.7}em`;
-        this.element.style.marginLeft = this.element.style.marginTop = "-1em";
-        this.element.style.position = "fixed";
-
-        this.element.textContent = randomArrayMember(settings.emojis);
 
         settings.process(this.element);
         settings.container.appendChild(this.element);

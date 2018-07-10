@@ -1,6 +1,7 @@
 import { EmojiActor, IEmojiPosition, IEmojiProcess } from "./actor";
 import { Animator } from "./animator";
 import { defaultEmojis } from "./emojis";
+import { createStyleElementAndClass } from "./styles";
 import { obtainValue, shuffleArray } from "./utils";
 
 /**
@@ -11,6 +12,11 @@ export interface IEmojisplosionSettings {
      * Tracking in-movement actors to push new emojis into.
      */
     animator: Animator;
+
+    /**
+     * Class name to add to all emoji elements.
+     */
+    className: string;
 
     /**
      * Element container to append elements into.
@@ -85,6 +91,7 @@ const defaultTagName = "span";
 export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) => {
     const {
         animator = new Animator().start(),
+        className = createStyleElementAndClass(),
         container = document.body,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
@@ -95,6 +102,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) =>
     } = settings;
 
     const emojiSettings = {
+        className,
         container: obtainValue(container),
         // Copy the input array to prevent modifications.
         emojis: shuffleArray(obtainValue(emojis))
