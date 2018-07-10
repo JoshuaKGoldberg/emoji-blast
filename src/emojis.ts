@@ -2,6 +2,7 @@
  * Default list of supported emojis.
  */
 export const defaultEmojis = [
+    "😁",
     "😂",
     "🤣",
     "😃",
@@ -9,6 +10,7 @@ export const defaultEmojis = [
     "😆",
     "😍",
     "🤩",
+    "😎",
     "🤔",
     "😒",
     "😭",
@@ -34,8 +36,13 @@ export const defaultEmojis = [
     "💜",
     "🚀",
     "⛄",
+    // These emoji are extra fun, so they get twice the inclusion!
+    "🔥",
     "🔥",
     "✨",
+    "✨",
     "🎉",
+    "🎉",
+    "💯",
     "💯",
 ];

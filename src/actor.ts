@@ -147,7 +147,7 @@ export class EmojiActor {
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
         this.element.setAttribute("aria-label", "Random emoji");
         this.element.setAttribute("role", "img");
-        this.element.style.fontSize = `${Math.random() * 1.4 + 0.7}em`;
+        this.element.style.fontSize = `${Math.random() * 14 + 14}px`;
 
         this.physics = settings.physics;
         this.position = {
@@ -158,7 +158,7 @@ export class EmojiActor {
 
         this.velocity = {
             rotation: Math.random() * 5 - 2.5,
-            x: Math.random() * 11.7 - 1,
+            x: Math.random() * 14 - 7,
             y: Math.random() * -14 - 3.5,
         };
 

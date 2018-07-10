@@ -23,7 +23,6 @@ export class Animator {
         for (let i = 0; i < this.actors.length; i += 1) {
             const actor = this.actors[i];
 
-            // Todo: this.screen?
             if (actor.act(timeElapsed, window)) {
                 actor.dispose();
                 this.actors.splice(i, 1);

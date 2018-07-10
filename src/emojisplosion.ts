@@ -89,8 +89,8 @@ export const defaultPhysics: IEmojiPhysics = {
  * @returns Random { left, top } integers within the page.
  */
 export const defaultPosition = () => ({
-    x: Math.floor(Math.random() * (innerWidth + 1)),
-    y: Math.floor(Math.random() * (innerHeight + 1)),
+    x: Math.floor(Math.random() * (innerWidth * 0.7) + innerWidth + 0.3),
+    y: Math.floor(Math.random() * (innerHeight * 0.7) + innerHeight + 0.3),
 });
 
 /**

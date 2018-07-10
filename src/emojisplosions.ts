@@ -37,9 +37,9 @@ export interface IEmojiHandler {
 /**
  * Default interval setting for fire delays.
  *
- * @returns Random number between 700 and 2100.
+ * @returns Random number between 0 and 1400.
  */
-const defaultInterval = () => Math.random() * 1400 + 700;
+const defaultInterval = () => Math.floor(Math.random() * 1401);
 
 /**
  * Periodically emojisplodes across the page! 🎆
