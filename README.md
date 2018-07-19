@@ -235,8 +235,8 @@ The default `position` chooses rounded integers within the page:
 ```javascript
 emojisplosions({
     position: () => ({
-        x: Math.random() * (innerWidth * 0.7) + innerWidth + 0.3,
-        y: Math.random() * (innerHeight * 0.7) + innerHeight + 0.3,
+        x: Math.random() * innerWidth * 0.7 + innerWidth * 0.3,
+        y: Math.random() * innerHeight * 0.7 + innerHeight * 0.3,
     }),
 });
 ```
