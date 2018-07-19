@@ -1,3 +1,6 @@
+# 😢 THIS ISN'T READY YET!
+# CHECK BACK LATER THIS SUMMER 😉
+
 # Emojisplosion
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/JoshuaKGoldberg/emojisplosion.svg)](https://greenkeeper.io/)
@@ -13,7 +16,7 @@
 Plop this 👇 at the end of your `.html` `<body>`:
 
 ```html
-<script async src="https://unpkg.com/emojisplosion/src/easy.js"></script>
+<script async src="https://unpkg.com/emojisplosion/lib/easy.js"></script>
 ```
 
 That ☝ loads Emojisplosion soon after your page loads and starts emojisplosions as soon as it can.
@@ -23,7 +26,7 @@ That ☝ loads Emojisplosion soon after your page loads and starts emojisplosion
 Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 
 ```html
-<script src="https://unpkg.com/emojisplosion/src/global.js"></script>
+<script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
 <script>
     // Just one explosion, please.
     emojisplosion();
@@ -112,7 +115,7 @@ emojisplosions({
 Type: `number` or `() => number`
 
 How many emojis to create per blast.
-Defaults to random number between 7 and 14.
+Defaults to random number between 14 and 28.
 
 Creating 9001 emoji per blast:
 
@@ -294,7 +297,7 @@ Passed to `scheduler` as the delay _(typically in milliseconds)_ before each exp
 Pass a `number` to always delay that much.
 Pass a function for it to be called immediately for the delay before the first explosion, then again as each explosion is started to schedule the next explosion.
 
-The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [3500, 7000] subsequent times.
+The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [0, 3500] subsequent times.
 
 As quickly as `setInterval` can fire (this will probably crash your browser!):
 

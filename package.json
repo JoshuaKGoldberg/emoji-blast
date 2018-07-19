@@ -1,12 +1,16 @@
 {
   "name": "emojisplosion",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
+    "build:easy": "webpack src/mains/easy.ts -o lib/easy.js",
+    "build:onclick": "webpack src/mains/onclick.ts -o lib/onclick.js",
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
-    "verify": "npm run tsc && npm run tslint"
+    "verify": "npm run tsc && npm run tslint",
+    "watch:easy": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:easy\"",
+    "watch:onclick": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:onclick\""
   },
   "repository": {
     "type": "git",
@@ -30,9 +34,15 @@
   },
   "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme",
   "devDependencies": {
+<<<<<<< HEAD
     "requirejs": "2.3.5",
+=======
+    "chokidar": "^2.0.4",
+    "ts-loader": "^4.4.1",
+>>>>>>> 440233849a37b7a84c8ecdcbe100cf14286ebd19
     "tslint": "5.10.0",
-    "typescript": "2.8.3",
-    "webpack": "^4.8.3"
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
   }
 }

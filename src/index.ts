@@ -1,3 +1,3 @@
 export { defaultEmojis } from "./emojis";
-export { emojisplosion } from "./emojisplosion";
+export { defaultPhysics, emojisplosion } from "./emojisplosion";
 export { emojisplosions } from "./emojisplosions";

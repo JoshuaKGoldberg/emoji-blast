@@ -1,11 +1,23 @@
-import { createEmoji, IEmojiPosition, IEmojiProcess } from "./createEmoji";
+import { EmojiActor, IEmojiPhysics, IEmojiPosition, IEmojiProcess } from "./actor";
+import { Animator } from "./animator";
 import { defaultEmojis } from "./emojis";
+import { createStyleElementAndClass } from "./styles";
 import { obtainValue, shuffleArray } from "./utils";
 
 /**
  * Settings to launch an emojisplosion!
  */
 export interface IEmojisplosionSettings {
+    /**
+     * Tracking in-movement actors to push new emojis into.
+     */
+    animator: Animator;
+
+    /**
+     * Class name to add to all emoji elements.
+     */
+    className: string;
+
     /**
      * Element container to append elements into.
      */
@@ -20,6 +32,11 @@ export interface IEmojisplosionSettings {
      * Allowed potential emoji names to set as textContent.
      */
     emojis: ISettingValue<string[]>;
+
+    /**
+     * Runtime change constants for actor movements.
+     */
+    physics: IEmojiPhysics;
 
     /**
      * How to determine where to place blasts of emojis around the page.
@@ -52,18 +69,28 @@ export type ISettingValue<T> = T | (() => T);
 /**
  * Default emojiCount to choose a random number of emoji per blast.
  *
- * @returns Random integer within 7 to 14.
+ * @returns Random integer within 14 to 28.
  */
-const defaultEmojiCount = () => Math.floor(Math.random() * 7) + 8;
+export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
+
+/**
+ * Default runtime change constants for actor movements.
+ */
+export const defaultPhysics: IEmojiPhysics = {
+    framerate: 60,
+    gravity: 0.35,
+    opacityDecay: 100,
+    rotationAcceleration: 0.98,
+};
 
 /**
  * Default position to choose random locations within the page.
  *
  * @returns Random { left, top } integers within the page.
  */
-const defaultPosition = () => ({
-    left: Math.floor(Math.random() * (innerWidth + 1)),
-    top: Math.floor(Math.random() * (innerHeight + 1)),
+export const defaultPosition = () => ({
+    x: Math.floor(Math.random() * (innerWidth * 0.7) + innerWidth + 0.3),
+    y: Math.floor(Math.random() * (innerHeight * 0.7) + innerHeight + 0.3),
 });
 
 /**
@@ -74,18 +101,21 @@ const defaultProcess = () => {};
 /**
  * Default HTML tag name to create elements as.
  */
-const defaultTagName = "span";
+export const defaultTagName = "span";
 
 /**
  * Launches an emojisplosion across the page! 🎆
  *
  * @param settings   Settings to emojisplode.
  */
-export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): void => {
+export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) => {
     const {
+        animator = new Animator().start(),
+        className = createStyleElementAndClass(),
         container = document.body,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
+        physics = defaultPhysics,
         position = defaultPosition,
         process = defaultProcess,
         tagName = defaultTagName,
@@ -93,10 +123,12 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
     } = settings;
 
     const emojiSettings = {
+        className,
         container: obtainValue(container),
         // Copy the input array to prevent modifications.
         emojis: shuffleArray(obtainValue(emojis))
             .slice(0, obtainValue(uniqueness)),
+        physics,
         position: obtainValue(position),
         process,
         tagName: obtainValue(tagName),
@@ -105,6 +137,8 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
     const blastEmojiCount = obtainValue(emojiCount);
 
     for (let i = 0; i < blastEmojiCount; i += 1) {
-        createEmoji(emojiSettings);
+        animator.add(new EmojiActor(emojiSettings));
     }
+
+    return animator;
 };
