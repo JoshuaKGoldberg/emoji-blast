@@ -42,28 +42,19 @@ Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 
 #### Explanation
 
-Every few seconds, fireworks-like explosions of random emoji are placed at random locations and times on your page.
-Each explosion contains around a dozen emoji, each of which are given CSS `animation`s that:
+Each `emojisplosion` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
+Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
 
-* Animate it along a bezier curve similar to a fireworks particle
+* Start with a random horizontal velocity and random upward vertical velocity
 * Fade it from `opacity: 1` to `opacity: 0`
 
-After an emoji is completely hidden, it is removed from the page.
-
-#### CSS+DOM Elements
-
-Each emoji element is animated with a CSS rule unique to its starting horizontal and vertical velocity.
-Each emoji element has a CSS keyframes-based transition that takes it on a curve along the page.
-Transitions are created on-demand and recycled when no existing elements are expected to have them.
-
-Class names by default are of the format `"emoji emoji-{x}-{y}"`.
-For example, an emoji with starting x-velocity of -3 and y-velocity of 4 would have `"emoji emoji--3-4"`.
+After an emoji is completely hidden or out of bounds, it is removed from the page.
 
 ### Advanced Mode
 
 With Webpack and other modern JavaScript bundlers:
 
-```typescript
+```javascript
 import { emojisplosion, emojisplosions } from "emojisplosion";
 
 // Just one explosion, please.
@@ -80,6 +71,22 @@ Oh, and Emojisplosion is written in TypeScript and ships with its own typings. �
 `emojisplosion` and `emojisplosions` are highly configurable.
 The following may be passed to both via configuration objects.
 
+#### `className`
+
+Type: `string` or `() => string`
+
+CSS class name to add to all emoji elements.
+Defaults to `"emoji-styles"`.
+
+```javascript
+emojisplosions({
+    className: "my-emoji-styles",
+})
+```
+
+Whenever a new `className` is passed to `emojisplosion`, a new `<style>` element is created to add general emoji styles for that class.
+See [`styles.ts`](./src/styles.ts).
+
 #### `container`
 
 Type: `Element` or `() => Element`
@@ -91,23 +98,6 @@ Defaults to `document.body`.
 emojisplosions({
     container: document.getElementById("fun"),
 })
-```
-
-#### `className`
-
-Type: `string` or `() => string`
-
-Base class name to use for each emoji.
-Defaults to `"emoji"`.
-This will be used twice in each emoji's class, as per the `"emoji emoji-{x}-{y}"` format.
-
-Providing a class name of `"fancy-emoji"`:
-
-```javascript
-emojisplosions({
-    // Example result: "fancy-emoji fancy-emoji--3-4"
-    className: "fancy-emoji",
-});
 ```
 
 #### `emojiCount`
@@ -138,7 +128,7 @@ emojisplosions({
 Type: `string[]` or `() => string[]`
 
 List of allowed emojis to randomly choose from for each explosion.
-The default list of emojis is in ***INSERT FILE HERE***; it excludes emojis with dubious reputations such as 💩 and 🍆.
+The default list of emojis is in [`emojis.ts`](./src/emojis.ts); it excludes emojis with dubious reputations such as 💩 and 🍆.
 
 > Found an emoji not supposed to be in that list?
 > Please [file an issue](https://github.com/JoshuaKGoldberg/emojisplosion/issues/new)!
@@ -159,6 +149,78 @@ emojisplosions({
 });
 ```
 
+#### `physics`
+
+Runtime change constants for emoji element movements.
+These default to a sane set of ranges for random numbers that give the appearance of fireworks-like blasts.
+
+These values must be passed in as `number`s, with defaults as _(`value`)_ here:
+
+* `framerate` _(`0.98`)_: Expected frames per second to adjust position and velocity changes by.
+* `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
+* `opacityDelay` _(`100`)_: How much to slow down the (time elapsed / framerate) opacity reduction each time.
+* `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
+
+These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive.
+With defaults as _(`[min, max]`)_ here:
+
+* `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
+* `initialVelocities`:
+    * `rotation` _(`[-7, 7]`)_: Range of initial rotation amount.
+    * `x` _(`[-7, 7]`)_: Range of initial horizontal velocity.
+    * `y` _(`[-14, -11.7]`)_: Range of initial vertical velocity.
+* `rotation` _(`[-45, 45]`)_: Individual emojis' initial rotation range.
+
+Causing emojis to spin wildly out of control:
+
+```javascript
+emojisplosions({
+    physics: {
+        initialVelocities: {
+            rotation: {
+                max: 14,
+                min: -14,
+            },
+        },
+        rotationDecelaration: 1.01,
+    },
+});
+```
+
+Inverting gravity:
+
+```javascript
+emojisplosions({
+    physics: {
+        gravity: -0.35,
+        initialVelocities: {
+            y: {
+                max: 14,
+                min: 11.7,
+            },
+        },
+    },
+});
+```
+
+Alternately, the `defaultPhysics` object is exported, so you can base your physics constants off it:
+
+```javascript
+import { emojisplosions, defaultPhysics } from "emojisplosion";
+
+emojisplosions({
+    physics: {
+        gravity: -defaultPhysics.gravity,
+        initialVelocities: {
+            y: {
+                max: -defaultPhysics.initialVelocities.max,
+                min: -defaultPhysics.initialVelocities.min,
+            },
+        },
+    },
+});
+```
+
 #### `position`
 
 Type: `{ left: number, top: number }` or `() => { left: number, top: number }`
@@ -173,8 +235,8 @@ The default `position` chooses rounded integers within the page:
 ```javascript
 emojisplosions({
     position: () => ({
-        left: Math.floor(Math.random() * (innerWidth + 1)),
-        top: Math.floor(Math.random() * (innerHeight + 1)),
+        x: Math.random() * (innerWidth * 0.7) + innerWidth + 0.3,
+        y: Math.random() * (innerHeight * 0.7) + innerHeight + 0.3,
     }),
 });
 ```
@@ -201,14 +263,12 @@ emojisplosions({
         const offset = cumulativeOffset(element);
 
         return {
-            x: Math.round(offset.left + element.clientWidth / 2),
-            y: Math.round(offset.top + element.clientHeight / 2),
+            x: offset.left + element.clientWidth / 2,
+            y: offset.top + element.clientHeight / 2,
         }
     },
 });
 ```
-
-> Try to use rounded integers as your positions, as they're easier for browsers to render.
 
 #### `process`
 

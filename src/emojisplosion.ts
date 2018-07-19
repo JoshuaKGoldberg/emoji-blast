@@ -10,6 +10,8 @@ import { obtainValue, shuffleArray } from "./utils";
 export interface IEmojisplosionSettings {
     /**
      * Tracking in-movement actors to push new emojis into.
+     *
+     * @internal
      */
     animator: Animator;
 
@@ -34,7 +36,7 @@ export interface IEmojisplosionSettings {
     emojis: ISettingValue<string[]>;
 
     /**
-     * Runtime change constants for actor movements.
+     * Runtime change constants for emoji element movements.
      */
     physics: IEmojiPhysics;
 
@@ -67,6 +69,11 @@ export interface IEmojisplosionSettings {
 export type ISettingValue<T> = T | (() => T);
 
 /**
+ * Default class name to add to emoji elements.
+ */
+export const defaultClassName = "emoji-styles";
+
+/**
  * Default emojiCount to choose a random number of emoji per blast.
  *
  * @returns Random integer within 14 to 28.
@@ -77,10 +84,32 @@ export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
  * Default runtime change constants for actor movements.
  */
 export const defaultPhysics: IEmojiPhysics = {
+    fontSize: {
+        max: 28,
+        min: 14,
+    },
     framerate: 60,
     gravity: 0.35,
+    initialVelocities: {
+        rotation: {
+            max: 7,
+            min: -7,
+        },
+        x: {
+            max: 7,
+            min: -7,
+        },
+        y: {
+            max: -11.7,
+            min: -14,
+        },
+    },
     opacityDecay: 100,
-    rotationAcceleration: 0.98,
+    rotation: {
+        max: 45,
+        min: -45,
+    },
+    rotationDeceleration: 0.98,
 };
 
 /**
@@ -89,8 +118,8 @@ export const defaultPhysics: IEmojiPhysics = {
  * @returns Random { left, top } integers within the page.
  */
 export const defaultPosition = () => ({
-    x: Math.floor(Math.random() * (innerWidth * 0.7) + innerWidth + 0.3),
-    y: Math.floor(Math.random() * (innerHeight * 0.7) + innerHeight + 0.3),
+    x: Math.random() * (innerWidth * 0.7) + innerWidth + 0.3,
+    y: Math.random() * (innerHeight * 0.7) + innerHeight + 0.3,
 });
 
 /**
@@ -111,16 +140,25 @@ export const defaultTagName = "span";
 export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) => {
     const {
         animator = new Animator().start(),
-        className = createStyleElementAndClass(),
+        className = defaultClassName,
         container = document.body,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
-        physics = defaultPhysics,
         position = defaultPosition,
         process = defaultProcess,
         tagName = defaultTagName,
         uniqueness = Infinity,
     } = settings;
+
+    const physics = {
+        ...defaultPhysics,
+        initialVelocities: {
+            ...defaultPhysics.initialVelocities,
+            ...(settings.physics !== undefined ? settings.physics.initialVelocities : {}),
+        },
+    };
+
+    createStyleElementAndClass(className);
 
     const emojiSettings = {
         className,

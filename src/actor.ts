@@ -1,3 +1,4 @@
+import { IRandomRange, randomInRange } from "./range";
 import { randomArrayMember } from "./utils";
 
 /**
@@ -45,6 +46,11 @@ export interface IEmojiActorSettings {
  */
 export interface IEmojiPhysics {
     /**
+     * Individual emojis' font size range.
+     */
+    fontSize: IRandomRange;
+
+    /**
      * Expected frames per second to adjust position and velocity changes by.
      */
     framerate: number;
@@ -55,14 +61,44 @@ export interface IEmojiPhysics {
     gravity: number;
 
     /**
+     * Initial velocity ranges for individual emojis.
+     */
+    initialVelocities: IInitialVelocities;
+
+    /**
      * How much to slow down the (time elapsed / framerate) opacity reduction each tick.
      */
     opacityDecay: number;
 
     /**
+     * Individual emojis' initial rotation range.
+     */
+    rotation: IRandomRange;
+
+    /**
      * How much to decrease rotation ammount each tick.
      */
-    rotationAcceleration: number;
+    rotationDeceleration: number;
+}
+
+/**
+ * Initial velocity ranges for individual emojis.
+ */
+export interface IInitialVelocities {
+    /**
+     * Range of initial rotation amount.
+     */
+    rotation: IRandomRange;
+
+    /**
+     * Range of initial horizontal velocity.
+     */
+    x: IRandomRange;
+
+    /**
+     * Range of initial vertical velocity.
+     */
+    y: IRandomRange;
 }
 
 /**
@@ -147,19 +183,19 @@ export class EmojiActor {
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
         this.element.setAttribute("aria-label", "Random emoji");
         this.element.setAttribute("role", "img");
-        this.element.style.fontSize = `${Math.random() * 14 + 14}px`;
+        this.element.style.fontSize = `${randomInRange(settings.physics.fontSize)}px`;
 
         this.physics = settings.physics;
         this.position = {
-            rotation: Math.floor(Math.random() * 90) - 45,
+            rotation: randomInRange(settings.physics.rotation),
             x: settings.position.x,
             y: settings.position.y,
         };
 
         this.velocity = {
-            rotation: Math.random() * 5 - 2.5,
-            x: Math.random() * 14 - 7,
-            y: Math.random() * -14 - 3.5,
+            rotation: randomInRange(settings.physics.initialVelocities.rotation),
+            x: randomInRange(settings.physics.initialVelocities.x),
+            y: randomInRange(settings.physics.initialVelocities.y),
         };
 
         this.updateElement();
@@ -174,7 +210,8 @@ export class EmojiActor {
      * @returns Whether this is now dead.
      */
     public act(timeElapsed: number, screen: Pick<Window, "innerHeight">): boolean {
-        if (this.position.y >= screen.innerHeight  + this.element.clientHeight) {
+        if (this.position.y <= 0
+            || this.position.y >= screen.innerHeight  + this.element.clientHeight) {
             return true;
         }
 
@@ -183,7 +220,7 @@ export class EmojiActor {
             return true;
         }
 
-        this.velocity.rotation *= this.physics.rotationAcceleration;
+        this.velocity.rotation *= this.physics.rotationDeceleration;
         this.velocity.y += this.physics.gravity;
 
         this.position.rotation += this.velocity.rotation;

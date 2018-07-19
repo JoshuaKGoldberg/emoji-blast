@@ -1,12 +1,19 @@
+/**
+ * Register of created styles link their associated CSS style elements.
+ */
+const createdStyles = new Set<string>();
 
-export const defaultClassName = "emoji-styles";
-
-const createdStyles: { [i: string]: HTMLStyleElement } = {};
-
-export const createStyleElementAndClass = (className: string = defaultClassName): string => {
-    if (className in createdStyles) {
-        return className;
+/**
+ * Registers a class name for emojis, creating a style element for it if necessary.
+ *
+ * @param className   Potentially new CSS class name.
+ */
+export const createStyleElementAndClass = (className: string): void => {
+    if (createdStyles.has(className)) {
+        return;
     }
+
+    createdStyles.add(className);
 
     const element = document.createElement("style");
     element.type = "text/css";
@@ -17,11 +24,10 @@ export const createStyleElementAndClass = (className: string = defaultClassName)
             margin-left: -1em;
             margin-top: -1em;
             position: fixed;
+            transform: translateZ(0);
             user-select: none;
         }
     `));
 
     document.head.appendChild(element);
-
-    return className;
 };
