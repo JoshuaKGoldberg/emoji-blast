@@ -52,10 +52,16 @@ export interface IEmojiPosition {
  */
 export type IEmojiProcess = (element: Element) => void;
 
+/**
+ * Creates a single emoji, animated from a point.
+ *
+ * @param settings   Settings to create the emoji.
+ */
 export const createEmoji = (settings: IEmojiCreationSettings) => {
     const element = document.createElement(settings.tagName);
 
     element.style.left = `${settings.position.left}px`;
+    element.style.position = "absolute";
     element.style.top = `${settings.position.top}px`;
     element.style.marginLeft = element.style.marginTop = "-1em";
     element.textContent = randomArrayMember(settings.emojis);

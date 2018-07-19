@@ -29,7 +29,7 @@ export interface IEmojisplosionSettings {
     /**
      * Processes each element just before it's appended to the container.
      */
-    process: ISettingValue<IEmojiProcess>;
+    process: IEmojiProcess;
 
     /**
      * DOM element tag name to create elements as.
@@ -67,6 +67,11 @@ const defaultPosition = () => ({
 });
 
 /**
+ * Default emoji processor, which does nothing.
+ */
+const defaultProcess = () => {};
+
+/**
  * Default HTML tag name to create elements as.
  */
 const defaultTagName = "span";
@@ -82,7 +87,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
         position = defaultPosition,
-        process = () => {},
+        process = defaultProcess,
         tagName = defaultTagName,
         uniqueness = Infinity,
     } = settings;
@@ -93,7 +98,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}): v
         emojis: shuffleArray(obtainValue(emojis))
             .slice(0, obtainValue(uniqueness)),
         position: obtainValue(position),
-        process: obtainValue<IEmojiProcess>(process),
+        process,
         tagName: obtainValue(tagName),
     };
 

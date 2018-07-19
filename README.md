@@ -13,8 +13,10 @@
 Plop this 👇 at the end of your `.html` `<body>`:
 
 ```html
-<script async src="https://unpkg.com/emojisplosion/src/easy.js></script>
+<script async src="https://unpkg.com/emojisplosion/src/easy.js"></script>
 ```
+
+That ☝ loads Emojisplosion soon after your page loads and starts emojisplosions as soon as it can.
 
 👌.
 
@@ -23,7 +25,10 @@ Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 ```html
 <script src="https://unpkg.com/emojisplosion/src/global.js"></script>
 <script>
+    // Just one explosion, please.
     emojisplosion();
+
+    // Commence explosions!
     emojisplosions();
 </script>
 ```
@@ -41,6 +46,15 @@ Each explosion contains around a dozen emoji, each of which are given CSS `anima
 * Fade it from `opacity: 1` to `opacity: 0`
 
 After an emoji is completely hidden, it is removed from the page.
+
+#### CSS+DOM Elements
+
+Each emoji element is animated with a CSS rule unique to its starting horizontal and vertical velocity.
+Each emoji element has a CSS keyframes-based transition that takes it on a curve along the page.
+Transitions are created on-demand and recycled when no existing elements are expected to have them.
+
+Class names by default are of the format `"emoji emoji-{x}-{y}"`.
+For example, an emoji with starting x-velocity of -3 and y-velocity of 4 would have `"emoji emoji--3-4"`.
 
 ### Advanced Mode
 
@@ -62,6 +76,36 @@ Oh, and Emojisplosion is written in TypeScript and ships with its own typings. �
 
 `emojisplosion` and `emojisplosions` are highly configurable.
 The following may be passed to both via configuration objects.
+
+#### `container`
+
+Type: `Element` or `() => Element`
+
+Element container to append elements into.
+Defaults to `document.body`.
+
+```javascript
+emojisplosions({
+    container: document.getElementById("fun"),
+})
+```
+
+#### `className`
+
+Type: `string` or `() => string`
+
+Base class name to use for each emoji.
+Defaults to `"emoji"`.
+This will be used twice in each emoji's class, as per the `"emoji emoji-{x}-{y}"` format.
+
+Providing a class name of `"fancy-emoji"`:
+
+```javascript
+emojisplosions({
+    // Example result: "fancy-emoji fancy-emoji--3-4"
+    className: "fancy-emoji",
+});
+```
 
 #### `emojiCount`
 
@@ -104,7 +148,7 @@ emojisplosions({
 });
 ```
 
-Allowing any of the several wonderful heart emojis for each emoji within a blast:
+Allowing any of several wonderful heart emojis for each emoji within a blast:
 
 ```javascript
 emojisplosions({
@@ -165,7 +209,7 @@ emojisplosions({
 
 #### `process`
 
-Type: `(element: Element) => void` or `() => (element: Element) => void`
+Type: `(element: Element) => void`
 
 Processes each element just before it's appended to the container.
 Useful if you'd like to apply custom attributes, class names, or styles to your elements.

@@ -3,7 +3,7 @@
         "declaration": true,
         "forceConsistentCasingInFileNames": true,
         "lib": ["dom", "es5"],
-        "module": "commonjs",
+        "module": "amd",
         "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,

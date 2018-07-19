@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme",
   "devDependencies": {
+    "requirejs": "2.3.5",
     "tslint": "5.10.0",
     "typescript": "2.8.3",
     "webpack": "^4.8.3"

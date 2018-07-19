@@ -3,5 +3,5 @@
  */
 export const defaultEmojis = [
     // Todo: fill out
-    "🔥",
+    "🔥", "😍", "🖐", "👐", "🔧", "🌊",
 ];
