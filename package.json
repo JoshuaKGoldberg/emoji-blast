@@ -4,15 +4,11 @@
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
-    "build": "run-p build:*",
-    "build:easy": "webpack src/mains/easy.ts -o lib/easy.js",
-    "build:onclick": "webpack src/mains/onclick.ts -o lib/onclick.js",
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
     "verify": "npm run tsc && npm run tslint",
-    "watch": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build \"",
-    "watch:easy": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:easy\"",
-    "watch:onclick": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run build:onclick\""
+    "watch": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run webpack\"",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -39,7 +35,7 @@
     "chokidar": "^2.0.4",
     "requirejs": "2.3.5",
     "run-p": "0.0.0",
-    "ts-loader": "^4.4.1",
+    "ts-loader": "^4.4.2",
     "tslint": "5.11.0",
     "typescript": "^2.9.2",
     "webpack": "^4.12.1",

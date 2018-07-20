@@ -1,6 +1,3 @@
-# 😢 THIS ISN'T READY YET!
-# CHECK BACK LATER THIS SUMMER 😉
-
 # Emojisplosion
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/JoshuaKGoldberg/emojisplosion.svg)](https://greenkeeper.io/)
@@ -79,7 +76,7 @@ CSS class name to add to all emoji elements.
 Defaults to `"emoji-styles"`.
 
 ```javascript
-emojisplosions({
+emojisplosion({
     className: "my-emoji-styles",
 })
 ```
@@ -95,7 +92,7 @@ Element container to append elements into.
 Defaults to `document.body`.
 
 ```javascript
-emojisplosions({
+emojisplosion({
     container: document.getElementById("fun"),
 })
 ```
@@ -110,7 +107,7 @@ Defaults to random number between 14 and 28.
 Creating 9001 emoji per blast:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     emojiCount: 9001,
 });
 ```
@@ -118,7 +115,7 @@ emojisplosions({
 Creating a random number between 100 and 200 per blast:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     emojiCount: () => Math.random() * 100 + 100,
 });
 ```
@@ -136,7 +133,7 @@ The default list of emojis is in [`emojis.ts`](./src/emojis.ts); it excludes emo
 Always choosing the 💖 emoji:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     emojis: ["💖"],
 });
 ```
@@ -144,7 +141,7 @@ emojisplosions({
 Allowing any of several wonderful heart emojis for each emoji within a blast:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     emojis: ["💖", "💕", "💗", "💓", "💝"],
 });
 ```
@@ -174,7 +171,7 @@ With defaults as _(`[min, max]`)_ here:
 Causing emojis to spin wildly out of control:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     physics: {
         initialVelocities: {
             rotation: {
@@ -190,7 +187,7 @@ emojisplosions({
 Inverting gravity:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     physics: {
         gravity: -0.35,
         initialVelocities: {
@@ -208,7 +205,7 @@ Alternately, the `defaultPhysics` object is exported, so you can base your physi
 ```javascript
 import { emojisplosions, defaultPhysics } from "emojisplosion";
 
-emojisplosions({
+emojisplosion({
     physics: {
         gravity: -defaultPhysics.gravity,
         initialVelocities: {
@@ -233,7 +230,7 @@ You can provide a static object or a function to create one.
 The default `position` chooses rounded integers within the page:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     position: () => ({
         x: Math.random() * innerWidth * 0.7 + innerWidth * 0.3,
         y: Math.random() * innerHeight * 0.7 + innerHeight * 0.3,
@@ -244,7 +241,7 @@ emojisplosions({
 Always exploding from a fixed position:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     position: {
         left: 35,
         top: 35,
@@ -257,7 +254,7 @@ Exploding emoji around your favorite element on the page:
 ```javascript
 const element = document.querySelector("#my-face");
 
-emojisplosions({
+emojisplosion({
     position() {
         // https://stackoverflow.com/questions/1480133
         const offset = cumulativeOffset(element);
@@ -280,7 +277,7 @@ Useful if you'd like to apply custom attributes, class names, or styles to your 
 Adding an `.emoji` class to each element:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     process(element) {
         element.className = "emoji";
     },
@@ -297,7 +294,7 @@ Defaults to `"span"`.
 Creating `<div>`s instead:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     tagName: "div",
 });
 ```
@@ -315,7 +312,7 @@ If `U > emojis.length`, it will be ignored.
 Allowing only one emoji type per blast:
 
 ```javascript
-emojisplosions({
+emojisplosion({
     uniqueness: 1,
 });
 ```
@@ -325,7 +322,7 @@ Allowing one more emoji type per blast each blast:
 ```javascript
 let count = 0;
 
-emojisplosions({
+emojisplosion({
     uniqueness() {
         count += 1;
         return count;
@@ -333,9 +330,10 @@ emojisplosions({
 });
 ```
 
-### Scheduling
+### `emojisplosions`
 
-`emojisplosions` returns an object with a `cancel` function that can cancel any pending work:
+`emojisplosions` can take in all of the same settings as `emojisplosion`.
+It returns an object with a `cancel` function that can cancel any pending work:
 
 ```typescript
 // Commence explosions!...

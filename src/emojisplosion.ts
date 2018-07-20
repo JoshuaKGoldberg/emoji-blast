@@ -100,8 +100,8 @@ export const defaultPhysics: IEmojiPhysics = {
             min: -7,
         },
         y: {
-            max: -11.7,
-            min: -14,
+            max: -7,
+            min: -21,
         },
     },
     opacityDecay: 100,
