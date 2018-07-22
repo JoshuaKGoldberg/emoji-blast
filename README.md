@@ -227,7 +227,7 @@ These are absolutely positioned midpoints to center the blasts around.
 They're used directly as `left` and `top` CSS properties.
 You can provide a static object or a function to create one.
 
-The default `position` chooses rounded integers within the page:
+The default `position` chooses integers within the page:
 
 ```javascript
 emojisplosion({
