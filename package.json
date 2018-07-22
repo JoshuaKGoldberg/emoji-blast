@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "tslint": "tslint --config tslint.json --project tsconfig.json",
-    "verify": "npm run tsc && npm run tslint",
+    "verify": "npm run tsc && npm run tslint & npm run webpack",
     "watch": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run webpack\"",
     "webpack": "webpack"
   },
