@@ -37,12 +37,12 @@ export interface IEmojiPosition {
     /**
      * Pixels to offset by the left.
      */
-    left: number;
+    x: number;
 
     /**
      * Pixels to offset by the top.
      */
-    top: number;
+    y: number;
 }
 
 /**
@@ -60,9 +60,9 @@ export type IEmojiProcess = (element: Element) => void;
 export const createEmoji = (settings: IEmojiCreationSettings) => {
     const element = document.createElement(settings.tagName);
 
-    element.style.left = `${settings.position.left}px`;
+    element.style.left = `${settings.position.x}px`;
     element.style.position = "absolute";
-    element.style.top = `${settings.position.top}px`;
+    element.style.top = `${settings.position.y}px`;
     element.style.marginLeft = element.style.marginTop = "-1em";
     element.textContent = randomArrayMember(settings.emojis);
 

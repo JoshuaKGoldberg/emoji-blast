@@ -220,7 +220,7 @@ emojisplosion({
 
 #### `position`
 
-Type: `{ left: number, top: number }` or `() => { left: number, top: number }`
+Type: `{ x: number, y: number }` or `() => { x: number, y: number }`
 
 How to determine where to place blasts of emojis around the page.
 These are absolutely positioned midpoints to center the blasts around.
@@ -243,8 +243,8 @@ Always exploding from a fixed position:
 ```javascript
 emojisplosion({
     position: {
-        left: 35,
-        top: 35,
+        x: 35,
+        y: 35,
     },
 });
 ```
