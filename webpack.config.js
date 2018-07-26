@@ -6,6 +6,7 @@ module.exports = {
         global: "./src/mains/global.ts",
         onclick: "./src/mains/onclick.ts",
     },
+    mode: "production",
     module: {
         rules: [
             {

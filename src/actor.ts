@@ -209,12 +209,7 @@ export class EmojiActor {
      * @param timeElapsed   How many milliseconds have passed since the last action.
      * @returns Whether this is now dead.
      */
-    public act(timeElapsed: number, screen: Pick<Window, "innerHeight">): boolean {
-        if (this.position.y <= 0
-            || this.position.y >= screen.innerHeight  + this.element.clientHeight) {
-            return true;
-        }
-
+    public act(timeElapsed: number): boolean {
         this.opacity -= timeElapsed / (this.physics.opacityDecay * this.physics.framerate);
         if (this.opacity <= 0) {
             return true;

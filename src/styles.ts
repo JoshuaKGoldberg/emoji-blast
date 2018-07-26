@@ -24,7 +24,6 @@ export const createStyleElementAndClass = (className: string): void => {
             margin-left: -1em;
             margin-top: -1em;
             position: fixed;
-            transform: translateZ(0);
             user-select: none;
             z-index: 2147483647;
         }

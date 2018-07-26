@@ -49,7 +49,7 @@ export class Animator {
         for (let i = 0; i < this.actors.length; i += 1) {
             const actor = this.actors[i];
 
-            if (actor.act(timeElapsed, window)) {
+            if (actor.act(timeElapsed)) {
                 actor.dispose();
                 this.actors.splice(i, 1);
                 i -= 1;
