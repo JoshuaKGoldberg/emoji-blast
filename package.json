@@ -1,6 +1,6 @@
 {
   "name": "emojisplosion",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "ts-loader": "^4.4.2",
     "tslint": "5.11.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.16.1",
+    "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"
   }
 }
