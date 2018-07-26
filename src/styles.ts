@@ -26,6 +26,7 @@ export const createStyleElementAndClass = (className: string): void => {
             position: fixed;
             transform: translateZ(0);
             user-select: none;
+            z-index: 2147483647;
         }
     `));
 
