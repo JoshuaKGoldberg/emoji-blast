@@ -38,7 +38,7 @@ export interface IEmojisplosionSettings {
     /**
      * Runtime change constants for emoji element movements.
      */
-    physics: IEmojiPhysics;
+    physics: Partial<IEmojiPhysics>;
 
     /**
      * How to determine where to place blasts of emojis around the page.
@@ -150,15 +150,16 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) =>
         uniqueness = Infinity,
     } = settings;
 
+    createStyleElementAndClass(className);
+
     const physics = {
         ...defaultPhysics,
+        ...settings.physics,
         initialVelocities: {
             ...defaultPhysics.initialVelocities,
             ...(settings.physics !== undefined ? settings.physics.initialVelocities : {}),
         },
     };
-
-    createStyleElementAndClass(className);
 
     const emojiSettings = {
         className,
