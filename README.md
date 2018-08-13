@@ -416,16 +416,25 @@ After [forking the repo from GitHub](https://help.github.com/articles/fork-a-rep
 git clone https://github.com/<your-name-here>/emojisplosion
 cd emojisplosion
 npm install
-npm install --global typescript
 npm run verify
 ```
 
-That will create the project locally.
-In order to develop it, modify the `.ts` files under `src/.
+That will create the project locally and run a full build.
+In order to develop it, modify the `.ts` files under `src/`.
 Run TypeScript locally to constantly compile your changes to `.js` files:
 
 ```shell
-tsc --watch
+npm run tsc -- --watch
+```
+
+### Demos
+
+A set of `.html` files exists under `./demo` with a different way of showing off Emojisplosion features.
+Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` under the same name.
+You can run Webpack in watch mode to continuously rebuild bundled scripts corresponding to those demos:
+
+```shell
+npm run watch
 ```
 
 ### Tests
