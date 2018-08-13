@@ -1,7 +1,7 @@
 /**
- * [Minimum, maximum] range for random number generation.
+ * Number or [minimum, maximum] range for random number generation.
  */
-export interface IRandomRange {
+export type IRandomRange = number | {
     /**
      * Inclusive maximum number to generate.
      */
@@ -11,7 +11,7 @@ export interface IRandomRange {
      * Inclusive minimum number to generate.
      */
     min: number;
-}
+};
 
 /**
  * Creates a random number within a range.
@@ -20,4 +20,6 @@ export interface IRandomRange {
  * @returns Random number within the [minimum, maximum] range.
  */
 export const randomInRange = (range: IRandomRange) =>
-    Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+    typeof range === "number"
+        ? range
+        : Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
