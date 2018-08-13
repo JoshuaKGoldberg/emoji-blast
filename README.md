@@ -70,6 +70,8 @@ Oh, and Emojisplosion is written in TypeScript and ships with its own typings. ð
 `emojisplosion` and `emojisplosions` are highly configurable.
 The following may be passed to both via configuration objects.
 
+> Suggestion: see the generated `.d.ts` under `./lib` for full API descriptions.
+
 #### `className`
 
 Type: `string` or `() => string`
@@ -155,12 +157,12 @@ These default to a sane set of ranges for random numbers that give the appearanc
 
 These values must be passed in as `number`s, with defaults as _(`value`)_ here:
 
-* `framerate` _(`0.98`)_: Expected frames per second to adjust position and velocity changes by.
+* `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
 * `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
 * `opacityDelay` _(`100`)_: How much to slow down the (time elapsed / framerate) opacity reduction each time.
 * `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
-These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive.
+These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number } for a random integer within, inclusive.
 With defaults as _(`[min, max]`)_ here:
 
 * `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
