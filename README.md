@@ -8,6 +8,8 @@
 
 ## Usage
 
+> You might enjoy the [Chrome](https://github.com/joshuakgoldberg/emojisplosion-chrome) or [Edge](https://github.com/joshuakgoldberg/emojisplosion-edge) extensions!
+
 ### Easy Mode
 
 Plop this 👇 at the end of your `.html` `<body>`:
