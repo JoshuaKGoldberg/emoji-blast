@@ -5,6 +5,7 @@ module.exports = {
         easy: "./src/mains/easy.ts",
         global: "./src/mains/global.ts",
         onclick: "./src/mains/onclick.ts",
+        size: "./src/mains/size.ts",
     },
     mode: "production",
     module: {
