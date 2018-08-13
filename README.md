@@ -8,7 +8,7 @@
 
 ## Usage
 
-> You might enjoy the [Chrome](https://github.com/joshuakgoldberg/emojisplosion-chrome) or [Edge](https://github.com/joshuakgoldberg/emojisplosion-edge) extensions!
+> You might enjoy the [Chrome extension](https://github.com/joshuakgoldberg/emojisplosion-chrome)!
 
 ### Easy Mode
 
