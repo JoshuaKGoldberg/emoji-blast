@@ -9,16 +9,17 @@ const createdStyles = new Set<string>();
  * @param className   Potentially new CSS class name.
  */
 export const createStyleElementAndClass = (className: string): void => {
-    if (createdStyles.has(className)) {
-        return;
-    }
+  if (createdStyles.has(className)) {
+    return;
+  }
 
-    createdStyles.add(className);
+  createdStyles.add(className);
 
-    const element = document.createElement("style");
-    element.type = "text/css";
+  const element = document.createElement("style");
+  element.type = "text/css";
 
-    element.appendChild(document.createTextNode(`
+  element.appendChild(
+    document.createTextNode(`
         .${className} {
             cursor: default;
             margin-left: -1em;
@@ -27,7 +28,8 @@ export const createStyleElementAndClass = (className: string): void => {
             user-select: none;
             z-index: 2147483647;
         }
-    `));
+    `)
+  );
 
-    document.head.appendChild(element);
+  document.head.appendChild(element);
 };
