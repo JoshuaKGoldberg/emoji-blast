@@ -28,7 +28,7 @@ export const createStyleElementAndClass = (className: string): void => {
             user-select: none;
             z-index: 2147483647;
         }
-    `)
+    `),
   );
 
   document.head.appendChild(element);
