@@ -1,6 +1,5 @@
 # Emojisplosion
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/JoshuaKGoldberg/emojisplosion.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/JoshuaKGoldberg/emojisplosion.svg?branch=master)](https://travis-ci.org/JoshuaKGoldberg/emojisplosion)
 [![NPM version](https://badge.fury.io/js/emojisplosion.svg)](http://badge.fury.io/js/emojisplosion)
 
@@ -27,11 +26,11 @@ Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 ```html
 <script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
 <script>
-    // Just one explosion, please.
-    emojisplosion();
+  // Just one explosion, please.
+  emojisplosion();
 
-    // Commence explosions!
-    emojisplosions();
+  // Commence explosions!
+  emojisplosions();
 </script>
 ```
 
@@ -44,8 +43,8 @@ Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 Each `emojisplosion` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
 Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
 
-* Start with a random horizontal velocity and random upward vertical velocity
-* Fade it from `opacity: 1` to `opacity: 0`
+- Start with a random horizontal velocity and random upward vertical velocity
+- Fade it from `opacity: 1` to `opacity: 0`
 
 After an emoji is completely hidden or out of bounds, it is removed from the page.
 
@@ -81,8 +80,8 @@ Defaults to `"emoji-styles"`.
 
 ```javascript
 emojisplosion({
-    className: "my-emoji-styles",
-})
+  className: "my-emoji-styles",
+});
 ```
 
 Whenever a new `className` is passed to `emojisplosion`, a new `<style>` element is created to add general emoji styles for that class.
@@ -97,8 +96,8 @@ Defaults to `document.body`.
 
 ```javascript
 emojisplosion({
-    container: document.getElementById("fun"),
-})
+  container: document.getElementById("fun"),
+});
 ```
 
 #### `emojiCount`
@@ -112,7 +111,7 @@ Creating 9001 emoji per blast:
 
 ```javascript
 emojisplosion({
-    emojiCount: 9001,
+  emojiCount: 9001,
 });
 ```
 
@@ -120,7 +119,7 @@ Creating a random number between 100 and 200 per blast:
 
 ```javascript
 emojisplosion({
-    emojiCount: () => Math.random() * 100 + 100,
+  emojiCount: () => Math.random() * 100 + 100,
 });
 ```
 
@@ -138,7 +137,7 @@ Always choosing the 💖 emoji:
 
 ```javascript
 emojisplosion({
-    emojis: ["💖"],
+  emojis: ["💖"],
 });
 ```
 
@@ -146,7 +145,7 @@ Allowing any of several wonderful heart emojis for each emoji within a blast:
 
 ```javascript
 emojisplosion({
-    emojis: ["💖", "💕", "💗", "💓", "💝"],
+  emojis: ["💖", "💕", "💗", "💓", "💝"],
 });
 ```
 
@@ -157,34 +156,33 @@ These default to a sane set of ranges for random numbers that give the appearanc
 
 These values must be passed in as `number`s, with defaults as _(`value`)_ here:
 
-* `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
-* `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
-* `opacityDelay` _(`100`)_: How much to slow down the (time elapsed / framerate) opacity reduction each time.
-* `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
+- `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
+- `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
+- `opacityDelay` _(`100`)_: How much to slow down the (time elapsed / framerate) opacity reduction each time.
+- `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
-These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number } for a random integer within, inclusive.
-With defaults as _(`[min, max]`)_ here:
+These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number } for a random integer within, inclusive. With defaults as _(`[min, max]`)\_ here:
 
-* `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
-* `initialVelocities`:
-    * `rotation` _(`[-7, 7]`)_: Range of initial rotation amount.
-    * `x` _(`[-7, 7]`)_: Range of initial horizontal velocity.
-    * `y` _(`[-14, -11.7]`)_: Range of initial vertical velocity.
-* `rotation` _(`[-45, 45]`)_: Individual emojis' initial rotation range.
+- `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
+- `initialVelocities`:
+  - `rotation` _(`[-7, 7]`)_: Range of initial rotation amount.
+  - `x` _(`[-7, 7]`)_: Range of initial horizontal velocity.
+  - `y` _(`[-14, -11.7]`)_: Range of initial vertical velocity.
+- `rotation` _(`[-45, 45]`)_: Individual emojis' initial rotation range.
 
 Causing emojis to spin wildly out of control:
 
 ```javascript
 emojisplosion({
-    physics: {
-        initialVelocities: {
-            rotation: {
-                max: 14,
-                min: -14,
-            },
-        },
-        rotationDecelaration: 1.01,
+  physics: {
+    initialVelocities: {
+      rotation: {
+        max: 14,
+        min: -14,
+      },
     },
+    rotationDecelaration: 1.01,
+  },
 });
 ```
 
@@ -192,15 +190,15 @@ Inverting gravity:
 
 ```javascript
 emojisplosion({
-    physics: {
-        gravity: -0.35,
-        initialVelocities: {
-            y: {
-                max: 14,
-                min: 11.7,
-            },
-        },
+  physics: {
+    gravity: -0.35,
+    initialVelocities: {
+      y: {
+        max: 14,
+        min: 11.7,
+      },
     },
+  },
 });
 ```
 
@@ -210,15 +208,15 @@ Alternately, the `defaultPhysics` object is exported, so you can base your physi
 import { emojisplosions, defaultPhysics } from "emojisplosion";
 
 emojisplosion({
-    physics: {
-        gravity: -defaultPhysics.gravity,
-        initialVelocities: {
-            y: {
-                max: -defaultPhysics.initialVelocities.max,
-                min: -defaultPhysics.initialVelocities.min,
-            },
-        },
+  physics: {
+    gravity: -defaultPhysics.gravity,
+    initialVelocities: {
+      y: {
+        max: -defaultPhysics.initialVelocities.max,
+        min: -defaultPhysics.initialVelocities.min,
+      },
     },
+  },
 });
 ```
 
@@ -235,10 +233,10 @@ The default `position` chooses integers within the page:
 
 ```javascript
 emojisplosion({
-    position: () => ({
-        x: Math.random() * innerWidth,
-        y: Math.random() * innerHeight,
-    }),
+  position: () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+  }),
 });
 ```
 
@@ -246,10 +244,10 @@ Always exploding from a fixed position:
 
 ```javascript
 emojisplosion({
-    position: {
-        x: 35,
-        y: 35,
-    },
+  position: {
+    x: 35,
+    y: 35,
+  },
 });
 ```
 
@@ -259,15 +257,15 @@ Exploding emoji around your favorite element on the page:
 const element = document.querySelector("#my-face");
 
 emojisplosion({
-    position() {
-        // https://stackoverflow.com/questions/1480133
-        const offset = cumulativeOffset(element);
+  position() {
+    // https://stackoverflow.com/questions/1480133
+    const offset = cumulativeOffset(element);
 
-        return {
-            x: offset.left + element.clientWidth / 2,
-            y: offset.top + element.clientHeight / 2,
-        }
-    },
+    return {
+      x: offset.left + element.clientWidth / 2,
+      y: offset.top + element.clientHeight / 2,
+    };
+  },
 });
 ```
 
@@ -282,9 +280,9 @@ Adding an `.emoji` class to each element:
 
 ```javascript
 emojisplosion({
-    process(element) {
-        element.className = "emoji";
-    },
+  process(element) {
+    element.className = "emoji";
+  },
 });
 ```
 
@@ -299,7 +297,7 @@ Creating `<div>`s instead:
 
 ```javascript
 emojisplosion({
-    tagName: "div",
+  tagName: "div",
 });
 ```
 
@@ -317,7 +315,7 @@ Allowing only one emoji type per blast:
 
 ```javascript
 emojisplosion({
-    uniqueness: 1,
+  uniqueness: 1,
 });
 ```
 
@@ -327,10 +325,10 @@ Allowing one more emoji type per blast each blast:
 let count = 0;
 
 emojisplosion({
-    uniqueness() {
-        count += 1;
-        return count;
-    },
+  uniqueness() {
+    count += 1;
+    return count;
+  },
 });
 ```
 
@@ -365,7 +363,7 @@ As quickly as `setInterval` can fire (this will probably crash your browser!):
 
 ```javascript
 emojisplosions({
-    interval: 0,
+  interval: 0,
 });
 ```
 
@@ -373,7 +371,7 @@ Once a second:
 
 ```javascript
 emojisplosions({
-    interval: 1000,
+  interval: 1000,
 });
 ```
 
@@ -383,14 +381,14 @@ emojisplosions({
 let scheduled = false;
 
 emojisplosions({
-    interval() {
-        if (!scheduled) {
-            scheduled = true;
-            return 0;
-        }
+  interval() {
+    if (!scheduled) {
+      scheduled = true;
+      return 0;
+    }
 
-        return 1000;
-    },
+    return 1000;
+  },
 });
 ```
 
@@ -403,10 +401,10 @@ This defaults to `setTimeout`, which is why `interval` is typically treated as m
 
 ```javascript
 emojisplosions({
-    scheduler(action, delay) {
-        console.log(`Will emoji in ${delay} ms!`);
-        action();
-    },
+  scheduler(action, delay) {
+    console.log(`Will emoji in ${delay} ms!`);
+    action();
+  },
 });
 ```
 
