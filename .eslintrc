@@ -13,8 +13,5 @@
   },
   "plugins": [
     "@typescript-eslint"
-  ],
-  "rules": {
-    // ...
-  }
+  ]
 }
