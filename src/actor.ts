@@ -68,8 +68,13 @@ export interface IEmojiPhysics {
     /**
      * How much to slow down the (time elapsed / framerate) opacity reduction each tick.
      */
-    opacityDecay: number;
+    opacityDecay?: number;
 
+    /**
+     * Whether to skip removing emojis that move outside of the visible screen.
+     */
+    preserveOutOfBounds?: boolean;
+    
     /**
      * Individual emojis' initial rotation range.
      */
@@ -134,6 +139,11 @@ interface IEmojiVelocity extends IEmojiPosition {
 export type IEmojiProcess = (element: Element) => void;
 
 /**
+ * Pixel distance out of the screen bounds to treat actors as out-of-bounds.
+ */
+const outOfBounds = 350;
+
+/**
  * Contains the position state and DOM element for a single displayed emoji.
  *
  * @remarks
@@ -178,6 +188,7 @@ export class EmojiActor {
     public constructor(settings: IEmojiActorSettings) {
         this.element = document.createElement(settings.tagName);
         this.element.className = settings.className;
+        this.element.style.transition = "16ms opacity, 16ms transform";
         this.element.textContent = randomArrayMember(settings.emojis);
 
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
@@ -210,9 +221,11 @@ export class EmojiActor {
      * @returns Whether this is now dead.
      */
     public act(timeElapsed: number): boolean {
-        this.opacity -= timeElapsed / (this.physics.opacityDecay * this.physics.framerate);
-        if (this.opacity <= 0) {
-            return true;
+        if (this.physics.opacityDecay) {
+            this.opacity -= timeElapsed / (this.physics.opacityDecay * this.physics.framerate);
+            if (this.opacity <= 0) {
+                return true;
+            }
         }
 
         this.velocity.rotation *= this.physics.rotationDeceleration;
@@ -221,6 +234,24 @@ export class EmojiActor {
         this.position.rotation += this.velocity.rotation;
         this.position.x += this.velocity.x * timeElapsed / this.physics.framerate;
         this.position.y += this.velocity.y * timeElapsed / this.physics.framerate;
+
+        if (!this.physics.preserveOutOfBounds) {
+            if (this.position.y - this.element.clientHeight > window.outerHeight + outOfBounds) {
+                return true;
+            }
+
+            if (this.position.y + this.element.clientHeight < -outOfBounds) {
+                return true;
+            }
+
+            if (this.position.x - this.element.clientWidth > window.outerWidth + outOfBounds) {
+                return true;
+            }
+
+            if (this.position.x + this.element.clientWidth < -outOfBounds) {
+                return true;
+            }
+        }
 
         this.updateElement();
 
@@ -240,9 +271,7 @@ export class EmojiActor {
      * Updates the attached DOM element to match tracking position.
      */
     private updateElement(): void {
-        this.element.style.left = `${this.position.x}px`;
         this.element.style.opacity = `${this.opacity}`;
-        this.element.style.top = `${this.position.y}px`;
-        this.element.style.transform = `rotate(${Math.round(this.position.rotation)}deg)`;
+        this.element.style.transform = `translate(${this.position.x}px, ${this.position.y}px) rotate(${Math.round(this.position.rotation)}deg)`;
     }
 }

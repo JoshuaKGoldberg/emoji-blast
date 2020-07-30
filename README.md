@@ -44,7 +44,7 @@ Each `emojisplosion` causes a fireworks-like explosion of random emoji to be pla
 Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
 
 - Start with a random horizontal velocity and random upward vertical velocity
-- Fade it from `opacity: 1` to `opacity: 0`
+- Move along the page as if affected by velocity and preserving inertia
 
 After an emoji is completely hidden or out of bounds, it is removed from the page.
 
@@ -158,10 +158,9 @@ These values must be passed in as `number`s, with defaults as _(`value`)_ here:
 
 - `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
 - `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
-- `opacityDelay` _(`100`)_: How much to slow down the (time elapsed / framerate) opacity reduction each time.
 - `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
-These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number } for a random integer within, inclusive. With defaults as _(`[min, max]`)\_ here:
+These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive. Defaults are _(`[min, max]`)_ here:
 
 - `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
 - `initialVelocities`:
@@ -169,6 +168,11 @@ These values may be randomized, so you can provide them as a const `number` or `
   - `x` _(`[-7, 7]`)_: Range of initial horizontal velocity.
   - `y` _(`[-14, -11.7]`)_: Range of initial vertical velocity.
 - `rotation` _(`[-45, 45]`)_: Individual emojis' initial rotation range.
+
+These values are optional:
+
+- `preserveOutOfBounds`: Whether to skip removing emojis that move outside of the visible screen.
+- `opacityDelay`: How much to slow down the (time elapsed / framerate) opacity reduction each tick (recommendation: `100` to fade out over a few seconds).
 
 Causing emojis to spin wildly out of control:
 
@@ -357,7 +361,7 @@ Passed to `scheduler` as the delay _(typically in milliseconds)_ before each exp
 Pass a `number` to always delay that much.
 Pass a function for it to be called immediately for the delay before the first explosion, then again as each explosion is started to schedule the next explosion.
 
-The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [0, 3500] subsequent times.
+The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [700, 2100] subsequent times.
 
 As quickly as `setInterval` can fire (this will probably crash your browser!):
 
