@@ -1,4 +1,4 @@
-import { EmojiActor, IEmojiPhysics, IEmojiPosition, IEmojiProcess } from "./actor";
+import { EmojiActor, EmojiPhysics, EmojiPosition, EmojiProcess } from "./actor";
 import { Animator } from "./animator";
 import { defaultEmojis } from "./emojis";
 import { createStyleElementAndClass } from "./styles";
@@ -7,7 +7,7 @@ import { obtainValue, shuffleArray } from "./utils";
 /**
  * Settings to launch an emojisplosion!
  */
-export interface IEmojisplosionSettings {
+export interface EmojisplosionSettings {
     /**
      * Tracking in-movement actors to push new emojis into.
      *
@@ -23,42 +23,42 @@ export interface IEmojisplosionSettings {
     /**
      * Element container to append elements into.
      */
-    container: ISettingValue<Element>;
+    container: SettingValue<Element>;
 
     /**
      * How many emojis to create per blast.
      */
-    emojiCount: ISettingValue<number>;
+    emojiCount: SettingValue<number>;
 
     /**
      * Allowed potential emoji names to set as textContent.
      */
-    emojis: ISettingValue<string[]>;
+    emojis: SettingValue<string[]>;
 
     /**
      * Runtime change constants for emoji element movements.
      */
-    physics: Partial<IEmojiPhysics>;
+    physics: Partial<EmojiPhysics>;
 
     /**
      * How to determine where to place blasts of emojis around the page.
      */
-    position: ISettingValue<IEmojiPosition>;
+    position: SettingValue<EmojiPosition>;
 
     /**
      * Processes each element just before it's appended to the container.
      */
-    process: IEmojiProcess;
+    process: EmojiProcess;
 
     /**
      * DOM element tag name to create elements as.
      */
-    tagName: ISettingValue<string>;
+    tagName: SettingValue<string>;
 
     /**
      * How many different types of emojis are allowed within a blast.
      */
-    uniqueness: ISettingValue<number>;
+    uniqueness: SettingValue<number>;
 }
 
 /**
@@ -66,7 +66,7 @@ export interface IEmojisplosionSettings {
  *
  * @template T   Type of the setting value.
  */
-export type ISettingValue<T> = T | (() => T);
+export type SettingValue<T> = T | (() => T);
 
 /**
  * Default class name to add to emoji elements.
@@ -104,7 +104,7 @@ export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 /**
  * Default runtime change constants for actor movements.
  */
-export const defaultPhysics: IEmojiPhysics = {
+export const defaultPhysics: EmojiPhysics = {
     fontSize: {
         max: 28,
         min: 14,
@@ -158,7 +158,7 @@ export const defaultTagName = "span";
  *
  * @param settings   Settings to emojisplode.
  */
-export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) => {
+export const emojisplosion = (settings: Partial<EmojisplosionSettings> = {}) => {
     const {
         animator = new Animator().start(),
         className = defaultClassName,

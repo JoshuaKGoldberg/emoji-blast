@@ -4,7 +4,7 @@ import { randomArrayMember } from "./utils";
 /**
  * Sttings to create a single emoji within a container.
  */
-export interface IEmojiActorSettings {
+export interface EmojiActorSettings {
     /**
      * Class name to add to the actor's element.
      */
@@ -23,17 +23,17 @@ export interface IEmojiActorSettings {
     /**
      * Runtime change constants for actor movements.
      */
-    physics: IEmojiPhysics;
+    physics: EmojiPhysics;
 
     /**
      * How to determine where to place blasts of emojis around the page.
      */
-    position: IEmojiPosition;
+    position: EmojiPosition;
 
     /**
      * Processes each element just before it's appended to the container.
      */
-    process: IEmojiProcess;
+    process: EmojiProcess;
 
     /**
      * DOM element tag name to create elements as.
@@ -44,7 +44,7 @@ export interface IEmojiActorSettings {
 /**
  * Runtime change constants for actor movements.
  */
-export interface IEmojiPhysics {
+export interface EmojiPhysics {
     /**
      * Individual emojis' font size range.
      */
@@ -63,7 +63,7 @@ export interface IEmojiPhysics {
     /**
      * Initial velocity ranges for individual emojis.
      */
-    initialVelocities: IInitialVelocities;
+    initialVelocities: InitialVelocities;
 
     /**
      * How much to slow down the (time elapsed / framerate) opacity reduction each tick.
@@ -89,7 +89,7 @@ export interface IEmojiPhysics {
 /**
  * Initial velocity ranges for individual emojis.
  */
-export interface IInitialVelocities {
+export type InitialVelocities = {
     /**
      * Range of initial rotation amount.
      */
@@ -109,7 +109,7 @@ export interface IInitialVelocities {
 /**
  * Absolute CSS position to place an emoji element at.
  */
-export interface IEmojiPosition {
+export type EmojiPosition = {
     /**
      * Pixels to offset by the left.
      */
@@ -124,7 +124,7 @@ export interface IEmojiPosition {
 /**
  * In-progress tracking for an actor's position.
  */
-interface IEmojiVelocity extends IEmojiPosition {
+export type EmojiVelocity = EmojiPosition & {
     /**
      * How much the actor's element is rotated.
      */
@@ -136,7 +136,7 @@ interface IEmojiVelocity extends IEmojiPosition {
  *
  * @param element   Element about to be appended to the container.
  */
-export type IEmojiProcess = (element: Element) => void;
+export type EmojiProcess = (element: Element) => void;
 
 /**
  * Pixel distance out of the screen bounds to treat actors as out-of-bounds.
@@ -173,19 +173,19 @@ export class EmojiActor {
     /**
      * Runtime change constants for actor movements.
      */
-    private readonly physics: IEmojiPhysics;
+    private readonly physics: EmojiPhysics;
 
     /**
      * Current element coordinates and rotation.
      */
-    private readonly position: IEmojiVelocity;
+    private readonly position: EmojiVelocity;
 
     /**
      * Change ammounts for element position.
      */
-    private readonly velocity: IEmojiVelocity;
+    private readonly velocity: EmojiVelocity;
 
-    public constructor(settings: IEmojiActorSettings) {
+    public constructor(settings: EmojiActorSettings) {
         this.element = document.createElement(settings.tagName);
         this.element.className = settings.className;
         this.element.style.transition = "16ms opacity, 16ms transform";
