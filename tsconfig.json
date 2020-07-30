@@ -2,7 +2,7 @@
     "compilerOptions": {
         "declaration": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": ["dom", "es5", "es2015.collection"],
+        "lib": ["dom", "es2015"],
         "module": "amd",
         "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
@@ -13,7 +13,7 @@
         "noUnusedParameters": true,
         "pretty": true,
         "strict": true,
-        "target": "es5"
+        "target": "es2015"
     },
     "exclude": [
         "node_modules"
