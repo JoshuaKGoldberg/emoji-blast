@@ -1,6 +1,6 @@
 {
   "name": "emojisplosion",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Blasts emoji like fireworks all up in your HTML page.",
   "main": "src/index.js",
   "scripts": {
