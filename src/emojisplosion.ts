@@ -78,13 +78,21 @@ export const defaultClassName = "emoji-styles";
  * 
  * @returns <div /> element prepended to document.body.
  */
-export const defaultCreateContainer = () => {
-    const container = document.createElement("div");
+export const defaultCreateContainer = (() => {
+    let container: HTMLElement;
 
-    document.body.prepend(container);
+    return () => {
+        if (container?.parentNode === document.body) {
+            return container;
+        }
 
-    return container;
-}
+        container = document.createElement("div");
+
+        document.body.prepend(container);
+
+        return container;
+    };
+})();
 
 /**
  * Default emojiCount to choose a random number of emoji per blast.
