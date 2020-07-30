@@ -74,6 +74,19 @@ export type ISettingValue<T> = T | (() => T);
 export const defaultClassName = "emoji-styles";
 
 /**
+ * Default creator for a container element.
+ * 
+ * @returns <div /> element prepended to document.body.
+ */
+export const defaultCreateContainer = () => {
+    const container = document.createElement("div");
+
+    document.body.prepend(container);
+
+    return container;
+}
+
+/**
  * Default emojiCount to choose a random number of emoji per blast.
  *
  * @returns Random integer within 14 to 28.
@@ -125,7 +138,7 @@ export const defaultPosition = () => ({
 /**
  * Default emoji processor, which does nothing.
  */
-const defaultProcess = () => {};
+const defaultProcess = () => { };
 
 /**
  * Default HTML tag name to create elements as.
@@ -141,7 +154,7 @@ export const emojisplosion = (settings: Partial<IEmojisplosionSettings> = {}) =>
     const {
         animator = new Animator().start(),
         className = defaultClassName,
-        container = document.body,
+        container = defaultCreateContainer,
         emojiCount = defaultEmojiCount,
         emojis = defaultEmojis,
         position = defaultPosition,
