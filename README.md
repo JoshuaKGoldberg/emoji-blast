@@ -92,7 +92,7 @@ See [`styles.ts`](./src/styles.ts).
 Type: `Element` or `() => Element`
 
 Element container to append elements into.
-Defaults to `document.body`.
+Defaults to a new `<div />` inserted as a first child of `document.body`.
 
 ```javascript
 emojisplosion({
