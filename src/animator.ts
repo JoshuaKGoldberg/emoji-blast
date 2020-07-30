@@ -57,6 +57,10 @@ export class Animator {
             }
         }
 
+        if (this.actors.length === 0) {
+            return;
+        }
+
         this.previousTime = currentTime;
         requestAnimationFrame(this.tick);
     }
