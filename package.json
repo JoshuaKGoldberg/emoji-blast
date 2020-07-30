@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "tsc": "tsc",
-    "eslint": "eslint src/**/*",
+    "eslint": "eslint src/**/*.ts --report-unused-disable-directives",
     "verify": "npm run tsc && npm run eslint & npm run webpack",
     "watch": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run webpack\"",
     "webpack": "webpack"
