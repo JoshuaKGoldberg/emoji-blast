@@ -104,7 +104,7 @@ export const defaultPhysics: IEmojiPhysics = {
             min: -21,
         },
     },
-    opacityDecay: 100,
+    preserveOutOfBounds: false,
     rotation: {
         max: 45,
         min: -45,
