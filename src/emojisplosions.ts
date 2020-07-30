@@ -1,19 +1,19 @@
-import { emojisplosion, IEmojisplosionSettings, ISettingValue } from "./emojisplosion";
+import { emojisplosion, EmojisplosionSettings, SettingValue } from "./emojisplosion";
 import { obtainValue } from "./utils";
 
 /**
  * Settings to periodically emojisplode!
  */
-export interface IEmojisplosionsSettings extends IEmojisplosionSettings {
+export interface EmojisplosionsSettings extends EmojisplosionSettings {
     /**
      * How frequently to create explosions.
      */
-    interval: ISettingValue<number>;
+    interval: SettingValue<number>;
 
     /**
      * Schedules explosions to occur.
      */
-    scheduler: IEmojiScheduler;
+    scheduler: EmojiScheduler;
 }
 
 /**
@@ -22,12 +22,17 @@ export interface IEmojisplosionsSettings extends IEmojisplosionSettings {
  * @param action   Action that causes the explosion.
  * @param delay   How long before the action should occur.
  */
-export type IEmojiScheduler = (action: () => void, delay: number) => void;
+export type EmojiScheduler = (action: () => void, delay: number) => void;
 
 /**
  * Returned handler for an ongoing emojisplosions run.
  */
-export interface IEmojiHandler {
+export interface EmojisplosionsHandler {
+    /**
+     * Triggers a blast of emojis.
+     */
+    blast: () => void;
+
     /**
      * Cancels the emojisplosions run.
      */
@@ -47,7 +52,7 @@ const defaultInterval = () => 700 + Math.floor(Math.random() * 1401);
  * @param settings   Settings to emojisplode.
  * @returns Handler for the ongoing emojisplosions.
  */
-export const emojisplosions = (settings: Partial<IEmojisplosionsSettings> = {}): IEmojiHandler => {
+export const emojisplosions = (settings: Partial<EmojisplosionsSettings> = {}): EmojisplosionsHandler => {
     const {
         interval = defaultInterval,
         scheduler = setTimeout,
@@ -55,19 +60,21 @@ export const emojisplosions = (settings: Partial<IEmojisplosionsSettings> = {}):
 
     let cancelled = false;
 
+    const blast = () => emojisplosion(settings);
+
     const blastAndSchedule = (): void => {
         if (cancelled) {
             return;
         }
 
-        emojisplosion(settings);
-
+        blast();
         scheduler(blastAndSchedule, obtainValue(interval));
     };
 
     scheduler(blastAndSchedule, 0);
 
     return {
+        blast,
         cancel(): void {
             cancelled = true;
         },
