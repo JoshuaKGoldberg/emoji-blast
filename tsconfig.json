@@ -3,7 +3,7 @@
         "declaration": true,
         "forceConsistentCasingInFileNames": true,
         "lib": ["dom", "es2015"],
-        "module": "esnext",
+        "module": "commonjs",
         "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
