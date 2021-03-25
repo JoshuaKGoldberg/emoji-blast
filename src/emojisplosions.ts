@@ -67,7 +67,10 @@ export const emojisplosions = (settings: Partial<EmojisplosionsSettings> = {}): 
             return;
         }
 
-        blast();
+        if (document.visibilityState === "visible") {
+            blast();
+        }
+
         scheduler(blastAndSchedule, obtainValue(interval));
     };
 
@@ -75,7 +78,7 @@ export const emojisplosions = (settings: Partial<EmojisplosionsSettings> = {}): 
 
     return {
         blast,
-        cancel(): void {
+        cancel() {
             cancelled = true;
         },
     };
