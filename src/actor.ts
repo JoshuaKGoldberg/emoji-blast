@@ -235,17 +235,26 @@ export class EmojiActor {
         this.position.x += this.velocity.x * timeElapsed / this.physics.framerate;
         this.position.y += this.velocity.y * timeElapsed / this.physics.framerate;
 
+        const windowHeight = window.outerHeight || document.documentElement.clientHeight;
+        const windowWidth = window.outerWidth || document.documentElement.clientWidth;
+
         if (!this.physics.preserveOutOfBounds) {
-            if (this.position.y - this.element.clientHeight > window.outerHeight + outOfBounds) {
-                return true;
+            if (
+              this.position.y - this.element.clientHeight >
+              windowHeight + outOfBounds
+            ) {
+              return true;
             }
 
             if (this.position.y + this.element.clientHeight < -outOfBounds) {
                 return true;
             }
 
-            if (this.position.x - this.element.clientWidth > window.outerWidth + outOfBounds) {
-                return true;
+            if (
+              this.position.x - this.element.clientWidth >
+              windowWidth + outOfBounds
+            ) {
+              return true;
             }
 
             if (this.position.x + this.element.clientWidth < -outOfBounds) {
