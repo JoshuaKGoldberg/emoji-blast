@@ -235,8 +235,8 @@ export class EmojiActor {
         this.position.x += this.velocity.x * timeElapsed / this.physics.framerate;
         this.position.y += this.velocity.y * timeElapsed / this.physics.framerate;
 
-        const windowHeight = window.outerHeight ? window.outerHeight : document.documentElement.clientHeight;
-        const windowWidth = window.outerWidth ? window.outerWidth : document.documentElement.clientWidth;
+        const windowHeight = window.outerHeight || document.documentElement.clientHeight;
+        const windowWidth = window.outerWidth || document.documentElement.clientWidth;
 
         if (!this.physics.preserveOutOfBounds) {
             if (
