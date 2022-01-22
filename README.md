@@ -5,6 +5,10 @@
 
 💥Blasts 😄emoji😊 like 🎆fireworks🎇 all up in your 💻HTML 📄page. 😚😍
 
+## Demo
+
+🎉 [Check out this JSFiddle](https://jsfiddle.net/j16x2Len/)
+
 ## Usage
 
 > You might enjoy the [Chrome extension](https://github.com/joshuakgoldberg/emojisplosion-chrome)!
