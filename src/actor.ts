@@ -33,7 +33,7 @@ export interface EmojiActorSettings {
 	/**
 	 * Processes each element just before it's appended to the container.
 	 */
-	process: EmojiProcess;
+	process?: EmojiProcess;
 
 	/**
 	 * DOM element tag name to create elements as.
@@ -89,7 +89,7 @@ export interface EmojiPhysics {
 /**
  * Initial velocity ranges for individual emojis.
  */
-export type InitialVelocities = {
+export interface InitialVelocities {
 	/**
 	 * Range of initial rotation amount.
 	 */
@@ -104,12 +104,12 @@ export type InitialVelocities = {
 	 * Range of initial vertical velocity.
 	 */
 	y: IRandomRange;
-};
+}
 
 /**
  * Absolute CSS position to place an emoji element at.
  */
-export type EmojiPosition = {
+export interface EmojiPosition {
 	/**
 	 * Pixels to offset by the left.
 	 */
@@ -119,7 +119,7 @@ export type EmojiPosition = {
 	 * Pixels to offset by the top.
 	 */
 	y: number;
-};
+}
 
 /**
  * In-progress tracking for an actor's position.
@@ -209,7 +209,7 @@ export class EmojiActor {
 		};
 
 		this.updateElement();
-		settings.process(this.element);
+		settings.process?.(this.element);
 		settings.container.appendChild(this.element);
 	}
 

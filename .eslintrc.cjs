@@ -24,7 +24,7 @@ module.exports = {
 			],
 			files: ["**/*.{ts,tsx}"],
 			parserOptions: {
-				project: "./tsconfig.json",
+				project: "./tsconfig.eslint.json",
 			},
 			rules: {
 				// These off-by-default rules work well for this repo and we like them on.
