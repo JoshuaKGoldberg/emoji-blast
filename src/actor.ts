@@ -2,134 +2,134 @@ import { IRandomRange, randomInRange } from "./range";
 import { randomArrayMember } from "./utils";
 
 /**
- * Sttings to create a single emoji within a container.
+ * Settings to create a single emoji within a container.
  */
 export interface EmojiActorSettings {
-    /**
-     * Class name to add to the actor's element.
-     */
-    className: string;
+	/**
+	 * Class name to add to the actor's element.
+	 */
+	className: string;
 
-    /**
-     * Element container to append the element into.
-     */
-    container: Element;
+	/**
+	 * Element container to append the element into.
+	 */
+	container: Element;
 
-    /**
-     * Allowed potential emoji names to set as textContent.
-     */
-    emojis: string[];
+	/**
+	 * Allowed potential emoji names to set as textContent.
+	 */
+	emojis: string[];
 
-    /**
-     * Runtime change constants for actor movements.
-     */
-    physics: EmojiPhysics;
+	/**
+	 * Runtime change constants for actor movements.
+	 */
+	physics: EmojiPhysics;
 
-    /**
-     * How to determine where to place blasts of emojis around the page.
-     */
-    position: EmojiPosition;
+	/**
+	 * How to determine where to place blasts of emojis around the page.
+	 */
+	position: EmojiPosition;
 
-    /**
-     * Processes each element just before it's appended to the container.
-     */
-    process: EmojiProcess;
+	/**
+	 * Processes each element just before it's appended to the container.
+	 */
+	process: EmojiProcess;
 
-    /**
-     * DOM element tag name to create elements as.
-     */
-    tagName: string;
+	/**
+	 * DOM element tag name to create elements as.
+	 */
+	tagName: string;
 }
 
 /**
  * Runtime change constants for actor movements.
  */
 export interface EmojiPhysics {
-    /**
-     * Individual emojis' font size range.
-     */
-    fontSize: IRandomRange;
+	/**
+	 * Individual emojis' font size range.
+	 */
+	fontSize: IRandomRange;
 
-    /**
-     * Expected frames per second to adjust position and velocity changes by.
-     */
-    framerate: number;
+	/**
+	 * Expected frames per second to adjust position and velocity changes by.
+	 */
+	framerate: number;
 
-    /**
-     * How much to increase y-velocity downward each tick.
-     */
-    gravity: number;
+	/**
+	 * How much to increase y-velocity downward each tick.
+	 */
+	gravity: number;
 
-    /**
-     * Initial velocity ranges for individual emojis.
-     */
-    initialVelocities: InitialVelocities;
+	/**
+	 * Initial velocity ranges for individual emojis.
+	 */
+	initialVelocities: InitialVelocities;
 
-    /**
-     * How much to slow down the (time elapsed / framerate) opacity reduction each tick.
-     */
-    opacityDecay?: number;
+	/**
+	 * How much to slow down the (time elapsed / framerate) opacity reduction each tick.
+	 */
+	opacityDecay?: number;
 
-    /**
-     * Whether to skip removing emojis that move outside of the visible screen.
-     */
-    preserveOutOfBounds?: boolean;
-    
-    /**
-     * Individual emojis' initial rotation range.
-     */
-    rotation: IRandomRange;
+	/**
+	 * Whether to skip removing emojis that move outside of the visible screen.
+	 */
+	preserveOutOfBounds?: boolean;
 
-    /**
-     * How much to decrease rotation ammount each tick.
-     */
-    rotationDeceleration: number;
+	/**
+	 * Individual emojis' initial rotation range.
+	 */
+	rotation: IRandomRange;
+
+	/**
+	 * How much to decrease rotation amount each tick.
+	 */
+	rotationDeceleration: number;
 }
 
 /**
  * Initial velocity ranges for individual emojis.
  */
 export type InitialVelocities = {
-    /**
-     * Range of initial rotation amount.
-     */
-    rotation: IRandomRange;
+	/**
+	 * Range of initial rotation amount.
+	 */
+	rotation: IRandomRange;
 
-    /**
-     * Range of initial horizontal velocity.
-     */
-    x: IRandomRange;
+	/**
+	 * Range of initial horizontal velocity.
+	 */
+	x: IRandomRange;
 
-    /**
-     * Range of initial vertical velocity.
-     */
-    y: IRandomRange;
-}
+	/**
+	 * Range of initial vertical velocity.
+	 */
+	y: IRandomRange;
+};
 
 /**
  * Absolute CSS position to place an emoji element at.
  */
 export type EmojiPosition = {
-    /**
-     * Pixels to offset by the left.
-     */
-    x: number;
+	/**
+	 * Pixels to offset by the left.
+	 */
+	x: number;
 
-    /**
-     * Pixels to offset by the top.
-     */
-    y: number;
-}
+	/**
+	 * Pixels to offset by the top.
+	 */
+	y: number;
+};
 
 /**
  * In-progress tracking for an actor's position.
  */
 export type EmojiVelocity = EmojiPosition & {
-    /**
-     * How much the actor's element is rotated.
-     */
-    rotation: number;
-}
+	/**
+	 * How much the actor's element is rotated.
+	 */
+	rotation: number;
+};
 
 /**
  * Processes an element just before it's appended to the container.
@@ -160,127 +160,131 @@ const outOfBounds = 350;
  * "Disposing" an actor means removing its element from the document.
  */
 export class EmojiActor {
-    /**
-     * Attached element kept in the DOM.
-     */
-    private readonly element: HTMLSpanElement;
+	/**
+	 * Attached element kept in the DOM.
+	 */
+	private readonly element: HTMLSpanElement;
 
-    /**
-     * CSS opacity style, starting at 1 for fully visible.
-     */
-    private opacity = 1;
+	/**
+	 * CSS opacity style, starting at 1 for fully visible.
+	 */
+	private opacity = 1;
 
-    /**
-     * Runtime change constants for actor movements.
-     */
-    private readonly physics: EmojiPhysics;
+	/**
+	 * Runtime change constants for actor movements.
+	 */
+	private readonly physics: EmojiPhysics;
 
-    /**
-     * Current element coordinates and rotation.
-     */
-    private readonly position: EmojiVelocity;
+	/**
+	 * Current element coordinates and rotation.
+	 */
+	private readonly position: EmojiVelocity;
 
-    /**
-     * Change ammounts for element position.
-     */
-    private readonly velocity: EmojiVelocity;
+	/**
+	 * Change amounts for element position.
+	 */
+	private readonly velocity: EmojiVelocity;
 
-    public constructor(settings: EmojiActorSettings) {
-        this.element = document.createElement(settings.tagName);
-        this.element.className = settings.className;
-        this.element.style.transition = "16ms opacity, 16ms transform";
-        this.element.textContent = randomArrayMember(settings.emojis);
+	public constructor(settings: EmojiActorSettings) {
+		this.element = document.createElement(settings.tagName);
+		this.element.className = settings.className;
+		this.element.textContent = randomArrayMember(settings.emojis);
+		this.element.setAttribute("role", "img");
+		this.element.style.fontSize = `${randomInRange(
+			settings.physics.fontSize
+		)}px`;
+		this.element.style.transition = "16ms opacity, 16ms transform";
 
-        // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
-        this.element.setAttribute("aria-label", "Random emoji");
-        this.element.setAttribute("role", "img");
-        this.element.style.fontSize = `${randomInRange(settings.physics.fontSize)}px`;
+		this.physics = settings.physics;
+		this.position = {
+			rotation: randomInRange(settings.physics.rotation),
+			x: settings.position.x,
+			y: settings.position.y,
+		};
 
-        this.physics = settings.physics;
-        this.position = {
-            rotation: randomInRange(settings.physics.rotation),
-            x: settings.position.x,
-            y: settings.position.y,
-        };
+		this.velocity = {
+			rotation: randomInRange(settings.physics.initialVelocities.rotation),
+			x: randomInRange(settings.physics.initialVelocities.x),
+			y: randomInRange(settings.physics.initialVelocities.y),
+		};
 
-        this.velocity = {
-            rotation: randomInRange(settings.physics.initialVelocities.rotation),
-            x: randomInRange(settings.physics.initialVelocities.x),
-            y: randomInRange(settings.physics.initialVelocities.y),
-        };
+		this.updateElement();
+		settings.process(this.element);
+		settings.container.appendChild(this.element);
+	}
 
-        this.updateElement();
-        settings.process(this.element);
-        settings.container.appendChild(this.element);
-    }
+	/**
+	 * Moves the actor forward one tick.
+	 *
+	 * @param timeElapsed   How many milliseconds have passed since the last action.
+	 * @returns Whether this is now dead.
+	 */
+	public act(timeElapsed: number): boolean {
+		if (this.physics.opacityDecay) {
+			this.opacity -=
+				timeElapsed / (this.physics.opacityDecay * this.physics.framerate);
+			if (this.opacity <= 0) {
+				return true;
+			}
+		}
 
-    /**
-     * Moves the actor forward one tick.
-     *
-     * @param timeElapsed   How many milliseconds have passed since the last action.
-     * @returns Whether this is now dead.
-     */
-    public act(timeElapsed: number): boolean {
-        if (this.physics.opacityDecay) {
-            this.opacity -= timeElapsed / (this.physics.opacityDecay * this.physics.framerate);
-            if (this.opacity <= 0) {
-                return true;
-            }
-        }
+		this.velocity.rotation *= this.physics.rotationDeceleration;
+		this.velocity.y += this.physics.gravity;
 
-        this.velocity.rotation *= this.physics.rotationDeceleration;
-        this.velocity.y += this.physics.gravity;
+		this.position.rotation += this.velocity.rotation;
+		this.position.x += (this.velocity.x * timeElapsed) / this.physics.framerate;
+		this.position.y += (this.velocity.y * timeElapsed) / this.physics.framerate;
 
-        this.position.rotation += this.velocity.rotation;
-        this.position.x += this.velocity.x * timeElapsed / this.physics.framerate;
-        this.position.y += this.velocity.y * timeElapsed / this.physics.framerate;
+		const windowHeight =
+			window.outerHeight || document.documentElement.clientHeight;
+		const windowWidth =
+			window.outerWidth || document.documentElement.clientWidth;
 
-        const windowHeight = window.outerHeight || document.documentElement.clientHeight;
-        const windowWidth = window.outerWidth || document.documentElement.clientWidth;
+		if (!this.physics.preserveOutOfBounds) {
+			if (
+				this.position.y - this.element.clientHeight >
+				windowHeight + outOfBounds
+			) {
+				return true;
+			}
 
-        if (!this.physics.preserveOutOfBounds) {
-            if (
-              this.position.y - this.element.clientHeight >
-              windowHeight + outOfBounds
-            ) {
-              return true;
-            }
+			if (this.position.y + this.element.clientHeight < -outOfBounds) {
+				return true;
+			}
 
-            if (this.position.y + this.element.clientHeight < -outOfBounds) {
-                return true;
-            }
+			if (
+				this.position.x - this.element.clientWidth >
+				windowWidth + outOfBounds
+			) {
+				return true;
+			}
 
-            if (
-              this.position.x - this.element.clientWidth >
-              windowWidth + outOfBounds
-            ) {
-              return true;
-            }
+			if (this.position.x + this.element.clientWidth < -outOfBounds) {
+				return true;
+			}
+		}
 
-            if (this.position.x + this.element.clientWidth < -outOfBounds) {
-                return true;
-            }
-        }
+		this.updateElement();
 
-        this.updateElement();
+		return false;
+	}
 
-        return false;
-    }
+	/**
+	 * Disposes of the attached DOM element upon actor death.
+	 */
+	public dispose() {
+		if (this.element.parentElement !== null) {
+			this.element.parentElement.removeChild(this.element);
+		}
+	}
 
-    /**
-     * Disposes of the attached DOM element upon actor death.
-     */
-    public dispose() {
-        if (this.element.parentElement !== null) {
-            this.element.parentElement.removeChild(this.element);
-        }
-    }
-
-    /**
-     * Updates the attached DOM element to match tracking position.
-     */
-    private updateElement(): void {
-        this.element.style.opacity = `${this.opacity}`;
-        this.element.style.transform = `translate(${this.position.x}px, ${this.position.y}px) rotate(${Math.round(this.position.rotation)}deg)`;
-    }
+	/**
+	 * Updates the attached DOM element to match tracking position.
+	 */
+	private updateElement(): void {
+		this.element.style.opacity = `${this.opacity}`;
+		this.element.style.transform = `translate(${this.position.x}px, ${
+			this.position.y
+		}px) rotate(${Math.round(this.position.rotation)}deg)`;
+	}
 }
