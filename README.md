@@ -183,7 +183,8 @@ These values must be passed in as `number`s, with defaults as _(`value`)_ here:
 - `gravity` _(`0.35`)_: How much to increase y-velocity downward each tick.
 - `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
-These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive. Defaults are _(`[min, max]`)_ here:
+These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive.
+Defaults are _(`[min, max]`)_ here:
 
 - `fontSize` _(`[14, 28]`)_: Individual emojis' font size range.
 - `initialVelocities`:

@@ -63,7 +63,7 @@
 		"lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --rules sentences-per-line",
 		"lint:package": "npmPkgJsonLint .",
 		"lint:packages": "pnpm-deduplicate --list",
-		"lint:prune": "ts-prune | grep -v \"used in module\"",
+		"lint:prune": "! ts-prune | grep -v \"used in module\"",
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
 		"prepare": "husky install",
 		"test": "vitest",
