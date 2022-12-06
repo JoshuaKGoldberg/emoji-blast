@@ -1,6 +1,5 @@
+.github/
+.vscode/
 *.test.*
-*.ts
-!*.d.ts
-node_modules/
-npm-debug.log
-test/
+coverage/
+pnpm-lock.yaml

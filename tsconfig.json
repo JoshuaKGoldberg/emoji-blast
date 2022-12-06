@@ -1,24 +1,14 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "forceConsistentCasingInFileNames": true,
-        "lib": ["dom", "es2015"],
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "pretty": true,
-        "strict": true,
-        "target": "es2015"
-    },
-    "exclude": [
-        "node_modules"
-    ],
-    "include": [
-        "./src/**/*.ts"
-    ]
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2021"
+  },
+  "include": ["src"]
 }
