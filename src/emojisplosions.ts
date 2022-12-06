@@ -1,7 +1,7 @@
 import {
-  emojisplosion,
-  EmojisplosionSettings,
-  SettingValue,
+	emojisplosion,
+	EmojisplosionSettings,
+	SettingValue,
 } from "./emojisplosion";
 import { obtainValue } from "./utils";
 
@@ -9,15 +9,15 @@ import { obtainValue } from "./utils";
  * Settings to periodically emojisplode!
  */
 export interface EmojisplosionsSettings extends EmojisplosionSettings {
-  /**
-   * How frequently to create explosions.
-   */
-  interval: SettingValue<number>;
+	/**
+	 * How frequently to create explosions.
+	 */
+	interval: SettingValue<number>;
 
-  /**
-   * Schedules explosions to occur.
-   */
-  scheduler: EmojiScheduler;
+	/**
+	 * Schedules explosions to occur.
+	 */
+	scheduler: EmojiScheduler;
 }
 
 /**
@@ -32,15 +32,15 @@ export type EmojiScheduler = (action: () => void, delay: number) => void;
  * Returned handler for an ongoing emojisplosions run.
  */
 export interface EmojisplosionsHandler {
-  /**
-   * Triggers a blast of emojis.
-   */
-  blast: () => void;
+	/**
+	 * Triggers a blast of emojis.
+	 */
+	blast: () => void;
 
-  /**
-   * Cancels the emojisplosions run.
-   */
-  cancel: () => void;
+	/**
+	 * Cancels the emojisplosions run.
+	 */
+	cancel: () => void;
 }
 
 /**
@@ -57,32 +57,32 @@ const defaultInterval = () => 700 + Math.floor(Math.random() * 1401);
  * @returns Handler for the ongoing emojisplosions.
  */
 export const emojisplosions = (
-  settings: Partial<EmojisplosionsSettings> = {}
+	settings: Partial<EmojisplosionsSettings> = {}
 ): EmojisplosionsHandler => {
-  const { interval = defaultInterval, scheduler = setTimeout } = settings;
+	const { interval = defaultInterval, scheduler = setTimeout } = settings;
 
-  let cancelled = false;
+	let cancelled = false;
 
-  const blast = () => emojisplosion(settings);
+	const blast = () => emojisplosion(settings);
 
-  const blastAndSchedule = (): void => {
-    if (cancelled) {
-      return;
-    }
+	const blastAndSchedule = (): void => {
+		if (cancelled) {
+			return;
+		}
 
-    if (document.visibilityState === "visible") {
-      blast();
-    }
+		if (document.visibilityState === "visible") {
+			blast();
+		}
 
-    scheduler(blastAndSchedule, obtainValue(interval));
-  };
+		scheduler(blastAndSchedule, obtainValue(interval));
+	};
 
-  scheduler(blastAndSchedule, 0);
+	scheduler(blastAndSchedule, 0);
 
-  return {
-    blast,
-    cancel() {
-      cancelled = true;
-    },
-  };
+	return {
+		blast,
+		cancel() {
+			cancelled = true;
+		},
+	};
 };

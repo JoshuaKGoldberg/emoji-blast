@@ -8,60 +8,60 @@ import { EmojiActor } from "./actor";
  * If it indicates that it's out of bounds, it's removed from the actors array.
  */
 export class Animator {
-    /**
-     * Actors that have been added and not yet marked themselves as out of bounds.
-     */
-    private readonly actors: EmojiActor[] = [];
+	/**
+	 * Actors that have been added and not yet marked themselves as out of bounds.
+	 */
+	private readonly actors: EmojiActor[] = [];
 
-    /**
-     * Most recently time recorded by `requestAnimationFrame`.
-     */
-    private previousTime!: number;
+	/**
+	 * Most recently time recorded by `requestAnimationFrame`.
+	 */
+	private previousTime!: number;
 
-    /**
-     * Adds a new actor to act on each tick.
-     *
-     * @param actor   Newly created actor to add.
-     */
-    public add(actor: EmojiActor) {
-        this.actors.push(actor);
-    }
+	/**
+	 * Adds a new actor to act on each tick.
+	 *
+	 * @param actor   Newly created actor to add.
+	 */
+	public add(actor: EmojiActor) {
+		this.actors.push(actor);
+	}
 
-    /**
-     * Starts gameplay and requests the first tick.
-     */
-    public start(): this {
-        this.previousTime = performance.now();
+	/**
+	 * Starts gameplay and requests the first tick.
+	 */
+	public start(): this {
+		this.previousTime = performance.now();
 
-        requestAnimationFrame(this.tick);
+		requestAnimationFrame(this.tick);
 
-        return this;
-    }
+		return this;
+	}
 
-    /**
-     * Runs game logic for one tick.
-     *
-     * @param currentTime   Current time, in milliseconds since page load.
-     */
-    private readonly tick = (currentTime: number): void => {
-        const timeElapsed = currentTime - this.previousTime;
+	/**
+	 * Runs game logic for one tick.
+	 *
+	 * @param currentTime   Current time, in milliseconds since page load.
+	 */
+	private readonly tick = (currentTime: number): void => {
+		const timeElapsed = currentTime - this.previousTime;
 
-        for (let i = 0; i < this.actors.length; i += 1) {
-            const actor = this.actors[i];
+		for (let i = 0; i < this.actors.length; i += 1) {
+			const actor = this.actors[i];
 
-            if (actor.act(timeElapsed)) {
-                actor.dispose();
-                this.actors.splice(i, 1);
-                i -= 1;
-                continue;
-            }
-        }
+			if (actor.act(timeElapsed)) {
+				actor.dispose();
+				this.actors.splice(i, 1);
+				i -= 1;
+				continue;
+			}
+		}
 
-        if (this.actors.length === 0) {
-            return;
-        }
+		if (this.actors.length === 0) {
+			return;
+		}
 
-        this.previousTime = currentTime;
-        requestAnimationFrame(this.tick);
-    }
+		this.previousTime = currentTime;
+		requestAnimationFrame(this.tick);
+	};
 }

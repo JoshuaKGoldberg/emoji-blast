@@ -1,7 +1,5 @@
 {
-	"dictionaries": [
-		"typescript"
-	],
+	"dictionaries": ["typescript"],
 	"ignorePaths": [
 		".github",
 		"dist",
