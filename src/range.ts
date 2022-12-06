@@ -1,7 +1,7 @@
 /**
  * Number or [minimum, maximum] range for random number generation.
  */
-export type IRandomRange =
+export type RandomRange =
 	| number
 	| {
 			/**
@@ -21,7 +21,7 @@ export type IRandomRange =
  * @param range   [Minimum, maximum] numbers in a range.
  * @returns Random number within the [minimum, maximum] range.
  */
-export const randomInRange = (range: IRandomRange) =>
+export const randomInRange = (range: RandomRange) =>
 	typeof range === "number"
 		? range
 		: Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;

@@ -180,7 +180,7 @@ These default to a sane set of ranges for random numbers that give the appearanc
 These values must be passed in as `number`s, with defaults as _(`value`)_ here:
 
 - `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
-- `gravity` _(`0.35`)_: How much to increase y-velocity downard each tick.
+- `gravity` _(`0.35`)_: How much to increase y-velocity downward each tick.
 - `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
 These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive. Defaults are _(`[min, max]`)_ here:
@@ -208,7 +208,7 @@ emojisplosion({
 				min: -14,
 			},
 		},
-		rotationDecelaration: 1.01,
+		rotationDeceleration: 1.01,
 	},
 });
 ```

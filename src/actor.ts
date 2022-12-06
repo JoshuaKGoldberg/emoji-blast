@@ -1,4 +1,4 @@
-import { IRandomRange, randomInRange } from "./range";
+import { RandomRange, randomInRange } from "./range";
 import { randomArrayMember } from "./utils";
 
 /**
@@ -48,7 +48,7 @@ export interface EmojiPhysics {
 	/**
 	 * Individual emojis' font size range.
 	 */
-	fontSize: IRandomRange;
+	fontSize: RandomRange;
 
 	/**
 	 * Expected frames per second to adjust position and velocity changes by.
@@ -78,7 +78,7 @@ export interface EmojiPhysics {
 	/**
 	 * Individual emojis' initial rotation range.
 	 */
-	rotation: IRandomRange;
+	rotation: RandomRange;
 
 	/**
 	 * How much to decrease rotation amount each tick.
@@ -93,17 +93,17 @@ export interface InitialVelocities {
 	/**
 	 * Range of initial rotation amount.
 	 */
-	rotation: IRandomRange;
+	rotation: RandomRange;
 
 	/**
 	 * Range of initial horizontal velocity.
 	 */
-	x: IRandomRange;
+	x: RandomRange;
 
 	/**
 	 * Range of initial vertical velocity.
 	 */
-	y: IRandomRange;
+	y: RandomRange;
 }
 
 /**
