@@ -1,4 +1,4 @@
-import { RandomRange, randomInRange } from "./range";
+import { randomInRange, RandomRange } from "./range";
 import { randomArrayMember } from "./utils";
 
 /**
