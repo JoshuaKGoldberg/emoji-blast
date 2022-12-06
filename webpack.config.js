@@ -3,7 +3,6 @@ import * as url from "url";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-// TODO: Not actually building
 export default {
 	entry: {
 		easy: "./src/mains/easy.ts",
@@ -15,9 +14,16 @@ export default {
 	module: {
 		rules: [
 			{
-				test: /\.tsx?$/,
-				use: "ts-loader",
 				exclude: /node_modules/,
+				test: /\.tsx?$/,
+				use: {
+					loader: "ts-loader",
+					options: {
+						compilerOptions: {
+							noEmit: false,
+						},
+					},
+				},
 			},
 		],
 	},
@@ -25,6 +31,6 @@ export default {
 		extensions: [".ts"],
 	},
 	output: {
-		path: path.join(__dirname, "lib"),
+		path: path.join(__dirname, "dist"),
 	},
 };

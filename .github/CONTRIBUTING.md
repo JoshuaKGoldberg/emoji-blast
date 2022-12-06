@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to `template-typescript-node-package`! 💖
+Thanks for your interest in contributing to `emojisplosion`! 💖
 
 > See [DEVELOPMENT.md](./DEVELOPMENT.md) for local development instructions.
 
