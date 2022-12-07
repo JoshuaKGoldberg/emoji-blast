@@ -3,21 +3,17 @@
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo) and [installing pnpm](https://pnpm.io/installation):
 
 ```shell
-git clone https://github.com/<your-name-here>/emojisplosion
-cd emojisplosion
+git clone https://github.com/<your-name-here>/template-typescript-node-package
+cd template-typescript-node-package
 pnpm install
 ```
 
-In order to develop this package, modify the `.ts` files under `src/`.
-Run TypeScript locally to type check and build them into `lib/`:
-
-```shell
-pnpm build --watch
-```
+> This repository includes a list of suggested VS Code extensions.
+> It's a good idea to use [VS Code](https://code.visualstudio.com) and accept its suggestion to install them, as they'll help with development.
 
 ## Browsers
 
-Separately, to update the files provided to browsers, run Webpack locally to build them into `.js` outputs under `dist/`:
+To update the files provided to browsers, run Webpack locally to build them into `.js` outputs under `dist/`:
 
 ```shell
 pnpm webpack --watch
@@ -27,3 +23,41 @@ pnpm webpack --watch
 
 A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
 Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` under the same name.
+
+## Formatting
+
+[Prettier](https://prettier.io) is used to format code.
+It should be applied automatically when you save files in VS Code or make a Git commit.
+
+## Linting
+
+This package includes several forms of linting to enforce consistent code quality and styling.
+Each should be shown in VS Code, and can be run manually on the command-line:
+
+- `pnpm lint` ([ESLint](https://eslint.org) with [typescript-eslint](https://typescript-eslint.io)): Lints JavaScript and TypeScript source files
+- `pnpm lint:md` ([Markdownlint](https://github.com/DavidAnson/markdownlint)): Checks Markdown source files
+- `pnpm lint:package` ([npm-package-json-lint](https://npmpackagejsonlint.org/)): Lints the `package.json` file
+- `pnpm lint:packages` ([pnpm-deduplicate](https://github.com/ocavue/pnpm-deduplicate)): Deduplicates packages in the `pnpm-lock.yml` file
+- `pnpm lint:prune` ([ts-prune](https://github.com/nadeesha/ts-prune)): Detects unused exports in TypeScript source files
+- `pnpm lint:spelling` ([cspell](https://cspell.org)): Spell checks across all source files
+
+## Testing
+
+[Vitest](https://vitest.dev) is used for tests.
+You can run it locally on the command-line:
+
+```shell
+pnpm test
+```
+
+Test coverage is computed by running tests and placed in the `coverage/` directory locally.
+
+## Type Checking
+
+Run [TypeScript](https://typescriptlang.org) locally to type check and build source files from `src/` into output files in `lib/`:
+
+```shell
+pnpm build --watch
+```
+
+You should also see suggestions from TypeScript in your editor.
