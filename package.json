@@ -44,6 +44,18 @@
 	"engines": {
 		"node": ">=18"
 	},
+	"keywords": [
+		"emojisplosion",
+		"emoji",
+		"explosion",
+		"fireworks",
+		"page",
+		"all",
+		"up",
+		"in",
+		"there",
+		"dom"
+	],
 	"license": "MIT",
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
@@ -70,5 +82,5 @@
 		"tsc": "tsc"
 	},
 	"type": "module",
-	"version": "0.0.1"
+	"version": "3.0.0"
 }
