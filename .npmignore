@@ -1,6 +1,11 @@
+.*
+./*.js
+.github/
+.vscode/
+*.config.*
 *.test.*
-*.ts
-!*.d.ts
-node_modules/
-npm-debug.log
-test/
+coverage/
+cspell.json
+pnpm-lock.yaml
+tsconfig.*.json
+tsconfig*.json

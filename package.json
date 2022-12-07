@@ -1,47 +1,86 @@
 {
-  "name": "emojisplosion",
-  "version": "2.6.1",
-  "description": "Blasts emoji like fireworks all up in your HTML page.",
-  "main": "src/index.js",
-  "scripts": {
-    "tsc": "tsc",
-    "eslint": "eslint src/**/*.ts --report-unused-disable-directives",
-    "verify": "npm run tsc && npm run eslint & npm run webpack",
-    "watch": "chokidar \"src/**/*.ts\" -i \"src/**/*.d.ts\" -c \"npm run webpack\"",
-    "webpack": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joshuakgoldberg/emojisplosion.git"
-  },
-  "keywords": [
-    "emoji",
-    "explosion",
-    "fireworks",
-    "page",
-    "all",
-    "up",
-    "in",
-    "there",
-    "dom"
-  ],
-  "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joshuakgoldberg/emojisplosion/issues"
-  },
-  "homepage": "https://github.com/joshuakgoldberg/emojisplosion#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.7.1",
-    "chokidar": "^3.4.1",
-    "chokidar-cli": "^2.1.0",
-    "eslint": "^7.5.0",
-    "requirejs": "2.3.6",
-    "run-p": "0.0.0",
-    "ts-loader": "^8.0.1",
-    "typescript": "^3.9.7",
-    "webpack": "^4.44.0",
-    "webpack-cli": "^3.3.12"
-  }
+	"author": "Josh Goldberg <npm@joshuakgoldberg.com>",
+	"description": "💥Blasts 😄emoji😊 like 🎆fireworks🎇 all up in your 💻HTML 📄page. 😚😍",
+	"devDependencies": {
+		"@semantic-release/changelog": "^6.0.2",
+		"@semantic-release/commit-analyzer": "^9.0.2",
+		"@semantic-release/git": "^10.0.1",
+		"@semantic-release/github": "^8.0.7",
+		"@semantic-release/npm": "^9.0.1",
+		"@semantic-release/release-notes-generator": "^10.0.3",
+		"@typescript-eslint/eslint-plugin": "^5.45.1",
+		"@typescript-eslint/parser": "^5.45.1",
+		"@vitest/coverage-c8": "^0.25.5",
+		"chalk": "^5.1.2",
+		"cspell": "^6.17.0",
+		"eslint": "^8.29.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-deprecation": "^1.3.3",
+		"eslint-plugin-eslint-comments": "^3.2.0",
+		"eslint-plugin-jsonc": "^2.5.0",
+		"eslint-plugin-markdown": "^3.0.0",
+		"eslint-plugin-no-only-tests": "^3.1.0",
+		"eslint-plugin-regexp": "^1.11.0",
+		"eslint-plugin-simple-import-sort": "^8.0.0",
+		"eslint-plugin-typescript-sort-keys": "^2.1.0",
+		"eslint-plugin-vitest": "^0.0.20",
+		"husky": "^8.0.2",
+		"jsonc-eslint-parser": "^2.1.0",
+		"lint-staged": "^13.1.0",
+		"markdownlint-cli": "^0.32.2",
+		"npm-package-json-lint": "^6.4.0",
+		"npm-package-json-lint-config-default": "^5.0.0",
+		"pnpm-deduplicate": "^0.4.1",
+		"prettier": "^2.8.0",
+		"semantic-release": "^19.0.5",
+		"sentences-per-line": "^0.2.1",
+		"ts-loader": "^9.4.2",
+		"ts-prune": "^0.10.3",
+		"typescript": "^4.9.3",
+		"vitest": "^0.25.5",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"keywords": [
+		"emojisplosion",
+		"emoji",
+		"explosion",
+		"fireworks",
+		"page",
+		"all",
+		"up",
+		"in",
+		"there",
+		"dom"
+	],
+	"license": "MIT",
+	"lint-staged": {
+		"*": "prettier --ignore-unknown --write"
+	},
+	"main": "./lib/index.js",
+	"name": "emojisplosion",
+	"packageManager": "pnpm@7.16.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JoshuaKGoldberg/emojisplosion"
+	},
+	"scripts": {
+		"build": "webpack",
+		"format": "prettier \"**/*\" --ignore-unknown",
+		"format:write": "pnpm format --write",
+		"lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
+		"lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --rules sentences-per-line",
+		"lint:package": "npmPkgJsonLint .",
+		"lint:packages": "pnpm-deduplicate --list",
+		"lint:prune": "! ts-prune | grep -v \"used in module\"",
+		"lint:spelling": "cspell \"**\" \".github/**/*\"",
+		"prepare": "husky install",
+		"test": "vitest",
+		"tsc": "tsc"
+	},
+	"type": "module",
+	"version": "3.0.0"
 }

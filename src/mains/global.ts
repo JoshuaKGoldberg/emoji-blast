@@ -1,8 +1,8 @@
 import { emojisplosion, emojisplosions } from "../index";
 
 declare const window: Window & {
-    emojisplosion: typeof emojisplosion;
-    emojisplosions: typeof emojisplosions;
+	emojisplosion: typeof emojisplosion;
+	emojisplosions: typeof emojisplosions;
 };
 
 window.emojisplosion = emojisplosion;

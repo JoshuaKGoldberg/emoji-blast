@@ -1,26 +1,36 @@
-const path = require('path');
+import path from "path";
+import * as url from "url";
 
-module.exports = {
-    entry: {
-        easy: "./src/mains/easy.ts",
-        global: "./src/mains/global.ts",
-        onclick: "./src/mains/onclick.ts",
-        size: "./src/mains/size.ts",
-    },
-    mode: "production",
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            }
-        ]
-    },
-    resolve: {
-        extensions: [".ts"]
-    },
-    output: {
-        path: path.resolve(__dirname, "lib")
-    }
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
+
+export default {
+	entry: {
+		easy: "./src/mains/easy.ts",
+		global: "./src/mains/global.ts",
+		onclick: "./src/mains/onclick.ts",
+		size: "./src/mains/size.ts",
+	},
+	mode: "production",
+	module: {
+		rules: [
+			{
+				exclude: /node_modules/,
+				test: /\.tsx?$/,
+				use: {
+					loader: "ts-loader",
+					options: {
+						compilerOptions: {
+							noEmit: false,
+						},
+					},
+				},
+			},
+		],
+	},
+	resolve: {
+		extensions: [".ts"],
+	},
+	output: {
+		path: path.join(__dirname, "dist"),
+	},
 };

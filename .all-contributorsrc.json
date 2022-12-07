@@ -1,0 +1,21 @@
+{
+	"commit": false,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
+			"contributions": ["tool"],
+			"login": "JoshuaKGoldberg",
+			"name": "Josh Goldberg",
+			"profile": "http://www.joshuakgoldberg.com"
+		}
+	],
+	"contributorsPerLine": 7,
+	"files": ["README.md"],
+	"imageSize": 100,
+	"projectName": "emojisplosion",
+	"projectOwner": "JoshuaKGoldberg",
+	"repoHost": "https://github.com",
+	"repoType": "github",
+	"skipCi": true
+}
