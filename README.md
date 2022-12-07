@@ -441,23 +441,6 @@ emojisplosions({
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md).
 Thanks! 💖
 
-### Demos
-
-A set of `.html` files exists under `./demo` with a different way of showing off Emojisplosion features.
-Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` under the same name.
-You can run Webpack in watch mode to continuously rebuild bundled scripts corresponding to those demos:
-
-```shell
-npm run watch
-```
-
-### Tests
-
-Despite [previously advocating for 100% unit test coverage](https://medium.com/@joshuakgoldberg/in-defense-of-100-unit-test-coverage-7fd1a9873ca4), there are intentionally no unit tests in this project.
-Learning TypeScript is hard enough for many.
-
-Since it's so small and randomization-based, I'd rather make it easier for folks to contribute.
-
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

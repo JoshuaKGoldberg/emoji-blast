@@ -15,8 +15,15 @@ Run TypeScript locally to type check and build them into `lib/`:
 pnpm build --watch
 ```
 
-Separately, to update the files provided to browsers -including the demos in `demos/`, run Webpack locally to build them into outputs `.js` files under `dist/`:
+## Browsers
+
+Separately, to update the files provided to browsers, run Webpack locally to build them into `.js` outputs under `dist/`:
 
 ```shell
 pnpm webpack --watch
 ```
+
+### Demos
+
+A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
+Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` under the same name.
