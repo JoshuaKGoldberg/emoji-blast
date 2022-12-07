@@ -60,7 +60,7 @@
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
 	},
-	"main": "./dist/index.js",
+	"main": "./lib/index.js",
 	"name": "emojisplosion",
 	"packageManager": "pnpm@7.16.0",
 	"repository": {
