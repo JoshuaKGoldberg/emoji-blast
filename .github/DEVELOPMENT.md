@@ -8,16 +8,14 @@ cd template-typescript-node-package
 pnpm install
 ```
 
-## Building
-
 In order to develop this package, modify the `.ts` files under `src/`.
-Run TypeScript locally to type check them:
+Run TypeScript locally to type check and build them into `lib/`:
 
 ```shell
 pnpm build --watch
 ```
 
-Alternately, run Webpack locally to build them into outputs `.js` files under `lib/`:
+Separately, to update the files provided to browsers -including the demos in `demos/`, run Webpack locally to build them into outputs `.js` files under `dist/`:
 
 ```shell
 pnpm webpack --watch

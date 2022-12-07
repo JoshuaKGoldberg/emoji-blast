@@ -24,6 +24,7 @@ module.exports = {
 			],
 			files: ["**/*.{ts,tsx}"],
 			parserOptions: {
+				allowAutomaticSingleRunInference: true,
 				project: "./tsconfig.eslint.json",
 			},
 			rules: {

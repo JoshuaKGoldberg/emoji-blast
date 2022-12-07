@@ -56,7 +56,7 @@
 		"url": "https://github.com/JoshuaKGoldberg/emojisplosion"
 	},
 	"scripts": {
-		"build": "tsc",
+		"build": "webpack",
 		"format": "prettier \"**/*\" --ignore-unknown",
 		"format:write": "pnpm format --write",
 		"lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
@@ -67,7 +67,7 @@
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
 		"prepare": "husky install",
 		"test": "vitest",
-		"webpack": "webpack"
+		"tsc": "tsc"
 	},
 	"type": "module",
 	"version": "0.0.1"
