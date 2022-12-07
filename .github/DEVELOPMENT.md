@@ -4,7 +4,7 @@ After [forking the repo from GitHub](https://help.github.com/articles/fork-a-rep
 
 ```shell
 git clone https://github.com/<your-name-here>/emojisplosion
-cd template-typescript-node-package
+cd emojisplosion
 pnpm install
 ```
 
