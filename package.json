@@ -32,7 +32,7 @@
 		"npm-package-json-lint-config-default": "^5.0.0",
 		"pnpm-deduplicate": "^0.4.1",
 		"prettier": "^2.8.0",
-		"semantic-release": "^19.0.5",
+		"semantic-release": "^20.0.0",
 		"sentences-per-line": "^0.2.1",
 		"ts-loader": "^9.4.2",
 		"ts-prune": "^0.10.3",
