@@ -21,7 +21,7 @@
 		"eslint-plugin-markdown": "^3.0.0",
 		"eslint-plugin-no-only-tests": "^3.1.0",
 		"eslint-plugin-regexp": "^1.11.0",
-		"eslint-plugin-simple-import-sort": "^8.0.0",
+		"eslint-plugin-simple-import-sort": "^9.0.0",
 		"eslint-plugin-typescript-sort-keys": "^2.1.0",
 		"eslint-plugin-vitest": "^0.0.29",
 		"husky": "^8.0.2",
