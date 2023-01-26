@@ -10,7 +10,7 @@
 		"@semantic-release/release-notes-generator": "^10.0.3",
 		"@typescript-eslint/eslint-plugin": "^5.45.1",
 		"@typescript-eslint/parser": "^5.45.1",
-		"@vitest/coverage-c8": "^0.27.0",
+		"@vitest/coverage-c8": "^0.28.0",
 		"chalk": "^5.1.2",
 		"cspell": "^6.17.0",
 		"eslint": "^8.29.0",
