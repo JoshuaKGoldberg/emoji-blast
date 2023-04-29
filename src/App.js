@@ -1,12 +1,12 @@
 import './App.css';
-import { SideBar } from './components/side-bar/side-bar';
-import { ExplosionContainer } from './components/explosion-container/explosion-container';
+import { HomeContianer } from './components/home-container/home-container';
+import { NavBar } from './components/nav-bar/nav-bar';
 
 function App() {
   return (
     <div className="App">
-      <ExplosionContainer></ExplosionContainer>
-      <SideBar></SideBar>
+      <NavBar></NavBar>
+      <HomeContianer></HomeContianer>
     </div>
   );
 }
