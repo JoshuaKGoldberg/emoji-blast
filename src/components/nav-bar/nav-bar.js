@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
+/** @jsxImportSource @emotion/react */
 import * as styles from "./styles";
 import { colors } from "../../colors/colors";
 
@@ -9,7 +9,7 @@ export function NavBar() {
     const ghLink = "https://github.com/JoshuaKGoldberg/emojisplosion";
 
     return (
-        <div style={styles.navBar}>
+        <div css={styles.navBar}>
             <h1>
                 <span style={{color: colors.pink}}>e</span>
                 <span style={{color: colors.blue}}>m</span>
@@ -26,7 +26,7 @@ export function NavBar() {
                 <span style={{color: colors.pink}}>n</span>
                 {" "}Demo Site</h1>
             <a href={ghLink} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faGithub} style={styles.icon}/>
+                <FontAwesomeIcon icon={faGithub} css={styles.icon}/>
             </a>
         </div>
     )

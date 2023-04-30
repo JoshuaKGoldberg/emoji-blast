@@ -1,8 +1,8 @@
-import React from "react";
+/** @jsxImportSource @emotion/react */
 import * as styles from "./styles";
 
 export function ExplosionContainer() {
     return (
-        <div id="explosion-container" style={styles.explosionContainer}></div>
+        <div id="explosion-container" css={styles.explosionContainer}></div>
     )
 }
