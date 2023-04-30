@@ -6,9 +6,9 @@ import * as styles from './styles';
 export function ExampleContainer({name, handleClick, codeSnippet}) {
     return (
         <div style={styles.container}>
-            <h3>{name}</h3>
-            <Button handleClick={handleClick}></Button>
+            <p style={styles.name}>{name}</p>
             <CodeBlurb codeSnippet={codeSnippet}></CodeBlurb>
+            <Button handleClick={handleClick}></Button>
         </div>
     )
 } 
