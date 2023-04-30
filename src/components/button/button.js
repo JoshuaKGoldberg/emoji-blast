@@ -1,9 +1,11 @@
 import React from "react";
 
+import * as styles from "./styles";
+
 export function Button({handleClick}) {
     return (
-        <>
-            <button onClick={handleClick}>Click Me</button>
-        </>
+        <div>
+            <button onClick={handleClick} style={styles.button}>Try It</button>
+        </div>
     )
 } 
