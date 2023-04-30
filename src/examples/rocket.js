@@ -2,7 +2,12 @@ import { emojisplosion } from "emojisplosion"
 
 export const name = "Rocket";
 
-export const codeSnippet = "this is a code snippet"
+export const blurb = "hi";
+
+export const codeSnippet = `emojisplosion({
+    container: document.getElementById("explosion-container"),
+    emojis: ["💖", "💕", "💗", "💓", "💝"],
+})`
 
 export const handleClick = () => {
     emojisplosion({

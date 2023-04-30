@@ -12,3 +12,7 @@ export const name = {
     fontSize: "20px",
     fontWeight: "bold"
 }
+
+export const blurb = {
+    color: colors.gray,
+}
