@@ -2,7 +2,7 @@ import { colors } from "../../colors/colors";
 
 export const container = {
     background: colors.purple,
-    height: '200px',
+    height: 'fit-content',
     margin: "3rem 2.5rem",
     borderRadius: "10px",
     padding: "1rem"
