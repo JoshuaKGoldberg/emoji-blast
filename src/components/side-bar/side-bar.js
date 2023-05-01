@@ -4,7 +4,7 @@ import { ExampleContainer } from "../example-container/example-container";
 import * as emojisplosions from "../../examples/emojisplosions";
 import * as emojisplosion from "../../examples/emojisplosion";
 import * as numEmojis from "../../examples/num-emojis";
-import * as onlyPurp from "../../examples/only-purple";
+import * as alwaysBlue from "../../examples/always-blue";
 import * as large from "../../examples/large";
 import * as gravity from "../../examples/gravity";
 import * as baseEle from "../../examples/base-element";
@@ -20,7 +20,7 @@ export function SideBar() {
             <ExampleContainer name={emojisplosions.name} blurb={emojisplosions.blurb} handleClick={emojisplosions.handleClick} codeSnippet={emojisplosions.codeSnippet} />
             <ExampleContainer name={emojisplosion.name} blurb={emojisplosion.blurb} handleClick={emojisplosion.handleClick} codeSnippet={emojisplosion.codeSnippet} />
             <ExampleContainer name={numEmojis.name} blurb={numEmojis.blurb} handleClick={numEmojis.handleClick} codeSnippet={numEmojis.codeSnippet} />
-            <ExampleContainer name={onlyPurp.name} blurb={onlyPurp.blurb} handleClick={onlyPurp.handleClick} codeSnippet={onlyPurp.codeSnippet} />
+            <ExampleContainer name={alwaysBlue.name} blurb={alwaysBlue.blurb} handleClick={alwaysBlue.handleClick} codeSnippet={alwaysBlue.codeSnippet} />
             <ExampleContainer name={large.name} blurb={large.blurb} handleClick={large.handleClick} codeSnippet={large.codeSnippet} />
             <ExampleContainer name={gravity.name} blurb={gravity.blurb} handleClick={gravity.handleClick} codeSnippet={gravity.codeSnippet} />
             <ExampleContainer name={baseEle.name} blurb={baseEle.blurb} handleClick={baseEle.handleClick} codeSnippet={baseEle.codeSnippet} />
