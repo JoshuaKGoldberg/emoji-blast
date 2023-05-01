@@ -6,7 +6,7 @@ specifiers:
   '@semantic-release/git': ^10.0.1
   '@semantic-release/github': ^8.0.7
   '@semantic-release/npm': ^10.0.0
-  '@semantic-release/release-notes-generator': ^10.0.3
+  '@semantic-release/release-notes-generator': ^11.0.0
   '@typescript-eslint/eslint-plugin': ^5.45.1
   '@typescript-eslint/parser': ^5.45.1
   '@vitest/coverage-c8': ^0.29.0
@@ -46,7 +46,7 @@ devDependencies:
   '@semantic-release/git': 10.0.1_semantic-release@21.0.0
   '@semantic-release/github': 8.0.7_semantic-release@21.0.0
   '@semantic-release/npm': 10.0.2_semantic-release@21.0.0
-  '@semantic-release/release-notes-generator': 10.0.3_semantic-release@21.0.0
+  '@semantic-release/release-notes-generator': 11.0.1_semantic-release@21.0.0
   '@typescript-eslint/eslint-plugin': 5.45.1_5wczvnd7qziwomuzv7kjs5afya
   '@typescript-eslint/parser': 5.45.1_qbz4jmbab2hgh4ewp5o4qf6kv4
   '@vitest/coverage-c8': 0.29.7_vitest@0.29.5
@@ -936,6 +936,27 @@ packages:
       into-stream: 6.0.0
       lodash: 4.17.21
       read-pkg-up: 7.0.1
+      semantic-release: 21.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@semantic-release/release-notes-generator/11.0.1_semantic-release@21.0.0:
+    resolution: {integrity: sha512-4deWsiY4Rg80oc9Ms11N20BIDgYkPMys4scNYQpi2Njdrtw5Z55nXKNsUN3kn6Sy/nI9dqqbp5L63TL4luI5Bw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      semantic-release: '>=20.1.0'
+    dependencies:
+      conventional-changelog-angular: 5.0.13
+      conventional-changelog-writer: 5.0.1
+      conventional-commits-filter: 2.0.7
+      conventional-commits-parser: 3.2.4
+      debug: 4.3.4
+      get-stream: 6.0.1
+      import-from: 4.0.0
+      into-stream: 7.0.0
+      lodash-es: 4.17.21
+      read-pkg-up: 9.1.0
       semantic-release: 21.0.0
     transitivePeerDependencies:
       - supports-color
@@ -3325,6 +3346,14 @@ packages:
   /into-stream/6.0.0:
     resolution: {integrity: sha512-XHbaOAvP+uFKUFsOgoNPRjLkwB+I22JFPFe5OjTkQ0nwgj6+pSjb4NmB6VMxaPshLiOf+zcpOCBQuLwC1KHhZA==}
     engines: {node: '>=10'}
+    dependencies:
+      from2: 2.3.0
+      p-is-promise: 3.0.0
+    dev: true
+
+  /into-stream/7.0.0:
+    resolution: {integrity: sha512-2dYz766i9HprMBasCMvHMuazJ7u4WzhJwo5kb3iPSiW/iRYV6uPari3zHoqZlnuaR7V1bEiNMxikhp37rdBXbw==}
+    engines: {node: '>=12'}
     dependencies:
       from2: 2.3.0
       p-is-promise: 3.0.0
