@@ -13,7 +13,7 @@
   - `handleClick`
   - `codeSnippet`
 
-```
+```javascript
 import { emojisplosion } from "emojisplosion"
 
 export const name = "Example name";
