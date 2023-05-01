@@ -1,8 +1,8 @@
-import { emojisplosion } from "emojisplosion"
+import { emojisplosion } from "emojisplosion";
 
-export const name = "Gravity";
+export const name = "Inverse Gravity";
 
-export const blurb = "hi";
+export const blurb = "Emojisplosion with inverted gravity";
 
 export const codeSnippet = `emojisplosion({
 	physics: {
