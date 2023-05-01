@@ -7,11 +7,11 @@ export const button = {
     border: "none",
     borderRadius: "10px",
     padding: ".4rem 1rem",
-    background: colors.orange,
-    color: colors.darkestPurple,
+    background: colors.orange100,
+    color: colors.purple300,
     marginBottom: "1rem",
     cursor: "pointer",
     "&:hover": {
-        background: colors.darkOrange,
+        background: colors.orange0,
     }
 }

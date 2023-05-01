@@ -7,11 +7,11 @@ export const navBar = {
     fontFamily: "Monospace",
     alignItems: "center",
     padding: "0rem 2rem",
-    background: colors.darkPurple
+    background: colors.purple200
 }
 
 export const icon = {
-    color: "white",
+    color: colors.white,
     fontSize: "28px",
     "&:hover": {
         color: colors.gray,
