@@ -12,5 +12,8 @@ export const navBar = {
 
 export const icon = {
     color: "white",
-    fontSize: "28px"
+    fontSize: "28px",
+    "&:hover": {
+        color: colors.gray,
+    }
 }
