@@ -1,10 +1,33 @@
-# Getting Started with Create React App
+# Emojisplosion Demo Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Creating a new example:
 
-## Available Scripts
+1. Clone the repo
+2. Go to `emojisplosion-demo/src/examples`
+3. Follow `/example-template` or the below code snippet to create a new example explosion
+4. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
+5. Import `*` from your new example file at the top of `side-bar.js` following convention
+6. Create a new `<ExampleContainer/>` in `SideBar` and add the following props with your newly imported example
+  - `name`
+  - `blurb`
+  - `handleClick`
+  - `codeSnippet`
 
-In the project directory, you can run:
+```
+import { emojisplosion } from "emojisplosion"
+
+export const name = "Example name";
+
+export const blurb = "Example description";
+
+export const codeSnippet = `Copy paste the code from your handleClick below`;
+
+export const handleClick = () => {
+    emojisplosion({
+        // Create your own explosion!!
+    })
+}
+```
 
 ### `npm start`
 
