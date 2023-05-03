@@ -26,7 +26,6 @@ export const handleClick = () => {
                     min: 11.7,
                 },
             },
-            preserveOutOfBounds: true,
         },
     });
 }
