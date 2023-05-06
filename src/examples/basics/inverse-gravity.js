@@ -5,15 +5,15 @@ export const name = "Inverse Gravity";
 export const blurb = "Emojisplosion with inverted gravity.";
 
 export const codeSnippet = `emojisplosion({
-	physics: {
-		gravity: -0.35,
-		initialVelocities: {
-			y: {
-				max: 14,
-				min: 11.7,
-			},
-		},
-	},
+    physics: {
+        gravity: -0.35,
+        initialVelocities: {
+            y: {
+                max: 14,
+                min: 11.7,
+            },
+        },
+    },
 });`
 
 export const handleClick = () => {
@@ -28,4 +28,4 @@ export const handleClick = () => {
             },
         },
     });
-}
+};
