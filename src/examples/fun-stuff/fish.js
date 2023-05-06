@@ -10,7 +10,6 @@ export const codeSnippet = `emojisplosion({
 
 export const handleClick = () => {
     emojisplosion({
-        container: document.getElementById("explosion-container"),
         emojis: ["🐠", "🐟", "🐡"],
         emojiCount: () => Math.random() * 10 + 20,
         position: {
@@ -24,7 +23,7 @@ export const handleClick = () => {
             initialVelocities: {
                 rotation: {min: -1, max: 1},
                 x: {min: -14 , max: -6},
-                y: 0
+                y: {min: -2 , max: 1}
             },
             rotation: 0,
             // opacityDelay: 100,

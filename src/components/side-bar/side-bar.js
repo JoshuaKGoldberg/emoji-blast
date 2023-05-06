@@ -1,17 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import { ExampleContainer } from "../example-container/example-container";
 
-import * as emojisplosions from "../../examples/emojisplosions";
-import * as emojisplosion from "../../examples/emojisplosion";
-import * as numEmojis from "../../examples/num-emojis";
-import * as alwaysBlue from "../../examples/always-blue";
-import * as setPosition from "../../examples/set-position";
-import * as large from "../../examples/large";
-import * as gravity from "../../examples/gravity";
-import * as baseEle from "../../examples/base-element";
-import * as fish from "../../examples/fish";
-import * as rocket from "../../examples/rocket";
-import * as heart from "../../examples/heart";
+import * as emojisplosions from "../../examples/basics/emojisplosions";
+import * as emojisplosion from "../../examples/basics/emojisplosion";
+import * as numEmojis from "../../examples/basics/num-emojis";
+import * as alwaysBlue from "../../examples/basics/always-blue";
+import * as setPosition from "../../examples/basics/set-position";
+import * as large from "../../examples/basics/large";
+import * as gravity from "../../examples/basics/gravity";
+import * as baseEle from "../../examples/basics/base-element";
+
+import * as fish from "../../examples/fun-stuff/fish";
+import * as rocket from "../../examples/fun-stuff/rocket";
+import * as heart from "../../examples/fun-stuff/heart";
 
 import * as styles from "./styles";
 
