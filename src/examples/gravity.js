@@ -2,7 +2,7 @@ import { emojisplosion } from "emojisplosion";
 
 export const name = "Inverse Gravity";
 
-export const blurb = "Emojisplosion with inverted gravity";
+export const blurb = "Emojisplosion with inverted gravity.";
 
 export const codeSnippet = `emojisplosion({
 	physics: {

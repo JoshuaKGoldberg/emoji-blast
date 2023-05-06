@@ -10,7 +10,7 @@ export function NavBar() {
 
     return (
         <div css={styles.navBar}>
-            <h1>
+            <h1 id="title">
                 <span style={{color: colors.pink}}>e</span>
                 <span style={{color: colors.blue}}>m</span>
                 <span style={{color: colors.yellow}}>o</span>

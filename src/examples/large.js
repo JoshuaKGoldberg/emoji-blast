@@ -2,7 +2,7 @@ import { emojisplosion } from "emojisplosion";
 
 export const name = "Large";
 
-export const blurb = "Emojisplosion with extra large emojis";
+export const blurb = "Emojisplosion with extra large emojis.";
 
 export const codeSnippet = `emojisplosion({
     physics: {
