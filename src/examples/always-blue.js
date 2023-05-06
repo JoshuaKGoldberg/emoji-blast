@@ -2,7 +2,7 @@ import { emojisplosion } from "emojisplosion";
 
 export const name = "Always Blue";
 
-export const blurb = "Emojisplosion with only blue emojis";
+export const blurb = "Emojisplosion with only blue emojis.";
 
 export const codeSnippet = `emojisplosion({
     emojis: ["🥶", "🧞‍♂️", "👕", "🧵", "👔", "👖", "🥿", "🧢", "🦋", "🦕", "🐟", "🐬", "🐳", "🐋", "🌎", "💧", "💦", "🌊", "🫐", "🧊", "🥣", "🥏", "🥍", "🛝", "🎽", "🎣", "🚙", "🚎", "⛴️", "🗺️", "🌌", "🗾", "💎", "🧿", "🪬", "🩻", "🛋️", "📪", "📘", "🖌️", "💙", "💠", "Ⓜ️", "🌀", "💤", "🛂", "🌐", "🔵", "🔹", "🔷", "🟦"],
