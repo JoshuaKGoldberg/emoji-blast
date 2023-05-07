@@ -40,7 +40,7 @@ for (let i = 0; i < 1000; i += 25) {
 };
 `;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     // using a loop to set explosions to occur at steps of 25 between 0 & 1000 accross the x axis
     for (let i = 0; i < 1000; i += 25) {
 
@@ -76,3 +76,5 @@ export const handleClick = () => {
         setTimeout(cancel, 5000);
     };
 };
+
+export const disableButtonTime = 5000;

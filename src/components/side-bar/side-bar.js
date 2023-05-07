@@ -40,7 +40,7 @@ export function SideBar() {
             {/* <ExampleContainer name={fish.name} blurb={fish.blurb} explosionFunct={fish.explosionFunct} codeSnippet={fish.codeSnippet} /> */}
             <ExampleContainer name={rocket.name} blurb={rocket.blurb} explosionFunct={rocket.explosionFunct} codeSnippet={rocket.codeSnippet} />
             <ExampleContainer name={heart.name} blurb={heart.blurb} explosionFunct={heart.explosionFunct} codeSnippet={heart.codeSnippet} />
-            <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} />
+            <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} disableButtonTime={rainstorm.disableButtonTime}/>
         </div>
     )
 }
