@@ -2,5 +2,5 @@ import { colors } from "../../colors/colors";
 
 export const explosionContainer = {
     width: "65vw",
-    background: colors.purple400,
+    background: colors.violet500,
 }

@@ -3,7 +3,7 @@ import { colors } from "./colors";
 export const snippetTheme = {
     lineNumberColor: "#ccc",
     lineNumberBgColor: "#222",
-    backgroundColor: colors.purple300,
+    backgroundColor: colors.violet300,
     textColor: "white",
     substringColor: "red",
     keywordColor: colors.blue,

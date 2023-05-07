@@ -14,13 +14,13 @@ export function NavBar() {
                 <span style={{color: colors.pink}}>e</span>
                 <span style={{color: colors.blue}}>m</span>
                 <span style={{color: colors.yellow}}>o</span>
-                <span style={{color: colors.purple0}}>j</span>
+                <span style={{color: colors.purple}}>j</span>
                 <span style={{color: colors.green}}>i</span>
                 <span style={{color: colors.orange0}}>s</span>
                 <span style={{color: colors.pink}}>p</span>
                 <span style={{color: colors.blue}}>l</span>
                 <span style={{color: colors.yellow}}>o</span>
-                <span style={{color: colors.purple0}}>s</span>
+                <span style={{color: colors.purple}}>s</span>
                 <span style={{color: colors.green}}>i</span>
                 <span style={{color: colors.orange0}}>o</span>
                 <span style={{color: colors.pink}}>n</span>

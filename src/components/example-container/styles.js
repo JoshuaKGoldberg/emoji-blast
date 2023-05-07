@@ -1,7 +1,7 @@
 import { colors } from "../../colors/colors";
 
 export const container = {
-    background: colors.purple100,
+    background: colors.violet100,
     height: 'fit-content',
     margin: "3rem 2.5rem",
     borderRadius: "10px",

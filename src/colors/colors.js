@@ -7,10 +7,11 @@ export const colors = {
     yellow: "#F3DD7B",
     green: "#84EB7E",
     blue: "#73C7EB",
-    purple0: "#A16ED5",
-    purple100: "#3A354B",
-    purple200: "#262139",
-    purple300: "#15121E",
-    purple500: "#1A1626",
-    purple400: "#0D0B13",
-}
+    purple: "#A16ED5", 
+    violet0: "#655F78",  
+    violet100: "#3A354B", 
+    violet200: "#262139", 
+    violet300: "#15121E", 
+    violet400: "#1A1626", 
+    violet500: "#0D0B13",
+};
