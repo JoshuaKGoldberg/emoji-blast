@@ -16,7 +16,7 @@ export const codeSnippet = `emojisplosion({
     }
 });`;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     emojisplosion({
         emojis: ["🌀"],
         physics: {

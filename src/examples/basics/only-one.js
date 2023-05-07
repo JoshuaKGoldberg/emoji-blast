@@ -8,7 +8,7 @@ export const codeSnippet = `emojisplosion({
     uniqueness: 1,
 });`
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     emojisplosion({
         uniqueness: 1,
     });

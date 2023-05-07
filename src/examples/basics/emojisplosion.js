@@ -6,6 +6,6 @@ export const blurb = "A singular explosion.";
 
 export const codeSnippet = `emojisplosion();`;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     emojisplosion();
 }

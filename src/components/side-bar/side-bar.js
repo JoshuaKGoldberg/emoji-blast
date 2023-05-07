@@ -25,22 +25,22 @@ import * as styles from "./styles";
 export function SideBar() {
     return (
         <div css={styles.sideBarContainer}>
-            <ExampleContainer name={emojisplosions.name} blurb={emojisplosions.blurb} handleClick={emojisplosions.handleClick} codeSnippet={emojisplosions.codeSnippet} />
-            <ExampleContainer name={emojisplosion.name} blurb={emojisplosion.blurb} handleClick={emojisplosion.handleClick} codeSnippet={emojisplosion.codeSnippet} />
-            <ExampleContainer name={numEmojis.name} blurb={numEmojis.blurb} handleClick={numEmojis.handleClick} codeSnippet={numEmojis.codeSnippet} />
-            <ExampleContainer name={alwaysBlue.name} blurb={alwaysBlue.blurb} handleClick={alwaysBlue.handleClick} codeSnippet={alwaysBlue.codeSnippet} />
-            <ExampleContainer name={onlyOne.name} blurb={onlyOne.blurb} handleClick={onlyOne.handleClick} codeSnippet={onlyOne.codeSnippet} />
-            <ExampleContainer name={setPosition.name} blurb={setPosition.blurb} handleClick={setPosition.handleClick} codeSnippet={setPosition.codeSnippet} />
-            <ExampleContainer name={titleExplosion.name} blurb={titleExplosion.blurb} handleClick={titleExplosion.handleClick} codeSnippet={titleExplosion.codeSnippet} />
-            <ExampleContainer name={large.name} blurb={large.blurb} handleClick={large.handleClick} codeSnippet={large.codeSnippet} />
-            <ExampleContainer name={inverseGravity.name} blurb={inverseGravity.blurb} handleClick={inverseGravity.handleClick} codeSnippet={inverseGravity.codeSnippet} />
-            <ExampleContainer name={spinnin.name} blurb={spinnin.blurb} handleClick={spinnin.handleClick} codeSnippet={spinnin.codeSnippet} />
-            <ExampleContainer name={speedRacer.name} blurb={speedRacer.blurb} handleClick={speedRacer.handleClick} codeSnippet={speedRacer.codeSnippet} />
-            <ExampleContainer name={eeaao.name} blurb={eeaao.blurb} handleClick={eeaao.handleClick} codeSnippet={eeaao.codeSnippet} />
-            {/* <ExampleContainer name={fish.name} blurb={fish.blurb} handleClick={fish.handleClick} codeSnippet={fish.codeSnippet} /> */}
-            <ExampleContainer name={rocket.name} blurb={rocket.blurb} handleClick={rocket.handleClick} codeSnippet={rocket.codeSnippet} />
-            <ExampleContainer name={heart.name} blurb={heart.blurb} handleClick={heart.handleClick} codeSnippet={heart.codeSnippet} />
-            <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} handleClick={rainstorm.handleClick} codeSnippet={rainstorm.codeSnippet} />
+            <ExampleContainer name={emojisplosions.name} blurb={emojisplosions.blurb} explosionFunct={emojisplosions.explosionFunct} codeSnippet={emojisplosions.codeSnippet} />
+            <ExampleContainer name={emojisplosion.name} blurb={emojisplosion.blurb} explosionFunct={emojisplosion.explosionFunct} codeSnippet={emojisplosion.codeSnippet} />
+            <ExampleContainer name={numEmojis.name} blurb={numEmojis.blurb} explosionFunct={numEmojis.explosionFunct} codeSnippet={numEmojis.codeSnippet} />
+            <ExampleContainer name={alwaysBlue.name} blurb={alwaysBlue.blurb} explosionFunct={alwaysBlue.explosionFunct} codeSnippet={alwaysBlue.codeSnippet} />
+            <ExampleContainer name={onlyOne.name} blurb={onlyOne.blurb} explosionFunct={onlyOne.explosionFunct} codeSnippet={onlyOne.codeSnippet} />
+            <ExampleContainer name={setPosition.name} blurb={setPosition.blurb} explosionFunct={setPosition.explosionFunct} codeSnippet={setPosition.codeSnippet} />
+            <ExampleContainer name={titleExplosion.name} blurb={titleExplosion.blurb} explosionFunct={titleExplosion.explosionFunct} codeSnippet={titleExplosion.codeSnippet} />
+            <ExampleContainer name={large.name} blurb={large.blurb} explosionFunct={large.explosionFunct} codeSnippet={large.codeSnippet} />
+            <ExampleContainer name={inverseGravity.name} blurb={inverseGravity.blurb} explosionFunct={inverseGravity.explosionFunct} codeSnippet={inverseGravity.codeSnippet} />
+            <ExampleContainer name={spinnin.name} blurb={spinnin.blurb} explosionFunct={spinnin.explosionFunct} codeSnippet={spinnin.codeSnippet} />
+            <ExampleContainer name={speedRacer.name} blurb={speedRacer.blurb} explosionFunct={speedRacer.explosionFunct} codeSnippet={speedRacer.codeSnippet} />
+            <ExampleContainer name={eeaao.name} blurb={eeaao.blurb} explosionFunct={eeaao.explosionFunct} codeSnippet={eeaao.codeSnippet} />
+            {/* <ExampleContainer name={fish.name} blurb={fish.blurb} explosionFunct={fish.explosionFunct} codeSnippet={fish.codeSnippet} /> */}
+            <ExampleContainer name={rocket.name} blurb={rocket.blurb} explosionFunct={rocket.explosionFunct} codeSnippet={rocket.codeSnippet} />
+            <ExampleContainer name={heart.name} blurb={heart.blurb} explosionFunct={heart.explosionFunct} codeSnippet={heart.codeSnippet} />
+            <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} />
         </div>
     )
 }

@@ -75,7 +75,7 @@ clouds();
 setTimeout(sparkles, 400);
 `
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     // function for the rocket
     const rocket = () => {
         emojisplosion({

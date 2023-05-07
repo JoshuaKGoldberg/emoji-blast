@@ -8,7 +8,7 @@ export const codeSnippet = `emojisplosion({
     emojiCount: () => Math.random() * 100 + 100,
 });`;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     emojisplosion({
         emojiCount: () => Math.random() * 100 + 100,
     });

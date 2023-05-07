@@ -32,7 +32,7 @@ emojisplosion({
     },
 });`;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     const element = document.getElementById("title");
 
     let cumulativeOffset = function(element) {

@@ -16,7 +16,7 @@ export const codeSnippet = `emojisplosion({
 	},
 });`
 
-export const handleClick = () => {
+export const explosionFunct = () => {
 
     // function to create each heart column of the rainbow
     const rainbowCol = () => {

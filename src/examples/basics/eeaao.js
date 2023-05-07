@@ -11,7 +11,7 @@ export const codeSnippet = `const { cancel } = emojisplosions({
 setTimeout(cancel, 3000);
 `;
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     const { cancel } = emojisplosions({
         interval: 40
     });

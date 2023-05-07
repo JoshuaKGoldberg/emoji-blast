@@ -11,7 +11,7 @@ export const codeSnippet = `emojisplosion({
     },
 });`
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     emojisplosion({
         position: {
             x: 500,

@@ -7,7 +7,7 @@ export const blurb = "Multiple emojisplosions using setTimeout to cancel the exp
 export const codeSnippet = `const { cancel } = emojisplosions();
 setTimeout(cancel, 5000);`
 
-export const handleClick = () => {
+export const explosionFunct = () => {
     const { cancel } = emojisplosions();
     setTimeout(cancel, 5000);
 }
