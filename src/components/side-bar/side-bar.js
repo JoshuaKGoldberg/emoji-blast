@@ -12,6 +12,7 @@ import * as large from "../../examples/basics/large";
 import * as inverseGravity from "../../examples/basics/inverse-gravity";
 import * as spinnin from "../../examples/basics/spinnin";
 import * as speedRacer from "../../examples/basics/speed-racer";
+import * as eeaao from "../../examples/basics/eeaao";
 
 import * as fish from "../../examples/fun-stuff/fish";
 import * as rocket from "../../examples/fun-stuff/rocket";
@@ -34,6 +35,7 @@ export function SideBar() {
             <ExampleContainer name={inverseGravity.name} blurb={inverseGravity.blurb} handleClick={inverseGravity.handleClick} codeSnippet={inverseGravity.codeSnippet} />
             <ExampleContainer name={spinnin.name} blurb={spinnin.blurb} handleClick={spinnin.handleClick} codeSnippet={spinnin.codeSnippet} />
             <ExampleContainer name={speedRacer.name} blurb={speedRacer.blurb} handleClick={speedRacer.handleClick} codeSnippet={speedRacer.codeSnippet} />
+            <ExampleContainer name={eeaao.name} blurb={eeaao.blurb} handleClick={eeaao.handleClick} codeSnippet={eeaao.codeSnippet} />
             <ExampleContainer name={fish.name} blurb={fish.blurb} handleClick={fish.handleClick} codeSnippet={fish.codeSnippet} />
             <ExampleContainer name={rocket.name} blurb={rocket.blurb} handleClick={rocket.handleClick} codeSnippet={rocket.codeSnippet} />
             <ExampleContainer name={heart.name} blurb={heart.blurb} handleClick={heart.handleClick} codeSnippet={heart.codeSnippet} />
