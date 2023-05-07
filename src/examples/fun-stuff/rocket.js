@@ -4,14 +4,18 @@ export const name = "Rocket";
 
 export const blurb = "A singular rocket shoots out from a set spot on the page at an angle, followed by a burst of clouds and sparkles. Each set of emojis uses it's own emojisplosion function. The sparkle function is set to occur 400 milliseconds after the rocket and clouds go off.";
 
-export const codeSnippet = `// function for the rocket
+export const codeSnippet = `// finding the height of the explosion contianer to base y position of the blast around
+const containerHeight = document.getElementById("explosion-container").offsetHeight;
+const blastYPos = containerHeight - 10;
+
+// function for the rocket
 const rocket = () => {
     emojisplosion({
         emojis: ["🚀"], 
         emojiCount: 1,
         position: {
             x: 150,
-            y: 850,
+            y: blastYPos,
         },
         physics: {
             rotationDeceleration: 0,
@@ -33,7 +37,7 @@ const clouds = () => {
         emojiCount: 10,
         position: {
             x: 150,
-            y: 850,
+            y: blastYPos,
         },
         physics: {
             rotationDeceleration: 0,
@@ -55,7 +59,8 @@ const sparkles = () => {
         emojiCount: 10,
         position: {
             x: 200,
-            y: 790,
+            // y: 790,
+            y: blastYPos - 60,
         },
         physics: {
             fontSize: {min: 10, max: 30},
@@ -73,9 +78,13 @@ clouds();
 
 // set sparkles to go off 400 milliseconds after the rocket & clouds
 setTimeout(sparkles, 400);
-`
+`;
 
 export const explosionFunct = () => {
+    // finding the height of the explosion contianer to base y position of the blast around
+    const containerHeight = document.getElementById("explosion-container").offsetHeight;
+    const blastYPos = containerHeight - 10;
+
     // function for the rocket
     const rocket = () => {
         emojisplosion({
@@ -83,7 +92,7 @@ export const explosionFunct = () => {
             emojiCount: 1,
             position: {
                 x: 150,
-                y: 850,
+                y: blastYPos,
             },
             physics: {
                 rotationDeceleration: 0,
@@ -105,7 +114,7 @@ export const explosionFunct = () => {
             emojiCount: 10,
             position: {
                 x: 150,
-                y: 850,
+                y: blastYPos,
             },
             physics: {
                 rotationDeceleration: 0,
@@ -127,7 +136,8 @@ export const explosionFunct = () => {
             emojiCount: 10,
             position: {
                 x: 200,
-                y: 790,
+                // y: 790,
+                y: blastYPos - 60,
             },
             physics: {
                 fontSize: {min: 10, max: 30},
@@ -145,4 +155,4 @@ export const explosionFunct = () => {
 
     // set sparkles to go off 400 milliseconds after the rocket & clouds
     setTimeout(sparkles, 400);
-}
+};

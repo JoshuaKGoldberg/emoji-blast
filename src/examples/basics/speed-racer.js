@@ -4,12 +4,16 @@ export const name = "Speed Racer";
 
 export const blurb = "Emojisplosion with three biker emojis racing across the page. Only the x value for the initialVelocity property is set.";
 
-export const codeSnippet = `emojisplosion({
+export const codeSnippet = `// using the explosion container to base the initial explosion positions around
+const containerWidth = document.getElementById("explosion-container").offsetWidth;
+const containerHeight = document.getElementById("explosion-container").offsetHeight;
+
+emojisplosion({
     emojis: ["🚴‍♀️", "🚴", "🚴‍♂️"],
     emojiCount: 3,
     position: {
-        x: 1000,
-        y: 500,
+        x: containerWidth,
+        y: Math.floor(containerHeight / 2) + 100,
     },
     physics: {
         fontSize: 68,
@@ -22,15 +26,20 @@ export const codeSnippet = `emojisplosion({
         rotation: 0,
         rotationDeceleration: 0,
     }
-});`;
+});
+`;
 
 export const explosionFunct = () => {
+    // using the explosion container to base the initial explosion positions around
+    const containerWidth = document.getElementById("explosion-container").offsetWidth;
+    const containerHeight = document.getElementById("explosion-container").offsetHeight;
+
     emojisplosion({
         emojis: ["🚴‍♀️", "🚴", "🚴‍♂️"],
         emojiCount: 3,
         position: {
-            x: 1000,
-            y: 500,
+            x: containerWidth,
+            y: Math.floor(containerHeight / 2) + 100,
         },
         physics: {
             fontSize: 68,

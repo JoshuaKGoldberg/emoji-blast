@@ -4,10 +4,14 @@ export const name = "Rainbow";
 
 export const blurb = "A rainbow made up of hearts and clouds explodes as an arc across the page. The rainbow is made of columns, where each emoji within the column is a singular emojisplosion.";
 
-export const codeSnippet = ` // function to create each heart column of the rainbow
+export const codeSnippet = `// finding midpoint of the explosion container for our starting y value position
+const containerHeight = document.getElementById("explosion-container").offsetHeight;
+const containerMidPoint = Math.floor(containerHeight / 2);
+
+// function to create each heart column of the rainbow
 const rainbowCol = () => {
-    let rainbowArr = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
-    let positionY = 500;
+    const rainbowArr = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
+    const positionY = containerMidPoint;
     
     // creates an explosion for each heart color in the column, increasing the y cordinate position for each blast
     for (let i = 0; i < rainbowArr.length; i++) {
@@ -34,8 +38,8 @@ const rainbowCol = () => {
 };
 
 // function to create cloud columns
-let clouds = () => {
-    let positionY = 500;
+const clouds = () => {
+    let positionY = containerMidPoint;
 
     // creates an explosion for each cloud in the column, increasing the y cordinate position for each blast
     for (let i = 0; i < 6; i++) {
@@ -57,7 +61,7 @@ let clouds = () => {
                 rotation: 0,
             }
         });
-        positionY += 30
+        positionY += 30;
     }
 };
 // create one column of clouds before the rainbow
@@ -72,10 +76,14 @@ setTimeout(clouds, 3000);
 `;
 
 export const explosionFunct = () => {
+    // finding midpoint of the explosion container for our starting y value position
+    const containerHeight = document.getElementById("explosion-container").offsetHeight;
+    const containerMidPoint = Math.floor(containerHeight / 2);
+
     // function to create each heart column of the rainbow
     const rainbowCol = () => {
-        let rainbowArr = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
-        let positionY = 500;
+        const rainbowArr = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
+        let positionY = containerMidPoint;
         
         // creates an explosion for each heart color in the column, increasing the y cordinate position for each blast
         for (let i = 0; i < rainbowArr.length; i++) {
@@ -102,8 +110,8 @@ export const explosionFunct = () => {
     };
 
     // function to create cloud columns
-    let clouds = () => {
-        let positionY = 500;
+    const clouds = () => {
+        let positionY = containerMidPoint;
 
         // creates an explosion for each cloud in the column, increasing the y cordinate position for each blast
         for (let i = 0; i < 6; i++) {

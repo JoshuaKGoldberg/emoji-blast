@@ -4,11 +4,13 @@ export const name = "Rainstorm";
 
 export const blurb = "Emojisplosions occuring from set points at the top of the page for 5 seconds emulating a rainstorm.";
 
-export const codeSnippet = `// using a loop to set explosions to occur at steps of 25 between 0 & 1000 accross the x axis
-for (let i = 0; i < 1000; i += 25) {
+export const codeSnippet = `const containerWidth = document.getElementById("explosion-container").offsetWidth;
+    
+// using a loop to set explosions to occur at steps of 25 between 0 & the explosion container width accross the x axis
+for (let i = 0; i < containerWidth; i += 25) {
 
     // define a random gravity for each of the raindrop explosions
-    let randGravity = (Math.random() * 0.30) + 0.10
+    const randGravity = (Math.random() * 0.30) + 0.10
 
     const { cancel } = emojisplosions({
         emojis: ["💧"],
@@ -41,11 +43,13 @@ for (let i = 0; i < 1000; i += 25) {
 `;
 
 export const explosionFunct = () => {
-    // using a loop to set explosions to occur at steps of 25 between 0 & 1000 accross the x axis
-    for (let i = 0; i < 1000; i += 25) {
+    const containerWidth = document.getElementById("explosion-container").offsetWidth;
+
+    // using a loop to set explosions to occur at steps of 25 between 0 & the explosion container width accross the x axis
+    for (let i = 0; i < containerWidth; i += 25) {
 
         // define a random gravity for each of the raindrop explosions
-        let randGravity = (Math.random() * 0.30) + 0.10
+        const randGravity = (Math.random() * 0.30) + 0.10
 
         const { cancel } = emojisplosions({
             emojis: ["💧"],
