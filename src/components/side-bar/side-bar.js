@@ -18,6 +18,7 @@ import * as eeaao from "../../examples/basics/eeaao";
 import * as rocket from "../../examples/fun-stuff/rocket";
 import * as heart from "../../examples/fun-stuff/heart";
 import * as rainstorm from "../../examples/fun-stuff/rainstorm";
+import * as rainbow from "../../examples/fun-stuff/rainbow";
 
 import * as styles from "./styles";
 
@@ -41,6 +42,7 @@ export function SideBar() {
             <ExampleContainer name={rocket.name} blurb={rocket.blurb} explosionFunct={rocket.explosionFunct} codeSnippet={rocket.codeSnippet} />
             <ExampleContainer name={heart.name} blurb={heart.blurb} explosionFunct={heart.explosionFunct} codeSnippet={heart.codeSnippet} />
             <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} disableButtonTime={rainstorm.disableButtonTime}/>
+            <ExampleContainer name={rainbow.name} blurb={rainbow.blurb} explosionFunct={rainbow.explosionFunct} codeSnippet={rainbow.codeSnippet} disableButtonTime={rainbow.disableButtonTime}/>
         </div>
     )
 }
