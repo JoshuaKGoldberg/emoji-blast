@@ -18,3 +18,5 @@ export const explosionFunct = () => {
 
     setTimeout(cancel, 3000);
 };
+
+export const disableButtonTime = 6000;
