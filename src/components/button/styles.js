@@ -8,10 +8,14 @@ export const button = {
     borderRadius: "10px",
     padding: ".4rem 1rem",
     background: colors.orange100,
-    color: colors.purple300,
+    color: colors.violet300,
     marginBottom: "1rem",
     cursor: "pointer",
     "&:hover": {
         background: colors.orange0,
+    },
+    "&:disabled": {
+        background: colors.violet0,
+        cursor: "not-allowed"
     }
 }
