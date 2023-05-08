@@ -1,7 +1,7 @@
 import { colors } from "../../colors/colors";
 
 export const explosionContainer = {
-    width: "65vw",
+    width: "60vw",
     background: colors.violet500,
     
     "@media (max-width: 414px)": {

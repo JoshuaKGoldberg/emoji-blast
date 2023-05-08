@@ -1,7 +1,7 @@
 import { colors } from "../../colors/colors";
 
 export const sideBarContainer = {
-    width: "35vw",
+    width: "40vw",
     background: colors.violet200,
     overflow: "scroll",
     height: "calc(100vh - 4rem)",
