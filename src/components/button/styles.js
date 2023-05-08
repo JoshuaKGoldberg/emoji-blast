@@ -11,9 +11,11 @@ export const button = {
     color: colors.violet300,
     marginBottom: "1rem",
     cursor: "pointer",
+
     "&:hover": {
         background: colors.orange0,
     },
+    
     "&:disabled": {
         background: colors.violet0,
         cursor: "not-allowed"
