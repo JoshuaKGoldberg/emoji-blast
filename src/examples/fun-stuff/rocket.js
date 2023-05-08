@@ -59,7 +59,6 @@ const sparkles = () => {
         emojiCount: 10,
         position: {
             x: 200,
-            // y: 790,
             y: blastYPos - 60,
         },
         physics: {
@@ -136,7 +135,6 @@ export const explosionFunct = () => {
             emojiCount: 10,
             position: {
                 x: 200,
-                // y: 790,
                 y: blastYPos - 60,
             },
             physics: {
