@@ -1,4 +1,4 @@
-import { emojisplosions } from "emojisplosion"
+import { emojisplosions } from "emojisplosion";
 
 export const name = "Everything Everywhere all at Once (for 3 seconds)";
 

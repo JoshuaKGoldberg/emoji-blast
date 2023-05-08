@@ -6,7 +6,8 @@ export const blurb = "Emojisplosion with only one type of emoji per explosion.";
 
 export const codeSnippet = `emojisplosion({
     uniqueness: 1,
-});`
+});
+`;
 
 export const explosionFunct = () => {
     emojisplosion({

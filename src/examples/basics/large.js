@@ -11,7 +11,8 @@ export const codeSnippet = `emojisplosion({
             min: 24,
         },
     },
-});`
+});
+`;
 
 export const explosionFunct = () => {
     emojisplosion({

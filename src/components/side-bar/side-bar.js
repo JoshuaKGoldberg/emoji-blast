@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { ExampleContainer } from "../example-container/example-container";
 
+// examples in the /basics folder
 import * as emojisplosions from "../../examples/basics/emojisplosions";
 import * as emojisplosion from "../../examples/basics/emojisplosion";
 import * as numEmojis from "../../examples/basics/num-emojis";
@@ -14,7 +15,7 @@ import * as spinnin from "../../examples/basics/spinnin";
 import * as speedRacer from "../../examples/basics/speed-racer";
 import * as eeaao from "../../examples/basics/eeaao";
 
-// import * as fish from "../../examples/fun-stuff/fish";
+// examples in the /fun-stuff folder
 import * as rocket from "../../examples/fun-stuff/rocket";
 import * as heart from "../../examples/fun-stuff/heart";
 import * as rainstorm from "../../examples/fun-stuff/rainstorm";
@@ -38,7 +39,6 @@ export function SideBar() {
             <ExampleContainer name={spinnin.name} blurb={spinnin.blurb} explosionFunct={spinnin.explosionFunct} codeSnippet={spinnin.codeSnippet} />
             <ExampleContainer name={speedRacer.name} blurb={speedRacer.blurb} explosionFunct={speedRacer.explosionFunct} codeSnippet={speedRacer.codeSnippet} />
             <ExampleContainer name={eeaao.name} blurb={eeaao.blurb} explosionFunct={eeaao.explosionFunct} codeSnippet={eeaao.codeSnippet} disableButtonTime={eeaao.disableButtonTime}/>
-            {/* <ExampleContainer name={fish.name} blurb={fish.blurb} explosionFunct={fish.explosionFunct} codeSnippet={fish.codeSnippet} /> */}
             <ExampleContainer name={rocket.name} blurb={rocket.blurb} explosionFunct={rocket.explosionFunct} codeSnippet={rocket.codeSnippet} />
             <ExampleContainer name={heart.name} blurb={heart.blurb} explosionFunct={heart.explosionFunct} codeSnippet={heart.codeSnippet} />
             <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} disableButtonTime={rainstorm.disableButtonTime}/>

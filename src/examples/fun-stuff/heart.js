@@ -74,7 +74,8 @@ for (let i = 0; i < heartCoords.length; i++) {
         }
     });
 }
-});`
+});
+`;
 
 export const explosionFunct = () => {
     // 2d array of [x, y] coordinates to form an outline of a heart
@@ -147,4 +148,4 @@ export const explosionFunct = () => {
             }
         });
     }
-}
+};

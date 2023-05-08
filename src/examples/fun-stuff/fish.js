@@ -1,4 +1,4 @@
-import { emojisplosion } from "emojisplosion"
+import { emojisplosion } from "emojisplosion";
 
 export const name = "Fish";
 
@@ -6,7 +6,8 @@ export const blurb = "fishes";
 
 export const codeSnippet = `emojisplosion({
     container: document.getElementById("explosion-container")
-})`;
+})
+`;
 
 export const handleClick = () => {
     emojisplosion({
@@ -29,4 +30,4 @@ export const handleClick = () => {
             // opacityDelay: 100,
         }
     })
-}
+};

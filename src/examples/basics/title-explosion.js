@@ -1,4 +1,4 @@
-import { emojisplosion } from "emojisplosion"
+import { emojisplosion } from "emojisplosion";
 
 export const name = "Title Explosion";
 
@@ -30,7 +30,8 @@ emojisplosion({
             y: offset.top + element.clientHeight / 2,
         };
     },
-});`;
+});
+`;
 
 export const explosionFunct = () => {
     const element = document.getElementById("title");
@@ -60,4 +61,4 @@ export const explosionFunct = () => {
             };
         },
     });
-}
+};

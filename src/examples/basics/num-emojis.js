@@ -6,10 +6,11 @@ export const blurb = "Emojisplosion with a random number of emojis per blast bet
 
 export const codeSnippet = `emojisplosion({
     emojiCount: () => Math.random() * 100 + 100,
-});`;
+});
+`;
 
 export const explosionFunct = () => {
     emojisplosion({
         emojiCount: () => Math.random() * 100 + 100,
     });
-}
+};

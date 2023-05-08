@@ -1,4 +1,4 @@
-import { emojisplosion } from "emojisplosion"
+import { emojisplosion } from "emojisplosion";
 
 export const name = "Rocket";
 

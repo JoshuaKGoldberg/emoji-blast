@@ -14,7 +14,8 @@ export const codeSnippet = `emojisplosion({
         },
         rotationDeceleration: 1.01,
     }
-});`;
+});
+`;
 
 export const explosionFunct = () => {
     emojisplosion({
