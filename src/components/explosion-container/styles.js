@@ -6,7 +6,7 @@ export const explosionContainer = {
     
     "@media (max-width: 414px)": {
         width: "100vw",
-        height: "100vh - 4rem",
+        height: "calc(100vh - 4rem)",
         position: "absolute",
         zIndex: "-100",
     }
