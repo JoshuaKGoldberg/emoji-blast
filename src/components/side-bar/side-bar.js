@@ -22,6 +22,7 @@ import * as rainstorm from "../../examples/fun-stuff/rainstorm";
 import * as rainbow from "../../examples/fun-stuff/rainbow";
 import * as shootingStars from "../../examples/fun-stuff/shooting-stars";
 import * as firework from "../../examples/fun-stuff/firework";
+import * as nope from "../../examples/fun-stuff/nope";
 
 import * as styles from "./styles";
 
@@ -47,6 +48,7 @@ export function SideBar() {
             <ExampleContainer name={rainbow.name} blurb={rainbow.blurb} explosionFunct={rainbow.explosionFunct} codeSnippet={rainbow.codeSnippet} disableButtonTime={rainbow.disableButtonTime}/>
             <ExampleContainer name={shootingStars.name} blurb={shootingStars.blurb} explosionFunct={shootingStars.explosionFunct} codeSnippet={shootingStars.codeSnippet} disableButtonTime={shootingStars.disableButtonTime} />
             <ExampleContainer name={firework.name} blurb={firework.blurb} explosionFunct={firework.explosionFunct} codeSnippet={firework.codeSnippet} disableButtonTime={firework.disableButtonTime} />
+            <ExampleContainer name={nope.name} blurb={nope.blurb} explosionFunct={nope.explosionFunct} codeSnippet={nope.codeSnippet} disableButtonTime={nope.disableButtonTime} />
         </div>
     )
 }
