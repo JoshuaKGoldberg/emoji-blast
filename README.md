@@ -2,7 +2,7 @@
 
 ### [Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
 
-## Running the repo: 
+## Running the site locally: 
 
 1. Clone repo
 2. Run `npm install`
