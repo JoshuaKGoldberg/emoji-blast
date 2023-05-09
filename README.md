@@ -1,4 +1,4 @@
-# Emojisplosion Demo Site
+# Emojisplosion Demo Site 🎉
 
 ### [Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
 
@@ -13,7 +13,7 @@
 
 1. Go to `emojisplosion-demo/src/examples`
   - The `/basics` folder contains examples highlighting the configurable properties that can be passed into `emojisplosion()` and `emojisplosions()` 
-  - The `/fun-stuff` folder contains the "less-basic" examples
+  - The `/fun-stuff` folder contains the not-so-basic examples
 2. Follow `fun-stuff/example-template` or the below code snippet to create a new example explosion
 3. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
 4. Import `*` from your new example file at the top of `side-bar.js` following convention
