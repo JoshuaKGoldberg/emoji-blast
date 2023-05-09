@@ -42,6 +42,7 @@ export function SideBar() {
             <ExampleContainer name={spinnin.name} blurb={spinnin.blurb} explosionFunct={spinnin.explosionFunct} codeSnippet={spinnin.codeSnippet} />
             <ExampleContainer name={speedRacer.name} blurb={speedRacer.blurb} explosionFunct={speedRacer.explosionFunct} codeSnippet={speedRacer.codeSnippet} />
             <ExampleContainer name={eeaao.name} blurb={eeaao.blurb} explosionFunct={eeaao.explosionFunct} codeSnippet={eeaao.codeSnippet} disableButtonTime={eeaao.disableButtonTime}/>
+            
             <ExampleContainer name={rocket.name} blurb={rocket.blurb} explosionFunct={rocket.explosionFunct} codeSnippet={rocket.codeSnippet} />
             <ExampleContainer name={heart.name} blurb={heart.blurb} explosionFunct={heart.explosionFunct} codeSnippet={heart.codeSnippet} />
             <ExampleContainer name={rainstorm.name} blurb={rainstorm.blurb} explosionFunct={rainstorm.explosionFunct} codeSnippet={rainstorm.codeSnippet} disableButtonTime={rainstorm.disableButtonTime}/>
