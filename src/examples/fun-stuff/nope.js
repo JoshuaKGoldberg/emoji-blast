@@ -58,10 +58,10 @@ const cow = (velY, className) => {
     })
 };
 
-// function for the wind 
-const wind = () => {
+// function for the vortex 
+const vortex = () => {
     emojisplosion({
-        className: "mid", // setting the className to mid as the wind only occurs in the "mid" stage
+        className: "mid", // setting the className to mid as the vortex only occurs in the "mid" stage
         emojis: ["🌪️"],
         emojiCount: 1,
         position: {
@@ -120,8 +120,8 @@ const removeEmoji = (className) => {
 ufo(ufoPos[0], ufoVel[0], classNames[0]);
 cow(cowYVel[0], classNames[0]);
 
-// set off mid explosions for ufo, cow & wind after 2 seconds
-setTimeout(wind, 2000);
+// set off mid explosions for ufo, cow & vortex after 2 seconds
+setTimeout(vortex, 2000);
 setTimeout(() => {cow(cowYVel[1], classNames[1])}, 2000);
 setTimeout(() => {ufo(ufoPos[1], ufoVel[1], classNames[1])}, 2000);
 // remove starting explosion emojis after 2 seconds
@@ -183,10 +183,10 @@ export const explosionFunct = () => {
         })
     };
 
-    // function for the wind 
-    const wind = () => {
+    // function for the vortex 
+    const vortex = () => {
         emojisplosion({
-            className: "mid", // setting the className to mid as the wind only occurs in the "mid" stage
+            className: "mid", // setting the className to mid as the vortex only occurs in the "mid" stage
             emojis: ["🌪️"],
             emojiCount: 1,
             position: {
@@ -245,8 +245,8 @@ export const explosionFunct = () => {
     ufo(ufoPos[0], ufoVel[0], classNames[0]);
     cow(cowYVel[0], classNames[0]);
 
-    // set off mid explosions for ufo, cow & wind after 2 seconds
-    setTimeout(wind, 2000);
+    // set off mid explosions for ufo, cow & vortex after 2 seconds
+    setTimeout(vortex, 2000);
     setTimeout(() => {cow(cowYVel[1], classNames[1])}, 2000);
     setTimeout(() => {ufo(ufoPos[1], ufoVel[1], classNames[1])}, 2000);
     // remove starting explosion emojis after 2 seconds
