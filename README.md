@@ -1,6 +1,6 @@
 # Emojisplosion Demo Site
 
-###[Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
+### [Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
 
 ## Running the repo: 
 
