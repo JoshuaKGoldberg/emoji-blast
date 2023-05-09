@@ -1,15 +1,23 @@
 # Emojisplosion Demo Site
 
-### Creating a new example:
+###[Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
 
-1. Clone the repo
-2. Go to `emojisplosion-demo/src/examples`
+## Running the repo: 
+
+1. Clone repo
+2. Run `npm install`
+3. Run `npm start`
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
+
+## Creating a new example:
+
+1. Go to `emojisplosion-demo/src/examples`
   - The `/basics` folder contains examples highlighting the configurable properties that can be passed into `emojisplosion()` and `emojisplosions()` 
   - The `/fun-stuff` folder contains the "less-basic" examples
-3. Follow `fun-stuff/example-template` or the below code snippet to create a new example explosion
-4. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
-5. Import `*` from your new example file at the top of `side-bar.js` following convention
-6. Create a new `<ExampleContainer/>` in `SideBar` and add the following props with your newly imported example
+2. Follow `fun-stuff/example-template` or the below code snippet to create a new example explosion
+3. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
+4. Import `*` from your new example file at the top of `side-bar.js` following convention
+5. Create a new `<ExampleContainer/>` in `SideBar` and add the following props with your newly imported example
   - `name`
   - `blurb`
   - `explosionFunct`
@@ -33,19 +41,6 @@ export const explosionFunct = () => {
 
 export const disableButtonTime = 0 // time in milliseconds (defaults to 0);
 ```
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
