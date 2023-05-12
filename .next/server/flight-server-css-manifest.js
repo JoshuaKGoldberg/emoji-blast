@@ -1,0 +1,12 @@
+self.__RSC_CSS_MANIFEST={
+  "cssImports": {
+    "/Users/carlygradeff/Desktop/code/emojisplosion-demo/src/app/layout.tsx": [
+      "/Users/carlygradeff/Desktop/code/emojisplosion-demo/src/app/globals.css"
+    ]
+  },
+  "cssModules": {
+    "/Users/carlygradeff/Desktop/code/emojisplosion-demo/src/app/(demo)/page": [
+      "/Users/carlygradeff/Desktop/code/emojisplosion-demo/src/app/globals.css"
+    ]
+  }
+}

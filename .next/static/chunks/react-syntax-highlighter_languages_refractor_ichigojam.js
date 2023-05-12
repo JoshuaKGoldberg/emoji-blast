@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["react-syntax-highlighter_languages_refractor_ichigojam"],{
+
+/***/ "(app-client)/./node_modules/refractor/lang/ichigojam.js":
+/*!**************************************************!*\
+  !*** ./node_modules/refractor/lang/ichigojam.js ***!
+  \**************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("\n\nmodule.exports = ichigojam\nichigojam.displayName = 'ichigojam'\nichigojam.aliases = []\nfunction ichigojam(Prism) {\n  // according to the offical reference (EN)\n  // https://ichigojam.net/IchigoJam-en.html\n  Prism.languages.ichigojam = {\n    comment: /(?:\\B'|REM)(?:[^\\n\\r]*)/i,\n    string: {\n      pattern: /\"(?:\"\"|[!#$%&'()*,\\/:;<=>?^_ +\\-.A-Z\\d])*\"/i,\n      greedy: true\n    },\n    number: /\\B#[0-9A-F]+|\\B`[01]+|(?:\\b\\d+\\.?\\d*|\\B\\.\\d+)(?:E[+-]?\\d+)?/i,\n    keyword: /\\b(?:BEEP|BPS|CASE|CLEAR|CLK|CLO|CLP|CLS|CLT|CLV|CONT|COPY|ELSE|END|FILE|FILES|FOR|GOSUB|GSB|GOTO|IF|INPUT|KBD|LED|LET|LIST|LOAD|LOCATE|LRUN|NEW|NEXT|OUT|RIGHT|PLAY|POKE|PRINT|PWM|REM|RENUM|RESET|RETURN|RTN|RUN|SAVE|SCROLL|SLEEP|SRND|STEP|STOP|SUB|TEMPO|THEN|TO|UART|VIDEO|WAIT)(?:\\$|\\b)/i,\n    function: /\\b(?:ABS|ANA|ASC|BIN|BTN|DEC|END|FREE|HELP|HEX|I2CR|I2CW|IN|INKEY|LEN|LINE|PEEK|RND|SCR|SOUND|STR|TICK|USR|VER|VPEEK|ZER)(?:\\$|\\b)/i,\n    label: /(?:\\B@[^\\s]+)/i,\n    operator: /<[=>]?|>=?|\\|\\||&&|[+\\-*\\/=|&^~!]|\\b(?:AND|NOT|OR)\\b/i,\n    punctuation: /[\\[,;:()\\]]/\n  }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1jbGllbnQpLy4vbm9kZV9tb2R1bGVzL3JlZnJhY3Rvci9sYW5nL2ljaGlnb2phbS5qcy5qcyIsIm1hcHBpbmdzIjoiQUFBWTs7QUFFWjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxzQ0FBc0M7QUFDdEM7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLHVCQUF1QjtBQUN2QjtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8uL25vZGVfbW9kdWxlcy9yZWZyYWN0b3IvbGFuZy9pY2hpZ29qYW0uanM/MjJkYyJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCdcblxubW9kdWxlLmV4cG9ydHMgPSBpY2hpZ29qYW1cbmljaGlnb2phbS5kaXNwbGF5TmFtZSA9ICdpY2hpZ29qYW0nXG5pY2hpZ29qYW0uYWxpYXNlcyA9IFtdXG5mdW5jdGlvbiBpY2hpZ29qYW0oUHJpc20pIHtcbiAgLy8gYWNjb3JkaW5nIHRvIHRoZSBvZmZpY2FsIHJlZmVyZW5jZSAoRU4pXG4gIC8vIGh0dHBzOi8vaWNoaWdvamFtLm5ldC9JY2hpZ29KYW0tZW4uaHRtbFxuICBQcmlzbS5sYW5ndWFnZXMuaWNoaWdvamFtID0ge1xuICAgIGNvbW1lbnQ6IC8oPzpcXEInfFJFTSkoPzpbXlxcblxccl0qKS9pLFxuICAgIHN0cmluZzoge1xuICAgICAgcGF0dGVybjogL1wiKD86XCJcInxbISMkJSYnKCkqLFxcLzo7PD0+P15fICtcXC0uQS1aXFxkXSkqXCIvaSxcbiAgICAgIGdyZWVkeTogdHJ1ZVxuICAgIH0sXG4gICAgbnVtYmVyOiAvXFxCI1swLTlBLUZdK3xcXEJgWzAxXSt8KD86XFxiXFxkK1xcLj9cXGQqfFxcQlxcLlxcZCspKD86RVsrLV0/XFxkKyk/L2ksXG4gICAga2V5d29yZDogL1xcYig/OkJFRVB8QlBTfENBU0V8Q0xFQVJ8Q0xLfENMT3xDTFB8Q0xTfENMVHxDTFZ8Q09OVHxDT1BZfEVMU0V8RU5EfEZJTEV8RklMRVN8Rk9SfEdPU1VCfEdTQnxHT1RPfElGfElOUFVUfEtCRHxMRUR8TEVUfExJU1R8TE9BRHxMT0NBVEV8TFJVTnxORVd8TkVYVHxPVVR8UklHSFR8UExBWXxQT0tFfFBSSU5UfFBXTXxSRU18UkVOVU18UkVTRVR8UkVUVVJOfFJUTnxSVU58U0FWRXxTQ1JPTEx8U0xFRVB8U1JORHxTVEVQfFNUT1B8U1VCfFRFTVBPfFRIRU58VE98VUFSVHxWSURFT3xXQUlUKSg/OlxcJHxcXGIpL2ksXG4gICAgZnVuY3Rpb246IC9cXGIoPzpBQlN8QU5BfEFTQ3xCSU58QlROfERFQ3xFTkR8RlJFRXxIRUxQfEhFWHxJMkNSfEkyQ1d8SU58SU5LRVl8TEVOfExJTkV8UEVFS3xSTkR8U0NSfFNPVU5EfFNUUnxUSUNLfFVTUnxWRVJ8VlBFRUt8WkVSKSg/OlxcJHxcXGIpL2ksXG4gICAgbGFiZWw6IC8oPzpcXEJAW15cXHNdKykvaSxcbiAgICBvcGVyYXRvcjogLzxbPT5dP3w+PT98XFx8XFx8fCYmfFsrXFwtKlxcLz18Jl5+IV18XFxiKD86QU5EfE5PVHxPUilcXGIvaSxcbiAgICBwdW5jdHVhdGlvbjogL1tcXFssOzooKVxcXV0vXG4gIH1cbn1cbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-client)/./node_modules/refractor/lang/ichigojam.js\n"));
+
+/***/ })
+
+}]);

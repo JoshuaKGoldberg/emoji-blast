@@ -1,0 +1,17 @@
+export const colors = {
+    white: "#ffffff",
+    gray: "#bababa",
+    pink: "#FA78BD",
+    orange0: "#FCAD70",
+    orange100: "#F89346",
+    yellow: "#F3DD7B",
+    green: "#84EB7E",
+    blue: "#73C7EB",
+    purple: "#A16ED5", 
+    violet0: "#655F78",  
+    violet100: "#3A354B", 
+    violet200: "#262139", 
+    violet300: "#15121E", 
+    violet400: "#1A1626", 
+    violet500: "#0D0B13",
+};
