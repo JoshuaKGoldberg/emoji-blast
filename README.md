@@ -12,18 +12,18 @@
 
 ## Creating a new example:
 
-1. Go to `emojisplosion-demo/src/examples`
+1. Go to `./src/examples`
   - The `/basics` folder contains examples highlighting the configurable properties that can be passed into `emojisplosion()` and `emojisplosions()` 
   - The `/fun-stuff` folder contains the not-so-basic examples
 2. Follow `fun-stuff/example-template` or the below code snippet to create a new example explosion
 3. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
 4. Import `*` from your new example file at the top of `side-bar.js` following convention
 5. Create a new `<ExampleContainer/>` in `SideBar` and add the following props with your newly imported example
-  - `name`
-  - `blurb`
-  - `explosionFunct`
-  - `codeSnippet`
-  - `disableButtonTime` (optional)
+  - `name: string`
+  - `blurb: string`
+  - `explosionFunct: () => void`
+  - `codeSnippet: string`
+  - `disableButtonTime?: number` (optional)
 
 ```javascript
 import { emojisplosion } from "emojisplosion";
