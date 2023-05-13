@@ -19,16 +19,3 @@ export const navBar = {
 export const title = {
     fontWeight: "normal",
 };
-
-export const icon = {
-    color: colors.white,
-    fontSize: "28px",
-
-    "&:hover": {
-        color: colors.gray,
-    },
-
-    "@media (max-width: 414px)": {
-        fontSize: "16px"
-    }
-};

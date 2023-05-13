@@ -1,15 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { NavBarIcons } from "../nav-bar-icons/nav-bar-icons";
 
 import * as styles from "./styles";
 import { colors } from "../../colors/colors";
 
 
 export function NavBar() {
-    const ghLink = "https://github.com/JoshuaKGoldberg/emojisplosion";
-
     return (
         <div css={styles.navBar}>
             <h1 id="title" css={styles.title}>
@@ -27,9 +24,7 @@ export function NavBar() {
                 <span css={{color: colors.orange0}}>o</span>
                 <span css={{color: colors.pink}}>n</span>
             </h1>
-            <a href={ghLink} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faGithub} css={styles.icon}/>
-            </a>
+            <NavBarIcons />
         </div>
     );
 };
