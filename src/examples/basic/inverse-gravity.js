@@ -19,8 +19,6 @@ export const explosionFunct = () => {
         physics: {
             gravity: -0.35,
             initialVelocities: {
-                rotation: defaultPhysics.initialVelocities.rotation,
-                x: defaultPhysics.initialVelocities.x,
                 y: {min: 11.7, max: 14},
             },
         },

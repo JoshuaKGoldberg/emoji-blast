@@ -18,8 +18,8 @@ emojisplosion({
 
 export const explosionFunct = () => {
     // using the explosion container to base the initial explosion positions around
-    const containerWidth = document.getElementById("explosion-container")?.offsetWidth ?? 1000;
-    const containerHeight = document.getElementById("explosion-container")?.offsetHeight ?? 1000;
+    const containerWidth = document.getElementById("explosion-container").offsetWidth;
+    const containerHeight = document.getElementById("explosion-container").offsetHeight;
 
     emojisplosion({
         position: {
