@@ -1,7 +1,7 @@
 # Emojisplosion Demo Site 🎉
 
 ### [Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
-### [Live Site]((https://emojisplosion-site-cgradeff.vercel.app/))
+### [Live Site](https://emojisplosion-site-cgradeff.vercel.app/))
 
 ## Running the site locally: 
 
