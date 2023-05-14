@@ -6,7 +6,7 @@ export const sideBarContainer = {
     overflow: "scroll",
     height: "calc(100vh - 5rem)",
     
-    "@media (max-width: 414px)": {
+    "@media (max-width: 700px)": {
         width: "100vw",
     }
 };

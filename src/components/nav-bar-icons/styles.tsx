@@ -20,7 +20,7 @@ export const icon = {
         color: colors.gray,
     },
 
-    "@media (max-width: 414px)": {
+    "@media (max-width: 700px)": {
         fontSize: "16px"
     }
 };

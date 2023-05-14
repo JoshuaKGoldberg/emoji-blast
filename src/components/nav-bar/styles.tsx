@@ -9,7 +9,7 @@ export const navBar = {
     padding: "0rem 2rem",
     background: colors.violet200,
 
-    "@media (max-width: 414px)": {
+    "@media (max-width: 700px)": {
         background: colors.violet100,
         fontSize: "10px",
         padding: "0rem 1rem",

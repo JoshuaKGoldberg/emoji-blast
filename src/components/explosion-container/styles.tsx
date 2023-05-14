@@ -4,7 +4,7 @@ export const explosionContainer = {
     width: "60vw",
     background: colors.violet500,
     
-    "@media (max-width: 414px)": {
+    "@media (max-width: 700px)": {
         width: "100vw",
         zIndex: "-100",
         position: "absolute" as "absolute",
