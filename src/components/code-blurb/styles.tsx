@@ -5,5 +5,6 @@ export const codeBlurb = {
     color: colors.white,
     padding: ".5rem",
     marginBottom: "2rem",
-    borderRadius: "10px"
-}
+    borderRadius: "10px",
+    fontSize: "13px",
+};
