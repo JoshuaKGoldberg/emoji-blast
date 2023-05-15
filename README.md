@@ -1,7 +1,7 @@
-# Emojisplosion Demo Site 🎉
+# Emojisplosion Site 🎉
 
 ### [Emojisplosion Library](https://github.com/JoshuaKGoldberg/emojisplosion#emojisplosion)
-### [Live Site](https://emojisplosion-site-cgradeff.vercel.app/)
+### [Live Site](https://www.emojisplosion.dev/)
 
 ## Running the site locally: 
 
@@ -12,18 +12,18 @@
 
 ## Creating a new example:
 
-1. Go to `./src/examples`
-  - The `/basics` folder contains examples highlighting the configurable properties that can be passed into `emojisplosion()` and `emojisplosions()` 
-  - The `/fun-stuff` folder contains the not-so-basic examples
-2. Follow `fun-stuff/example-template` or the below code snippet to create a new example explosion
-3. Go to `emojisplosion-demo/src/components/side-bar/side-bar.js`
-4. Import `*` from your new example file at the top of `side-bar.js` following convention
-5. Create a new `<ExampleContainer/>` in `SideBar` and add the following props with your newly imported example
+1. Go to `./src/examples`.
+  - The `/basics` folder contains examples highlighting the configurable properties that can be passed into `emojisplosion()` and `emojisplosions()`. 
+  - The `/fun-stuff` folder contains the not-so-basic examples.
+2. Follow `fun-stuff/example-template` or the code snippet below to create a new example explosion. The example variables have the following types (these are also listed in `./src/types/example-types`):
   - `name: string`
   - `blurb: string`
   - `explosionFunct: () => void`
   - `codeSnippet: string`
   - `disableButtonTime?: number` (optional)
+3. Go to `emojisplosion-demo/src/components/side-bar/side-bar`.
+4. Import `*` from your new example file at the top of `side-bar` following convention.
+5. Add your imported example to the appropriate array in `SideBar`.
 
 ```javascript
 import { emojisplosion } from "emojisplosion";
