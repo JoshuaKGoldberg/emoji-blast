@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import { Headline } from "@/components/headline/headline";
+import { Hero } from "@/components/hero/hero";
 
 export default function HomePage() {
     return (
         <div>
-            <Headline />
+            <Hero />
         </div>
     );
 };

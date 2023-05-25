@@ -2,13 +2,14 @@
 'use client'
 
 import { Anchor } from "@/components/anchor/anchor";
+import { Title } from "../title/title";
 
 import * as styles from "./styles";
 
-export function Headline() {
+export function Hero() {
     return (
         <div css={styles.homeContainer}>
-            <h1 css={styles.title}>emojisplosion</h1>
+            <Title addStyles={styles.title}/>
             <p css={styles.description}>💥 Blasts 😄 emoji 😊 like 🎆 fireworks 🎇 all up in your 💻 HTML 📄 page. 😍</p>
             <div css={styles.links}>
                 <Anchor href="https://github.com/JoshuaKGoldberg/emojisplosion">GitHub</Anchor>
