@@ -1,10 +1,6 @@
 {
-	"files": [
-		"README.md"
-	],
-	"imageSize": 100,
+	"badgeTemplate": "<img alt=\"All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-21bb42.svg\" />",
 	"commit": false,
-	"commitType": "docs",
 	"commitConvention": "angular",
 	"contributors": [
 		{
@@ -34,9 +30,13 @@
 		}
 	],
 	"contributorsPerLine": 7,
-	"skipCi": true,
-	"repoType": "github",
+	"contributorsSortAlphabetically": true,
+	"files": [
+		"README.md"
+	],
+	"imageSize": 100,
+	"projectName": "template-typescript-node-package",
+	"projectOwner": "JoshuaKGoldberg",
 	"repoHost": "https://github.com",
-	"projectName": "emojisplosion",
-	"projectOwner": "JoshuaKGoldberg"
+	"repoType": "github"
 }
