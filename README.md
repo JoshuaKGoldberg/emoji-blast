@@ -3,11 +3,13 @@
 <p align="center">💥Blasts 😄emoji😊 like 🎆fireworks🎇 all up in your 💻HTML 📄page. 😚😍</p>
 
 <p align="center">
+	<a href="#contributors">
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <img alt="All Contributors: 2" src="https://img.shields.io/badge/all_contributors-2-21bb42.svg" />
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
+	</a>
 	<a href="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion" >
 		<img alt="Codecov Test Coverage" src="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion/branch/main/graph/badge.svg?token=eVIFY4MhfQ"/>
 	</a>
