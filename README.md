@@ -448,7 +448,6 @@ Thanks! 💖
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!-- spellchecker: disable -->
 <table>
   <tbody>
     <tr>
@@ -458,7 +457,6 @@ Thanks! 💖
   </tbody>
 </table>
 
-<!-- spellchecker: enable -->
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
