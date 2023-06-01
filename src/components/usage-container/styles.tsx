@@ -2,18 +2,46 @@ import { colors } from "../../colors/colors";
 
 export const usageContainer = {
     backgroundColor: colors.violet200,
-    padding: "3rem 20rem 5rem 20rem",
+    padding: "3rem 15rem 5rem 15rem",
     display: "flex",
     flexDirection: "column" as "column",
     alignItems: "space-between",
+    fontSize: "16px",
 
-    "> *": {
-        padding: "1rem 0rem"
+    "@media (max-width: 1180px)": {
+        padding: "3rem 10rem 5rem 10rem"
+    },
+
+    "@media (max-width: 700px)": {
+        padding: "1rem 2rem 1rem 2rem"
+    },
+};
+
+export const header = {
+    fontWeight: "normal",
+    marginBottom: "0",
+};
+
+export const blurbConatiner = {
+    background: colors.violet100,
+    padding: "1.5rem",
+    borderRadius: "10px",
+    margin: "2rem 0rem",
+    color: colors.gray,
+
+    "> div:nth-child(2)": {
+        paddingTop: "1rem"
+    },
+
+    "> div > h3": {
+        fontWeight: "normal",
+        color: colors.white
     },
 };
 
 export const code = {
-    background: colors.violet100,
+    background: colors.violet200,
+    color: colors.white,
     borderRadius: "5px",
-    padding: "2px 5px"
+    padding: "2px 5px",
 };
