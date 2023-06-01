@@ -38,7 +38,7 @@ export const navLink = {
     margin: "0rem 2rem",
 
     "&:hover": {
-        color: colors.gray
+        color: colors.green
     },
 };
 
