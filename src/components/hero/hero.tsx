@@ -8,7 +8,7 @@ import * as styles from "./styles";
 
 export function Hero() {
     return (
-        <div css={styles.homeContainer}>
+        <div css={styles.heroContainer}>
             <Title addStyles={styles.title}/>
             <p css={styles.description}>💥 Blasts 😄 emoji 😊 like 🎆 fireworks 🎇 all up in your 💻 HTML 📄 page. 😍</p>
             <div css={styles.links}>

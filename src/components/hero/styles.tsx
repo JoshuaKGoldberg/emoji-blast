@@ -2,7 +2,7 @@ import { colors } from "../../colors/colors";
 
 import ImgPath from "../../../images/home.png"
 
-export const homeContainer = {
+export const heroContainer = {
     alignItems: "center" as "center",
     backgroundColor: colors.violet300,
     backgroundImage: `url(${ImgPath.src})`,
@@ -14,7 +14,11 @@ export const homeContainer = {
     justifyContent: "center" as "center",
     padding: "2rem",
     textAlign: "center" as "center",
-    height: "35vh"
+    height: "35vh",
+
+    "@media (max-width: 700px)": {
+        backgroundImage: "none"
+    },
 };
 
 export const title = {
