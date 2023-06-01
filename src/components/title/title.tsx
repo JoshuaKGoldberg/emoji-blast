@@ -18,13 +18,13 @@ export function Title({addStyles}: TitleProps) {
                 <span css={{color: colors.yellow}}>o</span>
                 <span css={{color: colors.purple}}>j</span>
                 <span css={{color: colors.green}}>i</span>
-                <span css={{color: colors.orange0}}>s</span>
+                <span css={{color: colors.orange}}>s</span>
                 <span css={{color: colors.pink}}>p</span>
                 <span css={{color: colors.blue}}>l</span>
                 <span css={{color: colors.yellow}}>o</span>
                 <span css={{color: colors.purple}}>s</span>
                 <span css={{color: colors.green}}>i</span>
-                <span css={{color: colors.orange0}}>o</span>
+                <span css={{color: colors.orange}}>o</span>
                 <span css={{color: colors.pink}}>n</span>
             </h1>
         </div>

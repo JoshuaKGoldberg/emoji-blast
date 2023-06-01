@@ -7,13 +7,13 @@ export const button = {
     border: "none",
     borderRadius: "10px",
     padding: ".4rem 1rem",
-    background: colors.orange100,
+    background: colors.orange,
     color: colors.violet300,
     marginBottom: "1rem",
     cursor: "pointer",
 
     "&:hover": {
-        background: colors.orange0,
+        background: colors.green,
     },
     
     "&:disabled": {

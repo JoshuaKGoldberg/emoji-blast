@@ -13,6 +13,6 @@ export const anchor = {
     cursor: "pointer",
 
     "&:hover": {
-        background: colors.orange100,
+        background: colors.orange,
     },
 };
