@@ -12,7 +12,7 @@ export function Footer() {
         <div css={styles.footer}>
             <div css={styles.contentContainer}>
                 <p>made with 💖 & React by Carly Gradeff</p>
-                <a href={ghLink} target="_blank" rel="noreferrer">
+                <a href={ghLink} target="_blank" rel="noreferrer" aria-label="Go to the Emojisplosion Site Github repository">
                     <FontAwesomeIcon icon={faGithub} css={styles.icon}/>
                 </a>
             </div>
