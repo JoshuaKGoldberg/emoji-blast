@@ -29,10 +29,6 @@ export const blurbConatiner = {
     margin: "2rem 0rem",
     color: colors.gray,
 
-    "> div:nth-child(2)": {
-        paddingTop: "1rem"
-    },
-
     "> div > h3": {
         fontWeight: "normal",
         color: colors.white

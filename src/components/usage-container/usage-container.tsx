@@ -42,7 +42,8 @@ export function UsageContainer() {
                     </p>
                 </div>
                 <div>
-                    <h3>Explanation</h3>
+                    <br />
+                    <h3>Explanation:</h3>
                     <p>Each&nbsp; 
                         <code css={styles.code}>{"emojisplosion"}</code> causes a fireworks-like explosion of random emojis to be placed around a random location on your page. Each explosion contains around a dozen emojis, each of which are animated in JavaScript to:
                     </p>
