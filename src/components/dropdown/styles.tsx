@@ -1,9 +1,42 @@
+import { colors } from "../../colors/colors";
+
+export const dropdown = {
+    display: "flex",
+    alignItems: "center"
+};
+
+export const dropdownContainer = {
+    display: "flex",
+    alignItems: "center"
+};
+
+export const arrowIcon = {
+    color: colors.white,
+    cursor: "pointer",
+    margin: "0rem",
+    fontSize: "20px",
+
+    "&:hover": {
+        color: colors.gray,
+    },
+};
+
 export const dropdownBox = {
     display: "flex",
-    alignItems: "center",
-    margin: "0rem 1.5rem 0rem 0rem",
+    flexDirection: "column" as "column",
+    alignItems: "center" as "center",
+    background: colors.violet200,
+    position: "absolute" as "absolute",
+    top: "5rem",
+    right: "0rem",
+    width: "100%",
+    paddingBottom: "1rem",
+    marginRight: "2rem",
+};
 
-    "@media (max-width: 700px)": {
-        margin: "0rem 0rem 0rem 1.5rem",
-    }
+export const navLink = {
+    color: colors.white,
+    fontSize: "16px",
+    textDecoration: "none",
+    margin: "1rem 0rem",
 };
