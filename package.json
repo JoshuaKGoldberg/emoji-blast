@@ -62,7 +62,7 @@
 	},
 	"main": "./lib/index.js",
 	"name": "emojisplosion",
-	"packageManager": "pnpm@7.32.5",
+	"packageManager": "pnpm@7.33.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/JoshuaKGoldberg/emojisplosion"
