@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@semantic-release/changelog': ^6.0.2
-  '@semantic-release/commit-analyzer': ^9.0.2
+  '@semantic-release/commit-analyzer': ^10.0.0
   '@semantic-release/git': ^10.0.1
   '@semantic-release/github': ^8.0.7
   '@semantic-release/npm': ^10.0.0
@@ -42,7 +42,7 @@ specifiers:
 
 devDependencies:
   '@semantic-release/changelog': 6.0.2_semantic-release@21.0.0
-  '@semantic-release/commit-analyzer': 9.0.2_semantic-release@21.0.0
+  '@semantic-release/commit-analyzer': 10.0.0_semantic-release@21.0.0
   '@semantic-release/git': 10.0.1_semantic-release@21.0.0
   '@semantic-release/github': 8.0.7_semantic-release@21.0.0
   '@semantic-release/npm': 10.0.2_semantic-release@21.0.0
@@ -826,6 +826,24 @@ packages:
       fs-extra: 11.1.0
       lodash: 4.17.21
       semantic-release: 21.0.0
+    dev: true
+
+  /@semantic-release/commit-analyzer/10.0.0_semantic-release@21.0.0:
+    resolution: {integrity: sha512-/Uolz2+G+VRjP0eudAn0ldnC/VkSHzlctUdeEXL7ys7E6mLSFZdwdsR5pKDlTIgDJq4eYlshOZpwBNrmqrNajg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      semantic-release: '>=20.1.0'
+    dependencies:
+      conventional-changelog-angular: 5.0.13
+      conventional-commits-filter: 2.0.7
+      conventional-commits-parser: 3.2.4
+      debug: 4.3.4
+      import-from: 4.0.0
+      lodash-es: 4.17.21
+      micromatch: 4.0.5
+      semantic-release: 21.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@semantic-release/commit-analyzer/9.0.2_semantic-release@21.0.0:
