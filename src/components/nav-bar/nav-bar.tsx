@@ -14,6 +14,7 @@ export function NavBar() {
                 <div css={styles.navLinkContainer}>
                     <Link css={styles.navLink} href="/">Home</Link>
                     <Link css={styles.navLink} href="/demo">Demo</Link>
+                    <Link css={styles.navLink} href="/docs">Docs</Link>
                 </div>
                 <Dropdown addStyles={styles.dropdown} />
             </div>

@@ -26,6 +26,7 @@ export function Dropdown({addStyles}: DropdownProps) {
                 <div css={styles.dropdownBox}>
                     <Link css={styles.navLink} href="/">Home</Link>
                     <Link css={styles.navLink} href="/demo">Demo</Link>
+                    <Link css={styles.navLink} href="/docs">Docs</Link>
                 </div>
             }
             <div css={styles.dropdownContainer} onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => closeDropdown()}>
