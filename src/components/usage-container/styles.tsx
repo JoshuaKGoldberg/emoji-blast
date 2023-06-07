@@ -19,6 +19,13 @@ export const usageContainer = {
 
 export const header = {
     fontWeight: "normal",
+    fontSize: "30px",
+    paddingBottom: "1rem",
+    borderBottom: `1px solid ${colors.gray100}`,
+};
+
+export const title = {
+    fontWeight: "normal",
     marginBottom: "0",
 };
 
@@ -27,7 +34,7 @@ export const blurbConatiner = {
     padding: "1.5rem",
     borderRadius: "10px",
     margin: "2rem 0rem",
-    color: colors.gray,
+    color: colors.gray0,
 
     "> div > h3": {
         fontWeight: "normal",

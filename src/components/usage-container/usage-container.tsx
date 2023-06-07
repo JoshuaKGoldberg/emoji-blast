@@ -15,10 +15,19 @@ export function UsageContainer() {
         emojisplosions();
     </script>
     `;
+    const advancedSnippet = `import { emojisplosion, emojisplosions } from "emojisplosion";
+
+    // Just one explosion, please.
+    emojisplosion();
+    
+    // Commence explosions!
+    emojisplosions();
+    `;
 
     return (
         <div css={styles.usageContainer}>
-            <h2 css={styles.header}>Usage</h2>
+            <h1 css={styles.header}>Usage</h1>
+            <h2 css={styles.title}>Easy Mode</h2>
             <div css={styles.blurbConatiner}>
                 <p>Plop this 👇 at the end of your&nbsp;
                     <code css={styles.code}>{".html"}</code>&nbsp;
@@ -53,6 +62,12 @@ export function UsageContainer() {
                     </ul>
                     <p>After an emoji is completely hidden or out of bounds, it is removed from the page.</p>
                 </div>
+            </div>
+            <h2 css={styles.title}>Advanced Mode</h2>
+            <div css={styles.blurbConatiner}>
+                <p>With Webpack and other modern JavaScript bundlers:</p>
+                <CodeBlurb codeSnippet={advancedSnippet} />
+                <p>Oh, and Emojisplosion is written in TypeScript and ships with its own typings. 💣</p>
             </div>
         </div>
     );
