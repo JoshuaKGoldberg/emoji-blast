@@ -24,7 +24,7 @@ export const icon = {
     cursor: "pointer",
 
     "&:hover": {
-        color: colors.gray,
+        color: colors.gray0,
     },
 
     "@media (max-width: 700px)": {

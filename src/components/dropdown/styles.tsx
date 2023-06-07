@@ -17,7 +17,7 @@ export const arrowIcon = {
     fontSize: "20px",
 
     "&:hover": {
-        color: colors.gray,
+        color: colors.gray0,
     },
 };
 

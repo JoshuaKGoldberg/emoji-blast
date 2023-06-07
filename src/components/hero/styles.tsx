@@ -27,7 +27,7 @@ export const title = {
 };
 
 export const description = {
-    color: colors.gray
+    color: colors.gray0
 };
 
 export const links = {

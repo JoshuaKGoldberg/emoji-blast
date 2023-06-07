@@ -13,5 +13,5 @@ export const name = {
 };
 
 export const blurb = {
-    color: colors.gray,
+    color: colors.gray0,
 };
