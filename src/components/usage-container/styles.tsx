@@ -47,4 +47,5 @@ export const code = {
     color: colors.white,
     borderRadius: "5px",
     padding: "2px 5px",
+    lineHeight: "1.6"
 };
