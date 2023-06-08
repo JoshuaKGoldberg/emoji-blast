@@ -6,7 +6,7 @@ import { snippetTheme } from "../../colors/code-snippet-theme";
 import * as styles from "./styles";
 
 type CodeBlurbProps = {
-    codeSnippet: string
+    codeSnippet: string,
 };
 
 export function CodeBlurb({codeSnippet}: CodeBlurbProps) {
