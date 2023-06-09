@@ -5,7 +5,8 @@ export const container = {
     height: 'fit-content',
     margin: "3rem 2.5rem",
     borderRadius: "10px",
-    padding: "1rem"
+    padding: "1rem",
+    fontSize: "16px",
 };
 
 export const name = {
