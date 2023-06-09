@@ -2,7 +2,7 @@
 
 import { CodeBlurb } from "../code-blurb/code-blurb";
 
-import * as snippets from "./codeSnippets";
+import * as snippets from "./code-snippets";
 import * as usageStyles from "../usage-container/styles";
 import * as styles from "./styles";
 

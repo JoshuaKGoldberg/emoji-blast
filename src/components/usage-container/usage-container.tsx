@@ -1,30 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import { CodeBlurb } from "../code-blurb/code-blurb";
 import Link from "next/link";
+import { CodeBlurb } from "../code-blurb/code-blurb";
 
+import * as snippets from "./code-snippets";
 import * as styles from "./styles";
 
 export function UsageContainer() {
-    const easySnippet = `<script async src="https://unpkg.com/emojisplosion/lib/easy.js"></script>`;
-    const globalSnippet = `<script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
-    <script>
-        // Just one explosion, please.
-        emojisplosion();
-    
-        // Commence explosions!
-        emojisplosions();
-    </script>
-    `;
-    const advancedSnippet = `import { emojisplosion, emojisplosions } from "emojisplosion";
-
-    // Just one explosion, please.
-    emojisplosion();
-    
-    // Commence explosions!
-    emojisplosions();
-    `;
-
     return (
         <div css={styles.usageContainer}>
             <h1 css={styles.header}>Usage</h1>
@@ -34,7 +16,7 @@ export function UsageContainer() {
                     <code css={styles.code}>{".html"}</code>&nbsp;
                     <code css={styles.code}>{"<body>"}</code>:
                 </p>
-                <CodeBlurb codeSnippet={easySnippet} />
+                <CodeBlurb codeSnippet={snippets.easySnippet} />
                 <p>That ☝ loads Emojisplosion soon after your page loads and starts emojisplosions as soon as it can.</p>
             </div>
             <div css={styles.blurbConatiner}>
@@ -42,7 +24,7 @@ export function UsageContainer() {
                     <p>Alternately, to create global&nbsp; 
                         <code css={styles.code}>{"emojisplosion"}</code> and&nbsp; 
                         <code css={styles.code}>{"emojisplosions"}</code> functions:</p>
-                    <CodeBlurb codeSnippet={globalSnippet} />
+                    <CodeBlurb codeSnippet={snippets.globalSnippet} />
                     <p>
                         <code css={styles.code}>{"emojisplosion"}</code> launches a single blast of emojis at random locations on the page.
                     </p>
@@ -67,7 +49,7 @@ export function UsageContainer() {
             <h2 css={styles.title}>Advanced Mode</h2>
             <div css={styles.blurbConatiner}>
                 <p>With Webpack and other modern JavaScript bundlers:</p>
-                <CodeBlurb codeSnippet={advancedSnippet} />
+                <CodeBlurb codeSnippet={snippets.advancedSnippet} />
                 <p>Oh, and Emojisplosion is written in TypeScript and ships with its own typings. 💣</p>
                 <br/>
                 <p>To learn how to further configure&nbsp;
