@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { CodeBlurb } from "../code-blurb/code-blurb";
+import Link from "next/link";
 
 import * as styles from "./styles";
 
@@ -68,6 +69,12 @@ export function UsageContainer() {
                 <p>With Webpack and other modern JavaScript bundlers:</p>
                 <CodeBlurb codeSnippet={advancedSnippet} />
                 <p>Oh, and Emojisplosion is written in TypeScript and ships with its own typings. 💣</p>
+                <br/>
+                <p>To learn how to further configure&nbsp;
+                    <code css={styles.code}>emojisplosion</code> read the&nbsp;
+                    <Link css={styles.navLink} href="/docs">docs</Link> or look at the&nbsp;
+                    <Link css={styles.navLink} href="/demo">demos</Link> to see the package in action!
+                </p>
             </div>
         </div>
     );

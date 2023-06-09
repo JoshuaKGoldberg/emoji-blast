@@ -49,3 +49,9 @@ export const code = {
     padding: "2px 5px",
     lineHeight: "1.6"
 };
+
+export const navLink = {
+    color: colors.green,
+    textDecoration: "none",
+    borderBottom: `1px solid ${colors.green}`,
+};
