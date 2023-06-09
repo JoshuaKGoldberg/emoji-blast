@@ -27,7 +27,8 @@ export const title = {
 };
 
 export const description = {
-    color: colors.gray0
+    color: colors.gray0,
+    fontSize: "14px",
 };
 
 export const links = {
