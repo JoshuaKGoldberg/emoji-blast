@@ -12,10 +12,10 @@ export function DocContent() {
     return (
         <div css={usageStyles.usageContainer}>
             <h1 css={usageStyles.header}>Configuration</h1>
-            <div css={usageStyles.blurbConatiner}>
+            <div>
                 <p>
-                    <code css={usageStyles.code}>{"emojisplosion"}</code> and 
-                    <code css={usageStyles.code}>{"emojisplosions"}</code> are highly configurable. The following configurations may be passed to both via configuration objects.
+                    <code css={{...usageStyles.code, ...styles.code}}>{"emojisplosion"}</code> and&nbsp; 
+                    <code css={{...usageStyles.code, ...styles.code}}>{"emojisplosions"}</code> are highly configurable. The following configurations may be passed to both via configuration objects.
                 </p>
             </div>
             <div css={usageStyles.blurbConatiner}>
@@ -212,7 +212,7 @@ export function DocContent() {
                 <p>Allowing one more emoji type per blast each blast:</p>
                 <CodeBlurb codeSnippet={snippets.uniquenessSnippet2} />
             </div>
-            <h2 css={usageStyles.title}><code>{"emojisplosions"}</code></h2>
+            <h2 css={styles.title}><code>{"emojisplosions"}</code></h2>
             <div css={usageStyles.blurbConatiner}>
                 <p>
                     <code css={usageStyles.code}>{"emojisplosions"}</code> can take in all of the same settings as&nbsp;
