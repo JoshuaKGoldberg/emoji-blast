@@ -1,20 +1,16 @@
 import { EmojiActor, EmojiPhysics, EmojiPosition, EmojiProcess } from "./actor";
-import { Animator } from "./animator";
+import { animate } from "./animate";
 import { defaultEmojis } from "./emojis";
+import { EmojiEvents, initializeEvents } from "./events";
 import { createStyleElementAndClass } from "./styles";
 import { obtainValue, shuffleArray } from "./utils";
+
+console.log("hi");
 
 /**
  * Settings to launch an emojisplosion!
  */
 export interface EmojisplosionSettings {
-	/**
-	 * Tracking in-movement actors to push new emojis into.
-	 *
-	 * @internal
-	 */
-	animator: Animator;
-
 	/**
 	 * Class name to add to all emoji elements.
 	 */
@@ -36,6 +32,11 @@ export interface EmojisplosionSettings {
 	emojis: SettingValue<string[]>;
 
 	/**
+	 * Handlers for user interactions with individual emojis.
+	 */
+	events: EmojiEvents;
+
+	/**
 	 * Runtime change constants for emoji element movements.
 	 */
 	physics: Partial<EmojiPhysics>;
@@ -49,11 +50,6 @@ export interface EmojisplosionSettings {
 	 * Processes each element just before it's appended to the container.
 	 */
 	process: EmojiProcess;
-
-	/**
-	 * DOM element tag name to create elements as.
-	 */
-	tagName: SettingValue<string>;
 
 	/**
 	 * How many different types of emojis are allowed within a blast.
@@ -101,6 +97,17 @@ export const defaultCreateContainer = (() => {
  */
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
+export const defaultEvents: EmojiEvents = {
+	onClick({ actor }) {
+		actor.update({
+			opacity: 1,
+			velocity: {
+				y: actor.velocity.y / 2 - 15,
+			},
+		});
+	},
+};
+
 /**
  * Default runtime change constants for actor movements.
  */
@@ -144,11 +151,6 @@ export const defaultPosition = () => ({
 });
 
 /**
- * Default HTML tag name to create elements as.
- */
-export const defaultTagName = "span";
-
-/**
  * Launches an emojisplosion across the page! 🎆
  *
  * @param settings   Settings to emojisplode.
@@ -157,16 +159,16 @@ export const emojisplosion = (
 	settings: Partial<EmojisplosionSettings> = {}
 ) => {
 	const {
-		animator = new Animator().start(),
 		className = defaultClassName,
-		container = defaultCreateContainer,
+		container: containerSetting = defaultCreateContainer,
 		emojiCount = defaultEmojiCount,
 		emojis = defaultEmojis,
+		events = defaultEvents,
 		position = defaultPosition,
 		process,
-		tagName = defaultTagName,
 		uniqueness = Infinity,
 	} = settings;
+	const container = obtainValue(containerSetting);
 
 	createStyleElementAndClass(className);
 
@@ -183,20 +185,21 @@ export const emojisplosion = (
 
 	const emojiSettings = {
 		className,
-		container: obtainValue(container),
+		container,
 		// Copy the input array to prevent modifications.
 		emojis: shuffleArray(obtainValue(emojis)).slice(0, obtainValue(uniqueness)),
 		physics,
 		position: obtainValue(position),
 		process,
-		tagName: obtainValue(tagName),
 	};
 
 	const blastEmojiCount = obtainValue(emojiCount);
+	const actors: EmojiActor[] = [];
 
 	for (let i = 0; i < blastEmojiCount; i += 1) {
-		animator.add(new EmojiActor(emojiSettings));
+		actors.push(new EmojiActor(emojiSettings));
 	}
 
-	return animator;
+	animate(actors);
+	initializeEvents(actors, container, events);
 };

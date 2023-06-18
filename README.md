@@ -148,6 +148,33 @@ emojisplosion({
 });
 ```
 
+#### `events`
+
+Type: `{ onClick?: (data: EmojiEventData) => void; }`
+
+Handlers for user interactions with individual emojis.
+Defaults to an `onClick` that pushes up the emoji up just a little bit.
+
+```javascript
+emojisplosion({
+	events: {
+		onClick({ actor, event }) {
+			actor.update({
+				opacity: 1,
+				velocity: {
+					y: actor.velocity.y / 2 - 15,
+				},
+			});
+		},
+	},
+});
+```
+
+The `EmojiEventData` interface contains:
+
+- `actor: EmojiActor`: The individual actor being interacted with.
+- `event: Event`: The original triggering DOM event.
+
 #### `emojis`
 
 Type: `string[]` or `() => string[]`
@@ -313,21 +340,6 @@ emojisplosion({
 	process(element) {
 		element.className = "emoji";
 	},
-});
-```
-
-#### `tagName`
-
-Type: `string` or `() => string`
-
-DOM element tag name to create elements as.
-Defaults to `"span"`.
-
-Creating `<div>`s instead:
-
-```javascript
-emojisplosion({
-	tagName: "div",
 });
 ```
 

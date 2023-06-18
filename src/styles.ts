@@ -20,15 +20,19 @@ export const createStyleElementAndClass = (className: string): void => {
 
 	element.appendChild(
 		document.createTextNode(`
-        .${className} {
-            cursor: default;
-            margin-left: -1em;
-            margin-top: -1em;
-            position: fixed;
-            user-select: none;
-            z-index: 2147483647;
-        }
-    `)
+		.${className} {
+			background: none;
+			border: none;
+			cursor: default;
+			height: 2em;
+			margin-left: -1em;
+			margin-top: -1em;
+			position: fixed;
+			user-select: none;
+			width: 2em;
+			z-index: 2147483647;
+		}
+	`)
 	);
 
 	document.head.appendChild(element);
