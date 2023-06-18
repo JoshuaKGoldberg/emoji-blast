@@ -98,7 +98,7 @@ export const defaultCreateContainer = (() => {
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
 export const defaultEvents: EmojiEvents = {
-	onClick(actor) {
+	onClick({ actor }) {
 		actor.update({
 			opacity: 1,
 			velocity: {

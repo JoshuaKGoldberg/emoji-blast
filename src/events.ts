@@ -1,11 +1,23 @@
 import { EmojiActor } from "./actor";
 
+export interface EmojiEventData {
+	/**
+	 * Actor being interacted with.
+	 */
+	actor: EmojiActor;
+
+	/**
+	 * Original triggering DOM event.
+	 */
+	event: Event;
+}
+
 /**
  * Handler for a user interaction with an individual emoji.
  *
- * @param actor   Actor being interacted with.
+ * @param actor
  */
-export type EmojiEventHandler = (actor: EmojiActor) => void;
+export type EmojiEventHandler = (data: EmojiEventData) => void;
 
 /**
  * Handlers for user interactions with individual emojis.
@@ -42,7 +54,7 @@ export function initializeEvents(
 	container.addEventListener("click", (event) => {
 		const actor = event.target && domNodesToActors.get(event.target);
 		if (actor) {
-			events.onClick(actor);
+			events.onClick({ actor, event });
 		}
 	});
 }

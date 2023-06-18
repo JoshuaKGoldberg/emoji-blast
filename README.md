@@ -148,7 +148,7 @@ emojisplosion({
 
 #### `events`
 
-Type: `{ onClick?: (actor: EmojiActor) => void; }`
+Type: `{ onClick?: (data: EmojiEventData) => void; }`
 
 Handlers for user interactions with individual emojis.
 Defaults to an `onClick` that pushes up the emoji up just a little bit.
@@ -156,7 +156,7 @@ Defaults to an `onClick` that pushes up the emoji up just a little bit.
 ```javascript
 emojisplosion({
 	events: {
-		onClick(actor) {
+		onClick({ actor, event }) {
 			actor.update({
 				opacity: 1,
 				velocity: {
@@ -167,6 +167,11 @@ emojisplosion({
 	},
 });
 ```
+
+The `EmojiEventData` interface contains:
+
+- `actor: EmojiActor`: The individual actor being interacted with.
+- `event: Event`: The original triggering DOM event.
 
 #### `emojis`
 
