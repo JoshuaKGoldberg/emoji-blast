@@ -66,8 +66,8 @@ devDependencies:
     specifier: ^10.0.0
     version: 10.0.0(eslint@8.29.0)
   eslint-plugin-typescript-sort-keys:
-    specifier: ^2.1.0
-    version: 2.1.0(@typescript-eslint/parser@5.45.1)(eslint@8.29.0)(typescript@5.0.2)
+    specifier: ^3.0.0
+    version: 3.0.0(@typescript-eslint/parser@5.45.1)(eslint@8.29.0)(typescript@5.0.2)
   eslint-plugin-vitest:
     specifier: ^0.2.0
     version: 0.2.2(eslint@8.29.0)(typescript@5.0.2)
@@ -2563,13 +2563,13 @@ packages:
       eslint: 8.29.0
     dev: true
 
-  /eslint-plugin-typescript-sort-keys@2.1.0(@typescript-eslint/parser@5.45.1)(eslint@8.29.0)(typescript@5.0.2):
-    resolution: {integrity: sha512-ET7ABypdz19m47QnKynzNfWPi4CTNQ5jQQC1X5d0gojIwblkbGiCa5IilsqzBTmqxZ0yXDqKBO/GBkBFQCOFsg==}
-    engines: {node: 10 - 12 || >= 13.9}
+  /eslint-plugin-typescript-sort-keys@3.0.0(@typescript-eslint/parser@5.45.1)(eslint@8.29.0)(typescript@5.0.2):
+    resolution: {integrity: sha512-bMmI4prYlf3l/1O8j8Nsz11m+XfKEHRFk9aJqP91L4Hgy7I38lnitnYElDmPQaznE1oFlGgBcnkEizNT2NLylQ==}
+    engines: {node: '>= 16'}
     peerDependencies:
-      '@typescript-eslint/parser': ^1 || ^2 || ^3 || ^4 || ^5
-      eslint: ^5 || ^6 || ^7 || ^8
-      typescript: ^3 || ^4
+      '@typescript-eslint/parser': ^6
+      eslint: ^7 || ^8
+      typescript: ^3 || ^4 || ^5
     dependencies:
       '@typescript-eslint/experimental-utils': 5.45.1(eslint@8.29.0)(typescript@5.0.2)
       '@typescript-eslint/parser': 5.45.1(eslint@8.29.0)(typescript@5.0.2)
