@@ -1,12 +1,16 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
+import { useKonamimojisplosion } from "konamimojisplosion";
+
 import { Anchor } from "@/components/anchor/anchor";
 import { Title } from "../title/title";
 
 import * as styles from "./styles";
 
 export function Hero() {
+    useKonamimojisplosion();
+    
     return (
         <div css={styles.heroContainer}>
             <Title addStyles={styles.title}/>
