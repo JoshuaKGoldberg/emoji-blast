@@ -5,8 +5,6 @@ import { EmojiEvents, initializeEvents } from "./events";
 import { createStyleElementAndClass } from "./styles";
 import { obtainValue, shuffleArray } from "./utils";
 
-console.log("hi");
-
 /**
  * Settings to launch an emojisplosion!
  */
