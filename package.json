@@ -8,7 +8,7 @@
 		"@semantic-release/github": "^9.0.0",
 		"@semantic-release/npm": "^10.0.0",
 		"@semantic-release/release-notes-generator": "^11.0.0",
-		"@typescript-eslint/eslint-plugin": "^5.45.1",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^5.45.1",
 		"@vitest/coverage-c8": "^0.29.0",
 		"chalk": "^5.1.2",
