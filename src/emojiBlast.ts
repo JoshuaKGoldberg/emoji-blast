@@ -11,9 +11,9 @@ import { createStyleElementAndClass } from "./styles.js";
 import { obtainValue, shuffleArray } from "./utils.js";
 
 /**
- * Settings to launch an emojisplosion!
+ * Settings to launch a blast of emojis! 🎆
  */
-export interface EmojisplosionSettings {
+export interface EmojiBlastSettings {
 	/**
 	 * Class name to add to all emoji elements.
 	 */
@@ -150,12 +150,9 @@ export const defaultPosition = () => ({
 });
 
 /**
- * Launches an emojisplosion across the page! 🎆
- * @param settings   Settings to emojisplode.
+ * Launches a blast of emojis across the page! 🎆
  */
-export const emojisplosion = (
-	settings: Partial<EmojisplosionSettings> = {},
-) => {
+export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 	const {
 		className = defaultClassName,
 		container: containerSetting = defaultCreateContainer,

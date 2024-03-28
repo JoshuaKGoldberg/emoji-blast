@@ -1,17 +1,17 @@
-import { emojisplosion } from "../emojisplosion";
+import { emojiBlast } from "../emojiBlast";
 
-const triggerEmojisplosion = (x: number, y: number) => {
-	emojisplosion({
+const triggerEmojiBlast = (x: number, y: number) => {
+	emojiBlast({
 		position: { x, y },
 	});
 };
 
 document.addEventListener("click", (event) => {
-	triggerEmojisplosion(event.clientX, event.clientY);
+	triggerEmojiBlast(event.clientX, event.clientY);
 });
 
 document.addEventListener("drag", (event) => {
-	triggerEmojisplosion(event.clientX, event.clientY);
+	triggerEmojiBlast(event.clientX, event.clientY);
 });
 
 document.addEventListener("touchmove", (event) => {
@@ -19,7 +19,7 @@ document.addEventListener("touchmove", (event) => {
 		const touch = event.touches.item(i);
 
 		if (touch !== null) {
-			triggerEmojisplosion(touch.clientX, touch.clientY);
+			triggerEmojiBlast(touch.clientX, touch.clientY);
 		}
 	}
 });

@@ -1,4 +1,4 @@
-<h1 align="center">Emojisplosion</h1>
+<h1 align="center">emoji-blast</h1>
 
 <p align="center">Blasts emoji like fireworks all up in your HTML page. 🎆</p>
 
@@ -8,78 +8,77 @@
 	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 3" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-3-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
-	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
-	<a href="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion" target="_blank"><img alt="🧪 Coverage" src="https://img.shields.io/codecov/c/github/JoshuaKGoldberg/emojisplosion?label=%F0%9F%A7%AA%20coverage" /></a>
-	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
-	<a href="http://npmjs.com/package/emojisplosion"><img alt="📦 npm version" src="https://img.shields.io/npm/v/emojisplosion?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
+	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
+	<a href="https://codecov.io/gh/JoshuaKGoldberg/emoji-blast" target="_blank"><img alt="🧪 Coverage" src="https://img.shields.io/codecov/c/github/JoshuaKGoldberg/emoji-blast?label=%F0%9F%A7%AA%20coverage" /></a>
+	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
+	<a href="http://npmjs.com/package/emoji-blast"><img alt="📦 npm version" src="https://img.shields.io/npm/v/emoji-blast?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
-	<a href="#contributors">
 </p>
 
-A straightforward library that triggers fireworks blasts of emoji in your page.
-Tell it to start once, or many times, and it will _just work_.
-✨
+A straightforward library that triggers fireworks blasts of emoji in any web app or site.
+It provides two APIs:
 
-Even better, the library is shockingly customizable.
-You can configure virtually everything from emojis, sizing, and velocities.
-See the demos on **[emojisplosion.dev](https://emojisplosion.dev)**.
+- `emojiBlast()`: launches a single blast of emojis at a random location on the page.
+- `emojiBlasts()`: starts calling emojiBlast on a random interval of every few seconds.
+
+Both are shockingly configurable and delightful to use. 🎇
 
 ## Usage
 
-You can directly use Emojisplosion on its own, or as a part of a framework bundle.
-It provides two functions:
-
-- `emojisplosion()`: launches a single blast of emojis at random locations on the page.
-- `emojisplosions()`: starts calling `emojisplosion` on a random interval of every few seconds.
-
-### Direct Usage
+### Direct HTML Quick Start
 
 Plop this 👇 at the end of your `.html` `<body>`:
 
 ```html
-<script async src="https://unpkg.com/emojisplosion/lib/easy.js"></script>
+<script async src="https://unpkg.com/emoji-blast/lib/now.js"></script>
 ```
 
-That ☝ loads Emojisplosion soon after your page loads and starts emojisplosions as soon as it can.
+That ☝ loads `emoji-blast`` soon after your page loads and starts emojiBlasts as soon as it can.
 
 👌.
 
-Alternately, to create global `emojisplosion` and `emojisplosions` functions:
+You'll probably want a little more fine-grained control over when the blasts occur.
+To create global `emojiBlast` and `emojiBlasts` functions:
 
 ```html
-<script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
+<script src="https://unpkg.com/emoji-blast/lib/global.js"></script>
 <script>
 	// Just one explosion, please.
-	emojisplosion();
+	emojiBlast();
 
 	// Commence explosions!
-	emojisplosions();
+	emojiBlasts();
 </script>
 ```
 
 ### Framework Usage
 
-First install the `emojisplosion` package as a dependency:
+First install the `emoji-blast` package as a dependency:
 
 ```shell
-npm i emojisplosion
+npm i emoji-blast
 ```
 
-You can then import it in your code to access its `emojisplosion` and `emojisplosions` functions:
+You can then import it in your code to access its `emojiBlast` and `emojiBlasts` functions:
 
 ```ts
-import { emojisplosion, emojisplosions } from "emojisplosion";
+import { emojiBlast, emojiBlasts } from "emoji-blast";
 
 // Just one explosion, please.
-emojisplosion();
+emojiBlast();
 
 // Commence explosions!
-emojisplosions();
+emojiBlasts();
 ```
+
+If you're using ESM or any modern JavaScript bundler or framework, such as ESBuild, Vite, or Webpack, this should _just work_.
+✨
+
+<!-- Soon, we'll document *-emoji-blast integrations here. Soon! -->
 
 ## Explanation
 
-Each `emojisplosion` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
+Each `emoji-blast` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
 Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
 
 - Start with a random horizontal velocity and random upward vertical velocity
@@ -87,25 +86,9 @@ Each explosion contains around a dozen emoji, each of which are animated in Java
 
 After an emoji is completely hidden or out of bounds, it is removed from the page.
 
-### Advanced Mode
-
-With Webpack and other modern JavaScript bundlers:
-
-```javascript
-import { emojisplosion, emojisplosions } from "emojisplosion";
-
-// Just one explosion, please.
-emojisplosion();
-
-// Commence explosions!
-emojisplosions();
-```
-
-Oh, and Emojisplosion is written in TypeScript and ships with its own typings. 💣
-
 ### Configuration
 
-`emojisplosion` and `emojisplosions` are highly configurable.
+`emoji-blast` and `emojiBlasts` are highly configurable.
 The following may be passed to both via configuration objects.
 
 > Suggestion: see the generated `.d.ts` under `./lib` for full API descriptions.
@@ -118,12 +101,13 @@ CSS class name to add to all emoji elements.
 Defaults to `"emoji-styles"`.
 
 ```javascript
-emojisplosion({
-	className: "my-emoji-styles",
-});
+emoji -
+	blast({
+		className: "my-emoji-styles",
+	});
 ```
 
-Whenever a new `className` is passed to `emojisplosion`, a new `<style>` element is created to add general emoji styles for that class.
+Whenever a new `className` is passed to `emoji-blast`, a new `<style>` element is created to add general emoji styles for that class.
 See [`styles.ts`](./src/styles.ts).
 
 #### `container`
@@ -134,9 +118,10 @@ Element container to append elements into.
 Defaults to a new `<div />` inserted as a first child of `document.body`.
 
 ```javascript
-emojisplosion({
-	container: document.getElementById("fun"),
-});
+emoji -
+	blast({
+		container: document.getElementById("fun"),
+	});
 ```
 
 #### `emojiCount`
@@ -149,17 +134,19 @@ Defaults to random number between 14 and 28.
 Creating 9001 emoji per blast:
 
 ```javascript
-emojisplosion({
-	emojiCount: 9001,
-});
+emoji -
+	blast({
+		emojiCount: 9001,
+	});
 ```
 
 Creating a random number between 100 and 200 per blast:
 
 ```javascript
-emojisplosion({
-	emojiCount: () => Math.random() * 100 + 100,
-});
+emoji -
+	blast({
+		emojiCount: () => Math.random() * 100 + 100,
+	});
 ```
 
 #### `events`
@@ -170,18 +157,19 @@ Handlers for user interactions with individual emojis.
 Defaults to an `onClick` that pushes up the emoji up just a little bit.
 
 ```javascript
-emojisplosion({
-	events: {
-		onClick({ actor, event }) {
-			actor.update({
-				opacity: 1,
-				velocity: {
-					y: actor.velocity.y / 2 - 15,
-				},
-			});
+emoji -
+	blast({
+		events: {
+			onClick({ actor, event }) {
+				actor.update({
+					opacity: 1,
+					velocity: {
+						y: actor.velocity.y / 2 - 15,
+					},
+				});
+			},
 		},
-	},
-});
+	});
 ```
 
 The `EmojiEventData` interface contains:
@@ -197,22 +185,24 @@ List of allowed emojis to randomly choose from for each explosion.
 The default list of emojis is in [`emojis.ts`](./src/emojis.ts); it excludes emojis with dubious reputations such as 💩 and 🍆.
 
 > Found an emoji not supposed to be in that list?
-> Please [file an issue](https://github.com/JoshuaKGoldberg/emojisplosion/issues/new)!
+> Please [file an issue](https://github.com/JoshuaKGoldberg/emoji-blast/issues/new)!
 
 Always choosing the 💖 emoji:
 
 ```javascript
-emojisplosion({
-	emojis: ["💖"],
-});
+emoji -
+	blast({
+		emojis: ["💖"],
+	});
 ```
 
 Allowing any of several wonderful heart emojis for each emoji within a blast:
 
 ```javascript
-emojisplosion({
-	emojis: ["💖", "💕", "💗", "💓", "💝"],
-});
+emoji -
+	blast({
+		emojis: ["💖", "💕", "💗", "💓", "💝"],
+	});
 ```
 
 #### `physics`
@@ -244,51 +234,54 @@ These values are optional:
 Causing emojis to spin wildly out of control:
 
 ```javascript
-emojisplosion({
-	physics: {
-		initialVelocities: {
-			rotation: {
-				max: 14,
-				min: -14,
+emoji -
+	blast({
+		physics: {
+			initialVelocities: {
+				rotation: {
+					max: 14,
+					min: -14,
+				},
 			},
+			rotationDeceleration: 1.01,
 		},
-		rotationDeceleration: 1.01,
-	},
-});
+	});
 ```
 
 Inverting gravity:
 
 ```javascript
-emojisplosion({
-	physics: {
-		gravity: -0.35,
-		initialVelocities: {
-			y: {
-				max: 14,
-				min: 11.7,
+emoji -
+	blast({
+		physics: {
+			gravity: -0.35,
+			initialVelocities: {
+				y: {
+					max: 14,
+					min: 11.7,
+				},
 			},
 		},
-	},
-});
+	});
 ```
 
 Alternately, the `defaultPhysics` object is exported, so you can base your physics constants off it:
 
 ```javascript
-import { emojisplosions, defaultPhysics } from "emojisplosion";
+import { emojiBlasts, defaultPhysics } from "emoji-blast";
 
-emojisplosion({
-	physics: {
-		gravity: -defaultPhysics.gravity,
-		initialVelocities: {
-			y: {
-				max: -defaultPhysics.initialVelocities.max,
-				min: -defaultPhysics.initialVelocities.min,
+emoji -
+	blast({
+		physics: {
+			gravity: -defaultPhysics.gravity,
+			initialVelocities: {
+				y: {
+					max: -defaultPhysics.initialVelocities.max,
+					min: -defaultPhysics.initialVelocities.min,
+				},
 			},
 		},
-	},
-});
+	});
 ```
 
 #### `position`
@@ -303,23 +296,25 @@ You can provide a static object or a function to create one.
 The default `position` chooses integers within the page:
 
 ```javascript
-emojisplosion({
-	position: () => ({
-		x: Math.random() * innerWidth,
-		y: Math.random() * innerHeight,
-	}),
-});
+emoji -
+	blast({
+		position: () => ({
+			x: Math.random() * innerWidth,
+			y: Math.random() * innerHeight,
+		}),
+	});
 ```
 
 Always exploding from a fixed position:
 
 ```javascript
-emojisplosion({
-	position: {
-		x: 35,
-		y: 35,
-	},
-});
+emoji -
+	blast({
+		position: {
+			x: 35,
+			y: 35,
+		},
+	});
 ```
 
 Exploding emoji around your favorite element on the page:
@@ -327,17 +322,18 @@ Exploding emoji around your favorite element on the page:
 ```javascript
 const element = document.querySelector("#my-face");
 
-emojisplosion({
-	position() {
-		// https://stackoverflow.com/questions/1480133
-		const offset = cumulativeOffset(element);
+emoji -
+	blast({
+		position() {
+			// https://stackoverflow.com/questions/1480133
+			const offset = cumulativeOffset(element);
 
-		return {
-			x: offset.left + element.clientWidth / 2,
-			y: offset.top + element.clientHeight / 2,
-		};
-	},
-});
+			return {
+				x: offset.left + element.clientWidth / 2,
+				y: offset.top + element.clientHeight / 2,
+			};
+		},
+	});
 ```
 
 #### `process`
@@ -350,11 +346,12 @@ Useful if you'd like to apply custom attributes, class names, or styles to your 
 Adding an `.emoji` class to each element:
 
 ```javascript
-emojisplosion({
-	process(element) {
-		element.className = "emoji";
-	},
-});
+emoji -
+	blast({
+		process(element) {
+			element.className = "emoji";
+		},
+	});
 ```
 
 #### `uniqueness`
@@ -370,9 +367,10 @@ If `U > emojis.length`, it will be ignored.
 Allowing only one emoji type per blast:
 
 ```javascript
-emojisplosion({
-	uniqueness: 1,
-});
+emoji -
+	blast({
+		uniqueness: 1,
+	});
 ```
 
 Allowing one more emoji type per blast each blast:
@@ -380,28 +378,29 @@ Allowing one more emoji type per blast each blast:
 ```javascript
 let count = 0;
 
-emojisplosion({
-	uniqueness() {
-		count += 1;
-		return count;
-	},
-});
+emoji -
+	blast({
+		uniqueness() {
+			count += 1;
+			return count;
+		},
+	});
 ```
 
-### `emojisplosions`
+### `emojiBlasts`
 
-`emojisplosions` can take in all of the same settings as `emojisplosion`.
+`emojiBlasts` can take in all of the same settings as `emoji-blast`.
 It returns an object with a `cancel` function that can cancel any pending work:
 
 ```typescript
 // Commence explosions!...
-const { cancel } = emojisplosions();
+const { cancel } = emojiBlasts();
 
 // ...but stop after ten seconds.
 setTimeout(cancel, 10000);
 ```
 
-Additionally, these configurations are exclusively for `emojisplosions`:
+Additionally, these configurations are exclusively for `emojiBlasts`:
 
 #### `interval`
 
@@ -418,7 +417,7 @@ The default `interval` is a function that returns `0` the first time for an imme
 As quickly as `setInterval` can fire (this will probably crash your browser!):
 
 ```javascript
-emojisplosions({
+emojiBlasts({
 	interval: 0,
 });
 ```
@@ -426,7 +425,7 @@ emojisplosions({
 Once a second:
 
 ```javascript
-emojisplosions({
+emojiBlasts({
 	interval: 1000,
 });
 ```
@@ -436,7 +435,7 @@ emojisplosions({
 ```javascript
 let scheduled = false;
 
-emojisplosions({
+emojiBlasts({
 	interval() {
 		if (!scheduled) {
 			scheduled = true;
@@ -456,7 +455,7 @@ Schedules the next explosion to occur.
 This defaults to `setTimeout`, which is why `interval` is typically treated as milliseconds.
 
 ```javascript
-emojisplosions({
+emojiBlasts({
 	scheduler(action, delay) {
 		console.log(`Will emoji in ${delay} ms!`);
 		action();
@@ -478,9 +477,9 @@ Thanks! 💖
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://loige.co"><img src="https://avatars.githubusercontent.com/u/205629?v=4?s=100" width="100px;" alt="Luciano Mammino"/><br /><sub><b>Luciano Mammino</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=lmammino" title="Documentation">📖</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=lmammino" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=helenamerk" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://loige.co"><img src="https://avatars.githubusercontent.com/u/205629?v=4?s=100" width="100px;" alt="Luciano Mammino"/><br /><sub><b>Luciano Mammino</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=lmammino" title="Documentation">📖</a> <a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=lmammino" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=helenamerk" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

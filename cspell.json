@@ -9,14 +9,5 @@
 		"node_modules",
 		"pnpm-lock.yaml"
 	],
-	"words": [
-		"emojisplode",
-		"emojisplodes",
-		"emojisplosion",
-		"emojisplosions",
-		"gameplay",
-		"knip",
-		"packagejson",
-		"tsup"
-	]
+	"words": ["emojiblast.dev", "gameplay", "knip", "packagejson", "tsup"]
 }
