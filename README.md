@@ -41,7 +41,7 @@ Plop this 👇 at the end of your `.html` `<body>`:
 <script async src="https://unpkg.com/emoji-blast/lib/now.js"></script>
 ```
 
-That ☝ loads `emoji-blast` soon after your page loads and starts emojiBlasts as soon as it can.
+That ☝ loads `emoji-blast` soon after your page loads and starts `emojiBlasts()` as soon as it can.
 
 👌.
 
