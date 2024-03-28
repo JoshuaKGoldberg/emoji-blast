@@ -28,7 +28,7 @@ Tell it to start once, or many times, and it will _just work_.
 `emoji-blast` provides two APIs:
 
 - `emojiBlast()`: launches a single blast of emojis at a random location on the page.
-- `emojiBlasts()`: starts calling emojiBlast on a random interval of every few seconds.
+- `emojiBlasts()`: starts calling `emojiBlast()` on a random interval of every few seconds.
 
 Both are shockingly configurable and delightful to use.
 🎇
