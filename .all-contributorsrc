@@ -1,37 +1,48 @@
 {
-	"badgeTemplate": "\t<a href=\"#contributors\" target=\"_blank\"><img alt=\"👪 All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-<%= contributors.length %>-21bb42.svg\" /></a>",
-	"commit": false,
-	"commitConvention": "angular",
-	"commitType": "docs",
-	"contributors": [
-		{
-			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
-			"contributions": ["code", "maintenance"],
-			"login": "JoshuaKGoldberg",
-			"name": "Josh Goldberg",
-			"profile": "http://www.joshuakgoldberg.com"
-		},
-		{
-			"login": "helenamerk",
-			"name": "helenamerk",
-			"avatar_url": "https://avatars.githubusercontent.com/u/7145275?v=4",
-			"profile": "https://github.com/helenamerk",
-			"contributions": ["code"]
-		},
-		{
-			"login": "lmammino",
-			"name": "Luciano Mammino",
-			"avatar_url": "https://avatars.githubusercontent.com/u/205629?v=4",
-			"profile": "https://loige.co",
-			"contributions": ["doc", "code"]
-		}
-	],
-	"contributorsPerLine": 7,
-	"contributorsSortAlphabetically": true,
-	"files": ["README.md"],
-	"imageSize": 100,
-	"projectName": "emoji-blast",
-	"projectOwner": "JoshuaKGoldberg",
-	"repoHost": "https://github.com",
-	"repoType": "github"
+  "badgeTemplate": "\t<a href=\"#contributors\" target=\"_blank\"><img alt=\"👪 All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-<%= contributors.length %>-21bb42.svg\" /></a>",
+  "commit": false,
+  "commitConvention": "angular",
+  "commitType": "docs",
+  "contributors": [
+    {
+      "avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ],
+      "login": "JoshuaKGoldberg",
+      "name": "Josh Goldberg",
+      "profile": "http://www.joshuakgoldberg.com"
+    },
+    {
+      "login": "helenamerk",
+      "name": "helenamerk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7145275?v=4",
+      "profile": "https://github.com/helenamerk",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lmammino",
+      "name": "Luciano Mammino",
+      "avatar_url": "https://avatars.githubusercontent.com/u/205629?v=4",
+      "profile": "https://loige.co",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": true,
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "projectName": "emoji-blast",
+  "projectOwner": "JoshuaKGoldberg",
+  "repoHost": "https://github.com",
+  "repoType": "github"
 }
