@@ -100,7 +100,7 @@ devDependencies:
     version: 0.2.1
   ts-loader:
     specifier: ^9.4.2
-    version: 9.4.2(typescript@5.4.3)(webpack@5.75.0)
+    version: 9.5.1(typescript@5.4.3)(webpack@5.75.0)
   tsup:
     specifier: ^8.0.2
     version: 8.0.2(typescript@5.4.3)
@@ -3410,8 +3410,8 @@ packages:
       mem: 8.1.1
     dev: true
 
-  /enhanced-resolve@5.12.0:
-    resolution: {integrity: sha512-QHTXI/sZQmko1cbDoNAa3mJ5qhWUUNAq3vR0/YiD379fWQrcfuoX1+HW2S0MTt7XmoPLapdaDKUtelUSPic7hQ==}
+  /enhanced-resolve@5.16.0:
+    resolution: {integrity: sha512-O+QWCviPNSSLAD9Ucn8Awv+poAkqn3T1XY5/N7kR7rQO9yfSGWkYZDwpJ+iKF7B8rxaQKWngSqACpgzeapSyoA==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.11
@@ -7318,6 +7318,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /source-map@0.7.4:
+    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
+    engines: {node: '>= 8'}
+    dev: true
+
   /source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
@@ -7745,17 +7750,18 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-loader@9.4.2(typescript@5.4.3)(webpack@5.75.0):
-    resolution: {integrity: sha512-OmlC4WVmFv5I0PpaxYb+qGeGOdm5giHU7HwDDUjw59emP2UYMHy9fFSDcYgSNoH8sXcj4hGCSEhlDZ9ULeDraA==}
+  /ts-loader@9.5.1(typescript@5.4.3)(webpack@5.75.0):
+    resolution: {integrity: sha512-rNH3sK9kGZcH9dYzC7CewQm4NtxJTjSEVRJ2DyBZR7f8/wcta+iV44UPCXc5+nzDzivKtlzV6c9P4e+oFhDLYg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
       webpack: ^5.0.0
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.12.0
+      enhanced-resolve: 5.16.0
       micromatch: 4.0.5
       semver: 7.6.0
+      source-map: 0.7.4
       typescript: 5.4.3
       webpack: 5.75.0(esbuild@0.19.12)(webpack-cli@5.0.1)
     dev: true
@@ -8301,7 +8307,7 @@ packages:
       acorn-import-assertions: 1.8.0(acorn@8.11.3)
       browserslist: 4.21.4
       chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.12.0
+      enhanced-resolve: 5.16.0
       es-module-lexer: 0.9.3
       eslint-scope: 5.1.1
       events: 3.3.0
