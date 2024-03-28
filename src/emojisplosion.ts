@@ -57,10 +57,9 @@ export interface EmojisplosionSettings {
 
 /**
  * Setting value or a method to create it.
- *
  * @template T   Type of the setting value.
  */
-export type SettingValue<T> = T | (() => T);
+export type SettingValue<T> = (() => T) | T;
 
 /**
  * Default class name to add to emoji elements.
@@ -69,7 +68,6 @@ export const defaultClassName = "emoji-styles";
 
 /**
  * Default creator for a container element.
- *
  * @returns <div /> element prepended to document.body.
  */
 export const defaultCreateContainer = (() => {
@@ -90,7 +88,6 @@ export const defaultCreateContainer = (() => {
 
 /**
  * Default emojiCount to choose a random number of emoji per blast.
- *
  * @returns Random integer within 14 to 28.
  */
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
@@ -140,7 +137,6 @@ export const defaultPhysics: EmojiPhysics = {
 
 /**
  * Default position to choose random locations within the page.
- *
  * @returns Random { left, top } integers within the page.
  */
 export const defaultPosition = () => ({
@@ -150,11 +146,10 @@ export const defaultPosition = () => ({
 
 /**
  * Launches an emojisplosion across the page! 🎆
- *
  * @param settings   Settings to emojisplode.
  */
 export const emojisplosion = (
-	settings: Partial<EmojisplosionSettings> = {}
+	settings: Partial<EmojisplosionSettings> = {},
 ) => {
 	const {
 		className = defaultClassName,

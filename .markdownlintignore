@@ -1,3 +1,4 @@
 .github/CODE_OF_CONDUCT.md
-dist/
+CHANGELOG.md
+lib/
 node_modules/

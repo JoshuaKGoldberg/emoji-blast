@@ -1,4 +1,4 @@
-import { randomInRange, RandomRange } from "./range";
+import { RandomRange, randomInRange } from "./range";
 import { randomArrayMember } from "./utils";
 
 /**
@@ -128,7 +128,6 @@ export type EmojiVelocity = EmojiPosition & {
 
 /**
  * Processes an element just before it's appended to the container.
- *
  * @param element   Element about to be appended to the container.
  */
 export type EmojiProcess = (element: Element) => void;
@@ -156,7 +155,6 @@ const outOfBounds = 350;
 /**
  * Contains the position state and DOM element for a single displayed emoji.
  *
- * @remarks
  * This creates and keeps a single DOM element button in the DOM.
  * Text content for the button is determined by the provided actors.
  *
@@ -170,11 +168,6 @@ const outOfBounds = 350;
  * "Disposing" an actor means removing its element from the document.
  */
 export class EmojiActor {
-	/**
-	 * Attached element kept in the DOM.
-	 */
-	public readonly element: HTMLSpanElement;
-
 	/**
 	 * CSS opacity style, starting at 1 for fully visible.
 	 */
@@ -196,25 +189,9 @@ export class EmojiActor {
 	#velocity: EmojiVelocity;
 
 	/**
-	 * CSS opacity style, starting at 1 for fully visible.
+	 * Attached element kept in the DOM.
 	 */
-	public get opacity() {
-		return this.#opacity;
-	}
-
-	/**
-	 * Current element coordinates and rotation.
-	 */
-	public get position(): Readonly<EmojiPosition> {
-		return this.#position;
-	}
-
-	/**
-	 * Change amounts for element position.
-	 */
-	public get velocity(): Readonly<EmojiVelocity> {
-		return this.#velocity;
-	}
+	public readonly element: HTMLSpanElement;
 
 	public constructor(settings: EmojiActorSettings) {
 		this.element = document.createElement("button");
@@ -222,7 +199,7 @@ export class EmojiActor {
 		this.element.textContent = randomArrayMember(settings.emojis);
 		this.element.setAttribute("role", "img");
 		this.element.style.fontSize = `${randomInRange(
-			settings.physics.fontSize
+			settings.physics.fontSize,
 		)}px`;
 		this.element.style.transition = "16ms opacity, 16ms transform";
 
@@ -246,8 +223,17 @@ export class EmojiActor {
 	}
 
 	/**
+	 * Updates the attached DOM element to match tracking position.
+	 */
+	private updateElement(): void {
+		this.element.style.opacity = `${this.#opacity}`;
+		this.element.style.transform = `translate(${this.#position.x}px, ${
+			this.#position.y
+		}px) rotate(${Math.round(this.#position.rotation)}deg)`;
+	}
+
+	/**
 	 * Moves the actor forward one tick.
-	 *
 	 * @param timeElapsed   How many milliseconds have passed since the last action.
 	 * @returns Whether this is now dead.
 	 */
@@ -324,9 +310,11 @@ export class EmojiActor {
 			if (updates.velocity.rotation !== undefined) {
 				this.#velocity.rotation = updates.velocity.rotation;
 			}
+
 			if (updates.velocity.x !== undefined) {
 				this.#velocity.x = updates.velocity.x;
 			}
+
 			if (updates.velocity.y !== undefined) {
 				this.#velocity.y = updates.velocity.y;
 			}
@@ -334,12 +322,23 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Updates the attached DOM element to match tracking position.
+	 * CSS opacity style, starting at 1 for fully visible.
 	 */
-	private updateElement(): void {
-		this.element.style.opacity = `${this.#opacity}`;
-		this.element.style.transform = `translate(${this.#position.x}px, ${
-			this.#position.y
-		}px) rotate(${Math.round(this.#position.rotation)}deg)`;
+	public get opacity() {
+		return this.#opacity;
+	}
+
+	/**
+	 * Current element coordinates and rotation.
+	 */
+	public get position(): Readonly<EmojiPosition> {
+		return this.#position;
+	}
+
+	/**
+	 * Change amounts for element position.
+	 */
+	public get velocity(): Readonly<EmojiVelocity> {
+		return this.#velocity;
 	}
 }

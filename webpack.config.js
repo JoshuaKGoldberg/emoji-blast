@@ -27,10 +27,10 @@ export default {
 			},
 		],
 	},
+	output: {
+		path: path.join(__dirname, "lib"),
+	},
 	resolve: {
 		extensions: [".ts"],
-	},
-	output: {
-		path: path.join(__dirname, "dist"),
 	},
 };

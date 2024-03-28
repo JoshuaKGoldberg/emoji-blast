@@ -5,7 +5,6 @@ const createdStyles = new Set<string>();
 
 /**
  * Registers a class name for emojis, creating a style element for it if necessary.
- *
  * @param className   Potentially new CSS class name.
  */
 export const createStyleElementAndClass = (className: string): void => {
@@ -32,7 +31,7 @@ export const createStyleElementAndClass = (className: string): void => {
 			width: 2em;
 			z-index: 2147483647;
 		}
-	`)
+	`),
 	);
 
 	document.head.appendChild(element);

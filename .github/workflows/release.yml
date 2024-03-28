@@ -1,3 +1,21 @@
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - uses: ./.github/actions/prepare
+      - run: pnpm build
+      - env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JoshuaKGoldberg/release-it-action@v0.2.2
+
 name: Release
 
 on:
@@ -5,17 +23,6 @@ on:
     branches:
       - main
 
-jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    if: github.event.head_commit.message != 'Initial commit'
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/prepare
-      - run: pnpm build
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+permissions:
+  contents: write
+  id-token: write

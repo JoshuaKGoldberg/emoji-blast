@@ -2,22 +2,19 @@
 	"dictionaries": ["typescript"],
 	"ignorePaths": [
 		".github",
-		"dist",
+		"CHANGELOG.md",
+		"coverage",
+		"lib",
 		"node_modules",
-		"pnpm-lock.yaml",
-		"script/*.json"
+		"pnpm-lock.yaml"
 	],
 	"words": [
-		"Codecov",
-		"codespace",
-		"commitlint",
-		"contributorsrc",
 		"emojisplode",
 		"emojisplodes",
 		"emojisplosion",
 		"emojisplosions",
 		"gameplay",
-		"lcov",
-		"wontfix"
+		"knip",
+		"packagejson"
 	]
 }
