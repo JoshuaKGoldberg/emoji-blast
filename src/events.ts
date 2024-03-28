@@ -1,4 +1,4 @@
-import { EmojiActor } from "./actor";
+import { EmojiActor } from "./actor.js";
 
 export interface EmojiEventData {
 	/**

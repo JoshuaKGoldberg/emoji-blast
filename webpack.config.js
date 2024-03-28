@@ -31,6 +31,9 @@ export default {
 		path: path.join(__dirname, "dist"),
 	},
 	resolve: {
+		extensionAlias: {
+			".js": [".js", ".ts"],
+		},
 		extensions: [".ts"],
 	},
 };

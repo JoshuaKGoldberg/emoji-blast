@@ -1,3 +1,3 @@
-export * from "./emojis";
-export * from "./emojisplosion";
-export * from "./emojisplosions";
+export * from "./emojis.js";
+export * from "./emojisplosion.js";
+export * from "./emojisplosions.js";

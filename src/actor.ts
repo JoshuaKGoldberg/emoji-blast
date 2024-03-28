@@ -1,5 +1,5 @@
-import { RandomRange, randomInRange } from "./range";
-import { randomArrayMember } from "./utils";
+import { RandomRange, randomInRange } from "./range.js";
+import { randomArrayMember } from "./utils.js";
 
 /**
  * Settings to create a single emoji within a container.

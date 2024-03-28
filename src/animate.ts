@@ -1,4 +1,4 @@
-import { EmojiActor } from "./actor";
+import { EmojiActor } from "./actor.js";
 
 /**
  * Starts the regular gameplay loop of telling actors to animate.

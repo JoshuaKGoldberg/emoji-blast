@@ -2,8 +2,8 @@ import {
 	EmojisplosionSettings,
 	SettingValue,
 	emojisplosion,
-} from "./emojisplosion";
-import { obtainValue } from "./utils";
+} from "./emojisplosion.js";
+import { obtainValue } from "./utils.js";
 
 /**
  * Settings to periodically emojisplode!

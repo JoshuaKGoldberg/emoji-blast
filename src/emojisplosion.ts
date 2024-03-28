@@ -1,9 +1,14 @@
-import { EmojiActor, EmojiPhysics, EmojiPosition, EmojiProcess } from "./actor";
-import { animate } from "./animate";
-import { defaultEmojis } from "./emojis";
-import { EmojiEvents, initializeEvents } from "./events";
-import { createStyleElementAndClass } from "./styles";
-import { obtainValue, shuffleArray } from "./utils";
+import {
+	EmojiActor,
+	EmojiPhysics,
+	EmojiPosition,
+	EmojiProcess,
+} from "./actor.js";
+import { animate } from "./animate.js";
+import { defaultEmojis } from "./emojis.js";
+import { EmojiEvents, initializeEvents } from "./events.js";
+import { createStyleElementAndClass } from "./styles.js";
+import { obtainValue, shuffleArray } from "./utils.js";
 
 /**
  * Settings to launch an emojisplosion!
