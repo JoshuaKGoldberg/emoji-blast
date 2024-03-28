@@ -6,7 +6,7 @@ jobs:
       - uses: ./.github/actions/prepare
       - run: pnpm build:dist
 
-name: Build
+name: Build Dist
 
 on:
   pull_request: ~
