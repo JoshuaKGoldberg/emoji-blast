@@ -1,43 +1,39 @@
-import {
-	EmojisplosionSettings,
-	SettingValue,
-	emojisplosion,
-} from "./emojisplosion.js";
+import { EmojiBlastSettings, SettingValue, emojiBlast } from "./emojiBlast.js";
 import { obtainValue } from "./utils.js";
 
 /**
- * Settings to periodically emojisplode!
+ * Settings to periodically blast emojis! 🎆
  */
-export interface EmojisplosionsSettings extends EmojisplosionSettings {
+export interface EmojiBlastsSettings extends EmojiBlastSettings {
 	/**
-	 * How frequently to create explosions.
+	 * How frequently to create blasts.
 	 */
 	interval: SettingValue<number>;
 
 	/**
-	 * Schedules explosions to occur.
+	 * Schedules blasts to occur.
 	 */
 	scheduler: EmojiScheduler;
 }
 
 /**
- * Schedules an explosion to occur.
- * @param action   Action that causes the explosion.
+ * Schedules an blast to occur.
+ * @param action   Action that causes the blast.
  * @param delay   How long before the action should occur.
  */
 export type EmojiScheduler = (action: () => void, delay: number) => void;
 
 /**
- * Returned handler for an ongoing emojisplosions run.
+ * Returned handler for an ongoing blasts of emojis run.
  */
-export interface EmojisplosionsHandler {
+export interface EmojiBlastsHandler {
 	/**
 	 * Triggers a blast of emojis.
 	 */
 	blast: () => void;
 
 	/**
-	 * Cancels the emojisplosions run.
+	 * Cancels the emojiBlasts run.
 	 */
 	cancel: () => void;
 }
@@ -49,19 +45,19 @@ export interface EmojisplosionsHandler {
 const defaultInterval = () => 700 + Math.floor(Math.random() * 1401);
 
 /**
- * Periodically emojisplodes across the page! 🎆
- * @param settings   Settings to emojisplode.
- * @returns Handler for the ongoing emojisplosions.
+ * Periodically blast emojis across the page! 🎆
+ * @param settings   Settings to blast emojis.
+ * @returns Handler for the ongoing blasts of emojis.
  */
-export const emojisplosions = (
-	settings: Partial<EmojisplosionsSettings> = {},
-): EmojisplosionsHandler => {
+export const emojiBlasts = (
+	settings: Partial<EmojiBlastsSettings> = {},
+): EmojiBlastsHandler => {
 	const { interval = defaultInterval, scheduler = setTimeout } = settings;
 
 	let cancelled = false;
 
 	const blast = () => {
-		emojisplosion(settings);
+		emojiBlast(settings);
 	};
 
 	const blastAndSchedule = (): void => {

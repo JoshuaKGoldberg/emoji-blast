@@ -3,8 +3,8 @@
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo) and [installing pnpm](https://pnpm.io/installation):
 
 ```shell
-git clone https://github.com/<your-name-here>/emojisplosion
-cd emojisplosion
+git clone https://github.com/<your-name-here>/emoji-blast
+cd emoji-blast
 pnpm install
 ```
 
@@ -27,7 +27,7 @@ pnpm build --watch
 
 ### Building Demos
 
-A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
+A set of `.html` files exists under `demo/` with a different way of showing off `emoji-blast` features.
 Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under under the same name.
 
 Run [**webpack**](https://webpack.js.org) locally to build source files from `src/` into output files in `dist/`:

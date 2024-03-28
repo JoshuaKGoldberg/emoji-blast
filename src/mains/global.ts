@@ -1,9 +1,9 @@
-import { emojisplosion, emojisplosions } from "../index";
+import { emojiBlast, emojiBlasts } from "../index";
 
 declare const window: Window & {
-	emojisplosion: typeof emojisplosion;
-	emojisplosions: typeof emojisplosions;
+	emojiBlast: typeof emojiBlast;
+	emojiBlasts: typeof emojiBlasts;
 };
 
-window.emojisplosion = emojisplosion;
-window.emojisplosions = emojisplosions;
+window.emojiBlast = emojiBlast;
+window.emojiBlasts = emojiBlasts;

@@ -1,6 +1,6 @@
-import { emojisplosions } from "../emojisplosions";
+import { emojiBlasts } from "../emojiBlasts";
 
-emojisplosions({
+emojiBlasts({
 	emojiCount: () => Math.random() * 20 + 20,
 	emojis: ["💖", "💕", "💗", "💓", "💝"],
 	physics: {

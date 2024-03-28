@@ -31,7 +31,7 @@ export interface EmojiEvents {
 /**
  * DOM attribute indicating that events were initialized for a container.
  */
-const attributeIndicator = "data-emojisplosion-events-initialized";
+const attributeIndicator = "data-emoji-blast-events-initialized";
 
 const domNodesToActors = new WeakMap<EventTarget, EmojiActor>();
 

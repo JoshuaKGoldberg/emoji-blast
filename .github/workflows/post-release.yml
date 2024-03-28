@@ -14,8 +14,8 @@ jobs:
 
             The release is available on:
 
-            * [GitHub releases](https://github.com/JoshuaKGoldberg/emojisplosion/releases/tag/{release_tag})
-            * [npm package (@latest dist-tag)](https://www.npmjs.com/package/emojisplosion/v/${{ env.npm_version }})
+            * [GitHub releases](https://github.com/JoshuaKGoldberg/emoji-blast/releases/tag/{release_tag})
+            * [npm package (@latest dist-tag)](https://www.npmjs.com/package/emoji-blast/v/${{ env.npm_version }})
 
             Cheers! 📦🚀
 

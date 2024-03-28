@@ -5,8 +5,8 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 export default {
 	entry: {
-		easy: "./src/mains/easy.ts",
 		global: "./src/mains/global.ts",
+		now: "./src/mains/now.ts",
 		onclick: "./src/mains/onclick.ts",
 		size: "./src/mains/size.ts",
 	},
