@@ -1,17 +1,14 @@
 /**
  * Grabs the value of an item or item-returning function.
- *
  * @param value   Item or item-returning function.
  */
-export const obtainValue = <T>(value: T | (() => T)): T =>
+export const obtainValue = <T>(value: (() => T) | T): T =>
 	typeof value === "function" ? (value as () => T)() : value;
 
 /**
- * Grabs a random member of an array.
- *
+ * Grabs a single random member of an array.
  * @template T   Type of items in the array.
  * @param array   Array of items.
- * @returns Random member of the array.
  */
 export const randomArrayMember = <T>(array: readonly T[]): T => {
 	return array[Math.floor(Math.random() * array.length)];
@@ -19,7 +16,6 @@ export const randomArrayMember = <T>(array: readonly T[]): T => {
 
 /**
  * Creates a shuffled version of an array.
- *
  * @template T   Type of items in the array.
  * @param array   Array to copy.
  * @returns Shuffled version of the array.

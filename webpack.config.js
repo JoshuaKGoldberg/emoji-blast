@@ -27,10 +27,13 @@ export default {
 			},
 		],
 	},
-	resolve: {
-		extensions: [".ts"],
-	},
 	output: {
 		path: path.join(__dirname, "dist"),
+	},
+	resolve: {
+		extensionAlias: {
+			".js": [".js", ".ts"],
+		},
+		extensions: [".ts"],
 	},
 };

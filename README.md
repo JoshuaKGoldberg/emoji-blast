@@ -1,40 +1,38 @@
 <h1 align="center">Emojisplosion</h1>
 
-<p align="center">💥Blasts 😄emoji😊 like 🎆fireworks🎇 all up in your 💻HTML 📄page. 😚😍</p>
+<p align="center">Blasts emoji like fireworks all up in your HTML page. 🎆</p>
 
 <p align="center">
-	<a href="#contributors">
-<!-- prettier-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<img alt="All Contributors: 3" src="https://img.shields.io/badge/all_contributors-3-21bb42.svg" />
+	<!-- prettier-ignore-start -->
+	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 3" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-3-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- prettier-ignore-end -->
-	</a>
-	<a href="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion" >
-		<img alt="Codecov Test Coverage" src="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion/branch/main/graph/badge.svg?token=eVIFY4MhfQ"/>
-	</a>
-	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/.github/CODE_OF_CONDUCT.md">
-		<img alt="Contributor Covenant" src="https://img.shields.io/badge/code_of_conduct-enforced-21bb42" />
-	</a>
-	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/LICENSE.md">
-	    <img alt="License: MIT" src="https://img.shields.io/github/license/JoshuaKGoldberg/emojisplosion?color=21bb42">
-    </a>
-	<a href="https://github.com/sponsors/JoshuaKGoldberg">
-    	<img alt="Sponsor: On GitHub" src="https://img.shields.io/badge/sponsor-on_github-21bb42.svg" />
-    </a>
-	<img alt="Style: Prettier" src="https://img.shields.io/badge/style-prettier-21bb42.svg" />
-    <img alt="TypeScript: Strict" src="https://img.shields.io/badge/typescript-strict-21bb42.svg" />
+	<!-- prettier-ignore-end -->
+	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
+	<a href="https://codecov.io/gh/JoshuaKGoldberg/emojisplosion" target="_blank"><img alt="🧪 Coverage" src="https://img.shields.io/codecov/c/github/JoshuaKGoldberg/emojisplosion?label=%F0%9F%A7%AA%20coverage" /></a>
+	<a href="https://github.com/JoshuaKGoldberg/emojisplosion/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
+	<a href="http://npmjs.com/package/emojisplosion"><img alt="📦 npm version" src="https://img.shields.io/npm/v/emojisplosion?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
+	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
+	<a href="#contributors">
 </p>
 
-## Demo
+A straightforward library that triggers fireworks blasts of emoji in your page.
+Tell it to start once, or many times, and it will _just work_.
+✨
 
-🎉 [Check out this JSFiddle](https://jsfiddle.net/j16x2Len/)
+Even better, the library is shockingly customizable.
+You can configure virtually everything from emojis, sizing, and velocities.
+See the demos on **[emojisplosion.dev](https://emojisplosion.dev)**.
 
 ## Usage
 
-> You might enjoy the [Chrome extension](https://github.com/joshuakgoldberg/emojisplosion-chrome)!
+You can directly use Emojisplosion on its own, or as a part of a framework bundle.
+It provides two functions:
 
-### Easy Mode
+- `emojisplosion()`: launches a single blast of emojis at random locations on the page.
+- `emojisplosions()`: starts calling `emojisplosion` on a random interval of every few seconds.
+
+### Direct Usage
 
 Plop this 👇 at the end of your `.html` `<body>`:
 
@@ -59,11 +57,27 @@ Alternately, to create global `emojisplosion` and `emojisplosions` functions:
 </script>
 ```
 
-`emojisplosion` launches a single blast of emojis at random locations on the page.
+### Framework Usage
 
-`emojisplosions` starts calling `emojisplosion` on a random interval of every few seconds.
+First install the `emojisplosion` package as a dependency:
 
-#### Explanation
+```shell
+npm i emojisplosion
+```
+
+You can then import it in your code to access its `emojisplosion` and `emojisplosions` functions:
+
+```ts
+import { emojisplosion, emojisplosions } from "emojisplosion";
+
+// Just one explosion, please.
+emojisplosion();
+
+// Commence explosions!
+emojisplosions();
+```
+
+## Explanation
 
 Each `emojisplosion` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
 Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
@@ -464,9 +478,9 @@ Thanks! 💖
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/issues?q=author%3AJoshuaKGoldberg" title="Bug reports">🐛</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=JoshuaKGoldberg" title="Documentation">📖</a> <a href="#infra-JoshuaKGoldberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/pulls?q=is%3Apr+reviewed-by%3AJoshuaKGoldberg" title="Reviewed Pull Requests">👀</a> <a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://loige.co"><img src="https://avatars.githubusercontent.com/u/205629?v=4?s=100" width="100px;" alt="Luciano Mammino"/><br /><sub><b>Luciano Mammino</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=lmammino" title="Documentation">📖</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/issues?q=author%3Ahelenamerk" title="Bug reports">🐛</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=helenamerk" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://loige.co"><img src="https://avatars.githubusercontent.com/u/205629?v=4?s=100" width="100px;" alt="Luciano Mammino"/><br /><sub><b>Luciano Mammino</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=lmammino" title="Documentation">📖</a> <a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=lmammino" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emojisplosion/commits?author=helenamerk" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -476,3 +490,9 @@ Thanks! 💖
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- spellchecker: enable -->
+
+<!-- You can remove this notice if you don't want it 🙂 no worries! -->
+
+> 💙 This package was templated with [`create-typescript-app`](https://github.com/JoshuaKGoldberg/create-typescript-app).
+
+> _"So anyway, I started blasting!" - Frank Reynolds_

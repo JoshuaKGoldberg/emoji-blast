@@ -3,5 +3,6 @@
 	"automerge": true,
 	"internalChecksFilter": "strict",
 	"labels": ["dependencies"],
-	"stabilityDays": 3
+	"minimumReleaseAge": "3 days",
+	"postUpdateOptions": ["pnpmDedupe"]
 }

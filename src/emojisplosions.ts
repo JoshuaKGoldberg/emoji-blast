@@ -1,9 +1,9 @@
 import {
-	emojisplosion,
 	EmojisplosionSettings,
 	SettingValue,
-} from "./emojisplosion";
-import { obtainValue } from "./utils";
+	emojisplosion,
+} from "./emojisplosion.js";
+import { obtainValue } from "./utils.js";
 
 /**
  * Settings to periodically emojisplode!
@@ -22,7 +22,6 @@ export interface EmojisplosionsSettings extends EmojisplosionSettings {
 
 /**
  * Schedules an explosion to occur.
- *
  * @param action   Action that causes the explosion.
  * @param delay   How long before the action should occur.
  */
@@ -45,25 +44,25 @@ export interface EmojisplosionsHandler {
 
 /**
  * Default interval setting for fire delays.
- *
  * @returns Random number between 0 and 2100.
  */
 const defaultInterval = () => 700 + Math.floor(Math.random() * 1401);
 
 /**
  * Periodically emojisplodes across the page! 🎆
- *
  * @param settings   Settings to emojisplode.
  * @returns Handler for the ongoing emojisplosions.
  */
 export const emojisplosions = (
-	settings: Partial<EmojisplosionsSettings> = {}
+	settings: Partial<EmojisplosionsSettings> = {},
 ): EmojisplosionsHandler => {
 	const { interval = defaultInterval, scheduler = setTimeout } = settings;
 
 	let cancelled = false;
 
-	const blast = () => emojisplosion(settings);
+	const blast = () => {
+		emojisplosion(settings);
+	};
 
 	const blastAndSchedule = (): void => {
 		if (cancelled) {

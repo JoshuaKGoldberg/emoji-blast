@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { obtainValue } from "./utils";
+import { obtainValue } from "./utils.js";
 
 describe("obtainValue", () => {
 	it("returns the value when provided as a non-function", () => {

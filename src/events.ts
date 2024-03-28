@@ -1,4 +1,4 @@
-import { EmojiActor } from "./actor";
+import { EmojiActor } from "./actor.js";
 
 export interface EmojiEventData {
 	/**
@@ -14,7 +14,6 @@ export interface EmojiEventData {
 
 /**
  * Handler for a user interaction with an individual emoji.
- *
  * @param actor
  */
 export type EmojiEventHandler = (data: EmojiEventData) => void;
@@ -39,7 +38,7 @@ const domNodesToActors = new WeakMap<EventTarget, EmojiActor>();
 export function initializeEvents(
 	actors: EmojiActor[],
 	container: Element,
-	events: EmojiEvents
+	events: EmojiEvents,
 ) {
 	for (const actor of actors) {
 		domNodesToActors.set(actor.element, actor);

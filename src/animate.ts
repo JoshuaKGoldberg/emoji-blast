@@ -1,4 +1,4 @@
-import { EmojiActor } from "./actor";
+import { EmojiActor } from "./actor.js";
 
 /**
  * Starts the regular gameplay loop of telling actors to animate.
@@ -11,7 +11,7 @@ export function animate(
 	/**
 	 * Actors that have been added and not yet marked themselves as out of bounds.
 	 */
-	actors: EmojiActor[]
+	actors: EmojiActor[],
 ) {
 	/**
 	 * Most recently time recorded by `requestAnimationFrame`.
@@ -20,7 +20,6 @@ export function animate(
 
 	/**
 	 * Runs game logic for one tick.
-	 *
 	 * @param currentTime   Current time, in milliseconds since page load.
 	 */
 	const tick = (currentTime: number): void => {
