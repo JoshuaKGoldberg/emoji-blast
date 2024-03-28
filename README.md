@@ -51,11 +51,8 @@ To create global `emojiBlast` and `emojiBlasts` functions:
 ```html
 <script src="https://unpkg.com/emoji-blast/lib/global.js"></script>
 <script>
-	// Just one explosion, please.
-	emojiBlast();
-
-	// Commence explosions!
-	emojiBlasts();
+	emojiBlast(); // Just one blast, please.
+	emojiBlasts(); // Commence blasting!
 </script>
 ```
 
@@ -72,11 +69,8 @@ You can then import it in your code to access its `emojiBlast` and `emojiBlasts`
 ```ts
 import { emojiBlast, emojiBlasts } from "emoji-blast";
 
-// Just one explosion, please.
-emojiBlast();
-
-// Commence explosions!
-emojiBlasts();
+emojiBlast(); // Just one blast, please.
+emojiBlasts(); // Commence blasting!
 ```
 
 If you're using ESM or any modern JavaScript bundler or framework, such as ESBuild, Vite, or Webpack, this should _just work_.
