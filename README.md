@@ -101,10 +101,9 @@ CSS class name to add to all emoji elements.
 Defaults to `"emoji-styles"`.
 
 ```javascript
-emoji -
-	blast({
-		className: "my-emoji-styles",
-	});
+emojiBlast({
+	className: "my-emoji-styles",
+});
 ```
 
 Whenever a new `className` is passed to `emoji-blast`, a new `<style>` element is created to add general emoji styles for that class.
@@ -118,10 +117,9 @@ Element container to append elements into.
 Defaults to a new `<div />` inserted as a first child of `document.body`.
 
 ```javascript
-emoji -
-	blast({
-		container: document.getElementById("fun"),
-	});
+emojiBlast({
+	container: document.getElementById("fun"),
+});
 ```
 
 #### `emojiCount`
@@ -134,19 +132,17 @@ Defaults to random number between 14 and 28.
 Creating 9001 emoji per blast:
 
 ```javascript
-emoji -
-	blast({
-		emojiCount: 9001,
-	});
+emojiBlast({
+	emojiCount: 9001,
+});
 ```
 
 Creating a random number between 100 and 200 per blast:
 
 ```javascript
-emoji -
-	blast({
-		emojiCount: () => Math.random() * 100 + 100,
-	});
+emojiBlast({
+	emojiCount: () => Math.random() * 100 + 100,
+});
 ```
 
 #### `events`
@@ -157,19 +153,18 @@ Handlers for user interactions with individual emojis.
 Defaults to an `onClick` that pushes up the emoji up just a little bit.
 
 ```javascript
-emoji -
-	blast({
-		events: {
-			onClick({ actor, event }) {
-				actor.update({
-					opacity: 1,
-					velocity: {
-						y: actor.velocity.y / 2 - 15,
-					},
-				});
-			},
+emojiBlast({
+	events: {
+		onClick({ actor, event }) {
+			actor.update({
+				opacity: 1,
+				velocity: {
+					y: actor.velocity.y / 2 - 15,
+				},
+			});
 		},
-	});
+	},
+});
 ```
 
 The `EmojiEventData` interface contains:
@@ -190,19 +185,17 @@ The default list of emojis is in [`emojis.ts`](./src/emojis.ts); it excludes emo
 Always choosing the 💖 emoji:
 
 ```javascript
-emoji -
-	blast({
-		emojis: ["💖"],
-	});
+emojiBlast({
+	emojis: ["💖"],
+});
 ```
 
 Allowing any of several wonderful heart emojis for each emoji within a blast:
 
 ```javascript
-emoji -
-	blast({
-		emojis: ["💖", "💕", "💗", "💓", "💝"],
-	});
+emojiBlast({
+	emojis: ["💖", "💕", "💗", "💓", "💝"],
+});
 ```
 
 #### `physics`
@@ -234,35 +227,33 @@ These values are optional:
 Causing emojis to spin wildly out of control:
 
 ```javascript
-emoji -
-	blast({
-		physics: {
-			initialVelocities: {
-				rotation: {
-					max: 14,
-					min: -14,
-				},
+emojiBlast({
+	physics: {
+		initialVelocities: {
+			rotation: {
+				max: 14,
+				min: -14,
 			},
-			rotationDeceleration: 1.01,
 		},
-	});
+		rotationDeceleration: 1.01,
+	},
+});
 ```
 
 Inverting gravity:
 
 ```javascript
-emoji -
-	blast({
-		physics: {
-			gravity: -0.35,
-			initialVelocities: {
-				y: {
-					max: 14,
-					min: 11.7,
-				},
+emojiBlast({
+	physics: {
+		gravity: -0.35,
+		initialVelocities: {
+			y: {
+				max: 14,
+				min: 11.7,
 			},
 		},
-	});
+	},
+});
 ```
 
 Alternately, the `defaultPhysics` object is exported, so you can base your physics constants off it:
@@ -270,18 +261,17 @@ Alternately, the `defaultPhysics` object is exported, so you can base your physi
 ```javascript
 import { emojiBlasts, defaultPhysics } from "emoji-blast";
 
-emoji -
-	blast({
-		physics: {
-			gravity: -defaultPhysics.gravity,
-			initialVelocities: {
-				y: {
-					max: -defaultPhysics.initialVelocities.max,
-					min: -defaultPhysics.initialVelocities.min,
-				},
+emojiBlast({
+	physics: {
+		gravity: -defaultPhysics.gravity,
+		initialVelocities: {
+			y: {
+				max: -defaultPhysics.initialVelocities.max,
+				min: -defaultPhysics.initialVelocities.min,
 			},
 		},
-	});
+	},
+});
 ```
 
 #### `position`
@@ -296,25 +286,23 @@ You can provide a static object or a function to create one.
 The default `position` chooses integers within the page:
 
 ```javascript
-emoji -
-	blast({
-		position: () => ({
-			x: Math.random() * innerWidth,
-			y: Math.random() * innerHeight,
-		}),
-	});
+emojiBlast({
+	position: () => ({
+		x: Math.random() * innerWidth,
+		y: Math.random() * innerHeight,
+	}),
+});
 ```
 
 Always exploding from a fixed position:
 
 ```javascript
-emoji -
-	blast({
-		position: {
-			x: 35,
-			y: 35,
-		},
-	});
+emojiBlast({
+	position: {
+		x: 35,
+		y: 35,
+	},
+});
 ```
 
 Exploding emoji around your favorite element on the page:
@@ -322,18 +310,17 @@ Exploding emoji around your favorite element on the page:
 ```javascript
 const element = document.querySelector("#my-face");
 
-emoji -
-	blast({
-		position() {
-			// https://stackoverflow.com/questions/1480133
-			const offset = cumulativeOffset(element);
+emojiBlast({
+	position() {
+		// https://stackoverflow.com/questions/1480133
+		const offset = cumulativeOffset(element);
 
-			return {
-				x: offset.left + element.clientWidth / 2,
-				y: offset.top + element.clientHeight / 2,
-			};
-		},
-	});
+		return {
+			x: offset.left + element.clientWidth / 2,
+			y: offset.top + element.clientHeight / 2,
+		};
+	},
+});
 ```
 
 #### `process`
@@ -346,12 +333,11 @@ Useful if you'd like to apply custom attributes, class names, or styles to your 
 Adding an `.emoji` class to each element:
 
 ```javascript
-emoji -
-	blast({
-		process(element) {
-			element.className = "emoji";
-		},
-	});
+emojiBlast({
+	process(element) {
+		element.className = "emoji";
+	},
+});
 ```
 
 #### `uniqueness`
@@ -367,10 +353,9 @@ If `U > emojis.length`, it will be ignored.
 Allowing only one emoji type per blast:
 
 ```javascript
-emoji -
-	blast({
-		uniqueness: 1,
-	});
+emojiBlast({
+	uniqueness: 1,
+});
 ```
 
 Allowing one more emoji type per blast each blast:
@@ -378,13 +363,12 @@ Allowing one more emoji type per blast each blast:
 ```javascript
 let count = 0;
 
-emoji -
-	blast({
-		uniqueness() {
-			count += 1;
-			return count;
-		},
-	});
+emojiBlast({
+	uniqueness() {
+		count += 1;
+		return count;
+	},
+});
 ```
 
 ### `emojiBlasts`
