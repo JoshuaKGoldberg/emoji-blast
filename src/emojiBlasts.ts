@@ -6,19 +6,19 @@ import { obtainValue } from "./utils.js";
  */
 export interface EmojiBlastsSettings extends EmojiBlastSettings {
 	/**
-	 * How frequently to create explosions.
+	 * How frequently to create blasts.
 	 */
 	interval: SettingValue<number>;
 
 	/**
-	 * Schedules explosions to occur.
+	 * Schedules blasts to occur.
 	 */
 	scheduler: EmojiScheduler;
 }
 
 /**
- * Schedules an explosion to occur.
- * @param action   Action that causes the explosion.
+ * Schedules an blast to occur.
+ * @param action   Action that causes the blast.
  * @param delay   How long before the action should occur.
  */
 export type EmojiScheduler = (action: () => void, delay: number) => void;

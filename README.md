@@ -80,8 +80,8 @@ If you're using ESM or any modern JavaScript bundler or framework, such as ESBui
 
 ## Explanation
 
-Each `emoji-blast` causes a fireworks-like explosion of random emoji to be placed around a random location on your page.
-Each explosion contains around a dozen emoji, each of which are animated in JavaScript to:
+Each `emoji-blast` causes a fireworks-like blasts of random emoji to be placed around a random location on your page.
+Each blasts contains around a dozen emoji, each of which are animated in JavaScript to:
 
 - Start with a random horizontal velocity and random upward vertical velocity
 - Move along the page as if affected by velocity and preserving inertia
@@ -178,7 +178,7 @@ The `EmojiEventData` interface contains:
 
 Type: `string[]` or `() => string[]`
 
-List of allowed emojis to randomly choose from for each explosion.
+List of allowed emojis to randomly choose from for each blast.
 The default list of emojis is in [`emojis.ts`](./src/emojis.ts); it excludes emojis with dubious reputations such as 💩 and 🍆.
 
 > Found an emoji not supposed to be in that list?
@@ -379,26 +379,26 @@ emojiBlast({
 It returns an object with a `cancel` function that can cancel any pending work:
 
 ```typescript
-// Commence explosions!...
+// Commence blasts!...
 const { cancel } = emojiBlasts();
 
 // ...but stop after ten seconds.
 setTimeout(cancel, 10000);
 ```
 
-Additionally, these configurations are exclusively for `emojiBlasts`:
+Additionally, the following configurations are exclusively for `emojiBlasts`:
 
 #### `interval`
 
 Type: `number` or `() => number`
 
-How frequently to create explosions.
-Passed to `scheduler` as the delay _(typically in milliseconds)_ before each explosion.
+How frequently to create blasts.
+Passed to `scheduler` as the delay _(typically in milliseconds)_ before each blast.
 
 Pass a `number` to always delay that much.
-Pass a function for it to be called immediately for the delay before the first explosion, then again as each explosion is started to schedule the next explosion.
+Pass a function for it to be called immediately for the delay before the first blast, then again as each blast is started to schedule the next blast.
 
-The default `interval` is a function that returns `0` the first time for an immediate explosion, then a random number in [700, 2100] subsequent times.
+The default `interval` is a function that returns `0` the first time for an immediate blast, then a random number in [700, 2100] subsequent times.
 
 As quickly as `setInterval` can fire (this will probably crash your browser!):
 
@@ -416,7 +416,7 @@ emojiBlasts({
 });
 ```
 
-0ms delay the first explosion, then 1000ms delay each subsequent explosion:
+0ms delay the first blast, then 1000ms delay each subsequent blast:
 
 ```javascript
 let scheduled = false;
@@ -437,7 +437,7 @@ emojiBlasts({
 
 Type: `(action: () => void, delay: number) => number`
 
-Schedules the next explosion to occur.
+Schedules the next blast to occur.
 This defaults to `setTimeout`, which is why `interval` is typically treated as milliseconds.
 
 ```javascript
