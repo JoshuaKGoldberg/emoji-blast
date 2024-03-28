@@ -19,7 +19,7 @@ A straightforward library that triggers fireworks blasts of emoji in any web app
 Tell it to start once, or many times, and it will _just work_.
 ✨
 
-> Previously known as <code>emojisplosion</code>.
+> Previously named **`emojisplosion`**.
 > Renamed because nobody can remember that name.
 > 🥲
 
