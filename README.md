@@ -16,14 +16,18 @@
 </p>
 
 A straightforward library that triggers fireworks blasts of emoji in any web app or site.
-It provides two APIs:
+Tell it to start once, or many times, and it will _just work_.
+✨
+
+## Usage
+
+`emoji-blast` provides two APIs:
 
 - `emojiBlast()`: launches a single blast of emojis at a random location on the page.
 - `emojiBlasts()`: starts calling emojiBlast on a random interval of every few seconds.
 
-Both are shockingly configurable and delightful to use. 🎇
-
-## Usage
+Both are shockingly configurable and delightful to use.
+🎇
 
 ### Direct HTML Quick Start
 
