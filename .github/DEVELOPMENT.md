@@ -13,22 +13,34 @@ pnpm install
 
 ## Building
 
-Run [**webpack**](https://webpack.js.org) locally to build source files from `src/` into output files in `lib/`:
+Run tsup locally to build source files from `src/` into output files in `lib/`:
 
 ```shell
 pnpm build
 ```
 
-Add `--watch` to run the builder in a watch mode:
+Add `--watch` to run the builder in a watch mode that continuously cleans and recreates `lib/` as you save files:
 
 ```shell
 pnpm build --watch
 ```
 
-### Demos
+### Building Demos
 
 A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
-Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` -build by `pnpm build` to `./lib/mains/`- under the same name.
+Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under under the same name.
+
+Run [**webpack**](https://webpack.js.org) locally to build source files from `src/` into output files in `dist/`:
+
+```shell
+pnpm build:dist
+```
+
+Add `--watch` to run the builder in a watch mode:
+
+```shell
+pnpm build:dist --watch
+```
 
 ## Formatting
 

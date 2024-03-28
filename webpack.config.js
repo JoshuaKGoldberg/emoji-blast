@@ -28,7 +28,7 @@ export default {
 		],
 	},
 	output: {
-		path: path.join(__dirname, "lib"),
+		path: path.join(__dirname, "dist"),
 	},
 	resolve: {
 		extensions: [".ts"],

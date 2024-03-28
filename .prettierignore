@@ -1,4 +1,5 @@
 .all-contributorsrc
 coverage/
+dist/
 lib/
 pnpm-lock.yaml

@@ -14,13 +14,15 @@
 	"type": "module",
 	"main": "./lib/index.js",
 	"files": [
+		"dist/",
 		"lib/",
 		"package.json",
 		"LICENSE.md",
 		"README.md"
 	],
 	"scripts": {
-		"build": "webpack",
+		"build": "tsup",
+		"build:dist": "webpack",
 		"format": "prettier .",
 		"format:write": "pnpm format --write",
 		"lint": "eslint . .*js --max-warnings 0",
@@ -76,6 +78,7 @@
 		"semantic-release": "^21.0.0",
 		"sentences-per-line": "^0.2.1",
 		"ts-loader": "^9.4.2",
+		"tsup": "^8.0.2",
 		"typescript": "^5.4.3",
 		"vitest": "^1.4.0",
 		"webpack": "^5.75.0",
