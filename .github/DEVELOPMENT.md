@@ -13,17 +13,22 @@ pnpm install
 
 ## Building
 
-Run [**tsup**](https://tsup.egoist.dev) locally to build source files from `src/` into output files in `lib/`:
+Run [**webpack**](https://webpack.js.org) locally to build source files from `src/` into output files in `lib/`:
 
 ```shell
 pnpm build
 ```
 
-Add `--watch` to run the builder in a watch mode that continuously cleans and recreates `lib/` as you save files:
+Add `--watch` to run the builder in a watch mode:
 
 ```shell
 pnpm build --watch
 ```
+
+### Demos
+
+A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
+Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` -build by `pnpm build` to `./lib/mains/`- under the same name.
 
 ## Formatting
 
@@ -69,23 +74,10 @@ To launch it, open a test file, then run _Debug Current Test File_ from the VS C
 
 ## Type Checking
 
-Run [TypeScript](https://typescriptlang.org) locally to type check and build source files from `src/` into output files in `lib/`:
+Run [TypeScript](https://typescriptlang.org) locally to type check files in `src/`:
 
 ```shell
-pnpm build --watch
+pnpm tsc --watch
 ```
 
 You should also see suggestions from TypeScript in your editor.
-
-## Browsers
-
-To update the files provided to browsers, run Webpack locally to build them into `.js` outputs under `lib/`:
-
-```shell
-pnpm webpack --watch
-```
-
-### Demos
-
-A set of `.html` files exists under `demo/` with a different way of showing off Emojisplosion features.
-Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `./src/mains` under the same name.
