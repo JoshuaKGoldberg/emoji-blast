@@ -11,6 +11,7 @@ jobs:
           ref: main
       - uses: ./.github/actions/prepare
       - run: pnpm build
+      - run: pnpm build:dist
       - env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
