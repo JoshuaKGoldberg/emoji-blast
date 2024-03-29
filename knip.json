@@ -2,23 +2,23 @@
 	"$schema": "https://unpkg.com/knip@latest/schema.json",
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
 	"workspaces": {
-		"emoji-blast": {
+		"packages/emoji-blast": {
 			"entry": ["src/index.ts!", "src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
-		"konami-emoji-blast": {
+		"packages/konami-emoji-blast": {
 			"entry": ["src/index.ts!", "src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
-		"konami-emoji-blast-astro": {
+		"packages/konami-emoji-blast-astro": {
 			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
-		"konami-emoji-blast-react": {
+		"packages/konami-emoji-blast-react": {
 			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
 		},
-		"konami-emoji-blast-typedoc": {
+		"packages/konami-emoji-blast-typedoc": {
 			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!"]
 		}

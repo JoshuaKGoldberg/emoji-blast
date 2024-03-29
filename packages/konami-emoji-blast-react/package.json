@@ -22,9 +22,6 @@
 	"type": "module",
 	"main": "src/index.js",
 	"types": "src/index.d.ts",
-	"scripts": {
-		"build": "webpack"
-	},
 	"dependencies": {
 		"konami-emoji-blast": "workspace:"
 	},

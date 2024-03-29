@@ -4,6 +4,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
+      - run: pnpm tsc
       - run: pnpm lint
 
 name: Lint
