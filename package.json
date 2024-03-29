@@ -1,5 +1,5 @@
 {
-	"name": "emoji-blast-monorepo",
+	"name": "root",
 	"private": true,
 	"description": "Blasts emoji like fireworks all up in your HTML page. 🎆",
 	"repository": {
@@ -12,7 +12,8 @@
 		"email": "npm@joshuakgoldberg.com"
 	},
 	"scripts": {
-		"build:all": "pnpm run -r build",
+		"build": "tsc -b",
+		"build:all": "pnpm run -F \\!root -r build",
 		"format": "prettier .",
 		"format:write": "pnpm format --write",
 		"lint": "eslint . .*js --max-warnings 0",
@@ -22,8 +23,7 @@
 		"lint:packages": "pnpm dedupe --check",
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
 		"prepare": "husky install",
-		"test": "vitest",
-		"tsc": "tsc -b"
+		"test": "vitest"
 	},
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"

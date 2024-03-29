@@ -11,18 +11,18 @@ pnpm install
 > This repository includes a list of suggested VS Code extensions.
 > It's a good idea to use [VS Code](https://code.visualstudio.com) and accept its suggestion to install them, as they'll help with development.
 
-## Building (Types)
+## Building
 
 Run [TypeScript](https://typescriptlang.org) to build each project's files from its `src/` directory into output files in its `lib/` directory:
 
 ```shell
-pnpm tsc
+pnpm build
 ```
 
 Add `--watch` to run the builder in a watch mode that continuously rebuilds as you save files:
 
 ```shell
-pnpm tsc --watch
+pnpm build --watch
 ```
 
 You should also see suggestions from TypeScript in your editor.
