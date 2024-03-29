@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"jsx": "preserve",
+		"jsx": "react-native",
 		"outDir": "lib",
 		"rootDir": "src"
 	},

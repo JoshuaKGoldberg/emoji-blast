@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"jsx": "preserve",
 		"outDir": "lib",
 		"rootDir": "src"
 	},

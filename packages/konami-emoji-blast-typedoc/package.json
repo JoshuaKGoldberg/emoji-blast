@@ -19,7 +19,7 @@
 	},
 	"license": "MIT",
 	"author": "Josh Goldberg",
-	"type": "commonjs",
+	"type": "module",
 	"main": "src/index.js",
 	"types": "src/index.d.ts",
 	"dependencies": {

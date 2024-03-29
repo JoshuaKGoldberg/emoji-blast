@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { useKonamiEmojiBlast } from "./useKonamiEmojiBlast.js";
@@ -18,8 +18,6 @@ describe("useKonamiEmojiBlast", () => {
 		renderHook(() => {
 			useKonamiEmojiBlast(onActivate);
 		});
-
-		act(() => {});
 
 		expect(mockInitializeKonamiEmojiBlast).toHaveBeenCalledWith(onActivate);
 	});
