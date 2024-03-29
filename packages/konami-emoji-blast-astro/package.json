@@ -1,0 +1,31 @@
+{
+	"name": "@konami-emoji-blast/astro",
+	"version": "0.0.0",
+	"description": "Hooks up konami-code-js to trigger emoji-blast in React. 🎇",
+	"keywords": [
+		"konami",
+		"konami code",
+		"emoji-blast",
+		"konami-emoji-blast",
+		"easter egg",
+		"astro",
+		"hooks"
+	],
+	"homepage": "https://emojiblast.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKGoldberg/emoji-blast.git",
+		"directory": "packages/konami-emoji-blast-astro"
+	},
+	"license": "MIT",
+	"author": "Josh Goldberg",
+	"type": "module",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"dependencies": {
+		"konami-emoji-blast": "workspace:"
+	},
+	"devDependencies": {
+		"astro": "^2.2.1"
+	}
+}

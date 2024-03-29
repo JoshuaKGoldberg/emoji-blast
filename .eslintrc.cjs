@@ -7,7 +7,6 @@ module.exports = {
 	extends: [
 		"eslint:recommended",
 		"plugin:eslint-comments/recommended",
-		"plugin:n/recommended",
 		"plugin:perfectionist/recommended-natural",
 		"plugin:regexp/recommended",
 		"plugin:vitest/recommended",
@@ -15,8 +14,8 @@ module.exports = {
 	ignorePatterns: [
 		"!.*",
 		"coverage",
-		"dist",
-		"lib",
+		"**/dist",
+		"**/lib",
 		"node_modules",
 		"pnpm-lock.yaml",
 	],
@@ -32,7 +31,7 @@ module.exports = {
 				"plugin:@typescript-eslint/strict",
 				"plugin:@typescript-eslint/stylistic",
 			],
-			files: ["**/*.ts"],
+			files: ["**/*.{ts,tsx}"],
 			parser: "@typescript-eslint/parser",
 			rules: {
 				// These off-by-default rules work well for this repo and we like them on.
@@ -49,19 +48,20 @@ module.exports = {
 				"jsdoc/require-param": "off",
 				"jsdoc/require-property": "off",
 				"jsdoc/require-returns": "off",
-				"n/no-missing-import": "off",
 			},
 		},
 		{
-			excludedFiles: ["**/*.md/*.ts"],
+			excludedFiles: ["**/*.md/*.{ts,tsx}"],
 			extends: [
 				"plugin:@typescript-eslint/strict-type-checked",
 				"plugin:@typescript-eslint/stylistic-type-checked",
 			],
-			files: ["**/*.ts"],
+			files: ["**/*.{ts,tsx}"],
 			parser: "@typescript-eslint/parser",
 			parserOptions: {
-				project: "./tsconfig.eslint.json",
+				// Blocked from EXPERIMENTAL_useProjectService on:
+				// https://github.com/typescript-eslint/typescript-eslint/issues/8206
+				project: ["./**/tsconfig.eslint.json", "./**/tsconfig.json"],
 			},
 			rules: {
 				// These off-by-default rules work well for this repo and we like them on.
@@ -77,7 +77,7 @@ module.exports = {
 			},
 		},
 		{
-			excludedFiles: ["package.json"],
+			excludedFiles: ["**/package.json"],
 			extends: ["plugin:jsonc/recommended-with-json"],
 			files: ["*.json", "*.jsonc"],
 			parser: "jsonc-eslint-parser",
@@ -97,9 +97,16 @@ module.exports = {
 			files: ["package.json"],
 			parser: "jsonc-eslint-parser",
 			plugins: ["package-json"],
+			rules: {
+				// https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/issues/250
+				"package-json/valid-package-def": "off",
+
+				// https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/issues/252
+				"package-json/valid-repository-directory": "off",
+			},
 		},
 		{
-			files: "**/*.test.ts",
+			files: "**/*.test.{ts,tsx}",
 			rules: {
 				// These on-by-default rules aren't useful in test files.
 				"@typescript-eslint/no-unsafe-assignment": "off",
@@ -111,7 +118,6 @@ module.exports = {
 			files: ["**/*.{yml,yaml}"],
 			parser: "yaml-eslint-parser",
 			rules: {
-				"yml/file-extension": ["error", { extension: "yml" }],
 				"yml/sort-keys": [
 					"error",
 					{

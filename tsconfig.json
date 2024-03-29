@@ -1,14 +1,14 @@
 {
 	"compilerOptions": {
-		"esModuleInterop": true,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"target": "ES2022"
+		"composite": true
 	},
-	"include": ["src"]
+	"extends": "./tsconfig.base.json",
+	"files": [],
+	"references": [
+		{ "path": "./packages/emoji-blast" },
+		{ "path": "./packages/konami-emoji-blast" },
+		{ "path": "./packages/konami-emoji-blast-astro" },
+		{ "path": "./packages/konami-emoji-blast-react" },
+		{ "path": "./packages/konami-emoji-blast-typedoc" }
+	]
 }

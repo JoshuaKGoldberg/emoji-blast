@@ -1,0 +1,45 @@
+{
+	"name": "@konami-emoji-blast/react",
+	"version": "0.0.0",
+	"description": "Integration for konami-emoji-blast in React. ⚛️",
+	"keywords": [
+		"konami",
+		"konami code",
+		"emoji-blast",
+		"konami-emoji-blast",
+		"easter egg",
+		"react",
+		"hooks"
+	],
+	"homepage": "https://emojiblast.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKGoldberg/emoji-blast.git",
+		"directory": "packages/konami-emoji-blast-react"
+	},
+	"license": "MIT",
+	"author": "Josh Goldberg",
+	"type": "module",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"scripts": {
+		"build": "webpack"
+	},
+	"dependencies": {
+		"konami-emoji-blast": "workspace:"
+	},
+	"devDependencies": {
+		"@testing-library/react": "^14.2.2",
+		"@types/konami-code-js": "^0.8.3",
+		"@types/react": "^18.2.73",
+		"@vitejs/plugin-react": "^4.2.1",
+		"jsdom": "^24.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"ts-loader": "^9.5.1",
+		"webpack": "^5.91.0"
+	},
+	"peerDependencies": {
+		"react": "^16 || ^17 || ^18 || ^19"
+	}
+}

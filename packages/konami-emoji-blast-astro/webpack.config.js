@@ -1,14 +1,15 @@
 import path from "path";
-import * as url from "url";
+import webpack from "webpack";
 
-const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
+const notice = `
+See https://github.com/JoshuaKGoldberg/emoji-blast/packages/konami-emoji-blast for documentation.
+MIT licensed.
+`.trim();
 
 export default {
 	entry: {
 		global: "./src/mains/global.ts",
 		now: "./src/mains/now.ts",
-		onclick: "./src/mains/onclick.ts",
-		size: "./src/mains/size.ts",
 	},
 	mode: "production",
 	module: {
@@ -28,12 +29,13 @@ export default {
 		],
 	},
 	output: {
-		path: path.join(__dirname, "dist"),
+		path: path.resolve(import.meta.dirname, "dist"),
 	},
+	plugins: [new webpack.BannerPlugin(notice)],
 	resolve: {
 		extensionAlias: {
 			".js": [".js", ".ts"],
 		},
-		extensions: [".ts"],
+		extensions: [".js", ".ts", ".tsx"],
 	},
 };

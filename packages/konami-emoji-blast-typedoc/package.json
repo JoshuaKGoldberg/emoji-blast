@@ -1,0 +1,34 @@
+{
+	"name": "@konami-emoji-blast/typedoc",
+	"version": "0.0.0",
+	"description": "Integration for konami-emoji-blast in TypeDoc. 🗂️",
+	"keywords": [
+		"konami",
+		"konami code",
+		"emoji-blast",
+		"konami-emoji-blast",
+		"easter egg",
+		"typedoc",
+		"hooks"
+	],
+	"homepage": "https://emojiblast.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKGoldberg/emoji-blast.git",
+		"directory": "packages/konami-emoji-blast-typedoc"
+	},
+	"license": "MIT",
+	"author": "Josh Goldberg",
+	"type": "commonjs",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"dependencies": {
+		"konami-emoji-blast": "workspace:"
+	},
+	"devDependencies": {
+		"typedoc": "^0.25.12"
+	},
+	"peerDependencies": {
+		"typedoc": "^0.25"
+	}
+}
