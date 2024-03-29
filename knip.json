@@ -8,10 +8,12 @@
 		},
 		"packages/konami-emoji-blast": {
 			"entry": ["src/index.ts!", "src/mains/*.ts!"],
+			"ignoreDependencies": ["webpack-cli"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-astro": {
 			"entry": ["src/index.ts!"],
+			"ignoreDependencies": ["konami-emoji-blast"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-react": {
@@ -20,6 +22,7 @@
 		},
 		"packages/konami-emoji-blast-typedoc": {
 			"entry": ["src/index.ts!"],
+			"ignoreDependencies": ["konami-emoji-blast"],
 			"project": ["src/**/*.ts!"]
 		}
 	}

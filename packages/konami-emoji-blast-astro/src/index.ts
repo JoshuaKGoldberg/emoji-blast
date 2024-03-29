@@ -10,5 +10,3 @@ export function konamiEmojiBlast() {
 		name: "@konami-emoji-blast/astro",
 	} satisfies AstroIntegration;
 }
-
-export default konamiEmojiBlast;
