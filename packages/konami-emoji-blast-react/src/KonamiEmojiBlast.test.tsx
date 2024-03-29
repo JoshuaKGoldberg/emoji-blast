@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import { KonamiEmojiBlast } from "./KonamiEmojiBlast.js";
+import { KonamiEmojiBlast } from "./KonamiEmojiBlast.jsx";
 
 const mockUseKonamiEmojiBlast = vi.fn();
 
