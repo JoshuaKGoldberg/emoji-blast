@@ -1,6 +1,9 @@
 import { EmojiBlastsHandler, emojiBlasts } from "emoji-blast";
 import KonamiCode from "konami-code-js";
 
+/**
+ * @returns Function that stops emojis when called.
+ */
 export const initializeKonamiEmojiBlast = (onActivate?: () => void) => {
 	let explosions: EmojiBlastsHandler | undefined;
 
