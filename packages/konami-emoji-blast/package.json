@@ -19,8 +19,8 @@
 	"license": "MIT",
 	"author": "Josh Goldberg",
 	"type": "module",
-	"main": "src/index.js",
-	"types": "src/index.d.ts",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"scripts": {
 		"build": "webpack"
 	},
