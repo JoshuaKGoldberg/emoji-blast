@@ -1,0 +1,36 @@
+{
+	"name": "konami-emoji-blast",
+	"version": "0.5.2",
+	"description": "Hooks up konami-code-js to trigger emoji-blast. 🎇",
+	"keywords": [
+		"konami",
+		"konami code",
+		"emoji-blast",
+		"konami-emoji-blast",
+		"easter egg",
+		"hooks"
+	],
+	"homepage": "https://emojiblast.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKGoldberg/emoji-blast.git",
+		"directory": "packages/konami-emoji-blast"
+	},
+	"license": "MIT",
+	"author": "Josh Goldberg",
+	"type": "module",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"build": "webpack"
+	},
+	"dependencies": {
+		"emoji-blast": "workspace:",
+		"konami-code-js": "^0.8.1"
+	},
+	"devDependencies": {
+		"@types/konami-code-js": "^0.8.3",
+		"ts-loader": "^9.5.1",
+		"webpack": "^5.91.0"
+	}
+}

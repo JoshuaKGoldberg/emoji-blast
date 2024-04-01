@@ -1,0 +1,39 @@
+{
+	"name": "emoji-blast",
+	"version": "0.10.0",
+	"description": "Blasts emoji like fireworks all up in your HTML page. 🎆",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JoshuaKGoldberg/emoji-blast",
+		"directory": "packages/emoji-blast"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "JoshuaKGoldberg",
+		"email": "npm@joshuakgoldberg.com"
+	},
+	"type": "module",
+	"main": "./lib/index.js",
+	"files": [
+		"dist/",
+		"lib/",
+		"package.json",
+		"LICENSE.md",
+		"README.md"
+	],
+	"scripts": {
+		"build": "webpack"
+	},
+	"devDependencies": {
+		"ts-loader": "^9.5.1",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4"
+	},
+	"packageManager": "pnpm@8.15.5",
+	"engines": {
+		"node": ">=18"
+	},
+	"publishConfig": {
+		"provenance": true
+	}
+}

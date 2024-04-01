@@ -1,6 +1,29 @@
 {
 	"$schema": "https://unpkg.com/knip@latest/schema.json",
-	"entry": ["src/index.ts!"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
-	"project": ["src/**/*.ts!"]
+	"workspaces": {
+		"packages/emoji-blast": {
+			"entry": ["src/index.ts!", "src/mains/*.ts!"],
+			"project": ["src/**/*.ts!"]
+		},
+		"packages/konami-emoji-blast": {
+			"entry": ["src/index.ts!", "src/mains/*.ts!"],
+			"ignoreDependencies": ["webpack-cli"],
+			"project": ["src/**/*.ts!"]
+		},
+		"packages/konami-emoji-blast-astro": {
+			"entry": ["src/index.ts!"],
+			"ignoreDependencies": ["konami-emoji-blast"],
+			"project": ["src/**/*.ts!"]
+		},
+		"packages/konami-emoji-blast-react": {
+			"entry": ["src/index.ts!"],
+			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
+		},
+		"packages/konami-emoji-blast-typedoc": {
+			"entry": ["src/index.ts!"],
+			"ignoreDependencies": ["konami-emoji-blast"],
+			"project": ["src/**/*.ts!"]
+		}
+	}
 }
