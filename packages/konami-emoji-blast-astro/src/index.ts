@@ -1,6 +1,6 @@
 import { AstroIntegration } from "astro";
 
-export function konamiEmojiBlast() {
+export function konamiEmojiBlast(): AstroIntegration {
 	return {
 		hooks: {
 			"astro:config:setup"({ injectScript }) {
@@ -8,5 +8,5 @@ export function konamiEmojiBlast() {
 			},
 		},
 		name: "@konami-emoji-blast/astro",
-	} satisfies AstroIntegration;
+	};
 }

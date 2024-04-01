@@ -26,6 +26,9 @@
 		"konami-emoji-blast": "workspace:"
 	},
 	"devDependencies": {
-		"astro": "^2.2.1"
+		"astro": "^4.0.0"
+	},
+	"peerDependencies": {
+		"astro": "^2 || ^3 || ^4"
 	}
 }
