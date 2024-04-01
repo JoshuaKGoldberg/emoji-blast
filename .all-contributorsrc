@@ -36,21 +36,21 @@
       ]
     },
     {
-<<<<<<< HEAD
-      "login": "joemcil",
-      "name": "joemcil",
-      "avatar_url": "https://avatars.githubusercontent.com/u/126059816?v=4",
-      "profile": "https://github.com/joemcil",
-      "contributions": [
-        "bug"
-=======
       "login": "ian-craig",
       "name": "Ian Craig",
       "avatar_url": "https://avatars.githubusercontent.com/u/2031632?v=4",
       "profile": "https://github.com/ian-craig",
       "contributions": [
         "ideas"
->>>>>>> main
+      ]
+    },
+    {
+      "login": "joemcil",
+      "name": "joemcil",
+      "avatar_url": "https://avatars.githubusercontent.com/u/126059816?v=4",
+      "profile": "https://github.com/joemcil",
+      "contributions": [
+        "bug"
       ]
     }
   ],
