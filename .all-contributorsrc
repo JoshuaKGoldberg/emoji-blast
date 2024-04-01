@@ -34,6 +34,15 @@
         "doc",
         "code"
       ]
+    },
+    {
+      "login": "ian-craig",
+      "name": "Ian Craig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2031632?v=4",
+      "profile": "https://github.com/ian-craig",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
