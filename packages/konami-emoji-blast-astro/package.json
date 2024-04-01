@@ -27,5 +27,8 @@
 	},
 	"devDependencies": {
 		"astro": "^4.0.0"
+	},
+	"peerDependencies": {
+		"astro": "^2 || ^3 || ^4"
 	}
 }
