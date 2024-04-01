@@ -7,14 +7,18 @@
 		"dist",
 		"lib",
 		"node_modules",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"tsconfig.tsbuildinfo"
 	],
 	"words": [
+		"Astro",
+		"Codecademy",
 		"emojiblast.dev",
 		"emojisplosion",
 		"gameplay",
 		"knip",
-		"packagejson",
-		"tsup"
+		"Konami",
+		"lcov",
+		"packagejson"
 	]
 }

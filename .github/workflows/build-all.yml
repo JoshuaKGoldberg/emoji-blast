@@ -5,9 +5,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
       - run: pnpm build
-      - run: node ./lib/index.js
+      - run: pnpm build:all
+      - run: for file in ./packages/*/lib/index.js; do node $file; done
 
-name: Build
+name: Build All
 
 on:
   pull_request: ~
