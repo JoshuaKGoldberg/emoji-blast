@@ -141,7 +141,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^4.0.0
-        version: 4.5.14(@types/node@20.12.5)(typescript@5.4.4)
+        version: 4.5.15(@types/node@20.12.5)(typescript@5.4.4)
 
   packages/konami-emoji-blast-react:
     dependencies:
@@ -2568,8 +2568,8 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /astro@4.5.14(@types/node@20.12.5)(typescript@5.4.4):
-    resolution: {integrity: sha512-OXQ9Wbcn5e2eEPrNKJjGXeCWnKamNGyvSwORL0B8BB1fp3OO/EYo/RfeQGTR9kxGNxEpokoPZL9JNgFHoVK+wA==}
+  /astro@4.5.15(@types/node@20.12.5)(typescript@5.4.4):
+    resolution: {integrity: sha512-d2+yMv4ZlWwWFzfbpXIULMniNmdPlbwGrQScacEni0WLeo4k7ETO51/bHN/i/fXwxL9IGfasdEFkk2baYXDRog==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
