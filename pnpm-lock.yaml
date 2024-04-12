@@ -67,7 +67,7 @@ importers:
         version: 2.4.0
       knip:
         specifier: ^5.7.0
-        version: 5.9.2(@pnpm/logger@5.0.0)(@types/node@20.12.7)(typescript@5.4.5)
+        version: 5.9.3(@types/node@20.12.7)(typescript@5.4.5)
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.2
@@ -5338,8 +5338,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /knip@5.9.2(@pnpm/logger@5.0.0)(@types/node@20.12.7)(typescript@5.4.5):
-    resolution: {integrity: sha512-GyOUVyBEIZn2sgzxJ2maEBBMDQdyYVKEHDSQ1fUe5PktOxrp/W/z7hl8EYCDxBf2d2/t+PcpM+pHHfxq8vwiXQ==}
+  /knip@5.9.3(@types/node@20.12.7)(typescript@5.4.5):
+    resolution: {integrity: sha512-z7Qxb4O1RJ6q+MygvBKCgpnQjQScgGobtPyh624bYHKJfrWqLS48TmfADfkHsep0ITicudv4fijQVgXunugGvQ==}
     engines: {node: '>=18.6.0'}
     hasBin: true
     peerDependencies:
@@ -5350,6 +5350,7 @@ packages:
       '@nodelib/fs.walk': 2.0.0
       '@npmcli/map-workspaces': 3.0.4
       '@npmcli/package-json': 5.0.0
+      '@pnpm/logger': 5.0.0
       '@pnpm/workspace.pkgs-graph': 2.0.14(@pnpm/logger@5.0.0)
       '@snyk/github-codeowners': 1.1.0
       '@types/node': 20.12.7
@@ -5371,7 +5372,6 @@ packages:
       zod: 3.22.4
       zod-validation-error: 3.1.0(zod@3.22.4)
     transitivePeerDependencies:
-      - '@pnpm/logger'
       - bluebird
       - domexception
     dev: true
