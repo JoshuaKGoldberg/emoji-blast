@@ -141,7 +141,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^4.0.0
-        version: 4.6.1(@types/node@20.12.7)(terser@5.30.0)(typescript@5.4.5)
+        version: 4.6.2(@types/node@20.12.7)(terser@5.30.0)(typescript@5.4.5)
 
   packages/konami-emoji-blast-react:
     dependencies:
@@ -1093,6 +1093,9 @@ packages:
   '@types/babel__traverse@7.20.5':
     resolution: {integrity: sha512-WXCyOcRtH37HAUkpXhUduaxdm82b4GSlyTqajXviN4EfiuPgNYR109xMCKvpl6zPIpua0DGlMEDCq+g8EdoheQ==}
 
+  '@types/cookie@0.5.4':
+    resolution: {integrity: sha512-7z/eR6O859gyWIAjuvBWFzNURmf2oPBmJlfVWkwehU5nzIyjwBsTh7WMmEEV4JFnHuQ3ex4oyTvfKzcyJVDBNA==}
+
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
@@ -1475,8 +1478,8 @@ packages:
   assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
 
-  astro@4.6.1:
-    resolution: {integrity: sha512-gcL22NEhuRi4wu9/x5Kn2eJf7nT6GeU5BxdN6AHbUnX6UzEDIWtpgHs5lBIZYExKbHKN9PjEGXWQzQtFwLU+5g==}
+  astro@4.6.2:
+    resolution: {integrity: sha512-Kl+Wd7MJMQFnI3+V0JxF4HPbs8M67eltqQgtztReOwDLSl0VnOd39rM61W/3LEh10FZ0F13xrDgtdgfXzuLVbg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2441,8 +2444,8 @@ packages:
   hast-util-to-parse5@8.0.0:
     resolution: {integrity: sha512-3KKrV5ZVI8if87DVSi1vDeByYrkGzg4mEfeu4alwgmmIeARiBLKCZS2uw5Gb6nU9x9Yufyj3iudm6i7nl52PFw==}
 
-  hast-util-to-text@4.0.1:
-    resolution: {integrity: sha512-RHL7Vo2n06ZocCFWqmbyhZ1pCYX/mSKdywt9YD5U6Hquu5syV+dImCXFKLFt02JoK5QxkQFS0PoVdFdPXuPffQ==}
+  hast-util-to-text@4.0.2:
+    resolution: {integrity: sha512-KK6y/BN8lbaq654j7JgBydev7wuNMcID54lkRav1P0CaE1e47P72AWWPiGKXTJU271ooYzcvTAn/Zt0REnvc7A==}
 
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
@@ -2926,9 +2929,8 @@ packages:
   magic-string@0.16.0:
     resolution: {integrity: sha512-c4BEos3y6G2qO0B9X7K0FVLOPT9uGrjYwYRLFmDqyl5YMboUviyecnXWp94fJTSMwPw2/sf+CEYt5AGpmklkkQ==}
 
-  magic-string@0.30.9:
-    resolution: {integrity: sha512-S1+hd+dIrC8EZqKyT9DstTH/0Z+f76kmmvZnkfQVmOpDEF9iVgdYif3Q/pIWHmCoo59bQVGW0kVL3e2nl+9+Sw==}
-    engines: {node: '>=12'}
+  magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
   magicast@0.3.4:
     resolution: {integrity: sha512-TyDF/Pn36bBji9rWKHlZe+PZb6Mx5V8IHCSxk7X4aljM4e/vyDvZZYwHewdVaqiA0nb3ghfHU/6AUpDxWoER2Q==}
@@ -3140,8 +3142,8 @@ packages:
   micromark-util-sanitize-uri@2.0.0:
     resolution: {integrity: sha512-WhYv5UEcZrbAtlsnPuChHUAsu/iBPOVaEVsntLBIdpibO0ddy8OzavZz3iL2xVvBZOpolujSliP65Kq0/7KIYw==}
 
-  micromark-util-subtokenize@2.0.0:
-    resolution: {integrity: sha512-vc93L1t+gpR3p8jxeVdaYlbV2jTYteDje19rNSS/H5dlhxUYll5Fy6vJ2cDwP8RnsXi818yGty1ayP55y3W6fg==}
+  micromark-util-subtokenize@2.0.1:
+    resolution: {integrity: sha512-jZNtiFl/1aY73yS3UGQkutD0UbhTt68qnRpw2Pifmz5wV9h8gOVsN70v+Lq/f1rKaU/W8pxRe8y8Q9FX1AOe1Q==}
 
   micromark-util-symbol@2.0.0:
     resolution: {integrity: sha512-8JZt9ElZ5kyTnO94muPxIGS8oyElRJaiJO8EzV6ZSyGQ1Is8xwl4Q45qU5UOg+bGH4AikWziz0iN4sFLWs8PGw==}
@@ -3251,8 +3253,8 @@ packages:
   nlcst-to-string@3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}
 
-  node-abi@3.57.0:
-    resolution: {integrity: sha512-Dp+A9JWxRaKuHP35H77I4kCKesDy5HUDEmScia2FyncMTOXASMyg251F5PhFoDA5uqBrDDffiLpbqnrZmNXW+g==}
+  node-abi@3.60.0:
+    resolution: {integrity: sha512-zcGgwoXbzw9NczqbGzAWL/ToDYAxv1V8gL1D67ClbdkIfeeDBbY0GelZtC25ayLvVjr2q2cloHeQV1R0QAWqRQ==}
     engines: {node: '>=10'}
 
   node-addon-api@6.1.0:
@@ -4617,8 +4619,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  zod@3.22.5:
+    resolution: {integrity: sha512-HqnGsCdVZ2xc0qWPLdO25WnseXThh0kEYKIdV5F/hTHO75hNZFp8thxSeHhiPrHZKrFTo1SOgkAj9po5bexZlw==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -4641,7 +4643,7 @@ snapshots:
       '@astrojs/prism': 3.1.0
       github-slugger: 2.0.0
       hast-util-from-html: 2.0.1
-      hast-util-to-text: 4.0.1
+      hast-util-to-text: 4.0.2
       import-meta-resolve: 4.0.0
       mdast-util-definitions: 6.0.0
       rehype-raw: 7.0.0
@@ -5506,6 +5508,8 @@ snapshots:
     dependencies:
       '@babel/types': 7.24.0
 
+  '@types/cookie@0.5.4': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
@@ -5727,7 +5731,7 @@ snapshots:
       istanbul-lib-report: 3.0.1
       istanbul-lib-source-maps: 5.0.4
       istanbul-reports: 3.1.7
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       magicast: 0.3.4
       picocolors: 1.0.0
       std-env: 3.7.0
@@ -5751,7 +5755,7 @@ snapshots:
 
   '@vitest/snapshot@1.5.0':
     dependencies:
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       pathe: 1.1.2
       pretty-format: 29.7.0
 
@@ -5962,7 +5966,7 @@ snapshots:
 
   assertion-error@1.1.0: {}
 
-  astro@4.6.1(@types/node@20.12.7)(terser@5.30.0)(typescript@5.4.5):
+  astro@4.6.2(@types/node@20.12.7)(terser@5.30.0)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.7.1
       '@astrojs/internal-helpers': 0.4.0
@@ -5975,6 +5979,7 @@ snapshots:
       '@babel/traverse': 7.24.1
       '@babel/types': 7.24.0
       '@types/babel__core': 7.20.5
+      '@types/cookie': 0.5.4
       acorn: 8.11.3
       aria-query: 5.3.0
       axobject-query: 4.0.0
@@ -6003,7 +6008,7 @@ snapshots:
       http-cache-semantics: 4.1.1
       js-yaml: 4.1.0
       kleur: 4.1.5
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       mime: 3.0.0
       ora: 7.0.1
       p-limit: 5.0.0
@@ -6024,8 +6029,8 @@ snapshots:
       vitefu: 0.2.5(vite@5.2.9(@types/node@20.12.7)(terser@5.30.0))
       which-pm: 2.1.1
       yargs-parser: 21.1.1
-      zod: 3.22.4
-      zod-to-json-schema: 3.22.5(zod@3.22.4)
+      zod: 3.22.5
+      zod-to-json-schema: 3.22.5(zod@3.22.5)
     optionalDependencies:
       sharp: 0.32.6
     transitivePeerDependencies:
@@ -7138,7 +7143,7 @@ snapshots:
       web-namespaces: 2.0.1
       zwitch: 2.0.4
 
-  hast-util-to-text@4.0.1:
+  hast-util-to-text@4.0.2:
     dependencies:
       '@types/hast': 3.0.4
       '@types/unist': 3.0.2
@@ -7485,8 +7490,8 @@ snapshots:
       strip-json-comments: 5.0.1
       summary: 2.1.0
       typescript: 5.4.5
-      zod: 3.22.4
-      zod-validation-error: 3.1.0(zod@3.22.4)
+      zod: 3.22.5
+      zod-validation-error: 3.1.0(zod@3.22.5)
     transitivePeerDependencies:
       - bluebird
       - domexception
@@ -7615,7 +7620,7 @@ snapshots:
     dependencies:
       vlq: 0.2.3
 
-  magic-string@0.30.9:
+  magic-string@0.30.10:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
@@ -7878,7 +7883,7 @@ snapshots:
       micromark-util-html-tag-name: 2.0.0
       micromark-util-normalize-identifier: 2.0.0
       micromark-util-resolve-all: 2.0.0
-      micromark-util-subtokenize: 2.0.0
+      micromark-util-subtokenize: 2.0.1
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
 
@@ -8021,7 +8026,7 @@ snapshots:
       micromark-util-encode: 2.0.0
       micromark-util-symbol: 2.0.0
 
-  micromark-util-subtokenize@2.0.0:
+  micromark-util-subtokenize@2.0.1:
     dependencies:
       devlop: 1.1.0
       micromark-util-chunked: 2.0.0
@@ -8055,7 +8060,7 @@ snapshots:
       micromark-util-normalize-identifier: 2.0.0
       micromark-util-resolve-all: 2.0.0
       micromark-util-sanitize-uri: 2.0.0
-      micromark-util-subtokenize: 2.0.0
+      micromark-util-subtokenize: 2.0.1
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
     transitivePeerDependencies:
@@ -8144,7 +8149,7 @@ snapshots:
     dependencies:
       '@types/nlcst': 1.0.4
 
-  node-abi@3.57.0:
+  node-abi@3.60.0:
     dependencies:
       semver: 7.6.0
     optional: true
@@ -8424,7 +8429,7 @@ snapshots:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.57.0
+      node-abi: 3.60.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
@@ -9454,7 +9459,7 @@ snapshots:
       debug: 4.3.4
       execa: 8.0.1
       local-pkg: 0.5.0
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       pathe: 1.1.2
       picocolors: 1.0.0
       std-env: 3.7.0
@@ -9694,14 +9699,14 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod-to-json-schema@3.22.5(zod@3.22.4):
+  zod-to-json-schema@3.22.5(zod@3.22.5):
     dependencies:
-      zod: 3.22.4
+      zod: 3.22.5
 
-  zod-validation-error@3.1.0(zod@3.22.4):
+  zod-validation-error@3.1.0(zod@3.22.5):
     dependencies:
-      zod: 3.22.4
+      zod: 3.22.5
 
-  zod@3.22.4: {}
+  zod@3.22.5: {}
 
   zwitch@2.0.4: {}
