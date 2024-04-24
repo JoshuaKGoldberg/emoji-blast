@@ -1,29 +1,34 @@
-/** @jsxImportSource @emotion/react */
-
-import { useState } from "react"; 
+import React, { useState } from "react";
 
 import * as styles from "./styles";
 
-type ButtonProps = {
-    explosionFunct: () => void,
-    disableButtonTime?: number
-};
+interface ButtonProps {
+	children?: string;
+	disableButtonTime?: number;
+	explosionFunction: React.MouseEventHandler<HTMLButtonElement>;
+}
 
-export function Button({explosionFunct, disableButtonTime}: ButtonProps) {
-    const [disabled, setDisabled] = useState<boolean>(false);
+export function Button({
+	children = "Try It",
+	disableButtonTime,
+	explosionFunction,
+}: ButtonProps) {
+	const [disabled, setDisabled] = useState(false);
 
-    const handleClick = () => {
-        if (disableButtonTime) {
-            setDisabled(true);
-            setTimeout(() => (setDisabled(false)), disableButtonTime);
-        }
-        
-        explosionFunct();
-    };
+	const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+		if (disableButtonTime) {
+			setDisabled(true);
+			setTimeout(() => {
+				setDisabled(false);
+			}, disableButtonTime);
+		}
 
-    return (
-        <div>
-            <button onClick={handleClick} css={styles.button} disabled={disabled}>Try It</button>
-        </div>
-    );
-}; 
+		explosionFunction(event);
+	};
+
+	return (
+		<button css={styles.button} disabled={disabled} onClick={handleClick}>
+			{children}
+		</button>
+	);
+}

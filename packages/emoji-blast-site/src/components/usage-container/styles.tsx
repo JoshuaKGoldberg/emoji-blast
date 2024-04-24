@@ -1,57 +1,57 @@
 import { colors } from "../../colors/colors";
 
 export const usageContainer = {
-    backgroundColor: colors.violet200,
-    padding: "3rem 15rem 5rem 15rem",
-    display: "flex",
-    flexDirection: "column" as "column",
-    alignItems: "space-between",
-    fontSize: "16px",
+	"@media (max-width: 700px)": {
+		padding: "1rem 2rem 1rem 2rem",
+	},
+	"@media (max-width: 1180px)": {
+		padding: "3rem 10rem 5rem 10rem",
+	},
+	alignItems: "space-between",
+	backgroundColor: colors.violet200,
+	display: "flex",
+	flexDirection: "column" as const,
 
-    "@media (max-width: 1180px)": {
-        padding: "3rem 10rem 5rem 10rem"
-    },
+	fontSize: "16px",
 
-    "@media (max-width: 700px)": {
-        padding: "1rem 2rem 1rem 2rem"
-    },
+	padding: "3rem 15rem 5rem 15rem",
 };
 
 export const header = {
-    fontWeight: "normal",
-    fontSize: "30px",
-    paddingBottom: "1rem",
-    borderBottom: `1px solid ${colors.gray100}`,
+	borderBottom: `1px solid ${colors.gray100}`,
+	fontSize: "30px",
+	fontWeight: "normal",
+	paddingBottom: "1rem",
 };
 
 export const title = {
-    fontWeight: "normal",
-    marginBottom: "0",
+	fontWeight: "normal",
+	marginBottom: "0",
 };
 
-export const blurbConatiner = {
-    background: colors.violet100,
-    padding: "1.5rem",
-    borderRadius: "10px",
-    margin: "2rem 0rem",
-    color: colors.gray0,
+export const blurbContainer = {
+	"> div > h3": {
+		color: colors.white,
+		fontWeight: "normal",
+	},
+	background: colors.violet100,
+	borderRadius: "10px",
+	color: colors.gray0,
+	margin: "2rem 0rem",
 
-    "> div > h3": {
-        fontWeight: "normal",
-        color: colors.white
-    },
+	padding: "1.5rem",
 };
 
 export const code = {
-    background: colors.violet200,
-    color: colors.white,
-    borderRadius: "5px",
-    padding: "2px 5px",
-    lineHeight: "1.6"
+	background: colors.violet200,
+	borderRadius: "5px",
+	color: colors.white,
+	lineHeight: "1.6",
+	padding: "2px 5px",
 };
 
 export const navLink = {
-    color: colors.green,
-    textDecoration: "none",
-    borderBottom: `1px solid ${colors.green}`,
+	borderBottom: `1px solid ${colors.green}`,
+	color: colors.green,
+	textDecoration: "none",
 };

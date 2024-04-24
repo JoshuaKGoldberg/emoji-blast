@@ -1,20 +1,18 @@
-/** @jsxImportSource @emotion/react */
-'use client'
+"use client";
 
-import { useKonamimojisplosion } from "konamimojisplosion";
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/react";
 
-import { SideBar } from "../../components/side-bar/side-bar";
 import { ExplosionContainer } from "../../components/explosion-container/explosion-container";
+import { SideBar } from "../../components/side-bar/side-bar";
 import * as styles from "./styles";
 
-
 export default function DemoPage() {
-    useKonamimojisplosion();
-    
-    return (
-        <div css={styles.demoContainer}>
-            <ExplosionContainer />
-            <SideBar />
-        </div>
-    );
-};
+	useKonamiEmojiBlast();
+
+	return (
+		<div css={styles.demoContainer}>
+			<ExplosionContainer />
+			<SideBar />
+		</div>
+	);
+}

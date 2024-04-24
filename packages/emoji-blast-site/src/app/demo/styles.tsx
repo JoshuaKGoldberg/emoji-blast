@@ -1,8 +1,8 @@
 export const demoContainer = {
-    display: "flex",
-    marginTop: "5rem",
+	"@media (max-width: 700px)": {
+		margin: "0",
+	},
+	display: "flex",
 
-    "@media (max-width: 700px)": {
-        margin: "0",
-    }
+	marginTop: "5rem",
 };

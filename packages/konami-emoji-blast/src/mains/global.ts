@@ -1,7 +1,7 @@
 import { initializeKonamiEmojiBlast } from "../initializeKonamiEmojiBlast.js";
 
-declare const window: Window & {
+declare const window: {
 	initializeKonamiEmojiBlast: typeof initializeKonamiEmojiBlast;
-};
+} & Window;
 
 window.initializeKonamiEmojiBlast = initializeKonamiEmojiBlast;

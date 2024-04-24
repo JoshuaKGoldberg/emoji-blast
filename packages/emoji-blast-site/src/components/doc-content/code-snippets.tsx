@@ -1,34 +1,34 @@
-export const classNameSnippet = `emojisplosion({
+export const classNameSnippet = `emojiBlast({
     className: "my-emoji-styles",
 });
 `;
 
-export const containerSnippet = `emojisplosion({
+export const containerSnippet = `emojiBlast({
     container: document.getElementById("fun"),
 });
 `;
 
-export const emojiCountSnippet1 = `emojisplosion({
+export const emojiCountSnippet1 = `emojiBlast({
     emojiCount: 9001,
 });
 `;
 
-export const emojiCountSnippet2 = `emojisplosion({
+export const emojiCountSnippet2 = `emojiBlast({
     emojiCount: () => Math.random() * 100 + 100,
 });
 `;
 
-export const emojisSnippet1 = `emojisplosion({
+export const emojisSnippet1 = `emojiBlast({
     emojis: ["💖"],
 })
 `;
 
-export const emojisSnippet2 = `emojisplosion({
+export const emojisSnippet2 = `emojiBlast({
     emojis: ["💖", "💕", "💗", "💓", "💝"],
 });
 `;
 
-export const physicsSnippet1 = `emojisplosion({
+export const physicsSnippet1 = `emojiBlast({
     physics: {
         initialVelocities: {
             rotation: {
@@ -41,7 +41,7 @@ export const physicsSnippet1 = `emojisplosion({
 });
 `;
 
-export const physicsSnippet2 = `emojisplosion({
+export const physicsSnippet2 = `emojiBlast({
     physics: {
         gravity: -0.35,
         initialVelocities: {
@@ -54,9 +54,9 @@ export const physicsSnippet2 = `emojisplosion({
 });
 `;
 
-export const physicsSnippet3 = `import { emojisplosions, defaultPhysics } from "emojisplosion";
+export const physicsSnippet3 = `import { emojiBlasts, defaultPhysics } from "emoji-blast";
 
-emojisplosion({
+emojiBlast({
     physics: {
         gravity: -defaultPhysics.gravity,
         initialVelocities: {
@@ -69,7 +69,7 @@ emojisplosion({
 });
 `;
 
-export const positionSnippet1 = `emojisplosion({
+export const positionSnippet1 = `emojiBlast({
     position: () => ({
         x: Math.random() * innerWidth,
         y: Math.random() * innerHeight,
@@ -77,7 +77,7 @@ export const positionSnippet1 = `emojisplosion({
 });
 `;
 
-export const positionSnippet2 = `emojisplosion({
+export const positionSnippet2 = `emojiBlast({
     position: {
         x: 35,
         y: 35,
@@ -87,7 +87,7 @@ export const positionSnippet2 = `emojisplosion({
 
 export const positionSnippet3 = `const element = document.querySelector("#my-face");
 
-emojisplosion({
+emojiBlast({
     position() {
         // https://stackoverflow.com/questions/1480133
         const offset = cumulativeOffset(element);
@@ -100,26 +100,26 @@ emojisplosion({
 }); 
 `;
 
-export const processSnippet = `emojisplosion({
+export const processSnippet = `emojiBlast({
     process(element) {
         element.className = "emoji";
     },
 });
 `;
 
-export const tagNameSnippet = `emojisplosion({
+export const tagNameSnippet = `emojiBlast({
     tagName: "div",
 });
 `;
 
-export const uniquenessSnippet1 = `emojisplosion({
+export const uniquenessSnippet1 = `emojiBlast({
     uniqueness: 1,
 });
 `;
 
 export const uniquenessSnippet2 = `let count = 0;
 
-emojisplosion({
+emojiBlast({
     uniqueness() {
         count += 1;
         return count;
@@ -127,26 +127,26 @@ emojisplosion({
 });
 `;
 
-export const emojisplosionsSnippet = `// Commence explosions!...
-const { cancel } = emojisplosions();
+export const emojiBlastsSnippet = `// Commence explosions!...
+const { cancel } = emojiBlasts();
 
 // ...but stop after ten seconds.
 setTimeout(cancel, 10000);
 `;
 
-export const intervalSnippet1 = `emojisplosions({
+export const intervalSnippet1 = `emojiBlasts({
     interval: 0,
 });
 `;
 
-export const intervalSnippet2 = `emojisplosions({
+export const intervalSnippet2 = `emojiBlasts({
     interval: 1000,
 });
 `;
 
 export const intervalSnippet3 = `let scheduled = false;
 
-emojisplosions({
+emojiBlasts({
     interval() {
         if (!scheduled) {
             scheduled = true;
@@ -158,7 +158,7 @@ emojisplosions({
 });
 `;
 
-export const schedulerSnippet = `emojisplosions({
+export const schedulerSnippet = `emojiBlasts({
     scheduler(action, delay) {
         console.log(\`Will emoji in \${delay} ms!\`);
         action();

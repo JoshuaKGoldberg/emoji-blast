@@ -1,20 +1,20 @@
-export const easySnippet = `<script async src="https://unpkg.com/emojisplosion/lib/easy.js"></script>`;
+export const nowSnippet = `<script async src="https://unpkg.com/emoji-blast/dist/now.js"></script>`;
 
-export const globalSnippet = `<script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
+export const globalSnippet = `<script src="https://unpkg.com/emoji-blast/dist/global.js"></script>
 <script>
     // Just one explosion, please.
-    emojisplosion();
+    emojiBlast();
     
     // Commence explosions!
-    emojisplosions();
+    emojiBlasts();
 </script>
 `;
 
-export const advancedSnippet = `import { emojisplosion, emojisplosions } from "emojisplosion";
+export const advancedSnippet = `import { emojiBlast, emojiBlasts } from "emoji-blast";
 
 // Just one explosion, please.
-emojisplosion();
+emojiBlast();
     
 // Commence explosions!
-emojisplosions();
+emojiBlasts();
 `;

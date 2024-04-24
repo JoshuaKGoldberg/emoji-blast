@@ -1,7 +1,7 @@
 export const homeContainer = {
-    marginTop: "5rem",
+	"@media (max-width: 700px)": {
+		margin: "0",
+	},
 
-    "@media (max-width: 700px)": {
-        margin: "0",
-    },
+	marginTop: "5rem",
 };

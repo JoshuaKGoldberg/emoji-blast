@@ -1,7 +1,7 @@
 export interface Example {
-    name: string;
-    blurb: string;
-    codeSnippet: string;
-    explosionFunct: () => void;
-    disableButtonTime?: number;
-};
+	blurb: string;
+	codeSnippet: string;
+	disableButtonTime?: number;
+	explosionFunction: () => void;
+	name: string;
+}

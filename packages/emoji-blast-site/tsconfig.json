@@ -1,43 +1,19 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "esModuleInterop": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve",
-      "jsxImportSource": "@emotion/react",
-      "incremental": true,
-      "plugins": [
-        {
-          "name": "next"
-        }
-      ],
-      "paths": {
-        "@/*": [
-          "./src/*"
-        ]
-      }
-    },
-    "include": [
-      "next-env.d.ts",
-      "**/*.ts",
-      "**/*.tsx",
-      ".next/types/**/*.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
-  
+	"compilerOptions": {
+		"allowJs": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"jsxImportSource": "@emotion/react",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"noEmit": true,
+		"plugins": [{ "name": "next" }]
+	},
+	"exclude": ["node_modules"],
+	"extends": "../../tsconfig.base.json",
+	"include": ["next-env.d.ts", "src", ".next/types/**/*.ts"],
+	"references": [
+		{ "path": "../emoji-blast" },
+		{ "path": "../konami-emoji-blast-react" }
+	]
+}

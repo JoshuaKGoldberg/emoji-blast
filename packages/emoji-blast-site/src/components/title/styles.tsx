@@ -1,3 +1,3 @@
 export const title = {
-    fontWeight: "normal",
+	fontWeight: "normal",
 };
