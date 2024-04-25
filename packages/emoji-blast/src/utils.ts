@@ -1,3 +1,6 @@
+/**
+ * Like Partial, but also makes particular properties Partial one level deep.
+ */
 export type MakePartial<T, PartialKeys extends keyof T> = Partial<
 	Omit<T, PartialKeys>
 > & {
