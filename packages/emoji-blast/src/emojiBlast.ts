@@ -8,7 +8,7 @@ import { animate } from "./animate.js";
 import { defaultEmojis } from "./emojis.js";
 import { EmojiEvents, initializeEvents } from "./events.js";
 import { createStyleElementAndClass } from "./styles.js";
-import { obtainValue, shuffleArray } from "./utils.js";
+import { MakePartial, obtainValue, shuffleArray } from "./utils.js";
 
 /**
  * Settings to launch a blast of emojis! 🎆
@@ -42,7 +42,7 @@ export interface EmojiBlastSettings {
 	/**
 	 * Runtime change constants for emoji element movements.
 	 */
-	physics: Partial<EmojiPhysics>;
+	physics: MakePartial<EmojiPhysics, "initialVelocities">;
 
 	/**
 	 * How to determine where to place blasts of emojis around the page.

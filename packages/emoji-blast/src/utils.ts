@@ -1,3 +1,8 @@
+export type MakePartial<T, PartialKeys extends keyof T> = Partial<
+	Omit<T, PartialKeys>
+> & {
+	[K in PartialKeys]?: Partial<T[K]>;
+};
 /**
  * Grabs the value of an item or item-returning function.
  * @param value   Item or item-returning function.
