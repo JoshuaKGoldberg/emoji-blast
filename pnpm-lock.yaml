@@ -151,7 +151,7 @@ importers:
     devDependencies:
       '@testing-library/react':
         specifier: ^15.0.0
-        version: 15.0.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 15.0.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/react':
         specifier: ^18.2.73
         version: 18.2.79
@@ -1071,8 +1071,8 @@ packages:
     resolution: {integrity: sha512-PmJPnogldqoVFf+EwbHvbBJ98MmqASV8kLrBYgsDNxQcFMeIS7JFL48sfyXvuMtgmWO/wMhh25odr+8VhDmn4g==}
     engines: {node: '>=18'}
 
-  '@testing-library/react@15.0.2':
-    resolution: {integrity: sha512-5mzIpuytB1ctpyywvyaY2TAAUQVCZIGqwiqFQf6u9lvj/SJQepGUzNV18Xpk+NLCaCE2j7CWrZE0tEf9xLZYiQ==}
+  '@testing-library/react@15.0.3':
+    resolution: {integrity: sha512-lrfuttDGLJbpwMZ5Staz/b2GJuyQQUHEYffK2oL9DxgoeIPxFIquv0TmzJyeI0JQkc+WJMvcRRmpP9BtWlMbgQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18.0.0
@@ -1150,8 +1150,8 @@ packages:
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
 
-  '@types/react-dom@18.2.24':
-    resolution: {integrity: sha512-cN6upcKd8zkGy4HU9F1+/s98Hrp6D4MOcippK4PoE8OZRngohHZpbJn1GsaDLz87MqvHNoT13nHvNqM9ocRHZg==}
+  '@types/react-dom@18.3.0':
+    resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
 
   '@types/react@18.2.79':
     resolution: {integrity: sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==}
@@ -5477,11 +5477,11 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@15.0.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@testing-library/react@15.0.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@testing-library/dom': 10.0.0
-      '@types/react-dom': 18.2.24
+      '@types/react-dom': 18.3.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -5567,7 +5567,7 @@ snapshots:
 
   '@types/prop-types@15.7.12': {}
 
-  '@types/react-dom@18.2.24':
+  '@types/react-dom@18.3.0':
     dependencies:
       '@types/react': 18.2.79
 
