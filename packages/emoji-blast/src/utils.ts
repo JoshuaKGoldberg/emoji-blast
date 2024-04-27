@@ -1,11 +1,9 @@
 /**
  * Like Partial, but also makes particular properties Partial one level deep.
  */
-export type MakePartial<T, PartialKeys extends keyof T> = Partial<
-	Omit<T, PartialKeys>
-> & {
+export type MakePartial<T, PartialKeys extends keyof T> = {
 	[K in PartialKeys]?: Partial<T[K]>;
-};
+} & Partial<Omit<T, PartialKeys>>;
 /**
  * Grabs the value of an item or item-returning function.
  * @param value   Item or item-returning function.
