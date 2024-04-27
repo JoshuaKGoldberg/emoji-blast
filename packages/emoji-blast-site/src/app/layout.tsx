@@ -17,7 +17,7 @@ export default function RootLayout({
 				/>
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<meta
-					content="Website for the emoji-blast package"
+					content="🎆 Blasts emoji like fireworks all up in your HTML page. 🎇"
 					name="description"
 				/>
 				<meta content="../../images/site-pic.png" name="image" />
