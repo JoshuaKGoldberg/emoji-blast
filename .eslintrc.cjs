@@ -14,6 +14,7 @@ module.exports = {
 	ignorePatterns: [
 		"!.*",
 		"coverage",
+		"**/.next",
 		"**/dist",
 		"**/lib",
 		"node_modules",
@@ -64,6 +65,10 @@ module.exports = {
 				project: ["./**/tsconfig.eslint.json", "./**/tsconfig.json"],
 			},
 			rules: {
+				// TODO: It'd be nice to enable these eventually.
+				"@typescript-eslint/no-explicit-any": "off",
+				"@typescript-eslint/no-non-null-assertion": "off",
+
 				// These off-by-default rules work well for this repo and we like them on.
 				"deprecation/deprecation": "error",
 
