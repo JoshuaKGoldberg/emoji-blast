@@ -1,0 +1,13 @@
+html,
+body,
+head {
+	max-width: 100vw;
+	overflow-x: hidden;
+	font-family: Monospace;
+	color: white;
+}
+
+body {
+	margin: 0;
+	background: #15121e;
+}
