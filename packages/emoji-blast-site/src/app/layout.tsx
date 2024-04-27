@@ -1,5 +1,6 @@
 "use client";
 
+import partyPopper from "../../images/party-popper.png";
 import sitePic from "../../images/site-pic.png";
 import { NavBar } from "../components/nav-bar/nav-bar";
 import "./globals.css";
@@ -15,10 +16,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link
-					href="https://em-content.zobj.net/thumbs/320/apple/354/party-popper_1f389.png"
-					rel="icon"
-				/>
+				<link href={partyPopper.src} rel="icon" />
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<meta content={description} name="description" />
 				<meta content={sitePic.src} name="image" />
