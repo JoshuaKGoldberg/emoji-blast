@@ -2,5 +2,4 @@
 coverage/
 dist/
 lib/
-packages/*/.next
 pnpm-lock.yaml

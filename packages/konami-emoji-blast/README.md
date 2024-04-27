@@ -31,7 +31,7 @@ Plop this 👇 at the end of your `<body>`:
 
 <!-- prettier-ignore -->
 ```html
-<script async src="https://unpkg.com/konami-emoji-blast/dist/now.js"></script>
+<script async src="https://unpkg.com/konamimojisplosion/dist/now.js"></script>
 ```
 
 That ☝ loads `konami-emoji-blast` soon after your page loads to set up the Konami Code with no configuration.
@@ -42,7 +42,7 @@ You might want a little more fine-grained control over when the connection is cr
 To create a global `initializeKonamiEmojiBlast` function:
 
 ```html
-<script src="https://unpkg.com/konami-emoji-blast/dist/global.js"></script>
+<script src="https://unpkg.com/emoji-blast/dist/global.js"></script>
 <script>
 	initializeKonamiEmojiBlast();
 </script>

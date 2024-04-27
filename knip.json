@@ -6,10 +6,6 @@
 			"entry": ["src/index.ts!", "src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
-		"packages/emoji-blast-site": {
-			"entry": ["src/app/**/*.tsx!", "src/examples/**/*.ts!"],
-			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
-		},
 		"packages/konami-emoji-blast": {
 			"entry": ["src/index.ts!", "src/mains/*.ts!"],
 			"ignoreDependencies": ["webpack-cli"],

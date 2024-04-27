@@ -6,7 +6,6 @@
 	"files": [],
 	"references": [
 		{ "path": "./packages/emoji-blast" },
-		{ "path": "./packages/emoji-blast-site" },
 		{ "path": "./packages/konami-emoji-blast" },
 		{ "path": "./packages/konami-emoji-blast-astro" },
 		{ "path": "./packages/konami-emoji-blast-react" },

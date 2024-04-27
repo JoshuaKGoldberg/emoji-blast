@@ -14,7 +14,6 @@ module.exports = {
 	ignorePatterns: [
 		"!.*",
 		"coverage",
-		"**/.next",
 		"**/dist",
 		"**/lib",
 		"node_modules",
@@ -60,13 +59,11 @@ module.exports = {
 			files: ["**/*.{ts,tsx}"],
 			parser: "@typescript-eslint/parser",
 			parserOptions: {
+				// Blocked from EXPERIMENTAL_useProjectService on:
+				// https://github.com/typescript-eslint/typescript-eslint/issues/8206
 				project: ["./**/tsconfig.eslint.json", "./**/tsconfig.json"],
-				tsconfigRootDir: __dirname,
 			},
 			rules: {
-				// TODO: It'd be nice to enable these!
-				"@typescript-eslint/no-non-null-assertion": "off",
-
 				// These off-by-default rules work well for this repo and we like them on.
 				"deprecation/deprecation": "error",
 

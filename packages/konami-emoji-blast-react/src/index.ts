@@ -1,2 +1,2 @@
-export * from "./KonamiEmojiBlast.js";
 export * from "./useKonamiEmojiBlast.js";
+export * from "./KonamiEmojiBlast.js";

@@ -119,12 +119,12 @@ export interface EmojiPosition {
 /**
  * In-progress tracking for an actor's position.
  */
-export type EmojiVelocity = {
+export type EmojiVelocity = EmojiPosition & {
 	/**
 	 * How much the actor's element is rotated.
 	 */
 	rotation: number;
-} & EmojiPosition;
+};
 
 /**
  * Processes an element just before it's appended to the container.
