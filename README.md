@@ -5,7 +5,7 @@
 <p align="center">
 	<!-- prettier-ignore-start -->
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 7" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-7-21bb42.svg" /></a>
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 8" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-8-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
@@ -42,8 +42,11 @@ Thanks! 💖
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ian-craig"><img src="https://avatars.githubusercontent.com/u/2031632?v=4?s=100" width="100px;" alt="Ian Craig"/><br /><sub><b>Ian Craig</b></sub></a><br /><a href="#ideas-ian-craig" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a> <a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3AJoshuaKGoldberg" title="Bug reports">🐛</a> <a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a> <a href="#ideas-JoshuaKGoldberg" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://loige.co"><img src="https://avatars.githubusercontent.com/u/205629?v=4?s=100" width="100px;" alt="Luciano Mammino"/><br /><sub><b>Luciano Mammino</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=lmammino" title="Documentation">📖</a> <a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=lmammino" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.racheldev.com/"><img src="https://avatars.githubusercontent.com/u/101299667?v=4?s=100" width="100px;" alt="Rachel Johnson"/><br /><sub><b>Rachel Johnson</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=jrachelr" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Esemplaret1"><img src="https://avatars.githubusercontent.com/u/34987417?v=4?s=100" width="100px;" alt="Thomas Esemplare"/><br /><sub><b>Thomas Esemplare</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=Esemplaret1" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=helenamerk" title="Code">💻</a></td>
+    </tr>
+    <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/joemcil"><img src="https://avatars.githubusercontent.com/u/126059816?v=4?s=100" width="100px;" alt="joemcil"/><br /><sub><b>joemcil</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3Ajoemcil" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
