@@ -3,6 +3,7 @@ import { defineNuxtModule, addPlugin, createResolver, addImportsSources } from '
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   konamiCode?: boolean
+  directive?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -13,6 +14,7 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {
     konamiCode: true,
+    directive: true
   },
   setup(options, _nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -36,6 +38,9 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.konamiCode) {
       addPlugin(resolver.resolve('./runtime/konami-code.client'))
+    }
+    if (options.directive) {
+      addPlugin(resolver.resolve('./runtime/directive'))
     }
   },
 })

@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.11.2",
+    "defu": "^6.1.4",
     "emoji-blast": "^0.10.0",
     "konami-emoji-blast": "^0.5.3"
   },

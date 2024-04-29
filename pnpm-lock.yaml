@@ -11,6 +11,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.11.2
         version: 3.11.2(rollup@4.17.1)
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
       emoji-blast:
         specifier: ^0.10.0
         version: 0.10.0
