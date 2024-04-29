@@ -11,6 +11,21 @@ import * as styles from "./styles";
 export function Hero() {
 	useKonamiEmojiBlast();
 
+	const onExplosion: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+		let x, y;
+
+		if (e.clientX === 0 && e.clientY === 0) {
+			const rect = e.currentTarget.getBoundingClientRect();
+			x = rect.x + rect.width / 2;
+			y = rect.y + rect.height / 2;
+		} else {
+			x = e.clientX;
+			y = e.clientY;
+		}
+
+		emojiBlast({ position: { x, y } });
+	};
+
 	return (
 		<div css={styles.heroContainer}>
 			<Title addStyles={styles.title} />
@@ -24,18 +39,7 @@ export function Hero() {
 				>
 					GitHub
 				</Anchor>
-				<Button
-					explosionFunction={(event) => {
-						emojiBlast({
-							position: {
-								x: event.clientX,
-								y: event.clientY,
-							},
-						});
-					}}
-				>
-					Click Me
-				</Button>
+				<Button explosionFunction={onExplosion}>Click Me</Button>
 			</div>
 		</div>
 	);
