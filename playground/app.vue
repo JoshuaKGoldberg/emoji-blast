@@ -21,4 +21,5 @@
 </template>
 
 <script setup lang="ts">
+useEmojiBlastKonamiCode()
 </script>

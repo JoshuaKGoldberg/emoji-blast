@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver, addImportsSources } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, addImportsSources, addImports } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -14,7 +14,7 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {
     konamiCode: true,
-    directive: true
+    directive: true,
   },
   setup(options, _nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -36,11 +36,16 @@ export default defineNuxtModule<ModuleOptions>({
       ],
     })
 
+    addImports({
+      from: resolver.resolve('./runtime/composables/konami'),
+      name: 'useEmojiBlastKonamiCode',
+    })
+
     if (options.konamiCode) {
-      addPlugin(resolver.resolve('./runtime/konami-code.client'))
+      addPlugin(resolver.resolve('./runtime/plugins/konami-code.client'))
     }
     if (options.directive) {
-      addPlugin(resolver.resolve('./runtime/directive'))
+      addPlugin(resolver.resolve('./runtime/plugins/directive'))
     }
   },
 })
