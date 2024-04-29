@@ -65,6 +65,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "Esemplaret1",
+      "name": "Thomas Esemplare",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34987417?v=4",
+      "profile": "https://github.com/Esemplaret1",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
