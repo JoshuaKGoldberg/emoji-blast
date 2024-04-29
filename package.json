@@ -29,7 +29,9 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.11.2"
+    "@nuxt/kit": "^3.11.2",
+    "emoji-blast": "^0.10.0",
+    "konami-emoji-blast": "^0.5.3"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",

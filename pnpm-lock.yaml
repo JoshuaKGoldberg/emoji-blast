@@ -11,6 +11,12 @@ importers:
       '@nuxt/kit':
         specifier: ^3.11.2
         version: 3.11.2(rollup@4.17.1)
+      emoji-blast:
+        specifier: ^0.10.0
+        version: 0.10.0
+      konami-emoji-blast:
+        specifier: ^0.5.3
+        version: 0.5.3
     devDependencies:
       '@nuxt/devtools':
         specifier: ^1.1.5
@@ -2135,6 +2141,10 @@ packages:
   electron-to-chromium@1.4.750:
     resolution: {integrity: sha512-9ItEpeu15hW5m8jKdriL+BQrgwDTXEL9pn4SkillWFu73ZNNNQ2BKKLS+ZHv2vC9UkNhosAeyfxOf/5OSeTCPA==}
 
+  emoji-blast@0.10.0:
+    resolution: {integrity: sha512-1r5rtGIKM7I2Q76vEHEhR+UpbO59C1JcSjpTncLJFORW0L0r3fDq4PWA1/8a6DXeuOpVNRbtVin3d1N21sZHvQ==}
+    engines: {node: '>=18'}
+
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -2837,6 +2847,12 @@ packages:
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
+
+  konami-code-js@0.8.1:
+    resolution: {integrity: sha512-bJ0tuWYLYiUueIVTpA0MV4h4Gz1X16uuJggh5TpIWXOQoLv0238SU7Im23z2wYKCCBsOfk5j4HKWB/pqdCgu5Q==}
+
+  konami-emoji-blast@0.5.3:
+    resolution: {integrity: sha512-ib1dWR+d1PXUWRRyjIYq5/dc6PvV0cGmccclLOlkl+mUMzLUdu8oySA+DTJr71XIsISXqHEUvTQmO7IuwJ8zYQ==}
 
   launch-editor@2.6.1:
     resolution: {integrity: sha512-eB/uXmFVpY4zezmGp5XtU21kwo7GBbKB+EQ+UZeWtGb9yAM5xt/Evk+lYH3eRNAtId+ej4u7TYPFZ07w4s7rRw==}
@@ -7277,6 +7293,8 @@ snapshots:
 
   electron-to-chromium@1.4.750: {}
 
+  emoji-blast@0.10.0: {}
+
   emoji-regex@8.0.0: {}
 
   emoji-regex@9.2.2: {}
@@ -8087,6 +8105,13 @@ snapshots:
   knitwork@1.1.0: {}
 
   kolorist@1.8.0: {}
+
+  konami-code-js@0.8.1: {}
+
+  konami-emoji-blast@0.5.3:
+    dependencies:
+      emoji-blast: 0.10.0
+      konami-code-js: 0.8.1
 
   launch-editor@2.6.1:
     dependencies:
