@@ -5,7 +5,7 @@ export const usageContainer = {
 		padding: "1rem 2rem 1rem 2rem",
 	},
 	"@media (max-width: 1180px)": {
-		padding: "3rem 10rem 5rem 10rem",
+		padding: "3rem min(10rem, 5vw) 5rem",
 	},
 	alignItems: "space-between",
 	backgroundColor: colors.violet200,

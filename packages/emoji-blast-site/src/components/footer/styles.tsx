@@ -14,7 +14,7 @@ export const contentContainer = {
 	display: "flex",
 	justifyContent: "flex-end",
 
-	margin: "0rem 2.5rem 0rem 0rem",
+	margin: "0rem 2.5rem 0rem",
 };
 
 export const icon = {
