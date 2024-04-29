@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "my-module-playground",
+  "name": "nuxt-emoji-blast-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

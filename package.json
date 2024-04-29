@@ -1,8 +1,8 @@
 {
-  "name": "my-module",
+  "name": "nuxt-emoji-blast",
   "version": "1.0.0",
   "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "repository": "danielroe/nuxt-emoji-blast",
   "license": "MIT",
   "type": "module",
   "exports": {
