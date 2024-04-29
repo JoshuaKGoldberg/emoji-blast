@@ -83,6 +83,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "brawaru",
+      "name": "Sasha Sorokin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10401817?v=4",
+      "profile": "https://github.com/brawaru",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
