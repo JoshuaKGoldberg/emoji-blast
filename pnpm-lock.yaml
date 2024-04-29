@@ -139,16 +139,16 @@ importers:
         version: link:../emoji-blast
       next:
         specifier: 14.2.3
-        version: 14.2.3(react-dom@18.3.0(react@18.3.1))(react@18.3.1)
+        version: 14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
       react-code-blocks:
         specifier: ^0.1.6
-        version: 0.1.6(react-dom@18.3.0(react@18.3.1))(react@18.3.1)
+        version: 0.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.1)
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
     devDependencies:
       '@types/react':
         specifier: 18.3.0
@@ -197,7 +197,7 @@ importers:
     devDependencies:
       '@testing-library/react':
         specifier: ^15.0.0
-        version: 15.0.5(react-dom@18.3.0(react@18.3.1))(react@18.3.1)
+        version: 15.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
         specifier: ^18.2.73
         version: 18.3.0
@@ -212,7 +212,7 @@ importers:
         version: 18.3.1
       react-dom:
         specifier: ^18.2.0
-        version: 18.3.0(react@18.3.1)
+        version: 18.3.1(react@18.3.1)
 
   packages/konami-emoji-blast-typedoc:
     dependencies:
@@ -3549,10 +3549,10 @@ packages:
     peerDependencies:
       react: '>=16'
 
-  react-dom@18.3.0:
-    resolution: {integrity: sha512-zaKdLBftQJnvb7FtDIpZtsAIb2MZU087RM8bRDZU8LVCCFYjPTsDZJNFUWPcVz3HFSN1n/caxi0ca4B/aaVQGQ==}
+  react-dom@18.3.1:
+    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
-      react: ^18.3.0
+      react: ^18.3.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5417,13 +5417,13 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@15.0.5(react-dom@18.3.0(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@15.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@testing-library/dom': 10.0.0
       '@types/react-dom': 18.3.0
       react: 18.3.1
-      react-dom: 18.3.0(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
 
   '@types/aria-query@5.0.4': {}
 
@@ -7960,7 +7960,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@14.2.3(react-dom@18.3.0(react@18.3.1))(react@18.3.1):
+  next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 14.2.3
       '@swc/helpers': 0.5.5
@@ -7969,7 +7969,7 @@ snapshots:
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
-      react-dom: 18.3.0(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
       styled-jsx: 5.1.1(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
@@ -8294,17 +8294,17 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  react-code-blocks@0.1.6(react-dom@18.3.0(react@18.3.1))(react@18.3.1):
+  react-code-blocks@0.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.4
       react: 18.3.1
       react-syntax-highlighter: 15.5.0(react@18.3.1)
-      styled-components: 6.1.8(react-dom@18.3.0(react@18.3.1))(react@18.3.1)
+      styled-components: 6.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tslib: 2.6.2
     transitivePeerDependencies:
       - react-dom
 
-  react-dom@18.3.0(react@18.3.1):
+  react-dom@18.3.1(react@18.3.1):
     dependencies:
       loose-envify: 1.4.0
       react: 18.3.1
@@ -8781,7 +8781,7 @@ snapshots:
     dependencies:
       js-tokens: 9.0.0
 
-  styled-components@6.1.8(react-dom@18.3.0(react@18.3.1))(react@18.3.1):
+  styled-components@6.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.2.1
       '@emotion/unitless': 0.8.0
@@ -8790,7 +8790,7 @@ snapshots:
       csstype: 3.1.2
       postcss: 8.4.31
       react: 18.3.1
-      react-dom: 18.3.0(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
       shallowequal: 1.1.0
       stylis: 4.3.1
       tslib: 2.5.0
