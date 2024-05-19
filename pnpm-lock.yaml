@@ -187,7 +187,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^4.0.0
-        version: 4.8.4(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5)
+        version: 4.8.5(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5)
 
   packages/konami-emoji-blast-react:
     dependencies:
@@ -565,8 +565,8 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
 
-  '@emnapi/runtime@1.1.1':
-    resolution: {integrity: sha512-3bfqkzuR1KLx57nZfjr2NLnFOobvyS0aTszaEGCGqmYMVDRaGvgIZbjGSV/MHSSmLgQ/b9JFHQ5xm5WRZYd+XQ==}
+  '@emnapi/runtime@1.2.0':
+    resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
 
   '@emotion/babel-plugin@11.11.0':
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -1265,8 +1265,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@shikijs/core@1.5.2':
-    resolution: {integrity: sha512-wSAOgaz48GmhILFElMCeQypSZmj6Ru6DttOOtl3KNkdJ17ApQuGNCfzpk4cClasVrnIu45++2DBwG4LNMQAfaA==}
+  '@shikijs/core@1.6.0':
+    resolution: {integrity: sha512-NIEAi5U5R7BLkbW1pG/ZKu3eb1lzc3/+jD0lFsuxMT7zjaf9bbNwdNyMr7zh/Zl8EXQtQ+MYBAt5G+JLu+5DlA==}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -1695,8 +1695,8 @@ packages:
   assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
 
-  astro@4.8.4:
-    resolution: {integrity: sha512-3UExI/Pq47tvdSmYJTDkoyuygIibO+293MBkwc5iUzK5Cu/U4H7P3LwTyP8Gp/wQX+2zBEUifEb4oNO1HfUn2g==}
+  astro@4.8.5:
+    resolution: {integrity: sha512-h+t4VGLPBk6KjIiJnYGotJ16wsLIdmNVSvnwEk51XhqZ5T2VlbozgDtgDi6y3qP3mqkhpN3Q39YQORhVeuEYsg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3902,8 +3902,8 @@ packages:
   shiki@0.14.7:
     resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
 
-  shiki@1.5.2:
-    resolution: {integrity: sha512-fpPbuSaatinmdGijE7VYUD3hxLozR3ZZ+iAx8Iy2X6REmJGyF5hQl94SgmiUNTospq346nXUVZx0035dyGvIVw==}
+  shiki@1.6.0:
+    resolution: {integrity: sha512-P31ROeXcVgW/k3Z+vUUErcxoTah7ZRaimctOpzGuqAntqnnSmx1HOsvnbAB8Z2qfXPRhw61yptAzCsuKOhTHwQ==}
 
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
@@ -4695,7 +4695,7 @@ snapshots:
       remark-parse: 11.0.0
       remark-rehype: 11.1.0
       remark-smartypants: 2.1.0
-      shiki: 1.5.2
+      shiki: 1.6.0
       unified: 11.0.4
       unist-util-remove-position: 5.0.0
       unist-util-visit: 5.0.0
@@ -5064,7 +5064,7 @@ snapshots:
 
   '@discoveryjs/json-ext@0.5.7': {}
 
-  '@emnapi/runtime@1.1.1':
+  '@emnapi/runtime@1.2.0':
     dependencies:
       tslib: 2.6.2
     optional: true
@@ -5425,7 +5425,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.33.4':
     dependencies:
-      '@emnapi/runtime': 1.1.1
+      '@emnapi/runtime': 1.2.0
     optional: true
 
   '@img/sharp-win32-ia32@0.33.4':
@@ -5577,7 +5577,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.17.2':
     optional: true
 
-  '@shikijs/core@1.5.2': {}
+  '@shikijs/core@1.6.0': {}
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -6091,7 +6091,7 @@ snapshots:
 
   assertion-error@1.1.0: {}
 
-  astro@4.8.4(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5):
+  astro@4.8.5(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -6144,7 +6144,7 @@ snapshots:
       rehype: 13.0.1
       resolve: 1.22.8
       semver: 7.6.2
-      shiki: 1.5.2
+      shiki: 1.6.0
       string-width: 7.1.0
       strip-ansi: 7.1.0
       tsconfck: 3.0.3(typescript@5.4.5)
@@ -8812,9 +8812,9 @@ snapshots:
       vscode-oniguruma: 1.7.0
       vscode-textmate: 8.0.0
 
-  shiki@1.5.2:
+  shiki@1.6.0:
     dependencies:
-      '@shikijs/core': 1.5.2
+      '@shikijs/core': 1.6.0
 
   siginfo@2.0.0: {}
 
