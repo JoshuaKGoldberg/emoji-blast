@@ -187,7 +187,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^4.0.0
-        version: 4.8.5(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5)
+        version: 4.8.6(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5)
 
   packages/konami-emoji-blast-react:
     dependencies:
@@ -1695,8 +1695,8 @@ packages:
   assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
 
-  astro@4.8.5:
-    resolution: {integrity: sha512-h+t4VGLPBk6KjIiJnYGotJ16wsLIdmNVSvnwEk51XhqZ5T2VlbozgDtgDi6y3qP3mqkhpN3Q39YQORhVeuEYsg==}
+  astro@4.8.6:
+    resolution: {integrity: sha512-psHIfK+e+bMPhRwghV9yCGH/uc1jvY4DHmDZdoEepax9yA7kzYH0wt3dpkqlcrO2zxl5jzSC3DmqZfkD6wnW9A==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -6091,7 +6091,7 @@ snapshots:
 
   assertion-error@1.1.0: {}
 
-  astro@4.8.5(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5):
+  astro@4.8.6(@types/node@20.12.7)(terser@5.30.4)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
