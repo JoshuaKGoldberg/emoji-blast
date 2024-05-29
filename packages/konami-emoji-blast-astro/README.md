@@ -18,10 +18,10 @@
 
 ## Usage
 
-First install the `@konami-emoji-blast/astro` package as a dependency:
+First install the `@konami-emoji-blast/astro` and `konami-emoji-blast` packages as dependencies:
 
 ```shell
-npm i @konami-emoji-blast/astro
+npm i @konami-emoji-blast/astro konami-emoji-blast
 ```
 
 Then, apply this integration to your `astro.config.*` file using the `integrations` property:
