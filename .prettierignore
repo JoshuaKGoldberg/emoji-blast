@@ -3,3 +3,4 @@ coverage/
 dist/
 lib/
 pnpm-lock.yaml
+packages/*/.next

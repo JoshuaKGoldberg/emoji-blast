@@ -14,6 +14,7 @@
 		"@astrojs/starlight": "^0.24.0",
 		"@konami-emoji-blast/astro": "workspace:",
 		"astro": "^4.8.6",
+		"emoji-blast": "workspace:",
 		"konami-emoji-blast": "^0.5.3",
 		"sharp": "^0.32.5",
 		"typescript": "^5.4.5"

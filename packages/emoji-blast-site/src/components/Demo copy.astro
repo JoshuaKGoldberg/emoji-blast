@@ -1,0 +1,19 @@
+---
+import { Code } from "@astrojs/starlight/components";
+
+import * as inverseGravity from "./examples/basic/inverse-gravity";
+---
+
+<h1>{inverseGravity.name}</h1>
+
+<p>{inverseGravity.blurb}</p>
+
+<Code code={inverseGravity.codeSnippet} lang="js" />
+
+<script>
+	// import { emojiBlast } from "emoji-blast";
+	import { explosionFunction } from "./examples/basic/inverse-gravity";
+
+	// emojiBlast();
+	explosionFunction();
+</script>

@@ -26,6 +26,7 @@
 		"Konami",
 		"lcov",
 		"packagejson",
-		"spinnin"
+		"spinnin",
+		"tsconfigs"
 	]
 }
