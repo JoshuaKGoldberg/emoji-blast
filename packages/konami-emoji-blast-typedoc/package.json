@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/typedoc",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Integration for konami-emoji-blast in TypeDoc. 🗂️",
 	"keywords": [
 		"konami",
