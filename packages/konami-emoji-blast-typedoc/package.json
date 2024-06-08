@@ -9,7 +9,8 @@
 		"konami-emoji-blast",
 		"easter egg",
 		"typedoc",
-		"hooks"
+		"hooks",
+		"typedoc-plugin"
 	],
 	"homepage": "https://emojiblast.dev",
 	"repository": {
