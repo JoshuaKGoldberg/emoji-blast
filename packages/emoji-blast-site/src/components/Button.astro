@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type ButtonAs = "a" | "button";
+
+export type Props<As extends ButtonAs> = HTMLAttributes<As> & {
+	as: As;
+};
+
+const { as: Component } = Astro.props;
+---
+
+<Component class="button">
+	<slot />
+</Component>
+
+<style>
+	.button {
+		background: var(--colorGreen);
+		border-radius: 10px;
+		border: none;
+		color: var(--colorViolet300);
+		cursor: pointer;
+		display: inline-block;
+		font-family: Monospace;
+		font-size: 1rem;
+		font-weight: bold;
+		padding: 0.1rem 1rem;
+	}
+
+	.button:hover {
+		background: var(--colorOrange);
+	}
+</style>

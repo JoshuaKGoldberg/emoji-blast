@@ -6,6 +6,10 @@ export default defineConfig({
 	integrations: [
 		konamiEmojiBlast(),
 		starlight({
+			components: {
+				PageTitle: "./src/components/PageTitle.astro",
+			},
+			customCss: ["./src/styles/global.css"],
 			sidebar: [
 				{
 					items: [{ label: "Example Guide", link: "/guides/example/" }],
@@ -19,6 +23,7 @@ export default defineConfig({
 			social: {
 				github: "https://github.com/JoshuaKGoldberg/emoji-blast",
 			},
+
 			title: "emoji-blast",
 		}),
 	],
