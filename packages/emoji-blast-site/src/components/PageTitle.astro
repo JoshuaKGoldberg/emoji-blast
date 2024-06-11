@@ -1,21 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+
+import home from "~/assets/home.png";
+
 import Button from "./Button.astro";
+import Title from "./Title.astro";
+
+const homeImage = await getImage({ src: home, format: "webp" });
 ---
 
-<div id="title">
-	<h1>
-		<span>e</span>
-		<span>m</span>
-		<span>o</span>
-		<span>j</span>
-		<span>i</span>
-		<span>-</span>
-		<span>b</span>
-		<span>l</span>
-		<span>a</span>
-		<span>s</span>
-		<span>t</span>
-	</h1>
+<div id="title" style={`background-image: url(${homeImage.src});`}>
+	<Title as="h1" />
 
 	<p>🎆 Blasts emoji like fireworks all up in your HTML page. 🎇</p>
 
@@ -28,43 +23,16 @@ import Button from "./Button.astro";
 
 <style>
 	#title {
+		background-size: cover;
 		display: flex;
 		flex-direction: column;
 		font-family: monospace;
 		gap: 2rem;
-		padding: 3rem;
+		padding: 4rem 2rem 5rem;
+		position: relative;
+		overflow: hidden;
 		text-align: center;
-	}
-
-	h1 {
-		font-size: 1.875rem;
-		font-weight: 400;
-		font-weight: normal;
-		letter-spacing: -0.3em;
-	}
-
-	#title span:nth-of-type(6n + 1) {
-		color: var(--colorPink);
-	}
-
-	#title span:nth-of-type(6n + 2) {
-		color: var(--colorBlue);
-	}
-
-	#title span:nth-of-type(6n + 3) {
-		color: var(--colorYellow);
-	}
-
-	#title span:nth-of-type(6n + 4) {
-		color: var(--colorPurple);
-	}
-
-	#title span:nth-of-type(6n + 5) {
-		color: var(--colorGreen);
-	}
-
-	#title span:nth-of-type(6n + 6) {
-		color: var(--colorOrange);
+		width: 100%;
 	}
 
 	p {

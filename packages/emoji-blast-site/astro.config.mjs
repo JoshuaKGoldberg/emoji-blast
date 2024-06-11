@@ -8,6 +8,7 @@ export default defineConfig({
 		starlight({
 			components: {
 				PageTitle: "./src/components/PageTitle.astro",
+				// TwoColumnContent: "./src/components/TwoColumnContent.astro",
 			},
 			customCss: ["./src/styles/global.css"],
 			sidebar: [

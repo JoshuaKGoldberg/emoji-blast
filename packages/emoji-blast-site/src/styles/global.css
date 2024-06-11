@@ -7,3 +7,13 @@
 	--colorViolet300: #15121e;
 	--colorYellow: #f3dd7b;
 }
+
+.content-panel {
+	padding: 0 !important;
+}
+
+.sl-container {
+	margin-inline: initial !important;
+	width: 100%;
+	max-width: none !important;
+}
