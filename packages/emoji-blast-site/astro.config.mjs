@@ -13,12 +13,16 @@ export default defineConfig({
 			customCss: ["./src/styles/global.css"],
 			sidebar: [
 				{
-					items: [{ label: "Example Guide", link: "/guides/example/" }],
-					label: "Guides",
+					label: "Demos",
+					link: "demos",
 				},
 				{
-					autogenerate: { directory: "reference" },
-					label: "Reference",
+					label: "Full API",
+					link: "api",
+				},
+				{
+					autogenerate: { directory: "integrations" },
+					label: "Integrations",
 				},
 			],
 			social: {
