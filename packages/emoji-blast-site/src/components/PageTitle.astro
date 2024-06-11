@@ -17,9 +17,30 @@ const homeImage = await getImage({ src: home, format: "webp" });
 	<div class="buttons">
 		<Button as="a" href="demos">Demos</Button>
 		<Button as="a" href="docs">Docs</Button>
-		<Button as="button">Click Me</Button>
+		<Button as="button" id="clicker">Click Me</Button>
 	</div>
 </div>
+
+<script>
+	import { emojiBlast } from "emoji-blast";
+
+	const clicker = document.getElementById("clicker")!;
+
+	clicker.addEventListener("click", (event) => {
+		let x: number, y: number;
+
+		if (event.clientX === 0 && event.clientY === 0) {
+			const rect = clicker.getBoundingClientRect();
+			x = rect.x + rect.width / 2;
+			y = rect.y + rect.height / 2;
+		} else {
+			x = event.clientX;
+			y = event.clientY;
+		}
+
+		emojiBlast({ position: { x, y } });
+	});
+</script>
 
 <style>
 	#title {
