@@ -1,6 +1,16 @@
 import { EmojiActor } from "./actor.js";
 
 /**
+ * Returned handler for an ongoing blasts of emojis run.
+ */
+export interface EmojiBlastHandler {
+	/**
+	 * Stops physics in the emojiBlast ticks.
+	 */
+	stop: () => void;
+}
+
+/**
  * Starts the regular gameplay loop of telling actors to animate.
  *
  * Each game "tick" is scheduled using `requestAnimationFrame`.
@@ -18,11 +28,17 @@ export function animate(
 	 */
 	let previousTime = performance.now();
 
+	let stopped = false;
+
 	/**
 	 * Runs game logic for one tick.
 	 * @param currentTime   Current time, in milliseconds since page load.
 	 */
 	const tick = (currentTime: number): void => {
+		if (stopped) {
+			return;
+		}
+
 		const timeElapsed = currentTime - previousTime;
 
 		for (let i = 0; i < actors.length; i += 1) {
@@ -45,4 +61,10 @@ export function animate(
 	};
 
 	requestAnimationFrame(tick);
+
+	return {
+		stop: () => {
+			stopped = true;
+		},
+	};
 }

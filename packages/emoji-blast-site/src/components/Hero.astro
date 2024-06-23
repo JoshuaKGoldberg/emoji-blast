@@ -1,63 +1,129 @@
 ---
-import { getImage } from "astro:assets";
-
-import home from "~/assets/home.png";
-
 import Button from "./Button.astro";
 import Title from "./Title.astro";
-
-const homeImage = await getImage({ src: home, format: "webp" });
 ---
 
-<div id="title" style={`background-image: url(${homeImage.src});`}>
-	<Title as="h1" />
+<div id="title">
+	<div id="contents">
+		<Title as="h1" />
 
-	<p>🎆 Blasts emoji like fireworks all up in your HTML page. 🎇</p>
+		<p>🎆 Blasts emoji like fireworks all up in your HTML page. 🎇</p>
 
-	<div class="buttons">
-		<Button as="a" href="/demo">Demo</Button>
-		<Button as="a" href="/api">Full API</Button>
-		|
-		<Button as="button" id="clicker">Click Me</Button>
+		<div class="buttons">
+			<Button as="a" href="/demo">Demo</Button>
+			<Button as="a" href="/api">Full API</Button>
+			|
+			<Button as="button" id="clicker">Click Me</Button>
+		</div>
 	</div>
+
+	<div id="blaster"></div>
 </div>
 
 <script>
 	import { emojiBlast } from "emoji-blast";
 
+	const blaster = document.getElementById("blaster")!;
 	const clicker = document.getElementById("clicker")!;
 
+	function getElementPosition(element: HTMLElement) {
+		const rect = element.getBoundingClientRect();
+
+		return {
+			x: rect.x + rect.width / 2,
+			y: rect.y + rect.height / 2,
+		};
+	}
+
 	clicker.addEventListener("click", (event) => {
-		let x: number, y: number;
+		const position =
+			event.clientX === 0 && event.clientY === 0
+				? getElementPosition(clicker)
+				: { x: event.clientX, y: event.clientY };
 
-		if (event.clientX === 0 && event.clientY === 0) {
-			const rect = clicker.getBoundingClientRect();
-			x = rect.x + rect.width / 2;
-			y = rect.y + rect.height / 2;
-		} else {
-			x = event.clientX;
-			y = event.clientY;
-		}
-
-		emojiBlast({ position: { x, y } });
+		emojiBlast({ position });
 	});
+
+	const velocityRange = {
+		x: blaster.clientWidth / 70,
+		y: blaster.clientHeight / 21,
+	};
+
+	for (const initialVelocities of [
+		{
+			x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
+			y: { max: velocityRange.y, min: -velocityRange.y },
+		},
+		{
+			x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
+			y: { max: velocityRange.y, min: -velocityRange.y },
+		},
+		{
+			x: { max: velocityRange.x, min: -velocityRange.x },
+			y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
+		},
+		{
+			x: { max: velocityRange.x, min: -velocityRange.x },
+			y: { max: -velocityRange.y, min: -velocityRange.y * 0.35 },
+		},
+	]) {
+		const { stop } = emojiBlast({
+			container: blaster,
+			emojiCount: 25,
+			physics: {
+				fontSize: {
+					max: 42,
+					min: 21,
+				},
+				gravity: 0,
+				initialVelocities,
+				preserveOutOfBounds: true,
+			},
+			position: {
+				x: 0,
+				y: blaster.clientHeight / 2,
+			},
+		});
+
+		setTimeout(stop, 2000);
+	}
 </script>
 
 <style>
 	#title {
-		background-size: cover;
-		display: flex;
-		flex-direction: column;
-		font-family: monospace;
-		gap: 2rem;
-		padding: 4rem 2rem 5rem;
-		position: relative;
+		height: 100%;
 		overflow: hidden;
+		position: relative;
 		text-align: center;
 		width: 100%;
 	}
 
+	#contents {
+		display: flex;
+		flex-direction: column;
+		font-family: monospace;
+		gap: 2rem;
+		margin: 4rem 2rem 5rem;
+	}
+
+	.buttons {
+		align-items: center;
+		display: flex;
+		gap: 2rem;
+		justify-content: center;
+	}
+
 	p {
-		font-size: 0.875rem;
+		font-size: 1rem;
+	}
+
+	#blaster {
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: -1;
 	}
 </style>

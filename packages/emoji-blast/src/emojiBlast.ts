@@ -195,6 +195,7 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		actors.push(new EmojiActor(emojiSettings));
 	}
 
-	animate(actors);
 	initializeEvents(actors, container, events);
+
+	return animate(actors);
 };
