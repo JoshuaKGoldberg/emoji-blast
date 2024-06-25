@@ -27,9 +27,9 @@
 		"konami-emoji-blast": "workspace:"
 	},
 	"devDependencies": {
-		"typedoc": "^0.25.12"
+		"typedoc": "^0.26.0"
 	},
 	"peerDependencies": {
-		"typedoc": "^0.25"
+		"typedoc": "^0.25 || ^0.26.0"
 	}
 }
