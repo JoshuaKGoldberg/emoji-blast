@@ -67,7 +67,7 @@ importers:
         version: 2.4.0
       knip:
         specifier: ^5.7.0
-        version: 5.25.2(@types/node@20.14.10)(typescript@5.5.3)
+        version: 5.26.0(@types/node@20.14.10)(typescript@5.5.3)
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.7
@@ -2735,8 +2735,8 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  knip@5.25.2:
-    resolution: {integrity: sha512-ivo01AK3f6Afj00/8j+3Nfdv2md+a6/ASfuurY2Nun1ni2oYS1Y1t6f05q4CldigaMjOMC7oWbgANRIG+McxGQ==}
+  knip@5.26.0:
+    resolution: {integrity: sha512-vOp+Wk86aqlPwElrUpxXyg6Q8w+j0j6wuzyu5p6k/mBWUI8iP91PCAz1Jzz9PGq5JYdptV7rFBYB9vHr7AFgqg==}
     engines: {node: '>=18.6.0'}
     hasBin: true
     peerDependencies:
@@ -3947,10 +3947,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  tsconfig-paths@4.2.0:
-    resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
-    engines: {node: '>=6'}
 
   tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
@@ -7001,7 +6997,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  knip@5.25.2(@types/node@20.14.10)(typescript@5.5.3):
+  knip@5.26.0(@types/node@20.14.10)(typescript@5.5.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@snyk/github-codeowners': 1.1.0
@@ -7018,7 +7014,6 @@ snapshots:
       smol-toml: 1.2.2
       strip-json-comments: 5.0.1
       summary: 2.1.0
-      tsconfig-paths: 4.2.0
       typescript: 5.5.3
       zod: 3.23.8
       zod-validation-error: 3.3.0(zod@3.23.8)
@@ -8564,12 +8559,6 @@ snapshots:
   tsconfck@3.1.1(typescript@5.5.3):
     optionalDependencies:
       typescript: 5.5.3
-
-  tsconfig-paths@4.2.0:
-    dependencies:
-      json5: 2.2.3
-      minimist: 1.2.8
-      strip-bom: 3.0.0
 
   tslib@2.5.0: {}
 
