@@ -121,7 +121,7 @@ importers:
         version: 11.11.4(@types/react@18.3.3)(react@18.3.1)
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.5.2
-        version: 6.5.2
+        version: 6.6.0
       '@fortawesome/free-brands-svg-icons':
         specifier: ^6.5.2
         version: 6.5.2
@@ -130,7 +130,7 @@ importers:
         version: 6.5.2
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.0
-        version: 0.2.2(@fortawesome/fontawesome-svg-core@6.5.2)(react@18.3.1)
+        version: 0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1)
       '@konami-emoji-blast/react':
         specifier: 'workspace:'
         version: link:../konami-emoji-blast-react
@@ -786,8 +786,12 @@ packages:
     resolution: {integrity: sha512-gBxPg3aVO6J0kpfHNILc+NMhXnqHumFxOmjYCFfOiLZfwhnnfhtsdA2hfJlDnj+8PjAs6kKQPenOTKj3Rf7zHw==}
     engines: {node: '>=6'}
 
-  '@fortawesome/fontawesome-svg-core@6.5.2':
-    resolution: {integrity: sha512-5CdaCBGl8Rh9ohNdxeeTMxIj8oc3KNBgIeLMvJosBMdslK/UnEB8rzyDRrbKdL1kDweqBPo4GT9wvnakHWucZw==}
+  '@fortawesome/fontawesome-common-types@6.6.0':
+    resolution: {integrity: sha512-xyX0X9mc0kyz9plIyryrRbl7ngsA9jz77mCZJsUkLl+ZKs0KWObgaEBoSgQiYWAsSmjz/yjl0F++Got0Mdp4Rw==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/fontawesome-svg-core@6.6.0':
+    resolution: {integrity: sha512-KHwPkCk6oRT4HADE7smhfsKudt9N/9lm6EJ5BVg0tD1yPA5hht837fB87F8pn15D8JfTqQOjhKTktwmLMiD7Kg==}
     engines: {node: '>=6'}
 
   '@fortawesome/free-brands-svg-icons@6.5.2':
@@ -4922,9 +4926,11 @@ snapshots:
 
   '@fortawesome/fontawesome-common-types@6.5.2': {}
 
-  '@fortawesome/fontawesome-svg-core@6.5.2':
+  '@fortawesome/fontawesome-common-types@6.6.0': {}
+
+  '@fortawesome/fontawesome-svg-core@6.6.0':
     dependencies:
-      '@fortawesome/fontawesome-common-types': 6.5.2
+      '@fortawesome/fontawesome-common-types': 6.6.0
 
   '@fortawesome/free-brands-svg-icons@6.5.2':
     dependencies:
@@ -4934,9 +4940,9 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.5.2
 
-  '@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.5.2)(react@18.3.1)':
+  '@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1)':
     dependencies:
-      '@fortawesome/fontawesome-svg-core': 6.5.2
+      '@fortawesome/fontawesome-svg-core': 6.6.0
       prop-types: 15.8.1
       react: 18.3.1
 
