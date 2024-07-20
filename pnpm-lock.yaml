@@ -22,7 +22,7 @@ importers:
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.10)(jsdom@24.1.0)(terser@5.31.2))
       console-fail-test:
         specifier: ^0.4.0
-        version: 0.4.3
+        version: 0.4.4
       cspell:
         specifier: ^8.6.1
         version: 8.11.0
@@ -781,10 +781,6 @@ packages:
   '@eslint/js@8.57.0':
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@fortawesome/fontawesome-common-types@6.5.2':
-    resolution: {integrity: sha512-gBxPg3aVO6J0kpfHNILc+NMhXnqHumFxOmjYCFfOiLZfwhnnfhtsdA2hfJlDnj+8PjAs6kKQPenOTKj3Rf7zHw==}
-    engines: {node: '>=6'}
 
   '@fortawesome/fontawesome-common-types@6.6.0':
     resolution: {integrity: sha512-xyX0X9mc0kyz9plIyryrRbl7ngsA9jz77mCZJsUkLl+ZKs0KWObgaEBoSgQiYWAsSmjz/yjl0F++Got0Mdp4Rw==}
@@ -1758,8 +1754,8 @@ packages:
   confbox@0.1.7:
     resolution: {integrity: sha512-uJcB/FKZtBMCJpK8MQji6bJHgu1tixKPxRLeGkNzBoOZzpnZUJm0jm2/sBDWcuBx1dYgxV4JU+g5hmNxCyAmdA==}
 
-  console-fail-test@0.4.3:
-    resolution: {integrity: sha512-x6ZB8Mb4pE3tuYa8O0RSyd+PNKMOlyEqBWQCR1Az9J6Wsc6V+Tzp9LMDECsjNQtBKhTrTPsyRxLOzXb6stnAJg==}
+  console-fail-test@0.4.4:
+    resolution: {integrity: sha512-wWH0xCDWmy8/3ty8+VYG9+Jvc0QSm2kiN5rs5tjeYDqrcUF+9vfc99gVmimTN4mASkIUgGR7mF4CGVDuWtjvaA==}
     engines: {node: '>=18'}
 
   convert-source-map@1.9.0:
@@ -4924,8 +4920,6 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@fortawesome/fontawesome-common-types@6.5.2': {}
-
   '@fortawesome/fontawesome-common-types@6.6.0': {}
 
   '@fortawesome/fontawesome-svg-core@6.6.0':
@@ -5933,7 +5927,7 @@ snapshots:
 
   confbox@0.1.7: {}
 
-  console-fail-test@0.4.3: {}
+  console-fail-test@0.4.4: {}
 
   convert-source-map@1.9.0: {}
 
