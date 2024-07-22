@@ -187,7 +187,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^4.0.0
-        version: 4.12.1(@types/node@20.14.10)(terser@5.31.2)(typescript@5.5.3)
+        version: 4.12.2(@types/node@20.14.10)(terser@5.31.2)(typescript@5.5.3)
 
   packages/konami-emoji-blast-react:
     dependencies:
@@ -1123,8 +1123,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@shikijs/core@1.10.3':
-    resolution: {integrity: sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==}
+  '@shikijs/core@1.11.0':
+    resolution: {integrity: sha512-VbEhDAhT/2ozO0TPr5/ZQBO/NWLqtk4ZiBf6NplYpF38mKjNfMMied5fNEfIfYfN+cdKvhDB4VMcKvG/g9c3zg==}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -1517,8 +1517,8 @@ packages:
   assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
 
-  astro@4.12.1:
-    resolution: {integrity: sha512-KwBoXYL4L1XLTTjoj4z6q1g/tZfWDKR1pKSTAshVqt5FH2eu82pnGW737SxcT/Ssg/hLlb9KnWiclXmqWpcbCQ==}
+  astro@4.12.2:
+    resolution: {integrity: sha512-l6OmqlL+FiuSi9x6F+EGZitteOznq1JffOil7st7cdqeMCTEIym4oagI1a6zp6QekliKWEEZWdplGhgh1k1f7Q==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3644,8 +3644,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@1.10.3:
-    resolution: {integrity: sha512-eneCLncGuvPdTutJuLyUGS8QNPAVFO5Trvld2wgEq1e002mwctAhJKeMGWtWVXOIEzmlcLRqcgPSorR6AVzOmQ==}
+  shiki@1.11.0:
+    resolution: {integrity: sha512-NqH/O1zRHvnuk/WfSL6b7+DtI7/kkMMSQGlZhm9DyzSU+SoIHhaw/fBZMr+zp9R8KjdIzkk3JKSC6hORuGDyng==}
 
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
@@ -4372,7 +4372,7 @@ snapshots:
       remark-parse: 11.0.0
       remark-rehype: 11.1.0
       remark-smartypants: 3.0.2
-      shiki: 1.10.3
+      shiki: 1.11.0
       unified: 11.0.5
       unist-util-remove-position: 5.0.0
       unist-util-visit: 5.0.0
@@ -5168,7 +5168,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.19.0':
     optional: true
 
-  '@shikijs/core@1.10.3':
+  '@shikijs/core@1.11.0':
     dependencies:
       '@types/hast': 3.0.4
 
@@ -5633,7 +5633,7 @@ snapshots:
 
   assertion-error@1.1.0: {}
 
-  astro@4.12.1(@types/node@20.14.10)(terser@5.31.2)(typescript@5.5.3):
+  astro@4.12.2(@types/node@20.14.10)(terser@5.31.2)(typescript@5.5.3):
     dependencies:
       '@astrojs/compiler': 2.9.2
       '@astrojs/internal-helpers': 0.4.1
@@ -5685,7 +5685,7 @@ snapshots:
       prompts: 2.4.2
       rehype: 13.0.1
       semver: 7.6.3
-      shiki: 1.10.3
+      shiki: 1.11.0
       string-width: 7.2.0
       strip-ansi: 7.1.0
       tsconfck: 3.1.1(typescript@5.5.3)
@@ -8274,9 +8274,9 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@1.10.3:
+  shiki@1.11.0:
     dependencies:
-      '@shikijs/core': 1.10.3
+      '@shikijs/core': 1.11.0
       '@types/hast': 3.0.4
 
   siginfo@2.0.0: {}
@@ -8598,7 +8598,7 @@ snapshots:
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
-      shiki: 1.10.3
+      shiki: 1.11.0
       typescript: 5.5.3
       yaml: 2.4.5
 
