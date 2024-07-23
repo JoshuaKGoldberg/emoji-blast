@@ -118,7 +118,7 @@ importers:
     dependencies:
       '@emotion/react':
         specifier: ^11.11.4
-        version: 11.12.0(@types/react@18.3.3)(react@18.3.1)
+        version: 11.13.0(@types/react@18.3.3)(react@18.3.1)
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.5.2
         version: 6.6.0
@@ -593,8 +593,8 @@ packages:
   '@emotion/memoize@0.9.0':
     resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
 
-  '@emotion/react@11.12.0':
-    resolution: {integrity: sha512-kTktYMpG8mHjLi8u6XOTMfDmQvUve/un2ZVj4khcU2KTn17ElMV8BK6QFzT8V/v2QW8013rf07Yc0ayQL3tp3w==}
+  '@emotion/react@11.13.0':
+    resolution: {integrity: sha512-WkL+bw1REC2VNV1goQyfxjx1GYJkcc23CRQkXX+vZNLINyfI7o+uUn/rTGPt/xJ3bJHd5GcljgnxHf4wRw5VWQ==}
     peerDependencies:
       '@types/react': '*'
       react: '>=16.8.0'
@@ -4794,7 +4794,7 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.12.0(@types/react@18.3.3)(react@18.3.1)':
+  '@emotion/react@11.13.0(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.8
       '@emotion/babel-plugin': 11.12.0
