@@ -31,7 +31,7 @@
 	"devDependencies": {
 		"@types/eslint": "^8.56.6",
 		"@typescript-eslint/eslint-plugin": "^7.4.0",
-		"@typescript-eslint/parser": "^7.4.0",
+		"@typescript-eslint/parser": "^8.0.0",
 		"@vitest/coverage-v8": "^1.4.0",
 		"console-fail-test": "^0.4.0",
 		"cspell": "^8.6.1",
