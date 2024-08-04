@@ -10,6 +10,8 @@ export interface EmojiBlastHandler {
 	stop: () => void;
 }
 
+export type EmojiTick = (actors: EmojiActor[]) => void;
+
 /**
  * Starts the regular gameplay loop of telling actors to animate.
  *
@@ -22,6 +24,11 @@ export function animate(
 	 * Actors that have been added and not yet marked themselves as out of bounds.
 	 */
 	actors: EmojiActor[],
+
+	/**
+	 * Handler to run before each tick, if provided
+	 */
+	beforeTick: EmojiTick | undefined,
 ) {
 	/**
 	 * Most recently time recorded by `requestAnimationFrame`.
@@ -34,7 +41,15 @@ export function animate(
 	 * Runs game logic for one tick.
 	 * @param currentTime   Current time, in milliseconds since page load.
 	 */
-	const tick = (currentTime: number): void => {
+	const runTick = (currentTime: number): void => {
+		if (stopped) {
+			return;
+		}
+
+		beforeTick?.(actors);
+
+		// TypeScript doesn't know that beforeTick() might change stopped.
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 		if (stopped) {
 			return;
 		}
@@ -57,10 +72,10 @@ export function animate(
 		}
 
 		previousTime = currentTime;
-		requestAnimationFrame(tick);
+		requestAnimationFrame(runTick);
 	};
 
-	requestAnimationFrame(tick);
+	requestAnimationFrame(runTick);
 
 	return {
 		stop: () => {

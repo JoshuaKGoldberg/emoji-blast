@@ -21,7 +21,7 @@ import Title from "./Title.astro";
 </div>
 
 <script>
-	import { emojiBlast } from "emoji-blast";
+	import { emojiBlast, type EmojiActor } from "emoji-blast";
 
 	const blaster = document.getElementById("blaster")!;
 	const clicker = document.getElementById("clicker")!;
@@ -44,10 +44,21 @@ import Title from "./Title.astro";
 		emojiBlast({ position });
 	});
 
+	const friction = 0.98;
+	const noise = 0.02;
+
 	const velocityRange = {
-		x: blaster.clientWidth / 70,
-		y: blaster.clientHeight / 21,
+		x: blaster.clientWidth / 28,
+		y: blaster.clientHeight / 11.7,
 	};
+
+	function applyFriction(speed: number) {
+		const direction = speed > 0 ? 1 : -1;
+
+		const result = +(speed * friction - noise * direction).toPrecision(5);
+
+		return Math.abs(result) < noise ? 0 : result;
+	}
 
 	for (const initialVelocities of [
 		{
@@ -81,11 +92,29 @@ import Title from "./Title.astro";
 			},
 			position: {
 				x: 0,
-				y: blaster.clientHeight / 2,
+				y: blaster.clientHeight / 2 + 20,
+			},
+			tick(actors) {
+				let hadVelocity = false;
+
+				for (const actor of actors) {
+					actor.update({
+						velocity: {
+							x: applyFriction(actor.velocity.x),
+							y: applyFriction(actor.velocity.y),
+						},
+					});
+
+					if (actor.velocity.x > 0.2 || actor.velocity.y > 0.2) {
+						hadVelocity = true;
+					}
+				}
+
+				if (!hadVelocity) {
+					stop();
+				}
 			},
 		});
-
-		setTimeout(stop, 2000);
 	}
 </script>
 

@@ -4,7 +4,7 @@ import {
 	EmojiPosition,
 	EmojiProcess,
 } from "./actor.js";
-import { animate } from "./animate.js";
+import { EmojiTick, animate } from "./animate.js";
 import { defaultEmojis } from "./emojis.js";
 import { EmojiEvents, initializeEvents } from "./events.js";
 import { createStyleElementAndClass } from "./styles.js";
@@ -53,6 +53,11 @@ export interface EmojiBlastSettings {
 	 * Processes each element just before it's appended to the container.
 	 */
 	process: EmojiProcess;
+
+	/**
+	 * Processes
+	 */
+	tick?: EmojiTick;
 
 	/**
 	 * How many different types of emojis are allowed within a blast.
@@ -161,6 +166,7 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		events = defaultEvents,
 		position = defaultPosition,
 		process,
+		tick,
 		uniqueness = Infinity,
 	} = settings;
 	const container = obtainValue(containerSetting);
@@ -197,5 +203,5 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 
 	initializeEvents(actors, container, events);
 
-	return animate(actors);
+	return animate(actors, tick);
 };
