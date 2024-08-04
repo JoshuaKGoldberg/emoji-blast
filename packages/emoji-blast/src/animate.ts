@@ -1,6 +1,22 @@
 import { EmojiActor } from "./actor.js";
 
 /**
+ * Returned handler for an ongoing blasts of emojis run.
+ */
+export interface EmojiBlastHandler {
+	/**
+	 * Stops physics in the emojiBlast ticks.
+	 */
+	stop: () => void;
+}
+
+/**
+ * Hook to call on each tick.
+ * @param actors   Each actor in play at the time.
+ */
+export type EmojiTick = (actors: EmojiActor[]) => void;
+
+/**
  * Starts the regular gameplay loop of telling actors to animate.
  *
  * Each game "tick" is scheduled using `requestAnimationFrame`.
@@ -12,18 +28,29 @@ export function animate(
 	 * Actors that have been added and not yet marked themselves as out of bounds.
 	 */
 	actors: EmojiActor[],
-) {
+
 	/**
-	 * Most recently time recorded by `requestAnimationFrame`.
+	 * Handler to run before each tick, if provided
 	 */
-	let previousTime = performance.now();
+	beforeTick: EmojiTick | undefined,
+) {
+	let timeStart = performance.now();
+	let stopped = false;
+
+	beforeTick?.(actors);
+
+	// TypeScript doesn't know that beforeTick() might change stopped.
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	if (stopped) {
+		return;
+	}
 
 	/**
 	 * Runs game logic for one tick.
-	 * @param currentTime   Current time, in milliseconds since page load.
+	 * @param timeCurrent   Current time, in milliseconds since page load.
 	 */
-	const tick = (currentTime: number): void => {
-		const timeElapsed = currentTime - previousTime;
+	const runTick = (timeCurrent: number): void => {
+		const timeElapsed = timeCurrent - timeStart;
 
 		for (let i = 0; i < actors.length; i += 1) {
 			const actor = actors[i];
@@ -40,9 +67,15 @@ export function animate(
 			return;
 		}
 
-		previousTime = currentTime;
-		requestAnimationFrame(tick);
+		timeStart = timeCurrent;
+		requestAnimationFrame(runTick);
 	};
 
-	requestAnimationFrame(tick);
+	requestAnimationFrame(runTick);
+
+	return {
+		stop: () => {
+			stopped = true;
+		},
+	};
 }
