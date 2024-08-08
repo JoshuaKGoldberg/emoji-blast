@@ -16,6 +16,7 @@ initializeKonamiEmojiBlast();
 ```
 
 This will create a new [`konami-code-js`](https://www.npmjs.com/package/konami-code-js) `KonamiCode` instance to listen for user input.
+It will call [`emojiBlasts`](./emoji-blast#emojiblasts) whenever the code is detected.
 
 `initializeKonamiEmojiBlast()` returns a cancellation function that cancels any pending work.
 
@@ -27,7 +28,7 @@ const cancel = emojiBlasts();
 setTimeout(stop, 10000);
 ```
 
-### `emojiBlast` Options
+### `initializeKonamiEmojiBlast` Options
 
 `initializeKonamiEmojiBlast` may take a single optional parameter, `onActivate`.
 
@@ -39,6 +40,6 @@ A function to run whenever the user inputs the Konami Code.
 import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
 
 initializeKonamiEmojiBlast(() => {
-	console.log("Aha! 🎆");
+	console.log("Commence blasting! 🎆");
 });
 ```

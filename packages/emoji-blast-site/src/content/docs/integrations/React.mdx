@@ -2,4 +2,72 @@
 title: React
 ---
 
-Hello!
+**[`@konami-emoji-blast/react`](https://www.npmjs.com/package/@konami-emoji-blast/react)** provides a React component and hook.
+
+These act as convenience wrappers around [`konami-emoji-blast`](../konami-emoji-blast).
+You can always call `konami-emoji-blast`'s functions directly instead.
+
+First install the `@konami-emoji-blast/react` package as a dependency:
+
+```shell
+npm i @konami-emoji-blast/react
+```
+
+## `useKonamiEmojiBlast`
+
+The preferred usage for React is with a provided `useKonamiEmojiBlast` hook.
+Call it in a root-level component in your app to call [`initializeKonamiEmojiBlast`](../../api/konami-emoji-blast#initializekonamiemojiblast) when the component is rendered.
+
+```tsx
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/react";
+
+export function MyComponent() {
+	useKonamiEmojiBlast();
+
+	return <main>Hello, world!</main>;
+}
+```
+
+Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your React app should trigger fireworks blasts of emoji on the page.
+Yay! 🎆
+
+### `useKonamiEmojiBlast` Options
+
+`useKonamiEmojiBlast` may take a single optional parameter, `onActivate`.
+
+#### `onActivate`
+
+A function to run whenever the user inputs the Konami Code.
+
+```ts
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/react";
+
+export function MyComponent() {
+	useKonamiEmojiBlast(() => {
+    	console.log("Commence blasting! 🎆");
+    });
+
+	return <main>Hello, world!</main>;
+}
+```
+
+## `KonamiEmojiBlast`
+
+If you can't use hooks, a `KonamiEmojiBlast` component is provided too:
+
+```tsx
+import { KonamiEmojiBlast } from "@konami-emoji-blast/react";
+
+export function MyComponent() {
+	return (
+		<main>
+			<KonamiEmojiBlast />
+			Hello, world!
+		</main>
+	);
+}
+```
+
+:::tip
+The class component just calls the hook internally.
+:::

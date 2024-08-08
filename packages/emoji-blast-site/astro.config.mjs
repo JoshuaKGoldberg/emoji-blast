@@ -35,7 +35,6 @@ export default defineConfig({
 			social: {
 				github: "https://github.com/JoshuaKGoldberg/emoji-blast",
 			},
-			tableOfContents: true,
 			title: "emoji-blast",
 		}),
 	],
