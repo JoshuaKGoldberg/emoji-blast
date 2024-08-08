@@ -63,38 +63,42 @@ import Title from "./Title.astro";
 		return Math.abs(result) < noise ? 0 : result;
 	}
 
-	for (const initialVelocities of [
+	for (const { emojiCount, x, y } of [
 		// Right
 		{
+			emojiCount: 35,
 			x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
 			y: { max: velocityRange.y, min: -velocityRange.y },
 		},
 		// Left
 		{
+			emojiCount: 35,
 			x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
 			y: { max: velocityRange.y, min: -velocityRange.y },
 		},
 		// Bottom
 		{
+			emojiCount: 50,
 			x: { max: velocityRange.x, min: -velocityRange.x },
 			y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
 		},
 		// Top
 		{
+			emojiCount: 50,
 			x: { max: velocityRange.x, min: -velocityRange.x },
-			y: { max: -velocityRange.y, min: -velocityRange.y * 0.35 },
+			y: { max: -velocityRange.y, min: -velocityRange.y * 0.49 },
 		},
 	]) {
 		const { stop } = emojiBlast({
 			container: blaster,
-			emojiCount: 35,
+			emojiCount,
 			physics: {
 				fontSize: {
 					max: 42,
 					min: 21,
 				},
 				gravity: 0,
-				initialVelocities,
+				initialVelocities: { x, y },
 				rotation: 1000,
 				preserveOutOfBounds: true,
 			},
