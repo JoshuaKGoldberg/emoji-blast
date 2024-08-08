@@ -7,10 +7,10 @@ export type Props<As extends ButtonAs> = HTMLAttributes<As> & {
 	as: As;
 };
 
-const { as: Component, ...rest } = Astro.props;
+const { as: Component, class: className, ...rest } = Astro.props;
 ---
 
-<Component {...rest} class="button">
+<Component class:list={["button", className]} {...rest}>
 	<slot />
 </Component>
 

@@ -12,8 +12,8 @@ import Title from "./Title.astro";
 		<div class="buttons">
 			<Button as="a" href="/get-started">Get Started</Button>
 			<Button as="a" href="/demos">Demos</Button>
-			|
-			<Button as="button" id="clicker">Click Me</Button>
+			<span class="motion-rich">|</span>
+			<Button as="button" class="motion-rich" id="clicker">Click Me</Button>
 		</div>
 	</div>
 
@@ -23,17 +23,7 @@ import Title from "./Title.astro";
 <script>
 	import { emojiBlast } from "emoji-blast";
 
-	const blaster = document.getElementById("blaster")!;
 	const clicker = document.getElementById("clicker")!;
-
-	function getElementPosition(element: HTMLElement) {
-		const rect = element.getBoundingClientRect();
-
-		return {
-			x: rect.x + rect.width / 2,
-			y: rect.y + rect.height / 2,
-		};
-	}
 
 	clicker.addEventListener("click", (event) => {
 		const position =
@@ -44,92 +34,109 @@ import Title from "./Title.astro";
 		emojiBlast({ position });
 	});
 
-	const friction = 0.97;
-	const frictionDelay =
-		Math.max(blaster.clientHeight + blaster.clientWidth) / 100;
-	const noise = 0.035;
-	let ticks = 0;
+	function getElementPosition(element: HTMLElement) {
+		const rect = element.getBoundingClientRect();
 
-	const velocityRange = {
-		x: blaster.clientWidth / 17,
-		y: blaster.clientHeight / 7,
-	};
-
-	function applyFriction(speed: number) {
-		const direction = speed > 0 ? 1 : -1;
-
-		const result = +(speed * friction - noise * direction).toPrecision(5);
-
-		return Math.abs(result) < noise ? 0 : result;
+		return {
+			x: rect.x + rect.width / 2,
+			y: rect.y + rect.height / 2,
+		};
 	}
 
-	for (const { emojiCount, x, y } of [
-		// Right
-		{
-			emojiCount: 35,
-			x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
-			y: { max: velocityRange.y, min: -velocityRange.y },
-		},
-		// Left
-		{
-			emojiCount: 35,
-			x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
-			y: { max: velocityRange.y, min: -velocityRange.y },
-		},
-		// Bottom
-		{
-			emojiCount: 50,
-			x: { max: velocityRange.x, min: -velocityRange.x },
-			y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
-		},
-		// Top
-		{
-			emojiCount: 50,
-			x: { max: velocityRange.x, min: -velocityRange.x },
-			y: { max: -velocityRange.y, min: -velocityRange.y * 0.49 },
-		},
-	]) {
-		const { stop } = emojiBlast({
-			container: blaster,
-			emojiCount,
-			physics: {
-				fontSize: {
-					max: 42,
-					min: 21,
+	function heroBlast() {
+		const blaster = document.getElementById("blaster")!;
+
+		const friction = 0.97;
+		const frictionDelay =
+			Math.max(blaster.clientHeight + blaster.clientWidth) / 100;
+		const noise = 0.035;
+		let ticks = 0;
+
+		const velocityRange = {
+			x: blaster.clientWidth / 17,
+			y: blaster.clientHeight / 7,
+		};
+
+		function applyFriction(speed: number) {
+			const direction = speed > 0 ? 1 : -1;
+
+			const result = +(speed * friction - noise * direction).toPrecision(5);
+
+			return Math.abs(result) < noise ? 0 : result;
+		}
+
+		for (const { emojiCount, x, y } of [
+			// Right
+			{
+				emojiCount: 35,
+				x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
+				y: { max: velocityRange.y, min: -velocityRange.y },
+			},
+			// Left
+			{
+				emojiCount: 35,
+				x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
+				y: { max: velocityRange.y, min: -velocityRange.y },
+			},
+			// Bottom
+			{
+				emojiCount: 50,
+				x: { max: velocityRange.x, min: -velocityRange.x },
+				y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
+			},
+			// Top
+			{
+				emojiCount: 50,
+				x: { max: velocityRange.x, min: -velocityRange.x },
+				y: { max: -velocityRange.y, min: -velocityRange.y * 0.49 },
+			},
+		]) {
+			const { stop } = emojiBlast({
+				container: blaster,
+				emojiCount,
+				physics: {
+					fontSize: {
+						max: 42,
+						min: 21,
+					},
+					gravity: 0,
+					initialVelocities: { x, y },
+					rotation: 1000,
+					preserveOutOfBounds: true,
 				},
-				gravity: 0,
-				initialVelocities: { x, y },
-				rotation: 1000,
-				preserveOutOfBounds: true,
-			},
-			position: {
-				x: 0,
-				y: blaster.clientHeight / 2 + 35,
-			},
-			tick(actors) {
-				ticks += 1;
-				if (ticks < frictionDelay) {
-					return;
-				}
+				position: {
+					x: 0,
+					y: blaster.clientHeight / 2 + 35,
+				},
+				tick(actors) {
+					ticks += 1;
+					if (ticks < frictionDelay) {
+						return;
+					}
 
-				let hadVelocity = false;
+					let hadVelocity = false;
 
-				for (const actor of actors) {
-					actor.update({
-						velocity: {
-							x: applyFriction(actor.velocity.x),
-							y: applyFriction(actor.velocity.y),
-						},
-					});
+					for (const actor of actors) {
+						actor.update({
+							velocity: {
+								x: applyFriction(actor.velocity.x),
+								y: applyFriction(actor.velocity.y),
+							},
+						});
 
-					hadVelocity ||= actor.velocity.x > 0.2 || actor.velocity.y > 0.2;
-				}
+						hadVelocity ||= actor.velocity.x > 0.2 || actor.velocity.y > 0.2;
+					}
 
-				if (!hadVelocity) {
-					stop();
-				}
-			},
-		});
+					if (!hadVelocity) {
+						stop();
+					}
+				},
+			});
+		}
+	}
+
+	if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		heroBlast();
 	}
 
 	document.getElementById("hero")!.classList.add("loaded");
@@ -196,5 +203,11 @@ import Title from "./Title.astro";
 
 	#hero.loaded #blaster {
 		opacity: 0.5;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.motion-rich {
+			display: none;
+		}
 	}
 </style>
