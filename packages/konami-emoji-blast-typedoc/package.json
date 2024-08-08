@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/typedoc",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Integration for konami-emoji-blast in TypeDoc. 🗂️",
 	"keywords": [
 		"konami",
@@ -9,7 +9,8 @@
 		"konami-emoji-blast",
 		"easter egg",
 		"typedoc",
-		"hooks"
+		"hooks",
+		"typedoc-plugin"
 	],
 	"homepage": "https://emojiblast.dev",
 	"repository": {
@@ -26,9 +27,9 @@
 		"konami-emoji-blast": "workspace:"
 	},
 	"devDependencies": {
-		"typedoc": "^0.25.12"
+		"typedoc": "^0.26.0"
 	},
 	"peerDependencies": {
-		"typedoc": "^0.25"
+		"typedoc": "^0.25 || ^0.26.0"
 	}
 }

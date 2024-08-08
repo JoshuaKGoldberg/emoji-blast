@@ -3,7 +3,7 @@ import Button from "./Button.astro";
 import Title from "./Title.astro";
 ---
 
-<div id="title">
+<div id="hero">
 	<div id="contents">
 		<Title as="h1" />
 
@@ -21,7 +21,7 @@ import Title from "./Title.astro";
 </div>
 
 <script>
-	import { emojiBlast, type EmojiActor } from "emoji-blast";
+	import { emojiBlast } from "emoji-blast";
 
 	const blaster = document.getElementById("blaster")!;
 	const clicker = document.getElementById("clicker")!;
@@ -41,15 +41,18 @@ import Title from "./Title.astro";
 				? getElementPosition(clicker)
 				: { x: event.clientX, y: event.clientY };
 
-		emojiBlast({ position });
+		emojiBlast({ container: blaster, position });
 	});
 
-	const friction = 0.98;
-	const noise = 0.02;
+	const friction = 0.97;
+	const frictionDelay =
+		Math.max(blaster.clientHeight + blaster.clientWidth) / 100;
+	const noise = 0.035;
+	let ticks = 0;
 
 	const velocityRange = {
-		x: blaster.clientWidth / 28,
-		y: blaster.clientHeight / 11.7,
+		x: blaster.clientWidth / 17,
+		y: blaster.clientHeight / 7,
 	};
 
 	function applyFriction(speed: number) {
@@ -61,18 +64,22 @@ import Title from "./Title.astro";
 	}
 
 	for (const initialVelocities of [
+		// Right
 		{
 			x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
 			y: { max: velocityRange.y, min: -velocityRange.y },
 		},
+		// Left
 		{
 			x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
 			y: { max: velocityRange.y, min: -velocityRange.y },
 		},
+		// Bottom
 		{
 			x: { max: velocityRange.x, min: -velocityRange.x },
 			y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
 		},
+		// Top
 		{
 			x: { max: velocityRange.x, min: -velocityRange.x },
 			y: { max: -velocityRange.y, min: -velocityRange.y * 0.35 },
@@ -80,7 +87,7 @@ import Title from "./Title.astro";
 	]) {
 		const { stop } = emojiBlast({
 			container: blaster,
-			emojiCount: 25,
+			emojiCount: 35,
 			physics: {
 				fontSize: {
 					max: 42,
@@ -88,13 +95,19 @@ import Title from "./Title.astro";
 				},
 				gravity: 0,
 				initialVelocities,
+				rotation: 1000,
 				preserveOutOfBounds: true,
 			},
 			position: {
 				x: 0,
-				y: blaster.clientHeight / 2 + 20,
+				y: blaster.clientHeight / 2 + 35,
 			},
 			tick(actors) {
+				ticks += 1;
+				if (ticks < frictionDelay) {
+					return;
+				}
+
 				let hadVelocity = false;
 
 				for (const actor of actors) {
@@ -105,9 +118,7 @@ import Title from "./Title.astro";
 						},
 					});
 
-					if (actor.velocity.x > 0.2 || actor.velocity.y > 0.2) {
-						hadVelocity = true;
-					}
+					hadVelocity ||= actor.velocity.x > 0.2 || actor.velocity.y > 0.2;
 				}
 
 				if (!hadVelocity) {
@@ -116,15 +127,34 @@ import Title from "./Title.astro";
 			},
 		});
 	}
+
+	document.getElementById("hero")!.classList.add("loaded");
 </script>
 
 <style>
-	#title {
+	#hero {
 		height: 100%;
 		overflow: hidden;
 		position: relative;
 		text-align: center;
 		width: 100%;
+	}
+
+	#hero::after {
+		content: "";
+		opacity: 0;
+		top: 0;
+		display: block;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		transition: 2500ms opacity;
+	}
+
+	#hero.loaded::after {
+		opacity: 1;
+		background: radial-gradient(var(--sl-color-bg) 0%, transparent 70%);
 	}
 
 	#contents {
@@ -133,6 +163,8 @@ import Title from "./Title.astro";
 		font-family: monospace;
 		gap: 2rem;
 		margin: 4rem 2rem 5rem;
+		position: relative;
+		z-index: 1;
 	}
 
 	.buttons {
@@ -143,7 +175,7 @@ import Title from "./Title.astro";
 	}
 
 	p {
-		font-size: 1rem;
+		font-size: 1.35rem;
 	}
 
 	#blaster {
@@ -154,5 +186,11 @@ import Title from "./Title.astro";
 		right: 0;
 		top: 0;
 		z-index: -1;
+		opacity: 1;
+		transition: 2500ms opacity;
+	}
+
+	#hero.loaded #blaster {
+		opacity: 0.5;
 	}
 </style>

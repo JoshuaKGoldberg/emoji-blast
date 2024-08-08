@@ -10,6 +10,10 @@ export interface EmojiBlastHandler {
 	stop: () => void;
 }
 
+/**
+ * Hook to call on each tick.
+ * @param actors   Each actor in play at the time.
+ */
 export type EmojiTick = (actors: EmojiActor[]) => void;
 
 /**
@@ -30,31 +34,36 @@ export function animate(
 	 */
 	beforeTick: EmojiTick | undefined,
 ) {
-	/**
-	 * Most recently time recorded by `requestAnimationFrame`.
-	 */
-	let previousTime = performance.now();
-
+	let timeStart = performance.now();
 	let stopped = false;
+
+	const stop = () => {
+		stopped = true;
+	};
+
+	beforeTick?.(actors);
+
+	// TypeScript doesn't know that beforeTick() might change stopped.
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	if (stopped) {
+		return { stop };
+	}
 
 	/**
 	 * Runs game logic for one tick.
-	 * @param currentTime   Current time, in milliseconds since page load.
+	 * @param timeCurrent   Current time, in milliseconds since page load.
 	 */
-	const runTick = (currentTime: number): void => {
+	const runTick = (timeCurrent: number): void => {
 		if (stopped) {
 			return;
 		}
 
 		beforeTick?.(actors);
-
-		// TypeScript doesn't know that beforeTick() might change stopped.
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-		if (stopped) {
+		if (actors.length === 0) {
 			return;
 		}
 
-		const timeElapsed = currentTime - previousTime;
+		const timeElapsed = timeCurrent - timeStart;
 
 		for (let i = 0; i < actors.length; i += 1) {
 			const actor = actors[i];
@@ -71,15 +80,15 @@ export function animate(
 			return;
 		}
 
-		previousTime = currentTime;
-		requestAnimationFrame(runTick);
+		timeStart = timeCurrent;
+
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		if (!stopped) {
+			requestAnimationFrame(runTick);
+		}
 	};
 
 	requestAnimationFrame(runTick);
 
-	return {
-		stop: () => {
-			stopped = true;
-		},
-	};
+	return { stop };
 }

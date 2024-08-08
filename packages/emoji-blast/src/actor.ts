@@ -153,7 +153,7 @@ export interface EmojiUpdates {
 const outOfBounds = 350;
 
 /**
- * Contains the position state and DOM element for a single displayed emoji.
+ * Contains the position, velocity, and DOM element for a single emoji.
  *
  * This creates and keeps a single DOM element button in the DOM.
  * Text content for the button is determined by the provided actors.

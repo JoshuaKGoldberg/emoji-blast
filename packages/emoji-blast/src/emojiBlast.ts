@@ -55,7 +55,7 @@ export interface EmojiBlastSettings {
 	process: EmojiProcess;
 
 	/**
-	 * Processes
+	 * Hook to call on each tick.
 	 */
 	tick?: EmojiTick;
 

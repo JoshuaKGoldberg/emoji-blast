@@ -1,10 +1,10 @@
 import { CodeBlurb } from "../code-blurb/code-blurb";
+import { CodeTag } from "../code-tag/code-tag";
 import * as usageStyles from "../usage-container/styles";
 import * as snippets from "./code-snippets";
 import * as styles from "./styles";
 
 // https://github.com/JoshuaKGoldberg/emoji-blast/issues/291
-// TODO: create a component for code tag so that the styles are automatically applied
 
 export function DocContent() {
 	return (
@@ -12,62 +12,58 @@ export function DocContent() {
 			<h1 css={usageStyles.header}>Configuration</h1>
 			<div>
 				<p>
-					<code css={{ ...usageStyles.code, ...styles.code }}>emojiBlast</code>{" "}
-					and&nbsp;
-					<code css={{ ...usageStyles.code, ...styles.code }}>
-						emojiBlasts
-					</code>{" "}
-					are highly configurable. The following configurations may be passed to
-					both via configuration objects.
+					<CodeTag style={styles.code}>emojiBlast</CodeTag> and&nbsp;
+					<CodeTag style={styles.code}>emojiBlasts</CodeTag> are highly
+					configurable. The following configurations may be passed to both via
+					configuration objects.
 				</p>
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"className"}</code>
+					<CodeTag>{"className"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"string"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => string"}</code>
+					<CodeTag>{"string"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => string"}</CodeTag>
 				</p>
 				<p>
 					CSS class name to add to all emoji elements. Defaults to&nbsp;
-					<code css={usageStyles.code}>{'"emoji-styles"'}</code>.
+					<CodeTag>{'"emoji-styles"'}</CodeTag>.
 				</p>
 				<CodeBlurb codeSnippet={snippets.classNameSnippet} />
 				<p>
 					Whenever a new&nbsp;
-					<code css={usageStyles.code}>{"className"}</code> is passed to&nbsp;
-					<code css={usageStyles.code}>emojiBlast</code>, a new&nbsp;
-					<code css={usageStyles.code}>{"<style>"}</code> element is created to
-					add general emoji styles for that class.
+					<CodeTag>{"className"}</CodeTag> is passed to&nbsp;
+					<CodeTag>emojiBlast</CodeTag>, a new&nbsp;
+					<CodeTag>{"<style>"}</CodeTag> element is created to add general emoji
+					styles for that class.
 				</p>
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"container"}</code>
+					<CodeTag>{"container"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"Element"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => Element"}</code>
+					<CodeTag>{"Element"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => Element"}</CodeTag>
 				</p>
 				<p>
 					Element container to append elements into. Defaults to a new&nbsp;
-					<code css={usageStyles.code}>{"<div />"}</code> inserted as a first
-					child of&nbsp;
-					<code css={usageStyles.code}>document.body</code>.
+					<CodeTag>{"<div />"}</CodeTag> inserted as a first child of&nbsp;
+					<CodeTag>document.body</CodeTag>.
 				</p>
 				<CodeBlurb codeSnippet={snippets.containerSnippet} />
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>emojiCount</code>
+					<CodeTag>emojiCount</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>number</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => number"}</code>
+					<CodeTag>number</CodeTag> or&nbsp;
+					<CodeTag>{"() => number"}</CodeTag>
 				</p>
 				<p>
 					How many emojis to create per blast. Defaults to random number between
@@ -80,12 +76,12 @@ export function DocContent() {
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"emojis"}</code>
+					<CodeTag>{"emojis"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"string[]"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => string[]"}</code>
+					<CodeTag>{"string[]"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => string[]"}</CodeTag>
 				</p>
 				<p>
 					List of allowed emojis to randomly choose from for each explosion.
@@ -100,7 +96,7 @@ export function DocContent() {
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"physics"}</code>
+					<CodeTag>{"physics"}</CodeTag>
 				</h3>
 				<p>
 					Runtime change constants for emoji element movements. These default to
@@ -109,81 +105,71 @@ export function DocContent() {
 				</p>
 				<p>
 					These values must be passed in as&nbsp;
-					<code css={usageStyles.code}>number</code>s, with defaults as (
-					<code css={usageStyles.code}>value</code>) here:
+					<CodeTag>number</CodeTag>s, with defaults as (<CodeTag>value</CodeTag>
+					) here:
 				</p>
 				<ul>
 					<li>
-						<code css={usageStyles.code}>{"framerate"}</code> (
-						<code css={usageStyles.code}>{"60"}</code>
+						<CodeTag>{"framerate"}</CodeTag> (<CodeTag>{"60"}</CodeTag>
 						): Expected frames per second to adjust position and velocity
 						changes by.
 					</li>
 					<li>
-						<code css={usageStyles.code}>{"gravity"}</code> (
-						<code css={usageStyles.code}>{"0.35"}</code>
+						<CodeTag>{"gravity"}</CodeTag> (<CodeTag>{"0.35"}</CodeTag>
 						): How much to increase y-velocity downward each tick.
 					</li>
 					<li>
-						<code css={usageStyles.code}>{"rotationDeceleration"}</code> (
-						<code css={usageStyles.code}>{"0.98"}</code>
+						<CodeTag>{"rotationDeceleration"}</CodeTag> (
+						<CodeTag>{"0.98"}</CodeTag>
 						): How much to decrease rotation amount each tick.
 					</li>
 				</ul>
 				<p>
 					These values may be randomized, so you can provide them as a
 					const&nbsp;
-					<code css={usageStyles.code}>{"number"}</code> or&nbsp;
-					<code css={usageStyles.code}>
-						{"{ max: number, min: number }"}
-					</code>{" "}
-					for a random integer within, inclusive. Defaults are (
-					<code css={usageStyles.code}>{"[min, max]"}</code>) here:
+					<CodeTag>{"number"}</CodeTag> or&nbsp;
+					<CodeTag>{"{ max: number, min: number }"}</CodeTag> for a random
+					integer within, inclusive. Defaults are (
+					<CodeTag>{"[min, max]"}</CodeTag>) here:
 				</p>
 				<ul>
 					<li>
-						<code css={usageStyles.code}>{"fontSize"}</code> (
-						<code css={usageStyles.code}>{"[14, 28]"}</code>
+						<CodeTag>{"fontSize"}</CodeTag> (<CodeTag>{"[14, 28]"}</CodeTag>
 						): Individual emojis&#039; font size range.
 					</li>
 					<li>
-						<code css={usageStyles.code}>{"initialVelocities"}</code>
+						<CodeTag>{"initialVelocities"}</CodeTag>
 						<ul>
 							<li>
-								<code css={usageStyles.code}>{"rotation"}</code> (
-								<code css={usageStyles.code}>{"[-7, 7]"}</code>
+								<CodeTag>{"rotation"}</CodeTag> (<CodeTag>{"[-7, 7]"}</CodeTag>
 								): Range of initial rotation amount.
 							</li>
 							<li>
-								<code css={usageStyles.code}>{"x"}</code> (
-								<code css={usageStyles.code}>{"[-7, 7]"}</code>
+								<CodeTag>{"x"}</CodeTag> (<CodeTag>{"[-7, 7]"}</CodeTag>
 								): Range of initial horizontal velocity.
 							</li>
 							<li>
-								<code css={usageStyles.code}>{"y"}</code> (
-								<code css={usageStyles.code}>{"[-14, -11.7]"}</code>
+								<CodeTag>{"y"}</CodeTag> (<CodeTag>{"[-14, -11.7]"}</CodeTag>
 								): Range of initial vertical velocity.
 							</li>
 						</ul>
 					</li>
 					<li>
-						<code css={usageStyles.code}>{"rotation"}</code> (
-						<code css={usageStyles.code}>{"[-45, 45]"}</code>
+						<CodeTag>{"rotation"}</CodeTag> (<CodeTag>{"[-45, 45]"}</CodeTag>
 						): Individual emojis&#039; initial rotation range.
 					</li>
 				</ul>
 				<p>These values are optional:</p>
 				<ul>
 					<li>
-						<code css={usageStyles.code}>{"preserveOutOfBounds"}</code>: Whether
-						to skip removing emojis that move outside of the visible screen.
+						<CodeTag>{"preserveOutOfBounds"}</CodeTag>: Whether to skip removing
+						emojis that move outside of the visible screen.
 					</li>
 					<li>
-						<code css={usageStyles.code}>{"opacityDelay"}</code>: How much to
-						slow down the (time elapsed / framerate) opacity reduction each tick
+						<CodeTag>{"opacityDelay"}</CodeTag>: How much to slow down the (time
+						elapsed / framerate) opacity reduction each tick
 						(recommendation:&nbsp;
-						<code css={usageStyles.code}>{"100"}</code> to fade out over a few
-						seconds).
+						<CodeTag>{"100"}</CodeTag> to fade out over a few seconds).
 					</li>
 				</ul>
 				<p>Causing emojis to spin wildly out of control:</p>
@@ -192,33 +178,31 @@ export function DocContent() {
 				<CodeBlurb codeSnippet={snippets.physicsSnippet2} />
 				<p>
 					Alternately, the&nbsp;
-					<code css={usageStyles.code}>{"defaultPhysics"}</code> object is
-					exported, so you can base your physics constants off it:
+					<CodeTag>{"defaultPhysics"}</CodeTag> object is exported, so you can
+					base your physics constants off it:
 				</p>
 				<CodeBlurb codeSnippet={snippets.physicsSnippet3} />
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"position"}</code>
+					<CodeTag>{"position"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"{ x: number, y: number }"}</code>{" "}
-					or&nbsp;
-					<code css={usageStyles.code}>{"() => { x: number, y: number }"}</code>
+					<CodeTag>{"{ x: number, y: number }"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => { x: number, y: number }"}</CodeTag>
 				</p>
 				<p>
 					How to determine where to place blasts of emojis around the page.
 					These are absolutely positioned midpoints to center the blasts around.
 					They&#039re used directly as&nbsp;
-					<code css={usageStyles.code}>{"left"}</code> and&nbsp;
-					<code css={usageStyles.code}>{"top"}</code> CSS properties. You can
-					provide a static object or a function to create one.
+					<CodeTag>{"left"}</CodeTag> and&nbsp;
+					<CodeTag>{"top"}</CodeTag> CSS properties. You can provide a static
+					object or a function to create one.
 				</p>
 				<p>
 					The default&nbsp;
-					<code css={usageStyles.code}>{"position"}</code> chooses integers
-					within the page:
+					<CodeTag>{"position"}</CodeTag> chooses integers within the page:
 				</p>
 				<CodeBlurb codeSnippet={snippets.positionSnippet1} />
 				<p>Always exploding from a fixed position:</p>
@@ -228,11 +212,11 @@ export function DocContent() {
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"process"}</code>
+					<CodeTag>{"process"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"(element: Element) => void"}</code>
+					<CodeTag>{"(element: Element) => void"}</CodeTag>
 				</p>
 				<p>
 					Processes each element just before it&#039;s appended to the
@@ -241,49 +225,48 @@ export function DocContent() {
 				</p>
 				<p>
 					Adding an&nbsp;
-					<code css={usageStyles.code}>{".emoji"}</code> class to each element:
+					<CodeTag>{".emoji"}</CodeTag> class to each element:
 				</p>
 				<CodeBlurb codeSnippet={snippets.processSnippet} />
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"tagName"}</code>
+					<CodeTag>{"tagName"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"string"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => string"}</code>
+					<CodeTag>{"string"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => string"}</CodeTag>
 				</p>
 				<p>
 					DOM element tag name to create elements as. Defaults to&nbsp;
-					<code css={usageStyles.code}>{'"span"'}</code>.
+					<CodeTag>{'"span"'}</CodeTag>.
 				</p>
 				<p>
 					Creating&nbsp;
-					<code css={usageStyles.code}>{"<div>"}</code>s instead:
+					<CodeTag>{"<div>"}</CodeTag>s instead:
 				</p>
 				<CodeBlurb codeSnippet={snippets.tagNameSnippet} />
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"uniqueness"}</code>
+					<CodeTag>{"uniqueness"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"number"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => number"}</code>
+					<CodeTag>{"number"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => number"}</CodeTag>
 				</p>
 				<p>
 					How many different types of emojis are allowed within a blast. Each
 					blast will evaluate this to a number, U, and choose the first U emojis
 					from a shuffled variant of the&nbsp;
-					<code css={usageStyles.code}>{"emojis"}</code> list. If&nbsp;
-					<code css={usageStyles.code}>{"U > emojis.length"}</code>, it will be
-					ignored.
+					<CodeTag>{"emojis"}</CodeTag> list. If&nbsp;
+					<CodeTag>{"U > emojis.length"}</CodeTag>, it will be ignored.
 				</p>
 				<p>
-					<code css={usageStyles.code}>{"uniqueness"}</code> defaults to&nbsp;
-					<code css={usageStyles.code}>{"Infinity"}</code>.
+					<CodeTag>{"uniqueness"}</CodeTag> defaults to&nbsp;
+					<CodeTag>{"Infinity"}</CodeTag>.
 				</p>
 				<p>Allowing only one emoji type per blast:</p>
 				<CodeBlurb codeSnippet={snippets.uniquenessSnippet1} />
@@ -295,52 +278,49 @@ export function DocContent() {
 			</h2>
 			<div css={usageStyles.blurbContainer}>
 				<p>
-					<code css={usageStyles.code}>emojiBlasts</code> can take in all of the
-					same settings as&nbsp;
-					<code css={usageStyles.code}>emojiBlast</code>. It returns an object
-					with a&nbsp;
-					<code css={usageStyles.code}>{"cancel"}</code> function that can
-					cancel any pending work:
+					<CodeTag>emojiBlasts</CodeTag> can take in all of the same settings
+					as&nbsp;
+					<CodeTag>emojiBlast</CodeTag>. It returns an object with a&nbsp;
+					<CodeTag>{"cancel"}</CodeTag> function that can cancel any pending
+					work:
 				</p>
 				<CodeBlurb codeSnippet={snippets.emojiBlastsSnippet} />
 				<p>
 					Additionally, the following configurations are exclusively for&nbsp;
-					<code css={usageStyles.code}>emojiBlasts</code>:
+					<CodeTag>emojiBlasts</CodeTag>:
 				</p>
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"interval"}</code>
+					<CodeTag>{"interval"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>{"number"}</code> or&nbsp;
-					<code css={usageStyles.code}>{"() => number"}</code>
+					<CodeTag>{"number"}</CodeTag> or&nbsp;
+					<CodeTag>{"() => number"}</CodeTag>
 				</p>
 				<p>
 					How frequently to create explosions. Passed to&nbsp;
-					<code css={usageStyles.code}>{"scheduler"}</code> as the delay
-					(typically in milliseconds) before each explosion.
+					<CodeTag>{"scheduler"}</CodeTag> as the delay (typically in
+					milliseconds) before each explosion.
 				</p>
 				<p>
 					Pass a&nbsp;
-					<code css={usageStyles.code}>{"number"}</code> to always delay that
-					much. Pass a function for it to be called immediately for the delay
-					before the first explosion, then again as each explosion is started to
-					schedule the next explosion.
+					<CodeTag>{"number"}</CodeTag> to always delay that much. Pass a
+					function for it to be called immediately for the delay before the
+					first explosion, then again as each explosion is started to schedule
+					the next explosion.
 				</p>
 				<p>
 					The default&nbsp;
-					<code css={usageStyles.code}>{"interval"}</code> is a function that
-					returns&nbsp;
-					<code css={usageStyles.code}>{"0"}</code> the first time for an
-					immediate explosion, then a random number in [700, 2100] subsequent
-					times.
+					<CodeTag>{"interval"}</CodeTag> is a function that returns&nbsp;
+					<CodeTag>{"0"}</CodeTag> the first time for an immediate explosion,
+					then a random number in [700, 2100] subsequent times.
 				</p>
 				<p>
 					As quickly as&nbsp;
-					<code css={usageStyles.code}>{"setInterval"}</code> can fire (this
-					will probably crash your browser!):
+					<CodeTag>{"setInterval"}</CodeTag> can fire (this will probably crash
+					your browser!):
 				</p>
 				<CodeBlurb codeSnippet={snippets.intervalSnippet1} />
 				<p>Once a second:</p>
@@ -353,19 +333,16 @@ export function DocContent() {
 			</div>
 			<div css={usageStyles.blurbContainer}>
 				<h3 css={styles.attributeTitle}>
-					<code css={usageStyles.code}>{"scheduler"}</code>
+					<CodeTag>{"scheduler"}</CodeTag>
 				</h3>
 				<p>
 					Type:&nbsp;
-					<code css={usageStyles.code}>
-						{"(action: () => void, delay: number) => number"}
-					</code>
+					<CodeTag>{"(action: () => void, delay: number) => number"}</CodeTag>
 				</p>
 				<p>
 					Schedules the next explosion to occur. This defaults to&nbsp;
-					<code css={usageStyles.code}>{"setTimeout"}</code>, which is why&nbsp;
-					<code css={usageStyles.code}>{"interval"}</code> is typically treated
-					as milliseconds.
+					<CodeTag>{"setTimeout"}</CodeTag>, which is why&nbsp;
+					<CodeTag>{"interval"}</CodeTag> is typically treated as milliseconds.
 				</p>
 				<CodeBlurb codeSnippet={snippets.schedulerSnippet} />
 			</div>
