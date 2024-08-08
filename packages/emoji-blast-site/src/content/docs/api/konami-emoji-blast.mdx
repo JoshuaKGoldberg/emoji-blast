@@ -1,0 +1,44 @@
+---
+description: 🎆 Usage docs for the `konami-emoji-blast` package. 🎇
+title: konami-emoji-blast
+---
+
+`konami-emoji-blast` export a single function:
+
+- [`initializeKonamiEmojiBlast`](#initializekonamiemojiblast): Initializes the Konami Code listener on the page.
+
+## `initializeKonamiEmojiBlast`
+
+```ts
+import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+
+initializeKonamiEmojiBlast();
+```
+
+This will create a new [`konami-code-js`](https://www.npmjs.com/package/konami-code-js) `KonamiCode` instance to listen for user input.
+
+`initializeKonamiEmojiBlast()` returns a cancellation function that cancels any pending work.
+
+```typescript
+// Commence code listening!...
+const cancel = emojiBlasts();
+
+// ...but not after ten seconds.
+setTimeout(stop, 10000);
+```
+
+### `emojiBlast` Options
+
+`initializeKonamiEmojiBlast` may take a single optional parameter, `onActivate`.
+
+#### `onActivate`
+
+A function to run whenever the user inputs the Konami Code.
+
+```ts
+import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+
+initializeKonamiEmojiBlast(() => {
+	console.log("Aha! 🎆");
+});
+```
