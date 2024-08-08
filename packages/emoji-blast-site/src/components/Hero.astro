@@ -41,7 +41,7 @@ import Title from "./Title.astro";
 				? getElementPosition(clicker)
 				: { x: event.clientX, y: event.clientY };
 
-		emojiBlast({ container: blaster, position });
+		emojiBlast({ position });
 	});
 
 	const friction = 0.97;
