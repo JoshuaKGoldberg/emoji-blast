@@ -12,8 +12,7 @@ import Title from "./Title.astro";
 		<div class="buttons">
 			<Button as="a" href="/apis/emoji-blast">APIs</Button>
 			<Button as="a" href="/demos/basic">Demos</Button>
-			<span class="motion-rich">|</span>
-			<Button as="button" className="motion-rich" id="clicker">Click Me</Button>
+			<Button as="button" id="clicker">Trigger</Button>
 		</div>
 	</div>
 
@@ -217,11 +216,5 @@ import Title from "./Title.astro";
 
 	#hero.loaded #blaster {
 		opacity: 0.5;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.motion-rich {
-			display: none;
-		}
 	}
 </style>

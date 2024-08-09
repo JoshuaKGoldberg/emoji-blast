@@ -12,7 +12,7 @@ export function DemoButton({ group, title }: DemoButtonProps) {
 
 	return (
 		<Button as="button" onClick={demo.blaster}>
-			Try It
+			Trigger
 		</Button>
 	);
 }
