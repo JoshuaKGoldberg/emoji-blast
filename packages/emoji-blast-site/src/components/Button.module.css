@@ -1,8 +1,8 @@
 .button {
-	background: var(--colorGreen);
+	background: var(--colorGreenLight);
 	border-radius: 10px;
 	border: none;
-	color: var(--colorViolet300);
+	color: var(--colorVioletLight);
 	cursor: pointer;
 	display: inline-block;
 	font-family: Monospace;
@@ -12,7 +12,7 @@
 }
 
 .button:hover {
-	background: var(--colorOrange);
+	background: var(--colorOrangeLight);
 }
 
 a.button {
