@@ -521,17 +521,9 @@ const shenanigans: DemoGroup = {
 		},
 		{
 			blaster: () => {
-				// finding the explosion container width and height to base our starting coordinates off of
-				const containerWidth = document.getElementById(
-					"explosion-container",
-				)!.offsetWidth;
-				const containerHeight = document.getElementById(
-					"explosion-container",
-				)!.offsetHeight;
-
 				// created x & y starting coordinates to randomize where the firework occurs on the page
-				const randStartXCoord = Math.random() * containerWidth;
-				const randStartYCoord = Math.random() * containerHeight;
+				const randStartXCoord = Math.random() * innerWidth;
+				const randStartYCoord = Math.random() * innerHeight;
 
 				// function for the initial sparkles in the firework
 				const sparkles = () => {
