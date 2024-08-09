@@ -16,6 +16,8 @@
 	⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
 </p>
 
+## Usage
+
 👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development

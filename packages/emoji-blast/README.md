@@ -17,6 +17,8 @@ Tell it to start once, or many times, and it will _just work_.
 > Renamed because nobody can remember that name.
 > 🥲
 
+## Usage
+
 👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development
