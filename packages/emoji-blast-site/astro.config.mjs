@@ -11,7 +11,7 @@ export default defineConfig({
 		starlight({
 			components: {
 				SiteTitle: "./src/components/SiteTitle.astro",
-				TwoColumnContent: "./src/components/TwoColumnContent.astro",
+				// TwoColumnContent: "./src/components/TwoColumnContent.astro",
 			},
 			customCss: ["./src/styles/global.css"],
 			sidebar: [
@@ -20,12 +20,6 @@ export default defineConfig({
 						directory: "get-started",
 					},
 					label: "Get Started",
-				},
-				{
-					autogenerate: {
-						directory: "api",
-					},
-					label: "API",
 				},
 				{
 					autogenerate: {

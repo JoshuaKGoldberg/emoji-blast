@@ -1,0 +1,20 @@
+.button {
+	background: var(--colorGreen);
+	border-radius: 10px;
+	border: none;
+	color: var(--colorViolet300);
+	cursor: pointer;
+	display: inline-block;
+	font-family: Monospace;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding: 0.75rem 1.75rem;
+}
+
+.button:hover {
+	background: var(--colorOrange);
+}
+
+a.button {
+	text-decoration: underline;
+}

@@ -1,9 +1,84 @@
 ---
 description: 🎆 Snippets of basic examples showing the emoji-blast API. 🎇
-tableOfContents: false
 title: Basic
 ---
 
-import { DemosPage } from "~/components/demos/DemosPage.tsx";
+import { Demo } from "~/components/Demo.tsx";
 
-<DemosPage client:load group="basic" />
+## emojiBlast
+
+A single blast of emojis.
+
+<Demo
+	blaster={() => {
+		emojiBlast();
+	}}
+/>
+
+## Large
+
+emojiBlast with extra large emojis.
+
+<Demo
+	blaster={() => {
+		emojiBlast({
+			physics: {
+				fontSize: { max: 74, min: 64 },
+			},
+		});
+	}}
+/>
+
+## Always Blue
+
+emojiBlast with only one type of emoji per explosion.
+
+<Demo
+	blaster={() => {
+		emojiBlast({
+			emojis: ["🥶", "🧞‍♂️", "🦋", "🦕", "🐟", "🐬", "🐳", "🐋"],
+		});
+	}}
+/>
+
+## Only One
+
+emojiBlast with only one type of emoji per explosion.
+
+<Demo
+	blaster={() => {
+		emojiBlast({
+			uniqueness: 1,
+		});
+	}}
+/>
+
+## Lots of Emojis
+
+emojiBlast with a random number of emojis per blast between 100-200.
+
+<Demo
+	blaster={() => {
+		emojiBlast({
+			emojiCount: () => Math.random() * 100 + 100,
+		});
+	}}
+/>
+
+## Set Position
+
+emojiBlast that only happens at a set position on the page
+
+<Demo
+	blaster={() => {
+
+    	emojiBlast({
+    		position: {
+    			x: innerWidth / 2,
+    			y: innerHeight / 2,
+    		},
+    	});
+
+}}
+
+/>

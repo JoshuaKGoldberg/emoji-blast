@@ -1,14 +1,12 @@
 import dedent from "dedent";
 import { Highlight, themes } from "prism-react-renderer";
 
-import type { DemoData } from "./data";
-
-export interface DemoSelectorProps {
-	data: DemoData;
+export interface DemoProps {
+	blaster: () => void;
 }
 
-export function DemoSelector({ data }: DemoSelectorProps) {
-	const lines = data.blaster
+export function Demo({ blaster }: DemoProps) {
+	const lines = blaster
 		.toString()
 		.replaceAll("__vite_ssr_import_0__.", "")
 		.split("\n");
@@ -16,10 +14,8 @@ export function DemoSelector({ data }: DemoSelectorProps) {
 	const code = dedent(lines.slice(1, lines.length - 1).join("\n"));
 
 	return (
-		<div id={data.name}>
-			<h2>{data.name}</h2>
-			<p>{data.blurb}</p>
-			<button onClick={data.blaster}>Try It</button>
+		<>
+			<button onClick={blaster}>Try It</button>
 
 			<Highlight code={code} language="javascript" theme={themes.vsLight}>
 				{({ getLineProps, getTokenProps, style, tokens }) => (
@@ -34,6 +30,6 @@ export function DemoSelector({ data }: DemoSelectorProps) {
 					</pre>
 				)}
 			</Highlight>
-		</div>
+		</>
 	);
 }
