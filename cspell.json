@@ -12,6 +12,7 @@
 	],
 	"words": [
 		"Astro",
+		"astrojs",
 		"Codecademy",
 		"csstype",
 		"eeaao",
@@ -23,8 +24,10 @@
 		"Gradeff",
 		"knip",
 		"Konami",
+		"Konamicode",
 		"lcov",
 		"packagejson",
-		"spinnin"
+		"spinnin",
+		"tsconfigs"
 	]
 }

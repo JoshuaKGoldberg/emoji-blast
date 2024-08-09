@@ -1,93 +1,33 @@
-<h1 align="center">emoji-blast</h1>
+---
+description: 🎆 Usage docs for the `emoji-blast` package. 🎇
+title: emoji-blast
+---
 
-<p align="center">Blasts emoji like fireworks all up in your HTML page. 🎆</p>
+`emoji-blast` exports two functions:
 
-<p align="center">
-	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
-	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
-	<a href="http://npmjs.com/package/emoji-blast"><img alt="📦 npm version" src="https://img.shields.io/npm/v/emoji-blast?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
-	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
-</p>
+- [`emojiBlast`](#emojiblast): Triggers a single blast of emojis.
+- [`emojiBlasts`](#emojiblasts): Starts firing `emojiBlast()` at random locations on an setInterval.
 
-A straightforward library that triggers fireworks blasts of emoji in any web app or site.
-Tell it to start once, or many times, and it will _just work_.
-✨
-
-> Previously named **`emojisplosion`**.
-> Renamed because nobody can remember that name.
-> 🥲
-
-## Usage
-
-`emoji-blast` provides two APIs:
-
-- `emojiBlast()`: launches a single blast of emojis at a random location on the page.
-- `emojiBlasts()`: starts calling `emojiBlast()` on a random interval of every few seconds.
-
-Both are shockingly configurable and delightful to use.
-🎇
-
-### Direct HTML Quick Start
-
-Plop this 👇 at the end of your `.html` `<body>`:
-
-```html
-<script async src="https://unpkg.com/emoji-blast/dist/now.js"></script>
-```
-
-That ☝ loads `emoji-blast` soon after your page loads and starts `emojiBlasts()` as soon as it can.
-
-👌.
-
-You'll probably want a little more fine-grained control over when the blasts occur.
-To create global `emojiBlast` and `emojiBlasts` functions:
-
-```html
-<script src="https://unpkg.com/emoji-blast/dist/global.js"></script>
-<script>
-	emojiBlast(); // Just one blast, please.
-	emojiBlasts(); // Commence blasting!
-</script>
-```
-
-### Framework Usage
-
-First install the `emoji-blast` package as a dependency:
-
-```shell
-npm i emoji-blast
-```
-
-You can then import it in your code to access its `emojiBlast` and `emojiBlasts` functions:
+## `emojiBlast`
 
 ```ts
-import { emojiBlast, emojiBlasts } from "emoji-blast";
+import { emojiBlast } from "emoji-blast";
 
-emojiBlast(); // Just one blast, please.
-emojiBlasts(); // Commence blasting!
+emojiBlast();
 ```
 
-If you're using ESM or any modern JavaScript bundler or framework, such as ESBuild, Vite, or Webpack, this should _just work_.
-✨
-
-<!-- Soon, we'll document *-emoji-blast integrations here. Soon! -->
-
-## Explanation
-
-Each `emojiBlast` causes a fireworks-like blasts of random emoji to be placed around a random location on your page.
-Each blasts contains around a dozen emoji, each of which are animated in JavaScript to:
+Each `emojiBlast()` by default causes a fireworks-like blast of random emoji to be placed around a random location on your page.
+The blasts each contain around a dozen emoji, each of which are animated in JavaScript to:
 
 - Start with a random horizontal velocity and random upward vertical velocity
 - Move along the page as if affected by velocity and preserving inertia
 
 After an emoji is completely hidden or out of bounds, it is removed from the page.
 
-### Configuration
+### `emojiBlast` Options
 
-`emojiBlast` and `emojiBlasts` are highly configurable.
+`emojiBlast` is highly configurable.
 The following may be passed to both via configuration objects.
-
-> Suggestion: see the generated `.d.ts` under `./lib` for full API descriptions.
 
 #### `className`
 
@@ -367,18 +307,32 @@ emojiBlast({
 });
 ```
 
-### `emojiBlasts`
+## `emojiBlasts`
 
-`emojiBlasts` can take in all of the same settings as `emoji-blast`.
-It returns an object with a `cancel` function that can cancel any pending work:
+```ts
+import { emojiBlasts } from "emoji-blast";
+
+emojiBlasts();
+```
+
+`emojiBlasts` is used to start firing `emojiBlast()` calls every second or so on an interval.
+
+It returns an object containing:
+
+- A `blast` function that manually triggers a blast
+- A `cancel` function that can cancel any pending work
 
 ```typescript
 // Commence blasts!...
-const { cancel } = emojiBlasts();
+const { stop } = emojiBlasts();
 
 // ...but stop after ten seconds.
-setTimeout(cancel, 10000);
+setTimeout(stop, 10000);
 ```
+
+### `emojiBlasts` Options
+
+`emojiBlasts` can take in all of [`emoji-blast` options](#emojiblast-options).
 
 Additionally, the following configurations are exclusively for `emojiBlasts`:
 
@@ -438,16 +392,7 @@ This defaults to `setTimeout`, which is why `interval` is typically treated as m
 emojiBlasts({
 	scheduler(action, delay) {
 		console.log(`Will emoji in ${delay} ms!`);
-		action();
+		setTimeout(action, delay);
 	},
 });
 ```
-
-## Development
-
-`konami-emoji-blast` is managed as part of the <a href="https://github.com/JoshuaKGoldberg/emoji-blast">emoji-blast monorepo</a>.
-See the monorepo's contributing and development docs first, then [`./.github/DEVELOPMENT.md`](.github/DEVELOPMENT.md).
-
-> 💙 This package was templated with [`create-typescript-app`](https://github.com/JoshuaKGoldberg/create-typescript-app).
-
-> _"So anyway, I started blasting!" - Frank Reynolds_

@@ -27,7 +27,7 @@ npm i @konami-emoji-blast/react
 The preferred usage for React is with a provided `useKonamiEmojiBlast` hook:
 
 ```tsx
-import { useKonamiEmojiBlast } from "konami-emoji-blast/react";
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/react";
 
 export function MyComponent() {
 	useKonamiEmojiBlast();
@@ -42,7 +42,7 @@ Yay! 🎆
 If you can't use hooks, a `KonamiEmojiBlast` component is provided too:
 
 ```tsx
-import { KonamiEmojiBlast } from "konami-emoji-blast/react";
+import { KonamiEmojiBlast } from "@konami-emoji-blast/react";
 
 export function MyComponent() {
 	return (

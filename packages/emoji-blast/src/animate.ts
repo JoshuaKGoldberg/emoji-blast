@@ -37,12 +37,16 @@ export function animate(
 	let timeStart = performance.now();
 	let stopped = false;
 
+	const stop = () => {
+		stopped = true;
+	};
+
 	beforeTick?.(actors);
 
 	// TypeScript doesn't know that beforeTick() might change stopped.
 	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	if (stopped) {
-		return;
+		return { stop };
 	}
 
 	/**
@@ -50,6 +54,15 @@ export function animate(
 	 * @param timeCurrent   Current time, in milliseconds since page load.
 	 */
 	const runTick = (timeCurrent: number): void => {
+		if (stopped) {
+			return;
+		}
+
+		beforeTick?.(actors);
+		if (actors.length === 0) {
+			return;
+		}
+
 		const timeElapsed = timeCurrent - timeStart;
 
 		for (let i = 0; i < actors.length; i += 1) {
@@ -68,14 +81,14 @@ export function animate(
 		}
 
 		timeStart = timeCurrent;
-		requestAnimationFrame(runTick);
+
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		if (!stopped) {
+			requestAnimationFrame(runTick);
+		}
 	};
 
 	requestAnimationFrame(runTick);
 
-	return {
-		stop: () => {
-			stopped = true;
-		},
-	};
+	return { stop };
 }

@@ -1,0 +1,23 @@
+---
+title: TypeDoc
+---
+
+**[`@konami-emoji-blast/typedoc`](https://www.npmjs.com/package/@konami-emoji-blast/typedoc)** provides an [TypeDoc config file](https://typedoc.org/options/configuration) integration that loads `konami-emoji-blast` on all pages of your site.
+
+First install the `@konami-emoji-blast/typedoc` package as a dependency:
+
+```shell
+npm i @konami-emoji-blast/typedoc
+```
+
+You can then use the `"@konami-emoji-blast/typedoc"` plugin in your TypeDoc config file:
+
+```json
+{
+	"$schema": "https://typedoc.org/schema.json",
+	"plugin": ["typedoc-plugin-konamimojisplosion"]
+}
+```
+
+Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your TypeDoc site should trigger fireworks blasts of emoji on the page.
+Yay! 🎆
