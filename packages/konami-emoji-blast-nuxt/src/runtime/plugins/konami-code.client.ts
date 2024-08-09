@@ -1,6 +1,6 @@
-import { useEmojiBlastKonamiCode } from '../composables/konami'
-import { defineNuxtPlugin } from '#app'
+import { useEmojiBlastKonamiCode } from "../composables/konami";
+import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin(() => {
-  useEmojiBlastKonamiCode()
-})
+	useEmojiBlastKonamiCode();
+});

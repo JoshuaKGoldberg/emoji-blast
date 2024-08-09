@@ -1,13 +1,13 @@
 {
-  "private": true,
-  "name": "nuxt-emoji-blast-playground",
-  "type": "module",
-  "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate"
-  },
-  "dependencies": {
-    "nuxt": "^3.11.2"
-  }
+	"name": "nuxt-emoji-blast-playground",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxi build",
+		"dev": "nuxi dev",
+		"generate": "nuxi generate"
+	},
+	"dependencies": {
+		"nuxt": "^3.11.2"
+	}
 }

@@ -1,84 +1,30 @@
-<!--
-Get your module up and running quickly.
+<h1 align="center">@konami-emoji-blast/nuxt</h1>
 
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: nuxt-emoji-blast
-- Description: My new Nuxt module
--->
+<p align="center">
+  Hooks up <a href="https://github.com/Haeresis/konami-code-js">konami-code-js</a> to trigger <a href="https://github.com/JoshuaKGoldberg/emoji-blast/packages/emoji-blast">emoji-blast</a> in <a href="https://nuxt.com">Nuxt</a>.
+  🚀
+</p>
 
-# My Module
+<p align="center">
+  <a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
+  <a href="https://github.com/JoshuaKGoldberg/konami-emoji-blast/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
+  <a href="http://npmjs.com/package/@konami-emoji-blast/nuxt"><img alt="📦 npm version" src="https://img.shields.io/npm/v/@konami-emoji-blast/nuxt?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
+  <img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
+</p>
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
+<p align="center">
+  ⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
+</p>
 
-My new Nuxt module for doing amazing things.
+## Usage
 
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/danielroe/nuxt-emoji-blast?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
-## Features
-
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
-
-## Quick Setup
-
-Install the module to your Nuxt application with one command:
-
-```bash
 npx nuxi module add nuxt-emoji-blast
-```
 
-That's it! You can now use My Module in your Nuxt app ✨
+## Development
 
+`@konami-emoji-blast/nuxt` is managed as part of the <a href="https://github.com/JoshuaKGoldberg/emoji-blast">emoji-blast monorepo</a>.
+See the monorepo's development docs first, then [`./.github/DEVELOPMENT.md`](.github/DEVELOPMENT.md).
 
-## Contribution
-
-<details>
-  <summary>Local development</summary>
-  
-  ```bash
-  # Install dependencies
-  npm install
-  
-  # Generate type stubs
-  npm run dev:prepare
-  
-  # Develop with the playground
-  npm run dev
-  
-  # Build the playground
-  npm run dev:build
-  
-  # Run ESLint
-  npm run lint
-  
-  # Run Vitest
-  npm run test
-  npm run test:watch
-  
-  # Release new version
-  npm run release
-  ```
-
-</details>
-
-
-<!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-emoji-blast/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/nuxt-emoji-blast
-
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-emoji-blast.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npmjs.com/package/nuxt-emoji-blast
-
-[license-src]: https://img.shields.io/npm/l/nuxt-emoji-blast.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-emoji-blast
-
-[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
-[nuxt-href]: https://nuxt.com
+> 💙 This package was templated with [`create-typescript-app`](https://github.com/JoshuaKGoldberg/create-typescript-app).
