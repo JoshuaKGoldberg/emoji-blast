@@ -1,5 +1,4 @@
-import { type DemosGroup, getDemo } from "~/data/demos";
-
+import { type DemosGroup, getDemo } from "../data/demos";
 import { Button } from "./Button";
 
 export interface DemoButtonProps {

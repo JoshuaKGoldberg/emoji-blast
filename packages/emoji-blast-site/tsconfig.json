@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
 		"baseUrl": ".",
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"paths": {
 			"~/*": ["src/*"]
 		},
-		"target": "esnext",
-		"jsx": "react-jsx",
-		"jsxImportSource": "react"
+		"target": "esnext"
 	},
 	"extends": "astro/tsconfigs/strict"
 }
