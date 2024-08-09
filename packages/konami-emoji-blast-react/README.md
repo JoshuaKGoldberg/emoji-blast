@@ -16,45 +16,7 @@
 	⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
 </p>
 
-## Usage
-
-First install the `@konami-emoji-blast/react` package as a dependency:
-
-```shell
-npm i @konami-emoji-blast/react
-```
-
-The preferred usage for React is with a provided `useKonamiEmojiBlast` hook:
-
-```tsx
-import { useKonamiEmojiBlast } from "@konami-emoji-blast/react";
-
-export function MyComponent() {
-	useKonamiEmojiBlast();
-
-	return <main>Hello, world!</main>;
-}
-```
-
-Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your React app should trigger fireworks blasts of emoji on the page.
-Yay! 🎆
-
-If you can't use hooks, a `KonamiEmojiBlast` component is provided too:
-
-```tsx
-import { KonamiEmojiBlast } from "@konami-emoji-blast/react";
-
-export function MyComponent() {
-	return (
-		<main>
-			<KonamiEmojiBlast />
-			Hello, world!
-		</main>
-	);
-}
-```
-
-> 💡 Tip: the class component just calls the hook internally.
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development
 

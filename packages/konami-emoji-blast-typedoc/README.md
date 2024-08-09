@@ -16,24 +16,7 @@
 	⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
 </p>
 
-## Usage
-
-First install the `@konami-emoji-blast/typedoc` package as a dependency:
-
-```shell
-npm i @konami-emoji-blast/typedoc
-```
-
-Add this plugin in your `typedoc.json`:
-
-```json
-{
-	"plugin": ["@konami-emoji-blast/typedoc"]
-}
-```
-
-Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your TypeDoc site should trigger fireworks blasts of emoji on the page.
-Yay! 🎆
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development
 

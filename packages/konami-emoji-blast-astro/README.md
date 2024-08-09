@@ -16,28 +16,7 @@
 	⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
 </p>
 
-## Usage
-
-First install the `@konami-emoji-blast/astro` and `konami-emoji-blast` packages as dependencies:
-
-```shell
-npm i @konami-emoji-blast/astro konami-emoji-blast
-```
-
-Then, apply this integration to your `astro.config.*` file using the `integrations` property:
-
-```ts
-import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
-import { defineConfig } from "astro/config";
-
-export default defineConfig({
-	// ...
-	integrations: [konamiEmojiBlast()],
-});
-```
-
-Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your Astro site should trigger fireworks blasts of emoji on the page.
-Yay! 🎆
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development
 
