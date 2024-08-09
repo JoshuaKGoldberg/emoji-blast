@@ -7,7 +7,12 @@
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/emoji-blast-site": {
-			"entry": ["src/app/**/*.tsx!", "src/examples/**/*.ts!"],
+			"entry": [
+				"src/**/*.astro!",
+				"src/**/*.mdx!",
+				"src/**/*.ts!",
+				"src/**/*.tsx!"
+			],
 			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
 		},
 		"packages/konami-emoji-blast": {
@@ -17,7 +22,6 @@
 		},
 		"packages/konami-emoji-blast-astro": {
 			"entry": ["src/index.ts!"],
-			"ignoreDependencies": ["konami-emoji-blast"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-react": {
