@@ -1,0 +1,23 @@
+---
+import { demoGroups, type DemoData, type DemosGroup } from "~/data/demos";
+import Demo from "~/components/Demo.astro";
+
+interface Props {
+	groupSlug: DemosGroup;
+}
+
+const { groupSlug } = Astro.props;
+const group = demoGroups[groupSlug];
+---
+
+<div class="demos-list">
+	{group.demos.map((demo) => <Demo group={groupSlug} title={demo.title} />)}
+</div>
+
+<style>
+	.demos-list {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+</style>

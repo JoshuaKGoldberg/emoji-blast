@@ -1,0 +1,49 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import dedent from "dedent";
+
+import { getDemo, type DemosGroup } from "~/data/demos";
+import { slugify } from "~/data/slugify";
+
+import { DemoButton } from "./DemoGroup";
+
+interface Props {
+	group: DemosGroup;
+	title: string;
+}
+
+const { group, title } = Astro.props;
+const demo = getDemo(group, title);
+
+const lines = demo.blaster
+	.toString()
+	.replaceAll("__vite_ssr_import_0__.", "")
+	.split("\n");
+
+const code = dedent(lines.slice(1, lines.length - 1).join("\n"));
+---
+
+<div class="demo" id={slugify(demo.title)}>
+	<div class="demo-first">
+		<div class="demo-text">
+			<h2>{title}</h2>
+			<p>{demo.blurb}</p>
+		</div>
+		<DemoButton
+			group={Astro.props.group}
+			title={Astro.props.title}
+			client:load
+		/>
+	</div>
+
+	<Code code={code} lang="javascript" />
+</div>
+
+<style>
+	.demo-first {
+		align-items: flex-end;
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: 1fr auto;
+	}
+</style>

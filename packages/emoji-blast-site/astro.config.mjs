@@ -3,7 +3,7 @@ import starlight from "@astrojs/starlight";
 import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
 import { defineConfig } from "astro/config";
 
-import { demoGroups } from "~/components/data";
+import { demoGroups } from "./src/data/demos";
 
 export default defineConfig({
 	integrations: [
@@ -23,7 +23,10 @@ export default defineConfig({
 					label: "APIs",
 				},
 				{
-					items: Object.keys(demoGroups),
+					items: Object.values(demoGroups).map((group) => ({
+						label: group.name,
+						link: `demos/${group.slug}`,
+					})),
 					label: "Demos",
 				},
 				{
