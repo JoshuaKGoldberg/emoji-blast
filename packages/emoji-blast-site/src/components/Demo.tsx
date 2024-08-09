@@ -1,12 +1,16 @@
 import dedent from "dedent";
 import { Highlight, themes } from "prism-react-renderer";
 
+import { type DemosGroup, demoGroups } from "./data";
+
 export interface DemoProps {
-	blaster: () => void;
+	group: DemosGroup;
+	name: string;
 }
 
-export function Demo({ blaster }: DemoProps) {
-	const lines = blaster
+export function Demo({ group, name }: DemoProps) {
+	const demo = demoGroups[group].find((demo) => demo.name === name)!;
+	const lines = demo.blaster
 		.toString()
 		.replaceAll("__vite_ssr_import_0__.", "")
 		.split("\n");
@@ -15,7 +19,10 @@ export function Demo({ blaster }: DemoProps) {
 
 	return (
 		<>
-			<button onClick={blaster}>Try It</button>
+			<h2>{demo.name}</h2>
+			<p>{demo.blurb}</p>
+
+			<button onClick={demo.blaster}>Try It</button>
 
 			<Highlight code={code} language="javascript" theme={themes.vsLight}>
 				{({ getLineProps, getTokenProps, style, tokens }) => (

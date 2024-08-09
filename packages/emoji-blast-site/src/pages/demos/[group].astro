@@ -1,0 +1,25 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import type { DemosGroup } from "~/components/data";
+import { demoGroups } from "~/components/data";
+import { Demo } from "~/components/Demo";
+
+export function getStaticPaths() {
+	return Object.keys(demoGroups).map((group) => ({ params: { group } }));
+}
+
+const group = Astro.params.group as DemosGroup;
+const demos = demoGroups[group];
+
+const headings = demos.map((demo) => ({
+	depth: 2,
+	slug: demo.name.toLowerCase().replaceAll(" ", "-"),
+	text: demo.name,
+}));
+
+const title = `${group[0].toUpperCase()}${group.slice(1)} Demos`;
+---
+
+<StarlightPage frontmatter={{ title }} {headings}>
+	{demos.map((demo) => <Demo group={group} name={demo.name} client:load />)}
+</StarlightPage>
