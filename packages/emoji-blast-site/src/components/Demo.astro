@@ -2,7 +2,7 @@
 import { Code } from "@astrojs/starlight/components";
 import dedent from "dedent";
 
-import { type DemosGroup, getDemo } from "~/data/demos";
+import { getDemo, type DemosGroup } from "~/data/demos";
 import { slugify } from "~/data/slugify";
 
 import { DemoButton } from "./DemoGroup";
@@ -30,9 +30,9 @@ const code = dedent(lines.slice(1, lines.length - 1).join("\n"));
 			<p>{demo.blurb}</p>
 		</div>
 		<DemoButton
-			client:load
 			group={Astro.props.group}
 			title={Astro.props.title}
+			client:load
 		/>
 	</div>
 

@@ -3,9 +3,9 @@ import type { HTMLAttributes } from "astro/types";
 
 export type TitleAs = "div" | "h1";
 
-export type Props<As extends TitleAs> = {
+export type Props<As extends TitleAs> = HTMLAttributes<As> & {
 	as: As;
-} & HTMLAttributes<As>;
+};
 
 const { as: Component, class: className, ...rest } = Astro.props;
 ---
