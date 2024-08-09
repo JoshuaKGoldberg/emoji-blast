@@ -81,3 +81,16 @@ pnpm run test --coverage
 
 This repository includes a [VS Code launch configuration](https://code.visualstudio.com/docs/editor/debugging) for debugging unit tests.
 To launch it, open a test file, then run _Debug Current Test File_ from the VS Code Debug panel (or press F5).
+
+## Website
+
+This package includes an [Astro Starlight](https://starlight.astro.build) website in `packages/emoji-blast-site`.
+It requires other packages having been built (`pnpm build`).
+
+To preview the site locally:
+
+```shell
+pnpm build
+cd packages/emoji-blast-site
+pnpm dev
+```
