@@ -56,15 +56,15 @@ import Title from "./Title.astro";
 			return;
 		}
 
-		const friction = 0.965;
+		const friction = 0.97;
 		const frictionDelay =
 			Math.max(blaster.clientHeight + blaster.clientWidth) / 100;
 		const noise = 0.035;
 		let ticks = 0;
 
 		const velocityRange = {
-			x: blaster.clientWidth / 28,
-			y: blaster.clientHeight / 14,
+			x: blaster.clientWidth / 17,
+			y: blaster.clientHeight / 7,
 		};
 
 		function applyFriction(speed: number) {
