@@ -5,7 +5,7 @@ import Title from "./Title.astro";
 
 <div id="hero">
 	<div id="contents">
-		<Title as="h1" />
+		<Title as="h1" class="hero-title" />
 
 		<p>🎆 Blasts emoji like fireworks all up in your HTML page. 🎇</p>
 
@@ -23,17 +23,6 @@ import Title from "./Title.astro";
 <script>
 	import { emojiBlast } from "emoji-blast";
 
-	const clicker = document.getElementById("clicker")!;
-
-	clicker.addEventListener("click", (event) => {
-		const position =
-			event.clientX === 0 && event.clientY === 0
-				? getElementPosition(clicker)
-				: { x: event.clientX, y: event.clientY };
-
-		emojiBlast({ position });
-	});
-
 	function getElementPosition(element: HTMLElement) {
 		const rect = element.getBoundingClientRect();
 
@@ -43,8 +32,27 @@ import Title from "./Title.astro";
 		};
 	}
 
+	function attachClicker() {
+		const clicker = document.getElementById("clicker");
+		if (!clicker) {
+			return;
+		}
+
+		clicker.addEventListener("click", (event) => {
+			const position =
+				event.clientX === 0 && event.clientY === 0
+					? getElementPosition(clicker)
+					: { x: event.clientX, y: event.clientY };
+
+			emojiBlast({ position });
+		});
+	}
+
 	function heroBlast() {
-		const blaster = document.getElementById("blaster")!;
+		const blaster = document.getElementById("blaster");
+		if (!blaster) {
+			return;
+		}
 
 		const friction = 0.97;
 		const frictionDelay =
@@ -139,7 +147,9 @@ import Title from "./Title.astro";
 		heroBlast();
 	}
 
-	document.getElementById("hero")!.classList.add("loaded");
+	attachClicker();
+
+	document.getElementById("hero")?.classList.add("loaded");
 </script>
 
 <style>
@@ -176,6 +186,10 @@ import Title from "./Title.astro";
 		margin: 4rem 2rem 5rem;
 		position: relative;
 		z-index: 1;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
 	}
 
 	.buttons {

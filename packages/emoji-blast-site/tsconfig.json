@@ -2,10 +2,11 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			// TODO: file issue on https://docs.astro.build/en/guides/aliases maybe?
 			"~/*": ["src/*"]
 		},
-		"target": "esnext"
+		"target": "esnext",
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
 	},
 	"extends": "astro/tsconfigs/strict"
 }

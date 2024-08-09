@@ -7,11 +7,7 @@ import Hero from "./Hero.astro";
 
 {
 	Astro.props.slug === "" ? (
-		<>
-			<Hero />
-		</>
-	) : Astro.props.slug === "demo" ? (
-		<slot />
+		<Hero />
 	) : (
 		<Default {...Astro.props}>
 			<slot />

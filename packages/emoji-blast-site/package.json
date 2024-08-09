@@ -11,11 +11,20 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.7.0",
+		"@astrojs/react": "^3.6.1",
 		"@astrojs/starlight": "^0.24.0",
 		"@konami-emoji-blast/astro": "workspace:",
+		"@types/node": "^22.1.0",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
 		"astro": "^4.8.6",
+		"dedent": "^1.5.3",
 		"emoji-blast": "workspace:",
 		"konami-emoji-blast": "^0.5.3",
+		"prettier": "^3.2.5",
+		"prism-react-renderer": "^2.3.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"sharp": "^0.32.5",
 		"typescript": "^5.4.5"
 	}

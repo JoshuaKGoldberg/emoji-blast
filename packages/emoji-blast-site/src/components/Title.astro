@@ -7,10 +7,10 @@ export type Props<As extends TitleAs> = HTMLAttributes<As> & {
 	as: As;
 };
 
-const { as: Component } = Astro.props;
+const { as: Component, class: className, ...rest } = Astro.props;
 ---
 
-<Component class="title">
+<Component class:list={["title", className]} {...rest}>
 	<span>e</span>
 	<span>m</span>
 	<span>o</span>
@@ -26,7 +26,7 @@ const { as: Component } = Astro.props;
 
 <style>
 	.title {
-		font-size: 2.5rem;
+		font-family: monospace;
 		font-weight: 700;
 		letter-spacing: -0.3em;
 	}
