@@ -1,14 +1,71 @@
 ---
-description: 🎆 Usage docs for the `emoji-blast` package. 🎇
-title: emoji-blast API
+description: 🎆 Quickstart guide for blasting emojis with emoji-blast. 🎇
+title: emoji-blast
 ---
+
+`emoji-blast` is a lightweight library that provides ways to blast emojis in a web page.
+It can be embedded in virtually any web app.
+
+:::tip
+If you're trying to add a fun ["easter egg"](<https://en.wikipedia.org/wiki/Easter_egg_(media)>) to your app, try [`konami-emoji-blast`](./konami-emoji-blast).
+It provides integrations that trigger blasts of emojis when the user inputs the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code). 🎇
+:::
+
+## Quick Bundler Start
+
+If you're writing JavaScript or TypeScript with a bundler, first install the `emoji-blast` package as a dependency:
+
+```shell
+npm i emoji-blast
+```
+
+You can then import it in your code to access its `emojiBlast` and `emojiBlasts` functions:
+
+```ts
+import { emojiBlast, emojiBlasts } from "emoji-blast";
+
+emojiBlast(); // Just one blast, please.
+emojiBlasts(); // Commence blasting!
+```
+
+If you're using ESM or any modern JavaScript bundler or framework, such as ESBuild, Vite, or Webpack, this should _just work_.
+✨
+
+See [emoji-blast API](./api/emoji-blast) for more details.
+
+## Quick HTML Start
+
+If you're directly writing an `.html` document, you can plop this 👇 at the end of your `<body>`:
+
+```html
+<script async src="https://unpkg.com/emoji-blast/dist/now.js"></script>
+```
+
+That 👆 loads `emoji-blast` soon after your page loads and starts `emojiBlasts()` as soon as it can.
+
+👌.
+
+You'll probably want a little more fine-grained control over when the blasts occur.
+Use this 👇 alternate script to create global `emojiBlast` and `emojiBlasts` functions:
+
+```html
+<script src="https://unpkg.com/emoji-blast/dist/global.js"></script>
+<script>
+	emojiBlast(); // Just one blast, please.
+	emojiBlasts(); // Commence blasting!
+</script>
+```
+
+See [emoji-blast API](./api/emoji-blast) for more details.
+
+## API
 
 `emoji-blast` exports two functions:
 
 - [`emojiBlast`](#emojiblast): Triggers a single blast of emojis.
 - [`emojiBlasts`](#emojiblasts): Starts firing `emojiBlast()` at random locations on an setInterval.
 
-## `emojiBlast`
+### `emojiBlast`
 
 ```ts
 import { emojiBlast } from "emoji-blast";
@@ -24,12 +81,12 @@ The blasts each contain around a dozen emoji, each of which are animated in Java
 
 After an emoji is completely hidden or out of bounds, it is removed from the page.
 
-### `emojiBlast` Options
+#### `emojiBlast` Options
 
 `emojiBlast` is highly configurable.
 The following may be passed to both via configuration objects.
 
-#### `className`
+##### `className`
 
 Type: `string` or `() => string`
 
@@ -45,7 +102,7 @@ emojiBlast({
 Whenever a new `className` is passed to `emoji-blast`, a new `<style>` element is created to add general emoji styles for that class.
 See [`styles.ts`](./src/styles.ts).
 
-#### `container`
+##### `container`
 
 Type: `Element` or `() => Element`
 
@@ -58,7 +115,7 @@ emojiBlast({
 });
 ```
 
-#### `emojiCount`
+##### `emojiCount`
 
 Type: `number` or `() => number`
 
@@ -81,7 +138,7 @@ emojiBlast({
 });
 ```
 
-#### `events`
+##### `events`
 
 Type: `{ onClick?: (data: EmojiEventData) => void; }`
 
@@ -108,7 +165,7 @@ The `EmojiEventData` interface contains:
 - `actor: EmojiActor`: The individual actor being interacted with.
 - `event: Event`: The original triggering DOM event.
 
-#### `emojis`
+##### `emojis`
 
 Type: `string[]` or `() => string[]`
 
@@ -134,7 +191,7 @@ emojiBlast({
 });
 ```
 
-#### `physics`
+##### `physics`
 
 Runtime change constants for emoji element movements.
 These default to a sane set of ranges for random numbers that give the appearance of fireworks-like blasts.
@@ -210,7 +267,7 @@ emojiBlast({
 });
 ```
 
-#### `position`
+##### `position`
 
 Type: `{ x: number, y: number }` or `() => { x: number, y: number }`
 
@@ -259,7 +316,7 @@ emojiBlast({
 });
 ```
 
-#### `process`
+##### `process`
 
 Type: `(element: Element) => void`
 
@@ -276,7 +333,7 @@ emojiBlast({
 });
 ```
 
-#### `uniqueness`
+##### `uniqueness`
 
 Type: `number` or `() => number`
 
@@ -307,7 +364,7 @@ emojiBlast({
 });
 ```
 
-## `emojiBlasts`
+### `emojiBlasts`
 
 ```ts
 import { emojiBlasts } from "emoji-blast";
@@ -330,13 +387,13 @@ const { stop } = emojiBlasts();
 setTimeout(stop, 10000);
 ```
 
-### `emojiBlasts` Options
+#### `emojiBlasts` Options
 
 `emojiBlasts` can take in all of [`emoji-blast` options](#emojiblast-options).
 
 Additionally, the following configurations are exclusively for `emojiBlasts`:
 
-#### `interval`
+##### `interval`
 
 Type: `number` or `() => number`
 
@@ -381,7 +438,7 @@ emojiBlasts({
 });
 ```
 
-#### `scheduler`
+##### `scheduler`
 
 Type: `(action: () => void, delay: number) => number`
 

@@ -11,15 +11,14 @@ export default defineConfig({
 		starlight({
 			components: {
 				SiteTitle: "./src/components/SiteTitle.astro",
-				// TwoColumnContent: "./src/components/TwoColumnContent.astro",
 			},
 			customCss: ["./src/styles/global.css"],
 			sidebar: [
 				{
 					autogenerate: {
-						directory: "get-started",
+						directory: "apis",
 					},
-					label: "Get Started",
+					label: "APIs",
 				},
 				{
 					autogenerate: {
@@ -41,7 +40,7 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
-		api: "api/emoji-blast",
+		apis: "apis/emoji-blast",
 		demos: "demos/basic",
 	},
 });
