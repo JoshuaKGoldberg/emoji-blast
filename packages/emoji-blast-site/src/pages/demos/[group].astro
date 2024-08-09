@@ -1,8 +1,9 @@
 ---
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 
-import DemosList from "~/components/DemosList.astro";
 import type { DemosGroup } from "~/data/demos";
+
+import DemosList from "~/components/DemosList.astro";
 import { demoGroups } from "~/data/demos";
 import { slugify } from "~/data/slugify";
 
@@ -33,8 +34,8 @@ const title = `${groupSlug[0].toUpperCase()}${groupSlug.slice(1)} Demos`;
 		<em>
 			Shoutout <a
 				href="https://github.com/cgradeff"
-				target="_blank"
-				rel="noreferrer">Carly Gradeff</a
+				rel="noreferrer"
+				target="_blank">Carly Gradeff</a
 			> for ideating and implementing these demos!
 		</em>
 	</aside>
