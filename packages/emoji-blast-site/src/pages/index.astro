@@ -1,0 +1,23 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import Hero from "~/components/Hero.astro";
+---
+
+<StarlightPage
+	frontmatter={{ tableOfContents: false, title: "emoji-blast" }}
+	hasSidebar={false}
+>
+	<Hero />
+</StarlightPage>
+
+<style is:global>
+	.page {
+		height: 100%;
+		justify-content: center;
+	}
+
+	.main-frame {
+		height: 100%;
+		padding-top: 0;
+	}
+</style>

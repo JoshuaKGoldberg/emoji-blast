@@ -18,6 +18,8 @@ module.exports = {
 		"**/dist",
 		"**/lib",
 		"node_modules",
+		"packages/emoji-blast-site/.astro",
+		"packages/emoji-blast-site/src/env.d.ts",
 		"pnpm-lock.yaml",
 	],
 	overrides: [

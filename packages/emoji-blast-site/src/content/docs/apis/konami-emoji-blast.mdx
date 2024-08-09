@@ -1,0 +1,109 @@
+---
+description: 🎆 Quickstart guide for blasting emojis with emoji-blast. 🎇
+title: konami-emoji-blast
+---
+
+`konami-emoji-blast` is a package that combines two others:
+
+1. [`konami-code-js`](https://www.npmjs.com/package/konami-code-js): detects when the user has entered the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code)...
+1. [`emoji-blast`](./api): ...to start `emojiBlast()`s until the code is entered again.
+
+If a user presses <em>up</em> <em>up</em> <em>down</em> <em>down</em> <em>left</em> <em>right</em> <em>left</em> <em>right</em> <em>b</em> <em>a</em>
+on their keyboard or taps it on their mobile phone, emoji blasts will start firing on the page.
+Triggering the code again stops the blasts.
+
+## Getting Started
+
+:::tip
+[`@konami-emoji-blast/astro`](../integrations/astro) is enabled on this site.
+Try triggering the code! 🎇
+:::
+
+Dedicated integrations exist for adding `konami-emoji-blast` with common frameworks:
+
+- [Astro](./astro)
+- [React](./react)
+- [TypeDoc](./typedoc)
+
+Otherwise, this page will get you started as quickly as possible.
+
+### Quick Bundler Start
+
+If you're writing JavaScript or TypeScript with a bundler, first install the `konami-emoji-blast` package as a dependency:
+
+```shell
+npm i konami-emoji-blast
+```
+
+You can then import it in your code to access its `initializeKonamiEmojiBlast` function:
+
+```tsx
+import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+
+initializeKonamiEmojiBlast();
+```
+
+### Quick HTML Start
+
+If you're directly writing an `.html` document, plop this 👇 at the end of your `<body>`:
+
+```html
+<script async src="https://unpkg.com/konami-emoji-blast/dist/now.js"></script>
+```
+
+That 👆 loads `konami-emoji-blast` soon after your page loads to set up the Konami Code with no configuration.
+
+👌.
+
+You might want a little more fine-grained control over when the connection is created.
+Use this 👇 alternate script to create a global `initializeKonamiEmojiBlast` function:
+
+```html
+<script src="https://unpkg.com/konami-emoji-blast/dist/global.js"></script>
+<script>
+	initializeKonamiEmojiBlast();
+</script>
+```
+
+## API
+
+`konami-emoji-blast` export a single function:
+
+- [`initializeKonamiEmojiBlast`](#initializekonamiemojiblast): Initializes the Konami Code listener on the page.
+
+### `initializeKonamiEmojiBlast`
+
+```ts
+import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+
+initializeKonamiEmojiBlast();
+```
+
+This will create a new [`konami-code-js`](https://www.npmjs.com/package/konami-code-js) `KonamiCode` instance to listen for user input.
+It will call [`emojiBlasts`](./emoji-blast#emojiblasts) whenever the code is detected.
+
+`initializeKonamiEmojiBlast()` returns a cancellation function that cancels any pending work.
+
+```typescript
+// Commence code listening!...
+const cancel = emojiBlasts();
+
+// ...but not after ten seconds.
+setTimeout(stop, 10000);
+```
+
+#### `initializeKonamiEmojiBlast` Options
+
+`initializeKonamiEmojiBlast` may take a single optional parameter, `onActivate`.
+
+##### `onActivate`
+
+A function to run whenever the user inputs the Konami Code.
+
+```ts
+import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+
+initializeKonamiEmojiBlast(() => {
+	console.log("Commence blasting! 🎆");
+});
+```

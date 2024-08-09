@@ -1,0 +1,30 @@
+---
+title: Astro
+---
+
+**[`@konami-emoji-blast/astro`](https://www.npmjs.com/package/@konami-emoji-blast/astro)** provides an [Astro config file](https://docs.astro.build/en/guides/configuring-astro) integration that loads `konami-emoji-blast` on all pages of your site.
+
+First install the `@konami-emoji-blast/astro` package as a dependency:
+
+```shell
+npm i @konami-emoji-blast/astro
+```
+
+You can then import and use its `konamiEmojiBlast` integration in your Astro config file:
+
+```tsx
+import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
+import { defineConfig } from "astro/config";
+
+export default defineConfig({
+	integrations: [konamiEmojiBlast()],
+});
+```
+
+Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your Astro site should trigger fireworks blasts of emoji on the page.
+Yay! 🎆
+
+:::tip
+`@konami-emoji-blast/astro` is enabled on this site.
+Try triggering the code! 🎇
+:::

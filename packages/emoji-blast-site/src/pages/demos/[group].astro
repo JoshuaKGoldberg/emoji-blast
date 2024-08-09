@@ -1,0 +1,41 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+import DemosList from "~/components/DemosList.astro";
+import type { DemosGroup } from "~/data/demos";
+import { demoGroups } from "~/data/demos";
+import { slugify } from "~/data/slugify";
+
+export function getStaticPaths() {
+	return Object.keys(demoGroups).map((group) => ({
+		params: { group: group as DemosGroup },
+	}));
+}
+
+const groupSlug = Astro.params.group;
+const group = demoGroups[groupSlug];
+
+const headings = group.demos.map((demo) => ({
+	depth: 2,
+	slug: slugify(demo.title),
+	text: demo.title,
+}));
+
+const title = `${groupSlug[0].toUpperCase()}${groupSlug.slice(1)} Demos`;
+---
+
+<StarlightPage frontmatter={{ title }} {headings}>
+	<DemosList groupSlug={groupSlug} />
+	<br />
+	<hr />
+	<aside>
+		✨
+		<em>
+			Shoutout <a
+				href="https://github.com/cgradeff"
+				target="_blank"
+				rel="noreferrer">Carly Gradeff</a
+			> for ideating and implementing these demos!
+		</em>
+	</aside>
+</StarlightPage>

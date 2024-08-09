@@ -1,4 +1,7 @@
 {
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
 	"editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,

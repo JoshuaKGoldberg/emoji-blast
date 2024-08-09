@@ -1,0 +1,17 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
+
+import Hero from "./Hero.astro";
+---
+
+{
+	Astro.props.slug === "" ? (
+		<Hero />
+	) : (
+		<Default {...Astro.props}>
+			<slot />
+			<slot name="right-sidebar" slot="right-sidebar" />
+		</Default>
+	)
+}

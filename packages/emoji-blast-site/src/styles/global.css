@@ -1,0 +1,36 @@
+:root {
+	--colorBlueDark: #156e98;
+	--colorBlueLight: #73c7eb;
+	--colorGreenDark: #1aa912;
+	--colorGreenLight: #84eb7e;
+	--colorOrangeDark: #944a11;
+	--colorOrangeLight: #fcad70;
+	--colorPinkDark: #aa1765;
+	--colorPinkLight: #fa78bd;
+	--colorPurpleDark: #541494;
+	--colorPurpleLight: #a16ed5;
+	--colorVioletDark: #1c0956;
+	--colorVioletLight: #15121e;
+	--colorYellowDark: #b89b1c;
+	--colorYellowLight: #f3dd7b;
+
+	--colorBlue: var(--colorBlueDark);
+	--colorGreen: var(--colorGreenDark);
+	--colorOrange: var(--colorOrangeDark);
+	--colorPink: var(--colorPinkDark);
+	--colorPurple: var(--colorPurpleDark);
+	--colorViolet: var(--colorVioletDark);
+	--colorYellow: var(--colorYellowDark);
+
+	--transitionSlow: 2500ms;
+}
+
+:root[data-theme="dark"] {
+	--colorBlue: var(--colorBlueLight);
+	--colorGreen: var(--colorGreenLight);
+	--colorOrange: var(--colorOrangeLight);
+	--colorPink: var(--colorPinkLight);
+	--colorPurple: var(--colorPurpleLight);
+	--colorViolet: var(--colorVioletLight);
+	--colorYellow: var(--colorYellowLight);
+}

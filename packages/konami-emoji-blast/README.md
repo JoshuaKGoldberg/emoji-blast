@@ -16,64 +16,7 @@
 	⬆ ⬆ ⬇ ⬇ ⬅ ➡ ⬅ ➡ 🅱 🅰
 </p>
 
-## What?
-
-If a user types in the <a href="https://wikipedia.org/wiki/Konami%20Code">Konami Code</a> on their keyboard or taps it on their mobile phone, emoji blasts will start firing on the page.
-Triggering the Konami Code again will stop the emoji blasts.
-
-> Check it out on [Codecademy Docs](https://codecademy.com/resources/docs)!
-
-## Usage
-
-### Direct HTML Quick Start
-
-Plop this 👇 at the end of your `<body>`:
-
-<!-- prettier-ignore -->
-```html
-<script async src="https://unpkg.com/konami-emoji-blast/dist/now.js"></script>
-```
-
-That ☝ loads `konami-emoji-blast` soon after your page loads to set up the Konami Code with no configuration.
-
-👌.
-
-You might want a little more fine-grained control over when the connection is created.
-To create a global `initializeKonamiEmojiBlast` function:
-
-```html
-<script src="https://unpkg.com/konami-emoji-blast/dist/global.js"></script>
-<script>
-	initializeKonamiEmojiBlast();
-</script>
-```
-
-### Direct Node.js Usage
-
-First install the `konami-emoji-blast` package as a dependency:
-
-```shell
-npm i konami-emoji-blast
-```
-
-You can then import it in your code to access its `initializeKonamiEmojiBlast` function:
-
-```tsx
-import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
-
-initializeKonamiEmojiBlast();
-```
-
-If you're using ESM or any modern JavaScript bundler or framework, such as ESBuild, Vite, or Webpack, this should _just work_.
-✨
-
-### Frameworks
-
-`konami-emoji-blast` can also be used via integrations for popular frontend frameworks.
-See:
-
-- [`@konami-emoji-blast/react`](../konami-emoji-blast-react)
-- _More to come ... soon!_
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
 
 ## Development
 

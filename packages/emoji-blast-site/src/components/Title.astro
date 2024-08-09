@@ -1,0 +1,58 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type TitleAs = "div" | "h1";
+
+export type Props<As extends TitleAs> = HTMLAttributes<As> & {
+	as: As;
+};
+
+const { as: Component, class: className, ...rest } = Astro.props;
+---
+
+<Component class:list={["title", className]} {...rest}>
+	<span>e</span>
+	<span>m</span>
+	<span>o</span>
+	<span>j</span>
+	<span>i</span>
+	<span>-</span>
+	<span>b</span>
+	<span>l</span>
+	<span>a</span>
+	<span>s</span>
+	<span>t</span>
+</Component>
+
+<style>
+	.title {
+		font-family: monospace;
+		font-weight: 700;
+		letter-spacing: -0.3em;
+		user-select: none;
+	}
+
+	span:nth-of-type(6n + 1) {
+		color: var(--colorPink);
+	}
+
+	span:nth-of-type(6n + 2) {
+		color: var(--colorBlue);
+	}
+
+	span:nth-of-type(6n + 3) {
+		color: var(--colorYellow);
+	}
+
+	span:nth-of-type(6n + 4) {
+		color: var(--colorPurple);
+	}
+
+	span:nth-of-type(6n + 5) {
+		color: var(--colorGreen);
+	}
+
+	span:nth-of-type(6n + 6) {
+		color: var(--colorOrange);
+	}
+</style>

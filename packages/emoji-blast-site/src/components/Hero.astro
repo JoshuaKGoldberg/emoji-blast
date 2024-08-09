@@ -1,0 +1,252 @@
+---
+import { Button } from "./Button.tsx";
+import Title from "./Title.astro";
+---
+
+<div id="hero">
+	<div id="contents">
+		<Title as="h1" class="hero-title" />
+
+		<p class="hero-description">
+			🎆 Blasts emoji like fireworks all up in your HTML page. 🎇
+		</p>
+
+		<div class="buttons">
+			<Button as="a" className="button" href="/apis/emoji-blast">APIs</Button>
+			<Button as="a" className="button" href="/demos/basic">Demos</Button>
+			<span>|</span>
+			<Button as="button" className="button" id="clicker">Trigger</Button>
+		</div>
+	</div>
+
+	<div id="blaster"></div>
+</div>
+
+<script>
+	import { emojiBlast } from "emoji-blast";
+
+	function getElementPosition(element: HTMLElement) {
+		const rect = element.getBoundingClientRect();
+
+		return {
+			x: rect.x + rect.width / 2,
+			y: rect.y + rect.height / 2,
+		};
+	}
+
+	function attachClicker() {
+		const clicker = document.getElementById("clicker");
+		if (!clicker) {
+			return;
+		}
+
+		clicker.addEventListener("click", (event) => {
+			const position =
+				event.clientX === 0 && event.clientY === 0
+					? getElementPosition(clicker)
+					: { x: event.clientX, y: event.clientY };
+
+			emojiBlast({ position });
+		});
+	}
+
+	function heroBlast() {
+		const blaster = document.getElementById("blaster");
+		if (!blaster) {
+			return;
+		}
+
+		const friction = 0.97;
+		const frictionDelay =
+			Math.max(blaster.clientHeight + blaster.clientWidth) / 100;
+		const noise = 0.035;
+		let ticks = 0;
+
+		const velocityRange = {
+			x: blaster.clientWidth / 17,
+			y: blaster.clientHeight / 7,
+		};
+
+		function applyFriction(speed: number) {
+			const direction = speed > 0 ? 1 : -1;
+
+			const result = +(speed * friction - noise * direction).toPrecision(5);
+
+			return Math.abs(result) < noise ? 0 : result;
+		}
+
+		for (const { emojiCount, x, y } of [
+			// Right
+			{
+				emojiCount: 35,
+				x: { max: velocityRange.x, min: velocityRange.x * 0.5 },
+				y: { max: velocityRange.y, min: -velocityRange.y },
+			},
+			// Left
+			{
+				emojiCount: 35,
+				x: { max: -velocityRange.x, min: -velocityRange.x * 0.5 },
+				y: { max: velocityRange.y, min: -velocityRange.y },
+			},
+			// Bottom
+			{
+				emojiCount: 50,
+				x: { max: velocityRange.x, min: -velocityRange.x },
+				y: { max: velocityRange.y, min: velocityRange.y * 0.35 },
+			},
+			// Top
+			{
+				emojiCount: 50,
+				x: { max: velocityRange.x, min: -velocityRange.x },
+				y: { max: -velocityRange.y, min: -velocityRange.y * 0.49 },
+			},
+		]) {
+			const { stop } = emojiBlast({
+				container: blaster,
+				emojiCount,
+				physics: {
+					fontSize: {
+						max: 42,
+						min: 21,
+					},
+					gravity: 0,
+					initialVelocities: { x, y },
+					rotation: 1000,
+					preserveOutOfBounds: true,
+				},
+				position: {
+					x: 0,
+					y: blaster.clientHeight / 2 + 35,
+				},
+				tick(actors) {
+					ticks += 1;
+					if (ticks < frictionDelay) {
+						return;
+					}
+
+					let hadVelocity = false;
+
+					for (const actor of actors) {
+						actor.update({
+							velocity: {
+								x: applyFriction(actor.velocity.x),
+								y: applyFriction(actor.velocity.y),
+							},
+						});
+
+						hadVelocity ||= actor.velocity.x > 0.2 || actor.velocity.y > 0.2;
+					}
+
+					if (!hadVelocity) {
+						stop();
+					}
+				},
+			});
+		}
+	}
+
+	if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		heroBlast();
+	}
+
+	attachClicker();
+
+	document.getElementById("hero")?.classList.add("loaded");
+</script>
+
+<style>
+	#hero {
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		width: 100%;
+	}
+
+	#hero::after {
+		content: "";
+		opacity: 0;
+		top: 0;
+		display: block;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		transition: var(--transitionSlow) opacity;
+	}
+
+	#hero.loaded::after {
+		opacity: 1;
+		background: radial-gradient(var(--sl-color-bg) 30%, transparent 70%);
+	}
+
+	#contents {
+		display: flex;
+		flex-direction: column;
+		font-family: monospace;
+		gap: 2rem;
+		margin: 4rem 2rem 5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-description,
+	.hero-title {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
+	}
+
+	.hero-description::after,
+	.hero-title::after {
+		background: radial-gradient(var(--sl-color-bg) 30%, transparent 70%);
+		bottom: 0;
+		content: "";
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: var(--transitionSlow) opacity;
+		z-index: -1;
+	}
+
+	#hero.loaded .hero-description::after,
+	#hero.loaded .hero-title::after {
+		opacity: 0.5;
+	}
+
+	.buttons {
+		align-items: center;
+		display: flex;
+		gap: 2rem;
+		justify-content: center;
+	}
+
+	.button {
+		box-shadow: 0 0 2rem var(--sl-color-bg);
+	}
+
+	p {
+		font-size: 1.35rem;
+	}
+
+	#blaster {
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: -1;
+		opacity: 1;
+		transition: var(--transitionSlow) opacity;
+	}
+
+	#hero.loaded #blaster {
+		opacity: 0.5;
+	}
+</style>
