@@ -48,4 +48,7 @@ export default defineConfig({
 			title: "emoji-blast",
 		}),
 	],
+	redirects: {
+		demos: "demos/basic",
+	},
 });
