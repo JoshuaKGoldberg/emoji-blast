@@ -14,7 +14,7 @@ import Title from "./Title.astro";
 		<div class="buttons">
 			<Button as="a" className="button" href="/apis/emoji-blast">APIs</Button>
 			<Button as="a" className="button" href="/demos/basic">Demos</Button>
-			<span>|</span>
+			<span class="between"></span>
 			<Button as="button" className="button" id="clicker">Trigger</Button>
 		</div>
 	</div>
@@ -222,12 +222,21 @@ import Title from "./Title.astro";
 	.buttons {
 		align-items: center;
 		display: flex;
+		flex-direction: column;
 		gap: 2rem;
 		justify-content: center;
 	}
 
 	.button {
 		box-shadow: 0 0 2rem var(--sl-color-bg);
+	}
+
+	.between {
+		width: 1rem;
+		background: currentColor;
+		height: 1px;
+		content: "";
+		display: block;
 	}
 
 	p {
@@ -248,5 +257,16 @@ import Title from "./Title.astro";
 
 	#hero.loaded #blaster {
 		opacity: 0.5;
+	}
+
+	@media (min-width: 700px) {
+		.buttons {
+			flex-direction: row;
+		}
+
+		.between {
+			width: 1px;
+			height: 1rem;
+		}
 	}
 </style>
