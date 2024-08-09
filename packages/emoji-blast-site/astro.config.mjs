@@ -16,18 +16,10 @@ export default defineConfig({
 			customCss: ["./src/styles/global.css"],
 			sidebar: [
 				{
-					label: "Get Started",
-					link: "get-started",
-				},
-				{
-					label: "konami-emoji-blast",
-					link: "konami-emoji-blast",
-				},
-				{
 					autogenerate: {
-						directory: "integrations",
+						directory: "get-started",
 					},
-					label: "Integrations",
+					label: "Get Started",
 				},
 				{
 					autogenerate: {
@@ -41,6 +33,12 @@ export default defineConfig({
 					},
 					label: "Demos",
 				},
+				{
+					autogenerate: {
+						directory: "integrations",
+					},
+					label: "Integrations",
+				},
 			],
 			social: {
 				github: "https://github.com/JoshuaKGoldberg/emoji-blast",
@@ -49,6 +47,7 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		api: "api/emoji-blast",
 		demos: "demos/basic",
 	},
 });
