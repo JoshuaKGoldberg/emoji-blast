@@ -21,6 +21,8 @@
 	--colorPurple: var(--colorPurpleDark);
 	--colorViolet: var(--colorVioletDark);
 	--colorYellow: var(--colorYellowDark);
+
+	--transitionSlow: 2500ms;
 }
 
 :root[data-theme="dark"] {

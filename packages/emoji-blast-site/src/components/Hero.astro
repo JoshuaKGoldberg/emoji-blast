@@ -7,13 +7,15 @@ import Title from "./Title.astro";
 	<div id="contents">
 		<Title as="h1" class="hero-title" />
 
-		<p>🎆 Blasts emoji like fireworks all up in your HTML page. 🎇</p>
+		<p class="hero-description">
+			🎆 Blasts emoji like fireworks all up in your HTML page. 🎇
+		</p>
 
 		<div class="buttons">
-			<Button as="a" href="/apis/emoji-blast">APIs</Button>
-			<Button as="a" href="/demos/basic">Demos</Button>
+			<Button as="a" className="button" href="/apis/emoji-blast">APIs</Button>
+			<Button as="a" className="button" href="/demos/basic">Demos</Button>
 			<span>|</span>
-			<Button as="button" id="clicker">Trigger</Button>
+			<Button as="button" className="button" id="clicker">Trigger</Button>
 		</div>
 	</div>
 
@@ -170,12 +172,12 @@ import Title from "./Title.astro";
 		bottom: 0;
 		left: 0;
 		position: absolute;
-		transition: 2500ms opacity;
+		transition: var(--transitionSlow) opacity;
 	}
 
 	#hero.loaded::after {
 		opacity: 1;
-		background: radial-gradient(var(--sl-color-bg) 0%, transparent 70%);
+		background: radial-gradient(var(--sl-color-bg) 30%, transparent 70%);
 	}
 
 	#contents {
@@ -188,8 +190,33 @@ import Title from "./Title.astro";
 		z-index: 1;
 	}
 
+	.hero-description,
+	.hero-title {
+		position: relative;
+		z-index: 1;
+	}
+
 	.hero-title {
 		font-size: 2.5rem;
+	}
+
+	.hero-description::after,
+	.hero-title::after {
+		background: radial-gradient(var(--sl-color-bg) 30%, transparent 70%);
+		bottom: 0;
+		content: "";
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: var(--transitionSlow) opacity;
+		z-index: -1;
+	}
+
+	#hero.loaded .hero-description::after,
+	#hero.loaded .hero-title::after {
+		opacity: 0.5;
 	}
 
 	.buttons {
@@ -197,6 +224,10 @@ import Title from "./Title.astro";
 		display: flex;
 		gap: 2rem;
 		justify-content: center;
+	}
+
+	.button {
+		box-shadow: 0 0 2rem var(--sl-color-bg);
 	}
 
 	p {
@@ -212,7 +243,7 @@ import Title from "./Title.astro";
 		top: 0;
 		z-index: -1;
 		opacity: 1;
-		transition: 2500ms opacity;
+		transition: var(--transitionSlow) opacity;
 	}
 
 	#hero.loaded #blaster {
