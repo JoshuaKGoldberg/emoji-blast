@@ -7,7 +7,7 @@ export type ButtonAs = "a" | "button";
 
 export type ButtonProps<As extends ButtonAs> = {
 	as: As;
-} & React.HTMLAttributes<As>;
+} & React.ComponentProps<As>;
 
 export function Button<As extends ButtonAs>({
 	as: Component,

@@ -3,7 +3,6 @@ import starlight from "@astrojs/starlight";
 import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
 	integrations: [
 		konamiEmojiBlast(),
@@ -11,6 +10,7 @@ export default defineConfig({
 		starlight({
 			components: {
 				SiteTitle: "./src/components/SiteTitle.astro",
+				TwoColumnContent: "./src/components/TwoColumnContent.astro",
 			},
 			customCss: ["./src/styles/global.css"],
 			sidebar: [

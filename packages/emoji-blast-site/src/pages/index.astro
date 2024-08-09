@@ -1,8 +1,14 @@
 ---
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import Hero from "~/components/Hero.astro";
 ---
 
-<StarlightPage frontmatter={{ title: "emoji-blast" }} hasSidebar={false} />
+<StarlightPage
+	frontmatter={{ tableOfContents: false, title: "emoji-blast" }}
+	hasSidebar={false}
+>
+	<Hero />
+</StarlightPage>
 
 <style is:global>
 	.page {
