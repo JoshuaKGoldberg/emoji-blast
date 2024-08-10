@@ -5,7 +5,7 @@
 <p align="center">
 	<!-- prettier-ignore-start -->
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 12" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-12-21bb42.svg" /></a>
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 13" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-13-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
@@ -51,6 +51,7 @@ Thanks! 💖
       <td align="center" valign="top" width="14.28%"><a href="https://www.racheldev.com/"><img src="https://avatars.githubusercontent.com/u/101299667?v=4?s=100" width="100px;" alt="Rachel Johnson"/><br /><sub><b>Rachel Johnson</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=jrachelr" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/brawaru"><img src="https://avatars.githubusercontent.com/u/10401817?v=4?s=100" width="100px;" alt="Sasha Sorokin"/><br /><sub><b>Sasha Sorokin</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3Abrawaru" title="Bug reports">🐛</a> <a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=brawaru" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Esemplaret1"><img src="https://avatars.githubusercontent.com/u/34987417?v=4?s=100" width="100px;" alt="Thomas Esemplare"/><br /><sub><b>Thomas Esemplare</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=Esemplaret1" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/apps/github-actions"><img src="https://avatars.githubusercontent.com/in/15368?v=4?s=100" width="100px;" alt="github-actions[bot]"/><br /><sub><b>github-actions[bot]</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=github-actions[bot]" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=helenamerk" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/joemcil"><img src="https://avatars.githubusercontent.com/u/126059816?v=4?s=100" width="100px;" alt="joemcil"/><br /><sub><b>joemcil</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3Ajoemcil" title="Bug reports">🐛</a></td>
     </tr>
