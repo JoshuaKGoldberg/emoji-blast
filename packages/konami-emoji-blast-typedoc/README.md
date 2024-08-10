@@ -18,7 +18,7 @@
 
 ## Usage
 
-👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)** > [Integrations > TypeDoc](https://www.emojiblast.dev/integrations/typedoc).
 
 ## Development
 

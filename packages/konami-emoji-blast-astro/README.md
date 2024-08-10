@@ -18,7 +18,7 @@
 
 ## Usage
 
-👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)** > [Integrations > Astro](https://www.emojiblast.dev/integrations/astro).
 
 ## Development
 

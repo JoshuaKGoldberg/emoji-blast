@@ -18,7 +18,7 @@
 
 ## Usage
 
-👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)** > [APIs > `konami-emoji-blast`](https://www.emojiblast.dev/integrations/konami-emoji-blast).
 
 ## Development
 

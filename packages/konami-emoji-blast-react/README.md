@@ -18,7 +18,7 @@
 
 ## Usage
 
-👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)** > [Integrations > React](https://www.emojiblast.dev/integrations/react).
 
 ## Development
 

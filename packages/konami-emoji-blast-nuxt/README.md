@@ -18,9 +18,7 @@
 
 ## Usage
 
-👉 See docs on **[emojiblast.dev](https://emojiblast.dev)**.
-
-npx nuxi module add nuxt-emoji-blast
+👉 See docs on **[emojiblast.dev](https://emojiblast.dev)** > [Integrations > Nuxt](https://www.emojiblast.dev/integrations/nuxt).
 
 ## Development
 
