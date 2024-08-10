@@ -156,8 +156,8 @@ importers:
         specifier: 'workspace:'
         version: link:../emoji-blast
       konami-emoji-blast:
-        specifier: ^0.5.3
-        version: 0.5.3
+        specifier: 'workspace:'
+        version: link:../konami-emoji-blast
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3340,10 +3340,6 @@ packages:
   emmet@2.4.7:
     resolution: {integrity: sha512-O5O5QNqtdlnQM2bmKHtJgyChcrFMgQuulI+WdiOw2NArzprUqqxUW6bgYtKvzKgrsYpuLWalOkdhNP+1jluhCA==}
 
-  emoji-blast@0.10.0:
-    resolution: {integrity: sha512-1r5rtGIKM7I2Q76vEHEhR+UpbO59C1JcSjpTncLJFORW0L0r3fDq4PWA1/8a6DXeuOpVNRbtVin3d1N21sZHvQ==}
-    engines: {node: '>=18'}
-
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
 
@@ -4481,9 +4477,6 @@ packages:
 
   konami-code-js@0.8.1:
     resolution: {integrity: sha512-bJ0tuWYLYiUueIVTpA0MV4h4Gz1X16uuJggh5TpIWXOQoLv0238SU7Im23z2wYKCCBsOfk5j4HKWB/pqdCgu5Q==}
-
-  konami-emoji-blast@0.5.3:
-    resolution: {integrity: sha512-ib1dWR+d1PXUWRRyjIYq5/dc6PvV0cGmccclLOlkl+mUMzLUdu8oySA+DTJr71XIsISXqHEUvTQmO7IuwJ8zYQ==}
 
   launch-editor@2.8.1:
     resolution: {integrity: sha512-elBx2l/tp9z99X5H/qev8uyDywVh0VXAwEbjk8kJhnc5grOFkGh7aW6q55me9xnYbss261XtnUrysZ+XvGbhQA==}
@@ -10591,8 +10584,6 @@ snapshots:
       '@emmetio/abbreviation': 2.3.3
       '@emmetio/css-abbreviation': 2.1.8
 
-  emoji-blast@0.10.0: {}
-
   emoji-regex@10.3.0: {}
 
   emoji-regex@8.0.0: {}
@@ -12003,11 +11994,6 @@ snapshots:
   kolorist@1.8.0: {}
 
   konami-code-js@0.8.1: {}
-
-  konami-emoji-blast@0.5.3:
-    dependencies:
-      emoji-blast: 0.10.0
-      konami-code-js: 0.8.1
 
   launch-editor@2.8.1:
     dependencies:
