@@ -22,7 +22,7 @@
 		"lint:package": "npmPkgJsonLint .",
 		"lint:packages": "pnpm dedupe --check",
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"test": "vitest"
 	},
 	"lint-staged": {
