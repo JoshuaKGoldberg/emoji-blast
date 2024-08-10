@@ -1,6 +1,6 @@
 {
 	"name": "emoji-blast-site",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"scripts": {
 		"astro": "astro",
@@ -21,7 +21,7 @@
 		"clsx": "^2.1.1",
 		"dedent": "^1.5.3",
 		"emoji-blast": "workspace:",
-		"konami-emoji-blast": "^0.5.3",
+		"konami-emoji-blast": "^0.5.4",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"typescript": "^5.4.5"
