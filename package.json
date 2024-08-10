@@ -59,7 +59,7 @@
 		"prettier-plugin-packagejson": "^2.4.13",
 		"sentences-per-line": "^0.2.1",
 		"typescript": "^5.4.3",
-		"vitest": "^1.4.0",
+		"vitest": "^2.0.0",
 		"yaml-eslint-parser": "^1.2.2"
 	},
 	"engines": {
