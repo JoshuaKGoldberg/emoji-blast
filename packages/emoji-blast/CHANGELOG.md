@@ -1,5 +1,11 @@
 # 0.10.0 (2024-03-28)
 
+## 0.10.1
+
+### Patch Changes
+
+- a88b14f: patch bump for tooling
+
 ### Bug Fixes
 
 - add missing pnpm build:dist to release.yml ([8ef426b](https://github.com/JoshuaKGoldberg/emoji-blast/commit/8ef426b3d74618bd9f65604dfd7ef4dafedf641a))

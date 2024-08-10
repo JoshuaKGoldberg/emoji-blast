@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/astro",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Hooks up konami-code-js to trigger emoji-blast in React. 🎇",
 	"keywords": [
 		"astro-component",
