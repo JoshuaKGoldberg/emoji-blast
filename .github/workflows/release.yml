@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
-
+      - run: pnpm build
       - name: Create Release Pull Request
         uses: changesets/action@v1
+        with:
+          publish: pnpm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
