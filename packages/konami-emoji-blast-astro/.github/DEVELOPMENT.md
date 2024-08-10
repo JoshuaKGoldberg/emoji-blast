@@ -12,3 +12,5 @@ pnpm build
 cd packages/emoji-blast-site
 pnpm dev
 ```
+
+...then visit <localhost:4321> in your browser.

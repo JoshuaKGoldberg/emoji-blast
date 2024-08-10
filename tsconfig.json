@@ -8,6 +8,7 @@
 		{ "path": "./packages/emoji-blast" },
 		{ "path": "./packages/konami-emoji-blast" },
 		{ "path": "./packages/konami-emoji-blast-astro" },
+		{ "path": "./packages/konami-emoji-blast-nuxt" },
 		{ "path": "./packages/konami-emoji-blast-react" },
 		{ "path": "./packages/konami-emoji-blast-typedoc" }
 	]

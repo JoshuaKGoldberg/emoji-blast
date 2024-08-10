@@ -13,14 +13,17 @@ module.exports = {
 	],
 	ignorePatterns: [
 		"!.*",
-		"coverage",
-		"**/.next",
+		"**/.astro",
+		"**/.nuxt",
 		"**/dist",
 		"**/lib",
+		"coverage",
 		"node_modules",
-		"packages/emoji-blast-site/.astro",
 		"packages/emoji-blast-site/src/env.d.ts",
 		"pnpm-lock.yaml",
+
+		// Pending investigating how to get Nuxt/Vue linting set up...
+		"packages/konami-emoji-blast-nuxt",
 	],
 	overrides: [
 		{
