@@ -24,6 +24,11 @@
 			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
+		"packages/konami-emoji-blast-nuxt": {
+			"entry": ["src/*.ts!", "src/runtime/plugins/*.ts"],
+			"ignore": [".nuxt/*"],
+			"project": ["src/**/*.ts!"]
+		},
 		"packages/konami-emoji-blast-react": {
 			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!", "src/**/*.tsx!"]

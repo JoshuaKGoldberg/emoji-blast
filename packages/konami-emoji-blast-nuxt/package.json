@@ -33,12 +33,12 @@
 		"dist"
 	],
 	"scripts": {
+		"prebuild": "nuxi prepare",
 		"build": "nuxi build",
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
 		"lint": "eslint .",
-		"prepack": "nuxt-module-build build",
 		"test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
 	},
 	"dependencies": {
@@ -46,9 +46,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "^1.1.5",
-		"@nuxt/eslint-config": "^0.3.6",
 		"@nuxt/module-builder": "^0.5.5",
-		"@nuxt/schema": "^3.11.2",
 		"@types/node": "^22.1.0",
 		"eslint": "^9.0.0",
 		"nuxt": "^3.11.2",

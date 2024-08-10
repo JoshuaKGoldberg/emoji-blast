@@ -33,9 +33,11 @@
 		"nuxi",
 		"Nuxt",
 		"packagejson",
+		"postbuild",
 		"shoutout",
 		"spinnin",
 		"tsconfigs",
+		"typecheck",
 		"vite"
 	]
 }

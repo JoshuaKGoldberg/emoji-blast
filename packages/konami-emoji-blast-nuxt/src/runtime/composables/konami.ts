@@ -1,7 +1,6 @@
+import { onNuxtReady } from "#app";
 import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
 import { onScopeDispose, onUnmounted } from "vue";
-
-import { onNuxtReady } from "#app";
 
 export function useEmojiBlastKonamiCode() {
 	if (import.meta.server) {
@@ -13,9 +12,9 @@ export function useEmojiBlastKonamiCode() {
 		unsubscribe = initializeKonamiEmojiBlast();
 	});
 	onScopeDispose(() => {
-		unsubscribe?.();
+		unsubscribe();
 	});
 	onUnmounted(() => {
-		unsubscribe?.();
+		unsubscribe();
 	});
 }

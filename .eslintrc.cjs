@@ -21,6 +21,9 @@ module.exports = {
 		"node_modules",
 		"packages/emoji-blast-site/src/env.d.ts",
 		"pnpm-lock.yaml",
+
+		// Pending investigating how to get Nuxt/Vue linting set up...
+		"packages/konami-emoji-blast-nuxt",
 	],
 	overrides: [
 		{

@@ -1,20 +1,9 @@
-import {
-	addImports,
-	addImportsSources,
-	addPlugin,
-	createResolver,
-	defineNuxtModule,
-} from "@nuxt/kit";
+import { addPlugin, createResolver, defineNuxtModule } from "@nuxt/kit";
 
-export interface ModuleOptions {
-	konamiCode?: boolean;
-	directive?: boolean;
-}
-
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
 	meta: {
-		name: "@konami-emoji-blast/nuxt",
 		configKey: "konamiEmojiBlast",
+		name: "@konami-emoji-blast/nuxt",
 	},
 	setup() {
 		const resolver = createResolver(import.meta.url);
