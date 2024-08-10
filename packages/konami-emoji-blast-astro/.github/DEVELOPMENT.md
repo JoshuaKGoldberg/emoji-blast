@@ -2,16 +2,13 @@
 
 > 🛠️ See the [root-level monorepo `.github/DEVELOPMENT.md` first](../../../.github/DEVELOPMENT.md) first.
 
-## Building
+This is an [Astro Starlight](https://starlight.astro.build) website with API docs and demos for the other packages in this monorepo.
+It requires other packages having been built (`pnpm build`).
 
-Run [webpack](https://webpack.js.org) to build source files from Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `src/mains/*.ts` to `dist/*.js` bundles of the same name.
+To preview the site locally:
 
 ```shell
 pnpm build
-```
-
-Add `--watch` to run the builder in a watch mode:
-
-```shell
-pnpm build --watch
+cd packages/emoji-blast-site
+pnpm dev
 ```
