@@ -1,6 +1,6 @@
 {
 	"name": "emoji-blast-site",
-	"version": "0.0.2",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"astro": "astro",
