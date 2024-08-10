@@ -1,4 +1,7 @@
 .all-contributorsrc
+.astro/
+.nuxt/
+.output/
 coverage/
 dist/
 lib/
