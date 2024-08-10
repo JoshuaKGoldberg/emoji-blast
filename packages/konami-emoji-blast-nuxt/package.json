@@ -33,17 +33,16 @@
 		"dist"
 	],
 	"scripts": {
+		"build": "nuxi build",
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
 		"lint": "eslint .",
 		"prepack": "nuxt-module-build build",
-		"release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
 		"test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
 	},
 	"dependencies": {
-		"@nuxt/kit": "^3.11.2",
-		"defu": "^6.1.4"
+		"@nuxt/kit": "^3.11.2"
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "^1.1.5",
@@ -54,6 +53,7 @@
 		"eslint": "^9.0.0",
 		"nuxt": "^3.11.2",
 		"typescript": "latest",
+		"vue": "^3.4.37",
 		"vue-tsc": "^2.0.14"
 	},
 	"peerDependencies": {

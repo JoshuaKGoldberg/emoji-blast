@@ -1,5 +1,6 @@
 import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
 import { onScopeDispose, onUnmounted } from "vue";
+
 import { onNuxtReady } from "#app";
 
 export function useEmojiBlastKonamiCode() {
