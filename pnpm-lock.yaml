@@ -129,8 +129,8 @@ importers:
         specifier: ^3.6.1
         version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.3(@types/node@22.5.4)(terser@5.31.6))
       '@astrojs/starlight':
-        specifier: ^0.26.0
-        version: 0.26.4(astro@4.15.4(@types/node@22.5.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.6.2))
+        specifier: ^0.27.0
+        version: 0.27.1(astro@4.15.4(@types/node@22.5.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.6.2))
       '@konami-emoji-blast/astro':
         specifier: 'workspace:'
         version: link:../konami-emoji-blast-astro
@@ -327,8 +327,8 @@ packages:
   '@astrojs/sitemap@3.1.6':
     resolution: {integrity: sha512-1Qp2NvAzVImqA6y+LubKi1DVhve/hXXgFvB0szxiipzh7BvtuKe4oJJ9dXSqaubaTkt4nMa6dv6RCCAYeB6xaQ==}
 
-  '@astrojs/starlight@0.26.4':
-    resolution: {integrity: sha512-ks+GAYkYGZxuCjAJR88HFafY4/K73PtkbYniGaptmdB0yDJY/HwJ/s1vIuig3j63oq9otQfuZFByxWsb4x1urg==}
+  '@astrojs/starlight@0.27.1':
+    resolution: {integrity: sha512-L2hEgN/Tk7tfBDeaqUOgOpey5NcUL78FuQa06iNxyZ6RjyYyuXSniOoFxZYIo5PpY9O1dLdK22PkZyCDpO729g==}
     peerDependencies:
       astro: ^4.8.6
 
@@ -7292,7 +7292,7 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight@0.26.4(astro@4.15.4(@types/node@22.5.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.6.2))':
+  '@astrojs/starlight@0.27.1(astro@4.15.4(@types/node@22.5.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.6.2))':
     dependencies:
       '@astrojs/mdx': 3.1.5(astro@4.15.4(@types/node@22.5.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.6.2))
       '@astrojs/sitemap': 3.1.6
