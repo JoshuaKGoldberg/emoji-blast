@@ -129,8 +129,8 @@ importers:
         specifier: ^3.6.1
         version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))
       '@astrojs/starlight':
-        specifier: ^0.27.0
-        version: 0.27.1(astro@4.15.7(@types/node@22.5.5)(rollup@4.22.2)(terser@5.33.0)(typescript@5.6.2))
+        specifier: ^0.28.0
+        version: 0.28.2(astro@4.15.7(@types/node@22.5.5)(rollup@4.22.2)(terser@5.33.0)(typescript@5.6.2))
       '@konami-emoji-blast/astro':
         specifier: 'workspace:'
         version: link:../konami-emoji-blast-astro
@@ -330,10 +330,10 @@ packages:
   '@astrojs/sitemap@3.1.6':
     resolution: {integrity: sha512-1Qp2NvAzVImqA6y+LubKi1DVhve/hXXgFvB0szxiipzh7BvtuKe4oJJ9dXSqaubaTkt4nMa6dv6RCCAYeB6xaQ==}
 
-  '@astrojs/starlight@0.27.1':
-    resolution: {integrity: sha512-L2hEgN/Tk7tfBDeaqUOgOpey5NcUL78FuQa06iNxyZ6RjyYyuXSniOoFxZYIo5PpY9O1dLdK22PkZyCDpO729g==}
+  '@astrojs/starlight@0.28.2':
+    resolution: {integrity: sha512-Q1/Ujl2EzWX71qwqdt/0KP3wOyX6Rvyzcep/zD3hRCtw/Vi2TReh4Q2wLwz7mnbuYU9H7YvBKYknbkmjC+K/0w==}
     peerDependencies:
-      astro: ^4.8.6
+      astro: ^4.14.0
 
   '@astrojs/telemetry@3.1.0':
     resolution: {integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==}
@@ -4131,6 +4131,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  i18next@23.15.1:
+    resolution: {integrity: sha512-wB4abZ3uK7EWodYisHl/asf8UYEhrI/vj/8aoSsrj/ZDxj4/UXPOa1KvFt1Fq5hkUHquNqwFlDprmjZ8iySgYA==}
+
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -7342,7 +7345,7 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight@0.27.1(astro@4.15.7(@types/node@22.5.5)(rollup@4.22.2)(terser@5.33.0)(typescript@5.6.2))':
+  '@astrojs/starlight@0.28.2(astro@4.15.7(@types/node@22.5.5)(rollup@4.22.2)(terser@5.33.0)(typescript@5.6.2))':
     dependencies:
       '@astrojs/mdx': 3.1.5(astro@4.15.7(@types/node@22.5.5)(rollup@4.22.2)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/sitemap': 3.1.6
@@ -7356,6 +7359,7 @@ snapshots:
       hast-util-select: 6.0.2
       hast-util-to-string: 3.0.0
       hastscript: 9.0.0
+      i18next: 23.15.1
       mdast-util-directive: 3.0.0
       mdast-util-to-markdown: 2.1.0
       mdast-util-to-string: 4.0.0
@@ -11818,6 +11822,10 @@ snapshots:
   human-signals@5.0.0: {}
 
   husky@9.1.6: {}
+
+  i18next@23.15.1:
+    dependencies:
+      '@babel/runtime': 7.25.6
 
   iconv-lite@0.4.24:
     dependencies:
