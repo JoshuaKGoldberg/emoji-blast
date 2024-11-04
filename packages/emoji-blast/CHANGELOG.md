@@ -1,5 +1,11 @@
 # 0.10.0 (2024-03-28)
 
+## 0.10.2
+
+### Patch Changes
+
+- a75a73f: patch bump emoji-blast for dist
+
 ## 0.10.1
 
 ### Patch Changes
