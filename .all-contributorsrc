@@ -123,6 +123,15 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "anjali1102",
+      "name": "Anjali Chauhan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56559378?v=4",
+      "profile": "https://github.com/anjali1102",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
