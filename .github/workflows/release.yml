@@ -12,6 +12,7 @@ jobs:
       - uses: ./.github/actions/prepare
       - run: pnpm build
       - run: pnpm build:all
+      - run: pnpm build:release:all
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
