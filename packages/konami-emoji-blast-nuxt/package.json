@@ -30,7 +30,10 @@
 	"main": "./dist/module.cjs",
 	"types": "./dist/types.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"package.json",
+		"LICENSE.md",
+		"README.md"
 	],
 	"scripts": {
 		"prebuild": "nuxi prepare",
