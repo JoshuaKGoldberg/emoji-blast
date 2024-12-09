@@ -12,10 +12,10 @@ pnpm dev
 
 ...then visit <localhost:30000> in your browser.
 
-## Building
+## Building for Release
 
-Run `pnpm dev:prepare` to build source files into the `dist/` folder:
+Run `pnpm build:release` to build source files into the `dist/` folder:
 
 ```shell
-pnpm dev:prepare
+pnpm build:release
 ```
