@@ -15,6 +15,13 @@ You can then use the `"@konami-emoji-blast/nuxt"` plugin in your `nuxt.config.*`
 ```ts
 export default defineNuxtConfig({
 	modules: ["@konami-emoji-blast/nuxt"],
+
+	// Temporary workaround for https://github.com/JoshuaKGoldberg/emoji-blast/issues/822:
+	vite: {
+		optimizeDeps: {
+			include: ["konami-emoji-blast > konami-code-js"],
+		},
+	},
 });
 ```
 
