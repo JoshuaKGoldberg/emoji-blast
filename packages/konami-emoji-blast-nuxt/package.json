@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/nuxt",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Hooks up konami-code-js to trigger emoji-blast in Nuxt. 🎇",
 	"keywords": [
 		"konami",
