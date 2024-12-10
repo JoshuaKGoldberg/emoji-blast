@@ -1,5 +1,13 @@
 import { EmojiBlastsHandler, emojiBlasts } from "emoji-blast";
-import KonamiCode from "konami-code-js";
+
+// https://github.com/JoshuaKGoldberg/emoji-blast/issues/822#issuecomment-2532742672
+// @ts-expect-error -- Working around CJS/ESM default interop
+import * as KonamiCodeJS from "konami-code-js";
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const KonamiCode: typeof import("konami-code-js") =
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+	(KonamiCodeJS as any).default ?? KonamiCodeJS;
 
 /**
  * @returns Function that stops emojis when called.

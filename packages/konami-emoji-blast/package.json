@@ -1,6 +1,6 @@
 {
 	"name": "konami-emoji-blast",
-	"version": "0.5.7",
+	"version": "0.5.8",
 	"description": "Hooks up konami-code-js to trigger emoji-blast. 🎇",
 	"keywords": [
 		"konami",
