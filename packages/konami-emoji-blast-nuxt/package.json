@@ -37,8 +37,8 @@
 	],
 	"scripts": {
 		"prebuild": "nuxi prepare",
-		"build": "nuxi build",
-		"build:release": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+		"build": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+		"build:release": "nuxt-module-build build",
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
 		"lint": "eslint .",
@@ -53,7 +53,7 @@
 		"@types/node": "^22.1.0",
 		"eslint": "^9.0.0",
 		"nuxt": "^3.11.2",
-		"typescript": "latest",
+		"typescript": "~5.6",
 		"vue": "^3.4.37",
 		"vue-tsc": "^2.0.14"
 	},
