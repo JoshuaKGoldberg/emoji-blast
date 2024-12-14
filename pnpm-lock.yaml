@@ -127,7 +127,7 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.2)
       '@astrojs/react':
         specifier: ^4.0.0
-        version: 4.0.0(@types/node@22.10.2)(@types/react-dom@18.3.5(@types/react@18.3.16))(@types/react@18.3.16)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.37.0)(yaml@2.6.1)
+        version: 4.1.0(@types/node@22.10.2)(@types/react-dom@18.3.5(@types/react@18.3.16))(@types/react@18.3.16)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.37.0)(yaml@2.6.1)
       '@astrojs/starlight':
         specifier: ^0.29.0
         version: 0.29.2(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))
@@ -318,14 +318,14 @@ packages:
     resolution: {integrity: sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
 
-  '@astrojs/react@4.0.0':
-    resolution: {integrity: sha512-YwTKFm/EMAl3JU3wlVBBI3qpuNMW5ofkvq9nWfpQEo4P38yLJjrqO/trxv0HSrAYinRp7gg3rgAR7MeadSNuvQ==}
+  '@astrojs/react@4.1.0':
+    resolution: {integrity: sha512-8F0ncvcCexVeQZMwPouLSFuzCK1KXUIYQ57lW3ZG2p7B5DGAajXGanb/CGF7MMSpX8Z0t9sELQqLHOCV/+78Ig==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
     peerDependencies:
-      '@types/react': ^17.0.50 || ^18.0.21
-      '@types/react-dom': ^17.0.17 || ^18.0.6
-      react: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
-      react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
+      '@types/react': ^17.0.50 || ^18.0.21 || ^19.0.0
+      '@types/react-dom': ^17.0.17 || ^18.0.6 || ^19.0.0
+      react: ^17.0.2 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
 
   '@astrojs/sitemap@3.2.1':
     resolution: {integrity: sha512-uxMfO8f7pALq0ADL6Lk68UV6dNYjJ2xGUzyjjVj60JLBs5a6smtlkBYv3tQ0DzoqwS7c9n4FUx5lgv0yPo/fgA==}
@@ -7440,7 +7440,7 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@4.0.0(@types/node@22.10.2)(@types/react-dom@18.3.5(@types/react@18.3.16))(@types/react@18.3.16)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.37.0)(yaml@2.6.1)':
+  '@astrojs/react@4.1.0(@types/node@22.10.2)(@types/react-dom@18.3.5(@types/react@18.3.16))(@types/react@18.3.16)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.37.0)(yaml@2.6.1)':
     dependencies:
       '@types/react': 18.3.16
       '@types/react-dom': 18.3.5(@types/react@18.3.16)
