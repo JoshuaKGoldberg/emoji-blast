@@ -129,8 +129,8 @@ importers:
         specifier: ^4.0.0
         version: 4.1.0(@types/node@22.10.2)(@types/react-dom@18.3.5(@types/react@18.3.16))(@types/react@18.3.16)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.37.0)(yaml@2.6.1)
       '@astrojs/starlight':
-        specifier: ^0.29.0
-        version: 0.29.3(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))
+        specifier: ^0.30.0
+        version: 0.30.2(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))
       '@konami-emoji-blast/astro':
         specifier: 'workspace:'
         version: link:../konami-emoji-blast-astro
@@ -308,15 +308,22 @@ packages:
   '@astrojs/markdown-remark@5.3.0':
     resolution: {integrity: sha512-r0Ikqr0e6ozPb5bvhup1qdWnSPUvQu6tub4ZLYaKyG50BXZ0ej6FhGz3GpChKpH7kglRFPObJd/bDyf2VM9pkg==}
 
-  '@astrojs/mdx@3.1.9':
-    resolution: {integrity: sha512-3jPD4Bff6lIA20RQoonnZkRtZ9T3i0HFm6fcDF7BMsKIZ+xBP2KXzQWiuGu62lrVCmU612N+SQVGl5e0fI+zWg==}
-    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+  '@astrojs/markdown-remark@6.0.1':
+    resolution: {integrity: sha512-CTSYijj25NfxgZi15TU3CwPwgyD1/7yA3FcdcNmB9p94nydupiUbrIiq3IqeTp2m5kCVzxbPZeC7fTwEOaNyGw==}
+
+  '@astrojs/mdx@4.0.2':
+    resolution: {integrity: sha512-uBoXNSSAUqhf2dVtJWFbSapwNkcnCzbISW98EcybFXvNgYt9g8yPJ7+lYnf+sH5pv0c/JEW8HlBvPSi81AVRlw==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
     peerDependencies:
-      astro: ^4.8.0
+      astro: ^5.0.0
 
   '@astrojs/prism@3.1.0':
     resolution: {integrity: sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+
+  '@astrojs/prism@3.2.0':
+    resolution: {integrity: sha512-GilTHKGCW6HMq7y3BUv9Ac7GMe/MO9gi9GW62GzKtth0SwukCu/qp2wLiGpEujhY+VVhaG9v7kv/5vFzvf4NYw==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
 
   '@astrojs/react@4.1.0':
     resolution: {integrity: sha512-8F0ncvcCexVeQZMwPouLSFuzCK1KXUIYQ57lW3ZG2p7B5DGAajXGanb/CGF7MMSpX8Z0t9sELQqLHOCV/+78Ig==}
@@ -330,10 +337,10 @@ packages:
   '@astrojs/sitemap@3.2.1':
     resolution: {integrity: sha512-uxMfO8f7pALq0ADL6Lk68UV6dNYjJ2xGUzyjjVj60JLBs5a6smtlkBYv3tQ0DzoqwS7c9n4FUx5lgv0yPo/fgA==}
 
-  '@astrojs/starlight@0.29.3':
-    resolution: {integrity: sha512-dzKuGBA7sodGV2dCzpby6UKMx/4b7WrhcYDYlhfX5Ntxh8DCdGU1hIu8jHso/LeFv/jNAfi7m6C7+w/PNSYRgA==}
+  '@astrojs/starlight@0.30.2':
+    resolution: {integrity: sha512-KUNnIhiBgX3hV2mUIqwv2R5b7tBFRVr68Wj0wEyN8E2x0MtAos7qRPytWha/WchAtpO1eIt6sqAT0KfTvBZt5g==}
     peerDependencies:
-      astro: ^4.14.0
+      astro: ^5.0.0
 
   '@astrojs/telemetry@3.1.0':
     resolution: {integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==}
@@ -7413,15 +7420,38 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.9(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))':
+  '@astrojs/markdown-remark@6.0.1':
     dependencies:
-      '@astrojs/markdown-remark': 5.3.0
+      '@astrojs/prism': 3.2.0
+      github-slugger: 2.0.0
+      hast-util-from-html: 2.0.3
+      hast-util-to-text: 4.0.2
+      import-meta-resolve: 4.1.0
+      js-yaml: 4.1.0
+      mdast-util-definitions: 6.0.0
+      rehype-raw: 7.0.0
+      rehype-stringify: 10.0.1
+      remark-gfm: 4.0.0
+      remark-parse: 11.0.0
+      remark-rehype: 11.1.1
+      remark-smartypants: 3.0.2
+      shiki: 1.24.2
+      unified: 11.0.5
+      unist-util-remove-position: 5.0.0
+      unist-util-visit: 5.0.0
+      unist-util-visit-parents: 6.0.1
+      vfile: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@astrojs/mdx@4.0.2(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))':
+    dependencies:
+      '@astrojs/markdown-remark': 6.0.1
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
       astro: 4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
-      gray-matter: 4.0.3
       hast-util-to-html: 9.0.4
       kleur: 4.1.5
       rehype-raw: 7.0.0
@@ -7434,6 +7464,10 @@ snapshots:
       - supports-color
 
   '@astrojs/prism@3.1.0':
+    dependencies:
+      prismjs: 1.29.0
+
+  '@astrojs/prism@3.2.0':
     dependencies:
       prismjs: 1.29.0
 
@@ -7466,9 +7500,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.1
 
-  '@astrojs/starlight@0.29.3(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))':
+  '@astrojs/starlight@0.30.2(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))':
     dependencies:
-      '@astrojs/mdx': 3.1.9(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))
+      '@astrojs/mdx': 4.0.2(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2))
       '@astrojs/sitemap': 3.2.1
       '@pagefind/default-ui': 1.2.0
       '@types/hast': 3.0.4
