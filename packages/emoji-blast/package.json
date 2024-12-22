@@ -27,7 +27,7 @@
 	"devDependencies": {
 		"ts-loader": "^9.5.1",
 		"webpack": "^5.91.0",
-		"webpack-cli": "^5.1.4"
+		"webpack-cli": "^6.0.0"
 	},
 	"engines": {
 		"node": ">=18"
