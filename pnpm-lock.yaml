@@ -48,8 +48,8 @@ importers:
         specifier: ^5.0.0
         version: 5.1.0(eslint@8.57.1)
       eslint-plugin-package-json:
-        specifier: ^0.18.0
-        version: 0.18.0(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
+        specifier: ^0.19.0
+        version: 0.19.0(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
       eslint-plugin-perfectionist:
         specifier: ^2.7.0
         version: 2.11.0(eslint@8.57.1)(typescript@5.7.2)(vue-eslint-parser@9.4.3(eslint@8.57.1))
@@ -3562,8 +3562,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-package-json@0.18.0:
-    resolution: {integrity: sha512-ZyDaHm3c+vDMNoOVyO+KcJxlBnNNFeRML8Ui/WATrQ+F/dyAIR6aIyu50691gll3dCBT26llL2DXMre30x23ug==}
+  eslint-plugin-package-json@0.19.0:
+    resolution: {integrity: sha512-L1RCeuEcZHrOC2KJqRctgHrndLufICo4VSHNZEnGEF7PkZXWZrxUBc17I5Cdolarlk+5kIW9IJ+zettXUuELHg==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -11063,7 +11063,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-package-json@0.18.0(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
+  eslint-plugin-package-json@0.19.0(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
     dependencies:
       '@altano/repository-tools': 0.1.1
       detect-indent: 6.1.0
