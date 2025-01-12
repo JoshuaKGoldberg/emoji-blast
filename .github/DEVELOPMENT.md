@@ -85,7 +85,7 @@ To launch it, open a test file, then run _Debug Current Test File_ from the VS C
 ## Website
 
 This package includes an [Astro Starlight](https://starlight.astro.build) website in `packages/emoji-blast-site`.
-See its documentation in [its own `.github/DEVELOPMENT.md`](packages/konami-emoji-blast-astro/.github/DEVELOPMENT.md).
+See its documentation in [its own `README.md`](packages/emoji-blast-site/README.md).
 
 ## Releases
 
