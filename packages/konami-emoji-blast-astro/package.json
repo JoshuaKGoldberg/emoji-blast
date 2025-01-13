@@ -24,10 +24,10 @@
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"devDependencies": {
-		"astro": "^4.0.0"
+		"astro": "^5.0.0"
 	},
 	"peerDependencies": {
-		"astro": "^2 || ^3 || ^4",
+		"astro": "^2 || ^3 || ^4 || ^5.0.0",
 		"konami-emoji-blast": "workspace:"
 	}
 }
