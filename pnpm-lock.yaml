@@ -48,8 +48,8 @@ importers:
         specifier: ^5.0.0
         version: 5.1.0(eslint@8.57.1)
       eslint-plugin-package-json:
-        specifier: ^0.20.0
-        version: 0.20.1(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
+        specifier: ^0.21.0
+        version: 0.21.1(@types/estree@1.0.6)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
       eslint-plugin-perfectionist:
         specifier: ^2.7.0
         version: 2.11.0(eslint@8.57.1)(typescript@5.7.3)(vue-eslint-parser@9.4.3(eslint@8.57.1))
@@ -3576,6 +3576,13 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
+  eslint-fix-utils@0.2.0:
+    resolution: {integrity: sha512-2z/I/1VfyL1mkLjk18W7Q3X+gqzeFmc2aNxSY/RmT6vNPyzQfT1MR/yP/+RUbqRuNUNMhTTYeP7AK7UUpcUD4w==}
+    engines: {node: '>=18.3.0'}
+    peerDependencies:
+      '@types/estree': '>=1'
+      eslint: '>=8'
+
   eslint-json-compat-utils@0.2.1:
     resolution: {integrity: sha512-YzEodbDyW8DX8bImKhAcCeu/L31Dd/70Bidx2Qex9OFUtgzXLqtfWL4Hr5fM/aCCB8QUZLuJur0S9k6UfgFkfg==}
     engines: {node: '>=12'}
@@ -3617,8 +3624,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-package-json@0.20.1:
-    resolution: {integrity: sha512-AR6SNUvllaKyFWCohaRkuTT5MfCO2sA2KAdf3ZHz5/l4fyfDh3NEwugmiBMEYzunH0ZK/3a5gw2OU/dXFy6cjw==}
+  eslint-plugin-package-json@0.21.1:
+    resolution: {integrity: sha512-nrZyddyLGRxYLBhND17b+IAZYcDJqcOu12Bk/HvGKmWKp36ja/oz7+1YL597/p3mNVhww2SVF8jA9syqYWvgNA==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -11142,6 +11149,11 @@ snapshots:
       eslint: 8.57.1
       semver: 7.6.3
 
+  eslint-fix-utils@0.2.0(@types/estree@1.0.6)(eslint@8.57.1):
+    dependencies:
+      '@types/estree': 1.0.6
+      eslint: 8.57.1
+
   eslint-json-compat-utils@0.2.1(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
     dependencies:
       eslint: 8.57.1
@@ -11202,18 +11214,21 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-package-json@0.20.1(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
+  eslint-plugin-package-json@0.21.1(@types/estree@1.0.6)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
     dependencies:
       '@altano/repository-tools': 0.1.1
       detect-indent: 6.1.0
       detect-newline: 3.1.0
       eslint: 8.57.1
+      eslint-fix-utils: 0.2.0(@types/estree@1.0.6)(eslint@8.57.1)
       jsonc-eslint-parser: 2.4.0
       package-json-validator: 0.8.0
       semver: 7.6.3
       sort-object-keys: 1.1.3
       sort-package-json: 2.14.0
       validate-npm-package-name: 6.0.0
+    transitivePeerDependencies:
+      - '@types/estree'
 
   eslint-plugin-perfectionist@2.11.0(eslint@8.57.1)(typescript@5.7.3)(vue-eslint-parser@9.4.3(eslint@8.57.1)):
     dependencies:
