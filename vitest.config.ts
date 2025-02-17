@@ -4,8 +4,13 @@ export default defineConfig({
 	test: {
 		coverage: {
 			all: true,
-			exclude: ["dist", "lib"],
-			include: ["src"],
+			exclude: [
+				"dist",
+				"lib",
+				"packages/konami-emoji-blast-typedoc",
+				"packages/emoji-blast-site",
+			],
+			include: ["packages/*/src"],
 			reporter: ["html", "lcov"],
 		},
 	},
