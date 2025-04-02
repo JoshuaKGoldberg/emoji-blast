@@ -24,7 +24,7 @@ It consists of the following packages:
 - [`emoji-blast-site`](./packages/emoji-blast-site/README.md): Demo and docs website at <a href="https://emojiblast.dev">emojiblast.dev</a>. 🏄
 - [`konami-emoji-blast`](./packages/konami-emoji-blast/README.md): Hooks up <a href="https://github.com/Haeresis/konami-code-js">konami-code-js</a> to trigger `emoji-blast`. 🎇
 - [`@konami-emoji-blast/astro`](./packages/konami-emoji-blast-astro/README.md): Integration for `konami-emoji-blast` in <a href="https://astro.build">Astro</a>. 🚀
-- [`@konami-emoji-blast/nuxt`](./packages/konami-emoji-blast-react/README.md): Integration for `konami-emoji-blast` in <a href="https:/nuxt.com">Nuxt</a>. 🗻
+- [`@konami-emoji-blast/nuxt`](./packages/konami-emoji-blast-nuxt/README.md): Integration for `konami-emoji-blast` in <a href="https:/nuxt.com">Nuxt</a>. 🗻
 - [`@konami-emoji-blast/react`](./packages/konami-emoji-blast-react/README.md): Integration for `konami-emoji-blast` in <a href="https:/react.dev">React</a>. ⚛️
 - [`@konami-emoji-blast/typedoc`](./packages/konami-emoji-blast-typedoc/README.md): Integration for `konami-emoji-blast` in <a href="https://typedoc.org">TypeDoc</a>. 🗂️
 
