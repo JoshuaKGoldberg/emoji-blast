@@ -5,13 +5,15 @@ import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
 import Hero from "./Hero.astro";
 ---
 
+{JSON.stringify([Astro.props.slug])}
+
 {
-	Astro.props.slug === "" ? (
-		<Hero />
-	) : (
+	Astro.props.slug ? (
 		<Default {...Astro.props}>
 			<slot />
 			<slot name="right-sidebar" slot="right-sidebar" />
 		</Default>
+	) : (
+		<Hero />
 	)
 }
