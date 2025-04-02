@@ -6,7 +6,7 @@ import Hero from "./Hero.astro";
 ---
 
 {
-	Astro.props.slug ? (
+	Astro.url.pathname.length > 1 ? (
 		<Default {...Astro.props}>
 			<slot />
 			<slot name="right-sidebar" slot="right-sidebar" />
