@@ -53,7 +53,7 @@
 		"@types/node": "^22.1.0",
 		"eslint": "^9.0.0",
 		"nuxt": "^3.11.2",
-		"typescript": "~5.7.0",
+		"typescript": "~5.8.0",
 		"vue": "^3.4.37",
 		"vue-tsc": "^2.0.14"
 	},
