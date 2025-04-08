@@ -49,7 +49,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "^2.0.0",
-		"@nuxt/module-builder": "^0.8.0",
+		"@nuxt/module-builder": "^1.0.0",
 		"@types/node": "^22.1.0",
 		"eslint": "^9.0.0",
 		"nuxt": "^3.11.2",
