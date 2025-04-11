@@ -15,14 +15,14 @@
 		"@astrojs/starlight": "^0.32.0",
 		"@konami-emoji-blast/astro": "workspace:",
 		"@types/node": "^22.1.0",
-		"@types/react": "^18.3.3",
+		"@types/react": "^19.0.0",
 		"@types/react-dom": "^18.3.0",
 		"astro": "^5.0.0",
 		"clsx": "^2.1.1",
 		"dedent": "^1.5.3",
 		"emoji-blast": "workspace:",
 		"konami-emoji-blast": "workspace:",
-		"react": "^18.3.1",
+		"react": "^19.0.0",
 		"react-dom": "^18.3.1",
 		"typescript": "^5.4.5"
 	}
