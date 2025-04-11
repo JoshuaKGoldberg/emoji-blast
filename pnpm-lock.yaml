@@ -48,8 +48,8 @@ importers:
         specifier: ^5.0.0
         version: 5.1.0(eslint@8.57.1)
       eslint-plugin-package-json:
-        specifier: ^0.22.0
-        version: 0.22.0(@types/estree@1.0.7)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
+        specifier: ^0.29.0
+        version: 0.29.1(@types/estree@1.0.7)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0)
       eslint-plugin-perfectionist:
         specifier: ^2.7.0
         version: 2.11.0(eslint@8.57.1)(typescript@5.8.3)(vue-eslint-parser@9.4.3(eslint@8.57.1))
@@ -3565,8 +3565,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-package-json@0.22.0:
-    resolution: {integrity: sha512-gCII1NrVrowVd8Ns5jaUsvf8yYWTLHrNt2p6ByLsXkyku+QOE5h4B6hdWmQ6jEvdPPYc9K464pTNU1oxm4NH3A==}
+  eslint-plugin-package-json@0.29.1:
+    resolution: {integrity: sha512-4Jn1YO0JJyqs2W7Tt9I0QahQ0sPc2G5hLcWBUxkTdVF84Rdn+bVm9NY/XbjVJOlujkgZAK8Hi8irv+Mx4aTqaw==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -6138,6 +6138,10 @@ packages:
 
   sort-package-json@2.15.1:
     resolution: {integrity: sha512-9x9+o8krTT2saA9liI4BljNjwAbvUnWf11Wq+i/iZt8nl2UGYnf3TH5uBydE7VALmP7AGwlfszuEeL8BDyb0YA==}
+    hasBin: true
+
+  sort-package-json@3.0.0:
+    resolution: {integrity: sha512-vfZWx4DnFNB8R9Vg4Dnx21s20auNzWH15ZaCBfADAiyrCwemRmhWstTgvLjMek1DW3+MHcNaqkp86giCF24rMA==}
     hasBin: true
 
   source-map-js@1.2.1:
@@ -11242,7 +11246,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-package-json@0.22.0(@types/estree@1.0.7)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
+  eslint-plugin-package-json@0.29.1(@types/estree@1.0.7)(eslint@8.57.1)(jsonc-eslint-parser@2.4.0):
     dependencies:
       '@altano/repository-tools': 0.1.1
       detect-indent: 6.1.0
@@ -11253,7 +11257,7 @@ snapshots:
       package-json-validator: 0.10.0
       semver: 7.7.1
       sort-object-keys: 1.1.3
-      sort-package-json: 2.15.1
+      sort-package-json: 3.0.0
       validate-npm-package-name: 6.0.0
     transitivePeerDependencies:
       - '@types/estree'
@@ -14694,6 +14698,17 @@ snapshots:
   sort-object-keys@1.1.3: {}
 
   sort-package-json@2.15.1:
+    dependencies:
+      detect-indent: 7.0.1
+      detect-newline: 4.0.1
+      get-stdin: 9.0.0
+      git-hooks-list: 3.2.0
+      is-plain-obj: 4.1.0
+      semver: 7.7.1
+      sort-object-keys: 1.1.3
+      tinyglobby: 0.2.12
+
+  sort-package-json@3.0.0:
     dependencies:
       detect-indent: 7.0.1
       detect-newline: 4.0.1
