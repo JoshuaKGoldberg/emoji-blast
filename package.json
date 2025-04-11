@@ -34,7 +34,7 @@
 		"@types/eslint": "^8.56.6",
 		"@typescript-eslint/eslint-plugin": "^8.0.1",
 		"@typescript-eslint/parser": "^8.0.1",
-		"@vitest/coverage-v8": "^2.0.5",
+		"@vitest/coverage-v8": "^3.0.0",
 		"console-fail-test": "^0.5.0",
 		"cspell": "^8.6.1",
 		"eslint": "^8.57.0",
