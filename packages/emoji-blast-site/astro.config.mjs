@@ -36,9 +36,13 @@ export default defineConfig({
 					label: "Integrations",
 				},
 			],
-			social: {
-				github: "https://github.com/JoshuaKGoldberg/emoji-blast",
-			},
+			social: [
+				{
+					href: "https://github.com/JoshuaKGoldberg/emoji-blast",
+					icon: "github",
+					label: "Github",
+				},
+			],
 			title: "emoji-blast",
 		}),
 	],
