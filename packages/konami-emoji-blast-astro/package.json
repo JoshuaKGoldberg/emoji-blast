@@ -24,7 +24,7 @@
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"devDependencies": {
-		"astro": "^5.0.0"
+		"astro": "^5.11.0"
 	},
 	"peerDependencies": {
 		"astro": "^2 || ^3 || ^4 || ^5.0.0",
