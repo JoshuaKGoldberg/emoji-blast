@@ -2,6 +2,7 @@
  * Number or [minimum, maximum] range for random number generation.
  */
 export type RandomRange =
+	| number
 	| {
 			/**
 			 * Inclusive maximum number to generate.
@@ -12,12 +13,11 @@ export type RandomRange =
 			 * Inclusive minimum number to generate.
 			 */
 			min: number;
-	  }
-	| number;
+	  };
 
 /**
  * Creates a random number within a range.
- * @param range   [Minimum, maximum] numbers in a range.
+ * @param range [Minimum, maximum] numbers in a range.
  * @returns Random number within the [minimum, maximum] range.
  */
 export const randomInRange = (range: RandomRange) =>

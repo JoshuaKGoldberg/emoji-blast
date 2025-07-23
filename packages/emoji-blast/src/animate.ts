@@ -12,7 +12,7 @@ export interface EmojiBlastHandler {
 
 /**
  * Hook to call on each tick.
- * @param actors   Each actor in play at the time.
+ * @param actors Each actor in play at the time.
  */
 export type EmojiTick = (actors: EmojiActor[]) => void;
 
@@ -51,7 +51,7 @@ export function animate(
 
 	/**
 	 * Runs game logic for one tick.
-	 * @param timeCurrent   Current time, in milliseconds since page load.
+	 * @param timeCurrent Current time, in milliseconds since page load.
 	 */
 	const runTick = (timeCurrent: number): void => {
 		if (stopped) {

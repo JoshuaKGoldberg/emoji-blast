@@ -1,3 +1,4 @@
+import * as fs from "node:fs";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
@@ -13,5 +14,15 @@ export default defineConfig({
 			include: ["packages/*/src"],
 			reporter: ["html", "lcov"],
 		},
+		projects: fs.readdirSync("./packages").map((name) => ({
+			test: {
+				clearMocks: true,
+				include: ["packages/*/src"],
+				name,
+				root: `./packages/${name}`,
+				setupFiles: ["console-fail-test/setup"],
+				testTimeout: 10_000,
+			},
+		})),
 	},
 });

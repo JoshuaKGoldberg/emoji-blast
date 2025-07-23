@@ -1,4 +1,4 @@
-import { RandomRange, randomInRange } from "./range.js";
+import { randomInRange, RandomRange } from "./range.js";
 import { randomArrayMember } from "./utils.js";
 
 /**
@@ -119,16 +119,16 @@ export interface EmojiPosition {
 /**
  * In-progress tracking for an actor's position.
  */
-export type EmojiVelocity = {
+export type EmojiVelocity = EmojiPosition & {
 	/**
 	 * How much the actor's element is rotated.
 	 */
 	rotation: number;
-} & EmojiPosition;
+};
 
 /**
  * Processes an element just before it's appended to the container.
- * @param element   Element about to be appended to the container.
+ * @param element Element about to be appended to the container.
  */
 export type EmojiProcess = (element: Element) => void;
 
@@ -234,7 +234,7 @@ export class EmojiActor {
 
 	/**
 	 * Moves the actor forward one tick.
-	 * @param timeElapsed   How many milliseconds have passed since the last action.
+	 * @param timeElapsed How many milliseconds have passed since the last action.
 	 * @returns Whether this is now dead.
 	 */
 	public act(timeElapsed: number): boolean {

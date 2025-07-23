@@ -5,7 +5,7 @@ const createdStyles = new Set<string>();
 
 /**
  * Registers a class name for emojis, creating a style element for it if necessary.
- * @param className   Potentially new CSS class name.
+ * @param className Potentially new CSS class name.
  */
 export const createStyleElementAndClass = (className: string): void => {
 	if (createdStyles.has(className)) {

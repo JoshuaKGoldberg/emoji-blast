@@ -1,4 +1,4 @@
-import { MockInstance, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, MockInstance, vi } from "vitest";
 
 import { initializeKonamiEmojiBlast } from "./initializeKonamiEmojiBlast.js";
 
