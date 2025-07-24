@@ -4,7 +4,6 @@ import vitest from "@vitest/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 import jsonc from "eslint-plugin-jsonc";
 import markdown from "eslint-plugin-markdown";
-import n from "eslint-plugin-n";
 import packageJson from "eslint-plugin-package-json";
 import perfectionist from "eslint-plugin-perfectionist";
 import * as regexp from "eslint-plugin-regexp";
@@ -34,7 +33,6 @@ export default tseslint.config(
 	jsdoc.configs["flat/stylistic-typescript-error"],
 	jsonc.configs["flat/recommended-with-json"],
 	markdown.configs.recommended,
-	n.configs["flat/recommended"],
 	perfectionist.configs["recommended-natural"],
 	regexp.configs["flat/recommended"],
 	{
@@ -64,15 +62,6 @@ export default tseslint.config(
 			"@typescript-eslint/restrict-template-expressions": [
 				"error",
 				{ allowNumber: true },
-			],
-			"n/no-extraneous-import": "off",
-			"n/no-extraneous-require": "off",
-			"n/no-missing-import": "off",
-			"n/no-missing-require": "off",
-			"n/no-unpublished-import": "off",
-			"n/no-unsupported-features/node-builtins": [
-				"error",
-				{ allowExperimental: true },
 			],
 
 			// https://github.com/gajus/eslint-plugin-jsdoc/issues/1433
