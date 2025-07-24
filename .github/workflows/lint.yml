@@ -4,7 +4,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
-      - run: pnpm build
+      - run: pnpm run -r prebuild
+      - run: pnpm run build
+      - run: pnpm run build:all
       - run: pnpm lint
 
 name: Lint

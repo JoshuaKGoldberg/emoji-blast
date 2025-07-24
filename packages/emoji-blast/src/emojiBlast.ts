@@ -4,7 +4,7 @@ import {
 	EmojiPosition,
 	EmojiProcess,
 } from "./actor.js";
-import { EmojiTick, animate } from "./animate.js";
+import { animate, EmojiTick } from "./animate.js";
 import { defaultEmojis } from "./emojis.js";
 import { EmojiEvents, initializeEvents } from "./events.js";
 import { createStyleElementAndClass } from "./styles.js";
@@ -78,7 +78,7 @@ export const defaultClassName = "emoji-styles";
 
 /**
  * Default creator for a container element.
- * @returns <div /> element prepended to document.body.
+ * @returns &lt;div /> element prepended to document.body.
  */
 export const defaultCreateContainer = (() => {
 	let container: HTMLElement | undefined;

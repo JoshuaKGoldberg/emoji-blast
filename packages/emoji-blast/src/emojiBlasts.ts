@@ -1,4 +1,4 @@
-import { EmojiBlastSettings, SettingValue, emojiBlast } from "./emojiBlast.js";
+import { emojiBlast, EmojiBlastSettings, SettingValue } from "./emojiBlast.js";
 import { obtainValue } from "./utils.js";
 
 /**
@@ -18,8 +18,8 @@ export interface EmojiBlastsSettings extends EmojiBlastSettings {
 
 /**
  * Schedules an blast to occur.
- * @param action   Action that causes the blast.
- * @param delay   How long before the action should occur.
+ * @param action Action that causes the blast.
+ * @param delay How long before the action should occur.
  */
 export type EmojiScheduler = (action: () => void, delay: number) => void;
 
@@ -46,7 +46,7 @@ const defaultInterval = () => 700 + Math.floor(Math.random() * 1401);
 
 /**
  * Periodically blast emojis across the page! 🎆
- * @param settings   Settings to blast emojis.
+ * @param settings Settings to blast emojis.
  * @returns Handler for the ongoing blasts of emojis.
  */
 export const emojiBlasts = (

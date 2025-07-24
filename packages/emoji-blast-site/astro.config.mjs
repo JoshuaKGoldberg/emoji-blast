@@ -3,7 +3,7 @@ import starlight from "@astrojs/starlight";
 import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
 import { defineConfig } from "astro/config";
 
-import { demoGroups } from "./src/data/demos";
+import { demoGroups } from "./src/data/demos.ts";
 
 export default defineConfig({
 	integrations: [
@@ -36,9 +36,13 @@ export default defineConfig({
 					label: "Integrations",
 				},
 			],
-			social: {
-				github: "https://github.com/JoshuaKGoldberg/emoji-blast",
-			},
+			social: [
+				{
+					href: "https://github.com/JoshuaKGoldberg/emoji-blast",
+					icon: "github",
+					label: "Github",
+				},
+			],
 			title: "emoji-blast",
 		}),
 	],

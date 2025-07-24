@@ -3,7 +3,7 @@
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
 	"workspaces": {
 		"packages/emoji-blast": {
-			"entry": ["src/index.ts!", "src/mains/*.ts!"],
+			"entry": ["src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/emoji-blast-site": {
@@ -16,25 +16,26 @@
 			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
 		},
 		"packages/konami-emoji-blast": {
-			"entry": ["src/index.ts!", "src/mains/*.ts!"],
+			"entry": ["src/mains/*.ts!"],
 			"ignoreDependencies": ["webpack-cli"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-astro": {
-			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-nuxt": {
-			"entry": ["src/*.ts!", "src/runtime/plugins/*.ts"],
-			"ignore": [".nuxt/*"],
+			"entry": ["src/*.ts", "src/runtime/plugins/*.ts"],
+			"ignore": [
+				"src/runtime/composables/konami.ts",
+				"src/runtime/plugins/konami-code.client.ts"
+			],
+			"ignoreDependencies": ["@nuxt/devtools"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-react": {
-			"entry": ["src/index.ts!"],
 			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
 		},
 		"packages/konami-emoji-blast-typedoc": {
-			"entry": ["src/index.ts!"],
 			"ignoreDependencies": ["konami-emoji-blast"],
 			"project": ["src/**/*.ts!"]
 		}

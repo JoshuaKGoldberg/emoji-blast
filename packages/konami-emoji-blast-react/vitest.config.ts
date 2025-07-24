@@ -7,5 +7,6 @@ export default defineProject({
 		clearMocks: true,
 		environment: "jsdom",
 		exclude: ["lib", "node_modules"],
+		setupFiles: ["console-fail-test/setup"],
 	},
 });

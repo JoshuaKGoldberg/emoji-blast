@@ -5,9 +5,9 @@ import styles from "./Button.module.css";
 
 export type ButtonAs = "a" | "button";
 
-export type ButtonProps<As extends ButtonAs> = {
+export type ButtonProps<As extends ButtonAs> = React.ComponentProps<As> & {
 	as: As;
-} & React.ComponentProps<As>;
+};
 
 export function Button<As extends ButtonAs>({
 	as: Component,

@@ -1,9 +1,9 @@
 import { emojiBlast, emojiBlasts } from "../index";
 
-declare const window: {
+declare const window: Window & {
 	emojiBlast: typeof emojiBlast;
 	emojiBlasts: typeof emojiBlasts;
-} & Window;
+};
 
 window.emojiBlast = emojiBlast;
 window.emojiBlasts = emojiBlasts;
