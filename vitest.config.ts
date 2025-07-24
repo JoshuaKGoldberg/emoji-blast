@@ -17,7 +17,7 @@ export default defineConfig({
 		projects: fs.readdirSync("./packages").map((name) => ({
 			test: {
 				clearMocks: true,
-				include: ["packages/*/src"],
+				include: ["**/src/**/*.test.t*"],
 				name,
 				root: `./packages/${name}`,
 				setupFiles: ["console-fail-test/setup"],
