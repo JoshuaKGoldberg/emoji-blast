@@ -75,9 +75,4 @@ export default defineConfig({
 		apis: "apis/emoji-blast",
 		demos: "demos/basic",
 	},
-	vite: {
-		server: {
-			allowedHosts: ["medium-nathan-association-echo.trycloudflare.com"],
-		},
-	},
 });
