@@ -66,6 +66,7 @@ export default tseslint.config(
 				{ allowNumber: true },
 			],
 			"n/no-extraneous-import": "off",
+			"n/no-extraneous-require": "off",
 			"n/no-missing-import": "off",
 			"n/no-unpublished-import": "off",
 			"n/no-unsupported-features/node-builtins": [
