@@ -68,6 +68,7 @@ export default tseslint.config(
 			"n/no-extraneous-import": "off",
 			"n/no-extraneous-require": "off",
 			"n/no-missing-import": "off",
+			"n/no-missing-require": "off",
 			"n/no-unpublished-import": "off",
 			"n/no-unsupported-features/node-builtins": [
 				"error",
