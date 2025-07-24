@@ -1,9 +1,10 @@
 {
 	"$schema": "https://unpkg.com/knip@latest/schema.json",
+	"ignoreDependencies": ["console-fail-test"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
 	"workspaces": {
 		"packages/emoji-blast": {
-			"entry": ["src/index.ts", "src/mains/*.ts!"],
+			"entry": ["src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/emoji-blast-site": {
@@ -26,6 +27,10 @@
 		"packages/konami-emoji-blast-nuxt": {
 			"entry": ["src/*.ts!", "src/runtime/plugins/*.ts"],
 			"ignore": [".nuxt/*"],
+			"ignoreDependencies": ["@nuxt/devtools"],
+			"paths": {
+				"#app": ["."]
+			},
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-react": {
