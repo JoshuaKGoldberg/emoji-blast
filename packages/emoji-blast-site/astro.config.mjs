@@ -15,6 +15,31 @@ export default defineConfig({
 				TwoColumnContent: "./src/components/TwoColumnContent.astro",
 			},
 			customCss: ["./src/styles/global.css"],
+			defaultLocale: "root",
+			head: [
+				...["description", "og:description"].map((property) => ({
+					attrs: {
+						content:
+							"🎆 Blasts emoji like fireworks all up in your HTML page. 🎆",
+						property,
+					},
+					tag: "meta",
+				})),
+				...["image", "og:image"].map((property) => ({
+					attrs: {
+						content: "/landscape-light.png",
+						property,
+					},
+					tag: "meta",
+				})),
+				{
+					attrs: {
+						content: "summary_large_image",
+						name: "twitter:card",
+					},
+					tag: "meta",
+				},
+			],
 			sidebar: [
 				{
 					autogenerate: {
