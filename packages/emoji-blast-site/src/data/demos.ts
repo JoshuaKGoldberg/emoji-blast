@@ -626,8 +626,9 @@ const shenanigans: DemoGroup = {
 		},
 		{
 			blaster: () => {
-				// Finding the midpoint of the height of the page to base the y positions of the emojiBlasts around
+				// Finding the midpoints of the page to base the positions of the emojiBlasts around
 				const midPageHeight = innerHeight / 2;
+				const midPageWidth = innerWidth / 2;
 
 				// Function for the ufo
 				const ufo = (
@@ -673,7 +674,7 @@ const shenanigans: DemoGroup = {
 							rotation: 0,
 						},
 						position: {
-							x: 480,
+							x: midPageWidth - 25,
 							y: midPageHeight + 100,
 						},
 					});
@@ -696,7 +697,7 @@ const shenanigans: DemoGroup = {
 							rotation: 180,
 						},
 						position: {
-							x: 535,
+							x: midPageWidth + 25,
 							y: midPageHeight + 70,
 						},
 					});
@@ -708,14 +709,14 @@ const shenanigans: DemoGroup = {
 				// Starting positions as [x, y] coordinates for the ufo at each stage
 				const ufoPos = [
 					[0, midPageHeight - 200], // Start stage
-					[500, midPageHeight], // Mid stage & end stage
+					[midPageWidth, midPageHeight], // Mid stage & end stage
 				] as const;
 
 				// Initial velocities as [x, y] for the ufo at each stage
 				const ufoVel = [
-					[15, 6], // Start stage
+					[midPageWidth / 34, 6], // Start stage
 					[0, 0], // Mid stage
-					[15, -6], // End stage
+					[midPageWidth / 25, -6], // End stage
 				] as const;
 
 				// Initial y value velocities for the cow at each stage
