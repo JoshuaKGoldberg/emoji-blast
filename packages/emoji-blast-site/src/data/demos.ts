@@ -20,6 +20,7 @@ const basic: DemoGroup = {
 			blaster: () => {
 				emojiBlast();
 			},
+
 			blurb: "A single blast of emojis.",
 			title: "emojiBlast",
 		},

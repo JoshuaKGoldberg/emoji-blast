@@ -7,6 +7,7 @@ import {
 import { animate, EmojiTick } from "./animate.js";
 import { defaultEmojis } from "./emojis.js";
 import { EmojiEvents, initializeEvents } from "./events.js";
+import { grabAndToss } from "./grabAndToss.js";
 import { createStyleElementAndClass } from "./styles.js";
 import { MakePartial, obtainValue, shuffleArray } from "./utils.js";
 
@@ -102,115 +103,7 @@ export const defaultCreateContainer = (() => {
  */
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
-let activeDrag:
-	| undefined
-	| {
-			actor: EmojiActor;
-			gravity: number;
-			samplePoints: { x: number; y: number }[];
-			startingCoords: { x: number; y: number };
-	  } = undefined;
-
-const expDecay = (value: number, index: number) => {
-	const LAMBDA = 0.25;
-	return value * (1 - LAMBDA) ** index;
-};
-
-let sampleInterval: NodeJS.Timeout;
-
-const onDrag = ({ clientX, clientY }: PointerEvent) => {
-	if (!activeDrag) {
-		return;
-	}
-
-	const dx = clientX - activeDrag.startingCoords.x;
-	const dy = clientY - activeDrag.startingCoords.y;
-
-	activeDrag.actor.update({
-		position: {
-			x: activeDrag.actor.position.x + dx,
-			y: activeDrag.actor.position.y + dy,
-		},
-	});
-
-	activeDrag.startingCoords = { x: clientX, y: clientY };
-};
-
-const onDrop = () => {
-	if (!activeDrag) {
-		return;
-	}
-
-	clearInterval(sampleInterval);
-	const { samplePoints } = activeDrag;
-
-	const scaledPoints = [...samplePoints].reverse().map(({ x, y }, i) => {
-		return { x: expDecay(x, i), y: expDecay(y, i) };
-	});
-
-	const totals = scaledPoints.reduce(
-		(acc, curr) => ({ x: acc.x + curr.x, y: acc.y + curr.y }),
-		{ x: 0, y: 0 },
-	);
-
-	const averageX = totals.x / samplePoints.length;
-	const averageY = totals.y / samplePoints.length;
-
-	const SENSITIVITY = 75;
-
-	activeDrag.actor.update({
-		gravity: activeDrag.gravity,
-		velocity: {
-			x: averageX * SENSITIVITY,
-			y: averageY * SENSITIVITY,
-		},
-	});
-
-	activeDrag = undefined;
-
-	document.removeEventListener("pointermove", onDrag);
-	document.removeEventListener("pointerup", onDrop);
-};
-
-export const defaultEvents: EmojiEvents = {
-	onPointerdown({ actor, event }) {
-		if (activeDrag) {
-			return;
-		}
-		const { clientX, clientY } = event;
-		const startingCoords = { x: clientX, y: clientY };
-
-		activeDrag = {
-			actor,
-			gravity: actor.gravity,
-			samplePoints: [],
-			startingCoords,
-		};
-
-		actor.update({
-			gravity: 0,
-			velocity: { x: 0, y: 0 },
-		});
-
-		document.addEventListener("pointermove", onDrag);
-		document.addEventListener("pointerup", onDrop);
-
-		let lastCoords = startingCoords;
-
-		sampleInterval = setInterval(() => {
-			if (!activeDrag) {
-				return;
-			}
-
-			const currCoords = { ...activeDrag.actor.position };
-			const dx = Math.round(currCoords.x - lastCoords.x);
-			const dy = Math.round(currCoords.y - lastCoords.y);
-
-			activeDrag.samplePoints.push({ x: dx, y: dy });
-			lastCoords = currCoords;
-		}, 5);
-	},
-};
+export const defaultEvents: EmojiEvents = grabAndToss;
 
 /**
  * Default runtime change constants for actor movements.
