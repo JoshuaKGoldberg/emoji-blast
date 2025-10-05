@@ -106,12 +106,12 @@ let activeDrag:
 	| undefined
 	| {
 			actor: EmojiActor;
-			physics: {
-				gravity: number;
-				velocity: { x: number; y: number };
-			};
+			gravity: number;
+			samplePoints: { x: number; y: number }[];
 			startingCoords: { x: number; y: number };
 	  } = undefined;
+
+let sampleInterval: NodeJS.Timeout;
 
 const onDrag = ({ clientX, clientY }: MouseEvent) => {
 	if (!activeDrag) {
@@ -131,15 +131,41 @@ const onDrag = ({ clientX, clientY }: MouseEvent) => {
 	activeDrag.startingCoords = { x: clientX, y: clientY };
 };
 
-const onDrop = ({ clientX, clientY }: MouseEvent) => {
+const onDrop = () => {
 	if (!activeDrag) {
 		return;
 	}
 
-	const dx = clientX - activeDrag.startingCoords.x;
-	const dy = clientY - activeDrag.startingCoords.y;
+	clearInterval(sampleInterval);
+	const { samplePoints } = activeDrag;
 
-	activeDrag.actor.update({ velocity: { x: dx, y: dy } });
+	const expDecay = (value: number, index: number) => {
+		const LAMBDA = 0.25;
+		return value * (1 - LAMBDA) ** index;
+	};
+
+	const scaledPoints = [...samplePoints].reverse().map(({ x, y }, i) => {
+		return { x: expDecay(x, i), y: expDecay(y, i) };
+	});
+
+	const totals = scaledPoints.reduce(
+		(acc, curr) => ({ x: acc.x + curr.x, y: acc.y + curr.y }),
+		{ x: 0, y: 0 },
+	);
+
+	const averageX = totals.x / samplePoints.length;
+	const averageY = totals.y / samplePoints.length;
+
+	const SENSITIVITY = 75;
+
+	activeDrag.actor.update({
+		gravity: activeDrag.gravity,
+		velocity: {
+			x: averageX * SENSITIVITY,
+			y: averageY * SENSITIVITY,
+		},
+	});
+
 	activeDrag = undefined;
 
 	document.removeEventListener("mousemove", onDrag);
@@ -152,14 +178,13 @@ export const defaultEvents: EmojiEvents = {
 			return;
 		}
 		const { clientX, clientY } = event as MouseEvent;
+		const startingCoords = { x: clientX, y: clientY };
 
 		activeDrag = {
 			actor,
-			physics: {
-				gravity: actor.gravity,
-				velocity: actor.velocity,
-			},
-			startingCoords: { x: clientX, y: clientY },
+			gravity: actor.gravity,
+			samplePoints: [],
+			startingCoords,
 		};
 
 		actor.update({
@@ -169,6 +194,21 @@ export const defaultEvents: EmojiEvents = {
 
 		document.addEventListener("mousemove", onDrag);
 		document.addEventListener("mouseup", onDrop);
+
+		let lastCoords = startingCoords;
+
+		sampleInterval = setInterval(() => {
+			if (!activeDrag) {
+				return;
+			}
+
+			const currCoords = { ...activeDrag.actor.position };
+			const dx = Math.round(currCoords.x - lastCoords.x);
+			const dy = Math.round(currCoords.y - lastCoords.y);
+
+			activeDrag.samplePoints.push({ x: dx, y: dy });
+			lastCoords = currCoords;
+		}, 5);
 	},
 };
 

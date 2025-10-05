@@ -20,7 +20,7 @@ const basic: DemoGroup = {
 			blaster: () => {
 				emojiBlast({
 					emojiCount: 1,
-					physics: { fontSize: 150, framerate: 200, gravity: 0.0 },
+					physics: { fontSize: 150 },
 				});
 			},
 			blurb: "A single blast of emojis.",

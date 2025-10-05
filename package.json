@@ -13,6 +13,7 @@
 	},
 	"type": "module",
 	"scripts": {
+		"b": "pnpm build && pnpm build:all",
 		"build": "pnpm run -r prebuild; tsc -b",
 		"build:all": "pnpm run -r prebuild; pnpm run -F \\!root -r build",
 		"build:release:all": "pnpm run -r build:release",
