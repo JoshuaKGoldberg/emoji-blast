@@ -10,8 +10,7 @@ A website for `emoji-blast` and its associated packages.
 
 1. Clone repo
 2. `pnpm install`
-3. `pnpm build`
-4. `pnpm build:all`
-5. `cd` into this directory, `packages/emoji-blast-site`
-6. `pnpm run dev`
-7. Open [http://localhost:4321](http://localhost:4321) to view it in your browser
+3. `pnpm build:all`
+4. `cd` into this directory, `packages/emoji-blast-site`
+5. `pnpm run dev`
+6. Open [http://localhost:4321](http://localhost:4321) to view it in your browser
