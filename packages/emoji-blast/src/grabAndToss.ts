@@ -8,7 +8,7 @@ import { EmojiEvents } from "./events";
  */
 const exponentialDecay = (value: number, timeSeries: number) => {
 	// Lambda param (a value between 0 and 1) controls how fast to decay value
-	const LAMBDA = 0.35;
+	const LAMBDA = 0.25;
 	return value * (1 - LAMBDA) ** timeSeries;
 };
 
