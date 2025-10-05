@@ -761,10 +761,10 @@ const shenanigans: DemoGroup = {
 					ufo(ufoPos[1], ufoVel[2], classNames[2]);
 				}, 4350);
 			},
-			blurb: `A UFO appears on the page and briefly stops to abduct up a lone cow.
-The example consists of three stages defined by time, each with their
-own set of emojiBlasts. The first stage consists of the UFO flying
-onto the page, the second consists of the UFO stopping to abduct the cow,
+			blurb: `A UFO appears on the page and briefly stops to abduct up a lone cow. 
+The example consists of three stages defined by time, each with their 
+own set of emojiBlasts. The first stage consists of the UFO flying 
+onto the page, the second consists of the UFO stopping to abduct the cow, 
 and the third consists of the UFO flying off the page.`,
 			title: "Nope",
 		},
