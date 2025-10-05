@@ -22,7 +22,7 @@ export interface EmojiBlastSettings {
 	/**
 	 * Element container to append elements into.
 	 */
-	container: SettingValue<Element>;
+	container: SettingValue<HTMLElement>;
 
 	/**
 	 * How many emojis to create per blast.
@@ -102,14 +102,73 @@ export const defaultCreateContainer = (() => {
  */
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
+let activeDrag:
+	| undefined
+	| {
+			actor: EmojiActor;
+			physics: {
+				gravity: number;
+				velocity: { x: number; y: number };
+			};
+			startingCoords: { x: number; y: number };
+	  } = undefined;
+
+const onDrag = ({ clientX, clientY }: MouseEvent) => {
+	if (!activeDrag) {
+		return;
+	}
+
+	const dx = clientX - activeDrag.startingCoords.x;
+	const dy = clientY - activeDrag.startingCoords.y;
+
+	activeDrag.actor.update({
+		position: {
+			x: activeDrag.actor.position.x + dx,
+			y: activeDrag.actor.position.y + dy,
+		},
+	});
+
+	activeDrag.startingCoords = { x: clientX, y: clientY };
+};
+
+const onDrop = ({ clientX, clientY }: MouseEvent) => {
+	if (!activeDrag) {
+		return;
+	}
+
+	const dx = clientX - activeDrag.startingCoords.x;
+	const dy = clientY - activeDrag.startingCoords.y;
+
+	activeDrag.actor.update({ velocity: { x: dx, y: dy } });
+	activeDrag = undefined;
+
+	document.removeEventListener("mousemove", onDrag);
+	document.removeEventListener("mouseup", onDrop);
+};
+
 export const defaultEvents: EmojiEvents = {
-	onClick({ actor }) {
-		actor.update({
-			opacity: 1,
-			velocity: {
-				y: actor.velocity.y / 2 - 15,
+	onMousedown({ actor, event }) {
+		if (activeDrag) {
+			return;
+		}
+		const { clientX, clientY } = event as MouseEvent;
+
+		activeDrag = {
+			actor,
+			physics: {
+				gravity: actor.gravity,
+				velocity: actor.velocity,
 			},
+			startingCoords: { x: clientX, y: clientY },
+		};
+
+		actor.update({
+			gravity: 0,
+			velocity: { x: 0, y: 0 },
 		});
+
+		document.addEventListener("mousemove", onDrag);
+		document.addEventListener("mouseup", onDrop);
 	},
 };
 
@@ -170,7 +229,6 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		uniqueness = Infinity,
 	} = settings;
 	const container = obtainValue(containerSetting);
-
 	createStyleElementAndClass(className);
 
 	const physics = {

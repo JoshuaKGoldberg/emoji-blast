@@ -142,9 +142,19 @@ export interface EmojiUpdates {
 	opacity?: number;
 
 	/**
+	 * Any position changes, if they should change.
+	 */
+	position?: Partial<EmojiVelocity>;
+
+	/**
 	 * Any velocity changes, if they should change.
 	 */
 	velocity?: Partial<EmojiVelocity>;
+
+	/**
+	 * Gravitation changes, if it should change.
+	 */
+	gravity?: number;
 }
 
 /**
@@ -189,6 +199,11 @@ export class EmojiActor {
 	#velocity: EmojiVelocity;
 
 	/**
+	 * Change amounts for elements y-axis
+	 */
+	#gravity: number;
+
+	/**
 	 * Attached element kept in the DOM.
 	 */
 	public readonly element: HTMLSpanElement;
@@ -216,6 +231,8 @@ export class EmojiActor {
 			x: randomInRange(settings.physics.initialVelocities.x),
 			y: randomInRange(settings.physics.initialVelocities.y),
 		};
+
+		this.#gravity = randomInRange(settings.physics.gravity);
 
 		this.updateElement();
 		settings.process?.(this.element);
@@ -247,7 +264,7 @@ export class EmojiActor {
 		}
 
 		this.#velocity.rotation *= this.#physics.rotationDeceleration;
-		this.#velocity.y += this.#physics.gravity;
+		this.#velocity.y += this.#gravity;
 
 		this.#position.rotation += this.#velocity.rotation;
 		this.#position.x +=
@@ -299,7 +316,7 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Updates the emoji for being clicked.
+	 * Updates the emojis properties.
 	 */
 	public update(updates: EmojiUpdates) {
 		if (updates.opacity !== undefined) {
@@ -319,6 +336,24 @@ export class EmojiActor {
 				this.#velocity.y = updates.velocity.y;
 			}
 		}
+
+		if (updates.position !== undefined) {
+			if (updates.position.rotation !== undefined) {
+				this.#position.rotation = updates.position.rotation;
+			}
+
+			if (updates.position.x !== undefined) {
+				this.#position.x = updates.position.x;
+			}
+
+			if (updates.position.y !== undefined) {
+				this.#position.y = updates.position.y;
+			}
+		}
+
+		if (updates.gravity !== undefined) {
+			this.#gravity = updates.gravity;
+		}
 	}
 
 	/**
@@ -333,6 +368,13 @@ export class EmojiActor {
 	 */
 	public get position(): Readonly<EmojiPosition> {
 		return this.#position;
+	}
+
+	/**
+	 * Change amounts for elements y-axis.
+	 */
+	public get gravity(): Readonly<number> {
+		return this.#gravity;
 	}
 
 	/**
