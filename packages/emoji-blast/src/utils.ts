@@ -16,7 +16,7 @@ export const obtainValue = <T>(value: (() => T) | T): T =>
 
 /**
  * Grabs a single random member of an array.
- * @template T Type of items in the array.
+ * @template T   Type of items in the array.
  * @param array Array of items.
  */
 export const randomArrayMember = <T>(array: readonly T[]): T => {
@@ -25,7 +25,7 @@ export const randomArrayMember = <T>(array: readonly T[]): T => {
 
 /**
  * Creates a shuffled version of an array.
- * @template T Type of items in the array.
+ * @template T   Type of items in the array.
  * @param array Array to copy.
  * @returns Shuffled version of the array.
  */
