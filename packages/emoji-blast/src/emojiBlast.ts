@@ -111,9 +111,14 @@ let activeDrag:
 			startingCoords: { x: number; y: number };
 	  } = undefined;
 
+const expDecay = (value: number, index: number) => {
+	const LAMBDA = 0.25;
+	return value * (1 - LAMBDA) ** index;
+};
+
 let sampleInterval: NodeJS.Timeout;
 
-const onDrag = ({ clientX, clientY }: MouseEvent) => {
+const onDrag = ({ clientX, clientY }: PointerEvent) => {
 	if (!activeDrag) {
 		return;
 	}
@@ -139,11 +144,6 @@ const onDrop = () => {
 	clearInterval(sampleInterval);
 	const { samplePoints } = activeDrag;
 
-	const expDecay = (value: number, index: number) => {
-		const LAMBDA = 0.25;
-		return value * (1 - LAMBDA) ** index;
-	};
-
 	const scaledPoints = [...samplePoints].reverse().map(({ x, y }, i) => {
 		return { x: expDecay(x, i), y: expDecay(y, i) };
 	});
@@ -168,16 +168,16 @@ const onDrop = () => {
 
 	activeDrag = undefined;
 
-	document.removeEventListener("mousemove", onDrag);
-	document.removeEventListener("mouseup", onDrop);
+	document.removeEventListener("pointermove", onDrag);
+	document.removeEventListener("pointerup", onDrop);
 };
 
 export const defaultEvents: EmojiEvents = {
-	onMousedown({ actor, event }) {
+	onPointerdown({ actor, event }) {
 		if (activeDrag) {
 			return;
 		}
-		const { clientX, clientY } = event as MouseEvent;
+		const { clientX, clientY } = event;
 		const startingCoords = { x: clientX, y: clientY };
 
 		activeDrag = {
@@ -192,8 +192,8 @@ export const defaultEvents: EmojiEvents = {
 			velocity: { x: 0, y: 0 },
 		});
 
-		document.addEventListener("mousemove", onDrag);
-		document.addEventListener("mouseup", onDrop);
+		document.addEventListener("pointermove", onDrag);
+		document.addEventListener("pointerup", onDrop);
 
 		let lastCoords = startingCoords;
 

@@ -18,10 +18,7 @@ const basic: DemoGroup = {
 	demos: [
 		{
 			blaster: () => {
-				emojiBlast({
-					emojiCount: 1,
-					physics: { fontSize: 150 },
-				});
+				emojiBlast();
 			},
 			blurb: "A single blast of emojis.",
 			title: "emojiBlast",

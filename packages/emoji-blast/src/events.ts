@@ -1,6 +1,6 @@
 import { EmojiActor } from "./actor.js";
 
-export interface EmojiEventData {
+export interface EmojiEventData<T extends Event> {
 	/**
 	 * Actor being interacted with.
 	 */
@@ -9,27 +9,23 @@ export interface EmojiEventData {
 	/**
 	 * Original triggering DOM event.
 	 */
-	event: Event;
+	event: T;
 }
 
 /**
  * Handler for a user interaction with an individual emoji.
  * @param actor
  */
-export type EmojiEventHandler = (data: EmojiEventData) => void;
+export type EmojiEventHandler<T extends Event> = (
+	data: EmojiEventData<T>,
+) => void;
 
 /**
  * Handlers for user interactions with individual emojis.
  */
 export type EmojiEvents = Partial<{
-	/**
-	 * Handler for a user clicking an emoji.
-	 */
-	onClick: EmojiEventHandler;
-
-	onMousedown: EmojiEventHandler;
-	onMousemove: EmojiEventHandler;
-	onMouseup: EmojiEventHandler;
+	onClick: EmojiEventHandler<PointerEvent>;
+	onPointerdown: EmojiEventHandler<PointerEvent>;
 }>;
 
 /**
@@ -39,12 +35,14 @@ const attributeIndicator = "data-emoji-blast-events-initialized";
 
 const domNodesToActors = new WeakMap<EventTarget, EmojiActor>();
 
-const eventHandler = (handler?: EmojiEventHandler) => (event: Event) => {
-	const actor = event.target && domNodesToActors.get(event.target);
-	if (actor) {
-		handler?.({ actor, event });
-	}
-};
+const eventHandler =
+	<T extends Event>(handler?: EmojiEventHandler<T>) =>
+	(event: T) => {
+		const actor = event.target && domNodesToActors.get(event.target);
+		if (actor) {
+			handler?.({ actor, event });
+		}
+	};
 
 export function initializeEvents(
 	actors: EmojiActor[],
@@ -62,7 +60,5 @@ export function initializeEvents(
 	container.setAttribute(attributeIndicator, "true");
 
 	container.addEventListener("click", eventHandler(events.onClick));
-	container.addEventListener("mousedown", eventHandler(events.onMousedown));
-	container.addEventListener("mousemove", eventHandler(events.onMousemove));
-	container.addEventListener("mouseup", eventHandler(events.onMouseup));
+	container.addEventListener("pointerdown", eventHandler(events.onPointerdown));
 }
