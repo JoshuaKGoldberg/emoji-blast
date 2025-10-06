@@ -17,6 +17,6 @@ describe("KonamiEmojiBlast", () => {
 
 		render(<KonamiEmojiBlast onActivate={onActivate} />);
 
-		expect(mockUseKonamiEmojiBlast).toHaveBeenCalledWith(onActivate);
+		expect(mockUseKonamiEmojiBlast).toHaveBeenCalledExactlyOnceWith(onActivate);
 	});
 });

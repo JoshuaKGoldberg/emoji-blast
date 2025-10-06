@@ -67,7 +67,7 @@ export interface EmojiBlastSettings {
 
 /**
  * Setting value or a method to create it.
- * @template T   Type of the setting value.
+ * @template T Type of the setting value.
  */
 export type SettingValue<T> = (() => T) | T;
 
