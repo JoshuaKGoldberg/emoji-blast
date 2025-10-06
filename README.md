@@ -5,7 +5,7 @@
 <p align="center">
 	<!-- prettier-ignore-start -->
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 17" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-17-21bb42.svg" /></a>
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 18" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-18-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
@@ -59,6 +59,7 @@ Thanks! 💖
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Esemplaret1"><img src="https://avatars.githubusercontent.com/u/34987417?v=4?s=100" width="100px;" alt="Thomas Esemplare"/><br /><sub><b>Thomas Esemplare</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=Esemplaret1" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Yonava"><img src="https://avatars.githubusercontent.com/u/76519301?v=4?s=100" width="100px;" alt="Yona Alexander Voss-Andreae"/><br /><sub><b>Yona Alexander Voss-Andreae</b></sub></a><br /><a href="#tool-yonava" title="Tools">🔧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=helenamerk" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/joemcil"><img src="https://avatars.githubusercontent.com/u/126059816?v=4?s=100" width="100px;" alt="joemcil"/><br /><sub><b>joemcil</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3Ajoemcil" title="Bug reports">🐛</a></td>
     </tr>
