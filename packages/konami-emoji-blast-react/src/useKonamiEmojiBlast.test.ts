@@ -19,6 +19,8 @@ describe("useKonamiEmojiBlast", () => {
 			useKonamiEmojiBlast(onActivate);
 		});
 
-		expect(mockInitializeKonamiEmojiBlast).toHaveBeenCalledWith(onActivate);
+		expect(mockInitializeKonamiEmojiBlast).toHaveBeenCalledExactlyOnceWith(
+			onActivate,
+		);
 	});
 });

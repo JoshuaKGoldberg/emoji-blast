@@ -1,4 +1,7 @@
 {
+	"compilerOptions": {
+		"strict": true
+	},
 	"exclude": ["dist", "node_modules", "playground"],
 	"extends": "./.nuxt/tsconfig.json"
 }
