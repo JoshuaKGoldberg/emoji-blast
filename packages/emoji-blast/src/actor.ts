@@ -371,7 +371,7 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Change amounts for elements y-axis.
+	 * Change amounts for element's y-axis.
 	 */
 	public get gravity(): Readonly<number> {
 		return this.#gravity;
