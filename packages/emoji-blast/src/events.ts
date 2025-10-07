@@ -16,8 +16,8 @@ export interface EmojiEventData<TriggerEvent extends Event> {
  * Handler for a user interaction with an individual emoji.
  * @param actor
  */
-export type EmojiEventHandler<T extends Event> = (
-	data: EmojiEventData<T>,
+export type EmojiEventHandler<TriggerEvent extends Event> = (
+	data: EmojiEventData<TriggerEvent>,
 ) => void;
 
 /**
@@ -36,8 +36,8 @@ const attributeIndicator = "data-emoji-blast-events-initialized";
 const domNodesToActors = new WeakMap<EventTarget, EmojiActor>();
 
 const eventHandler =
-	<T extends Event>(handler?: EmojiEventHandler<T>) =>
-	(event: T) => {
+	<TriggerEvent extends Event>(handler?: EmojiEventHandler<TriggerEvent>) =>
+	(event: TriggerEvent) => {
 		const actor = event.target && domNodesToActors.get(event.target);
 		if (actor) {
 			handler?.({ actor, event });
