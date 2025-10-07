@@ -76,6 +76,8 @@ export const grabAndToss = ((): EmojiEvents => {
 			},
 		});
 
+		activelyDraggedEmoji.actor.element.style.cursor = "grab";
+
 		activelyDraggedEmoji = undefined;
 		document.removeEventListener("pointermove", onDrag);
 		document.removeEventListener("pointerup", onToss);
@@ -100,6 +102,8 @@ export const grabAndToss = ((): EmojiEvents => {
 				gravity: 0,
 				velocity: { x: 0, y: 0 },
 			});
+
+			actor.element.style.cursor = "grabbing";
 
 			document.addEventListener("pointermove", onDrag);
 			document.addEventListener("pointerup", onToss);

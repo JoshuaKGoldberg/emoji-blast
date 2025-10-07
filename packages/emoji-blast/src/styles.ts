@@ -22,7 +22,7 @@ export const createStyleElementAndClass = (className: string): void => {
 		.${className} {
 			background: none;
 			border: none;
-			cursor: pointer;
+			cursor: grab;
 			height: 2em;
 			margin-left: -1em;
 			margin-top: -1em;
