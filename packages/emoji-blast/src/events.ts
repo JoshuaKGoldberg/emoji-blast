@@ -1,6 +1,6 @@
 import { EmojiActor } from "./actor.js";
 
-export interface EmojiEventData<T extends Event> {
+export interface EmojiEventData<TriggerEvent extends Event> {
 	/**
 	 * Actor being interacted with.
 	 */
@@ -9,7 +9,7 @@ export interface EmojiEventData<T extends Event> {
 	/**
 	 * Original triggering DOM event.
 	 */
-	event: T;
+	event: TriggerEvent;
 }
 
 /**

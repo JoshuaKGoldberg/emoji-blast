@@ -162,6 +162,7 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		uniqueness = Infinity,
 	} = settings;
 	const container = obtainValue(containerSetting);
+
 	createStyleElementAndClass(className);
 
 	const physics = {
