@@ -316,7 +316,7 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Updates the emojis properties.
+	 * Updates the emoji for being moved.
 	 */
 	public update(updates: EmojiUpdates) {
 		if (updates.opacity !== undefined) {
