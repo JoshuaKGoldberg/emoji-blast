@@ -7,8 +7,8 @@ describe("mergeFunctionObjects", () => {
 	it("runs all merged functions", () => {
 		const eventObject1: EmojiEvents = { onClick: vi.fn() };
 		const eventObject2: EmojiEvents = { onClick: vi.fn() };
-		const event = {} as EmojiEventData<PointerEvent>;
 
+		const event = {} as EmojiEventData<PointerEvent>;
 		mergeFunctionObjects(eventObject1, eventObject2).onClick?.(event);
 
 		expect(eventObject1.onClick).toHaveBeenCalledExactlyOnceWith(event);
@@ -25,16 +25,18 @@ describe("mergeFunctionObjects", () => {
 			onPointerdown: vi.fn(),
 		};
 
-		mergeFunctionObjects(eventObject1, eventObject2).onClick?.(
-			{} as EmojiEventData<PointerEvent>,
-		);
+		const clickEvent = {} as EmojiEventData<PointerEvent>;
+		mergeFunctionObjects(eventObject1, eventObject2).onClick?.(clickEvent);
 
+		const pointerDownEvent = {} as EmojiEventData<PointerEvent>;
 		mergeFunctionObjects(eventObject1, eventObject2).onPointerdown?.(
-			{} as EmojiEventData<PointerEvent>,
+			pointerDownEvent,
 		);
 
-		expect(eventObject1.onClick).toHaveBeenCalledTimes(1);
-		expect(eventObject2.onPointerdown).toHaveBeenCalledTimes(1);
+		expect(eventObject1.onClick).toHaveBeenCalledExactlyOnceWith(clickEvent);
+		expect(eventObject2.onPointerdown).toHaveBeenCalledExactlyOnceWith(
+			pointerDownEvent,
+		);
 	});
 
 	it("handles when nothing is in objects", () => {

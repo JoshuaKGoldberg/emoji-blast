@@ -1,9 +1,9 @@
 type AnyFunction = (...args: never[]) => void;
 
-type FunctionObject = Record<string, Func>;
+type FunctionObject = Record<string, AnyFunction>;
 
 const mergeFunctions =
-	<Fn extends Func>(...fns: Fn[]) =>
+	<Fn extends AnyFunction>(...fns: Fn[]) =>
 	(...args: Parameters<Fn>) => {
 		fns.filter(Boolean).forEach((fn) => {
 			fn(...args);
