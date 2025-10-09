@@ -12,6 +12,11 @@ const exponentialDecay = (value: number, timeSeries: number) => {
 	return value * (1 - LAMBDA) ** timeSeries;
 };
 
+const clampValue = (
+	value: number,
+	[lowerBound, upperBound]: [number, number],
+) => Math.max(Math.min(upperBound, value), lowerBound);
+
 /** sample rate used to calculate toss trajectory in Hz */
 const SAMPLE_RATE_Hz = 200;
 
@@ -67,12 +72,18 @@ export const grabAndToss = ((): EmojiEvents => {
 
 		// controls how hard the emoji is thrown
 		const TOSS_SENSITIVITY = 75;
+		const MAX_VELOCITY = 50;
+
+		const xVelocity =
+			(decayedSamplePointTotal.x / samplePoints.length) * TOSS_SENSITIVITY;
+		const yVelocity =
+			(decayedSamplePointTotal.y / samplePoints.length) * TOSS_SENSITIVITY;
 
 		activelyDraggedEmoji.actor.update({
 			gravity: activelyDraggedEmoji.gravity,
 			velocity: {
-				x: (decayedSamplePointTotal.x / samplePoints.length) * TOSS_SENSITIVITY,
-				y: (decayedSamplePointTotal.y / samplePoints.length) * TOSS_SENSITIVITY,
+				x: clampValue(xVelocity, [-MAX_VELOCITY, MAX_VELOCITY]),
+				y: clampValue(yVelocity, [-MAX_VELOCITY, MAX_VELOCITY]),
 			},
 		});
 
