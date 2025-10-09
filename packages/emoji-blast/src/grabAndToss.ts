@@ -89,12 +89,12 @@ export const grabAndToss = ((): EmojiEvents => {
 				return;
 			}
 			const { clientX, clientY } = event;
-			const startingCoords = { x: clientX, y: clientY };
+			const startingCoordinates = { x: clientX, y: clientY };
 
 			activelyDraggedEmoji = {
 				actor,
 				gravity: actor.gravity,
-				lastPosition: startingCoords,
+				lastPosition: startingCoordinates,
 				samplePoints: [],
 			};
 
@@ -108,19 +108,19 @@ export const grabAndToss = ((): EmojiEvents => {
 			document.addEventListener("pointermove", onDrag);
 			document.addEventListener("pointerup", onToss);
 
-			let lastCoords = startingCoords;
+			let lastCoordinates = startingCoordinates;
 
 			sampleInterval = setInterval(() => {
 				if (!activelyDraggedEmoji) {
 					return;
 				}
 
-				const currCoords = { ...activelyDraggedEmoji.actor.position };
-				const dx = Math.round(currCoords.x - lastCoords.x);
-				const dy = Math.round(currCoords.y - lastCoords.y);
+				const currentCoordinates = { ...activelyDraggedEmoji.actor.position };
+				const dx = Math.round(currentCoordinates.x - lastCoordinates.x);
+				const dy = Math.round(currentCoordinates.y - lastCoordinates.y);
 
 				activelyDraggedEmoji.samplePoints.push({ x: dx, y: dy });
-				lastCoords = currCoords;
+				lastCoordinates = currentCoordinates;
 			}, 1000 / SAMPLE_RATE_Hz);
 		},
 	};
