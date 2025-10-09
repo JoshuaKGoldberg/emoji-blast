@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Func = (...args: any[]) => void;
+type AnyFunction = (...args: never[]) => void;
 
 type FunctionObject = Record<string, Func>;
 
