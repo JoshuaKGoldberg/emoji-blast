@@ -7,13 +7,12 @@ describe("mergeFunctionObjects", () => {
 	it("runs all merged functions", () => {
 		const eventObject1: EmojiEvents = { onClick: vi.fn() };
 		const eventObject2: EmojiEvents = { onClick: vi.fn() };
+		const event = {} as EmojiEventData<PointerEvent>;
 
-		mergeFunctionObjects(eventObject1, eventObject2).onClick?.(
-			{} as EmojiEventData<PointerEvent>,
-		);
+		mergeFunctionObjects(eventObject1, eventObject2).onClick?.(event);
 
-		expect(eventObject1.onClick).toHaveBeenCalledTimes(1);
-		expect(eventObject2.onClick).toHaveBeenCalledTimes(1);
+		expect(eventObject1.onClick).toHaveBeenCalledExactlyOnceWith(event);
+		expect(eventObject2.onClick).toHaveBeenCalledExactlyOnceWith(event);
 	});
 
 	it("handles undefined fields", () => {
