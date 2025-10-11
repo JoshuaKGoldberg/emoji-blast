@@ -7,6 +7,8 @@ import {
 import { animate, EmojiTick } from "./animate.js";
 import { defaultEmojis } from "./emojis.js";
 import { EmojiEvents, initializeEvents } from "./events.js";
+import { grabAndToss } from "./grabAndToss.js";
+import { mergeFunctionObjects } from "./mergeFunctions.js";
 import { createStyleElementAndClass } from "./styles.js";
 import { MakePartial, obtainValue, shuffleArray } from "./utils.js";
 
@@ -22,7 +24,7 @@ export interface EmojiBlastSettings {
 	/**
 	 * Element container to append elements into.
 	 */
-	container: SettingValue<Element>;
+	container: SettingValue<HTMLElement>;
 
 	/**
 	 * How many emojis to create per blast.
@@ -102,17 +104,6 @@ export const defaultCreateContainer = (() => {
  */
 export const defaultEmojiCount = () => Math.floor(Math.random() * 14) + 14;
 
-export const defaultEvents: EmojiEvents = {
-	onClick({ actor }) {
-		actor.update({
-			opacity: 1,
-			velocity: {
-				y: actor.velocity.y / 2 - 15,
-			},
-		});
-	},
-};
-
 /**
  * Default runtime change constants for actor movements.
  */
@@ -163,7 +154,7 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		container: containerSetting = defaultCreateContainer,
 		emojiCount = defaultEmojiCount,
 		emojis = defaultEmojis,
-		events = defaultEvents,
+		events = {},
 		position = defaultPosition,
 		process,
 		tick,
@@ -201,7 +192,11 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 		actors.push(new EmojiActor(emojiSettings));
 	}
 
-	initializeEvents(actors, container, events);
+	initializeEvents(
+		actors,
+		container,
+		mergeFunctionObjects(events, grabAndToss),
+	);
 
 	return animate(actors, tick);
 };
