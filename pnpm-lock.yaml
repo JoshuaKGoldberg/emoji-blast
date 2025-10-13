@@ -3408,8 +3408,8 @@ packages:
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
 
-  emoji-blast@0.10.2:
-    resolution: {integrity: sha512-3VrqajirPj8QeQxQeMHUfD+03H64XTEVPGRjxP5rjDCVEC5NGF3FgutMpU5scIOhcuzG23Qvs32k0Pnj+hRzGA==}
+  emoji-blast@0.11.0:
+    resolution: {integrity: sha512-RYy1ZjHqYQLjOkficpqzvAzGfE1GUcn1Bp7Ec1wq0lVIoRgNLMx4lRZWo9p0HsEawrI9Zmh0mloLXcf8ewIzfQ==}
     engines: {node: '>=18'}
 
   emoji-regex@10.6.0:
@@ -10694,7 +10694,7 @@ snapshots:
       '@emmetio/abbreviation': 2.3.3
       '@emmetio/css-abbreviation': 2.1.8
 
-  emoji-blast@0.10.2: {}
+  emoji-blast@0.11.0: {}
 
   emoji-regex@10.6.0: {}
 
@@ -11904,7 +11904,7 @@ snapshots:
 
   konami-emoji-blast@0.5.9:
     dependencies:
-      emoji-blast: 0.10.2
+      emoji-blast: 0.11.0
       konami-code-js: 0.8.3
 
   launch-editor@2.11.1:
