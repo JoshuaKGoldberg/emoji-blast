@@ -168,6 +168,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "yonava",
+      "name": "Yona Alexander Voss-Andreae",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76519301?v=4",
+      "profile": "https://github.com/Yonava",
+      "contributions": [
+        "tool"
+      ]
     }
   ],
   "contributorsPerLine": 7,
