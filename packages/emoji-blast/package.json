@@ -16,10 +16,7 @@
 	"main": "./lib/index.js",
 	"files": [
 		"dist/",
-		"lib/",
-		"package.json",
-		"LICENSE.md",
-		"README.md"
+		"lib/"
 	],
 	"scripts": {
 		"build": "webpack"
