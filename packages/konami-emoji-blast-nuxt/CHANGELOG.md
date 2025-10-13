@@ -1,5 +1,12 @@
 # @konami-emoji-blast/nuxt
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [f94debf]
+  - emoji-blast@0.11.0
+
 ## 0.0.6
 
 ### Patch Changes

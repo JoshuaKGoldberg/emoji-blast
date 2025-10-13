@@ -1,5 +1,11 @@
 # 0.10.0 (2024-03-28)
 
+## 0.11.0
+
+### Minor Changes
+
+- f94debf: grab and toss emojis
+
 ## 0.10.2
 
 ### Patch Changes
