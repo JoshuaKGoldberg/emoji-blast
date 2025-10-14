@@ -261,7 +261,7 @@ importers:
     devDependencies:
       typedoc:
         specifier: ^0.28.7
-        version: 0.28.13(typescript@5.9.3)
+        version: 0.28.14(typescript@5.9.3)
 
 packages:
 
@@ -1055,8 +1055,8 @@ packages:
   '@expressive-code/plugin-text-markers@0.41.3':
     resolution: {integrity: sha512-SN8tkIzDpA0HLAscEYD2IVrfLiid6qEdE9QLlGVSxO1KEw7qYvjpbNBQjUjMr5/jvTJ7ys6zysU2vLPHE0sb2g==}
 
-  '@gerrit0/mini-shiki@3.13.0':
-    resolution: {integrity: sha512-mCrNvZNYNrwKer5PWLF6cOc0OEe2eKzgy976x+IT2tynwJYl+7UpHTSeXQJGijgTcoOf+f359L946unWlYRnsg==}
+  '@gerrit0/mini-shiki@3.13.1':
+    resolution: {integrity: sha512-fDWM5QQc70jwBIt/WYMybdyXdyBmoJe7r1hpM+V/bHnyla79sygVDK2/LlVxIPc4n5FA3B5Wzt7AQH2+psNphg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -6323,8 +6323,8 @@ packages:
   type-level-regexp@0.1.17:
     resolution: {integrity: sha512-wTk4DH3cxwk196uGLK/E9pE45aLfeKJacKmcEgEOA/q5dnPGNxXt0cfYdFxb57L+sEpf1oJH4Dnx/pnRcku9jg==}
 
-  typedoc@0.28.13:
-    resolution: {integrity: sha512-dNWY8msnYB2a+7Audha+aTF1Pu3euiE7ySp53w8kEsXoYw7dMouV5A1UsTUY345aB152RHnmRMDiovuBi7BD+w==}
+  typedoc@0.28.14:
+    resolution: {integrity: sha512-ftJYPvpVfQvFzpkoSfHLkJybdA/geDJ8BGQt/ZnkkhnBYoYW6lBgPQXu6vqLxO4X75dA55hX8Af847H5KXlEFA==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -8128,7 +8128,7 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.41.3
 
-  '@gerrit0/mini-shiki@3.13.0':
+  '@gerrit0/mini-shiki@3.13.1':
     dependencies:
       '@shikijs/engine-oniguruma': 3.13.0
       '@shikijs/langs': 3.13.0
@@ -14493,9 +14493,9 @@ snapshots:
 
   type-level-regexp@0.1.17: {}
 
-  typedoc@0.28.13(typescript@5.9.3):
+  typedoc@0.28.14(typescript@5.9.3):
     dependencies:
-      '@gerrit0/mini-shiki': 3.13.0
+      '@gerrit0/mini-shiki': 3.13.1
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
