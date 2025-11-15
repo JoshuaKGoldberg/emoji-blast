@@ -121,7 +121,7 @@ importers:
         version: 0.9.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
       '@astrojs/react':
         specifier: ^4.3.0
-        version: 4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.2(@types/react@19.2.3))(@types/react@19.2.3)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)
+        version: 4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)
       '@astrojs/starlight':
         specifier: ^0.36.0
         version: 0.36.2(astro@5.15.5(@types/node@24.10.1)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.53.2)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.1))
@@ -136,7 +136,7 @@ importers:
         version: 19.2.3
       '@types/react-dom':
         specifier: ^19.1.6
-        version: 19.2.2(@types/react@19.2.3)
+        version: 19.2.3(@types/react@19.2.3)
       astro:
         specifier: ^5.11.0
         version: 5.15.5(@types/node@24.10.1)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.53.2)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.1)
@@ -236,7 +236,7 @@ importers:
     devDependencies:
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.2(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/react':
         specifier: ^19.1.8
         version: 19.2.3
@@ -2227,8 +2227,8 @@ packages:
     resolution: {integrity: sha512-EULJ8LApcVEPbrfND0cRQqutIOdiIgJ1Mgrhpy755r14xMohPTEpkV/k28SJvuOs9bHRFW8x+KeDAEPiGQPB9Q==}
     deprecated: This is a stub types definition. parse-path provides its own type definitions, so you do not need this installed.
 
-  '@types/react-dom@19.2.2':
-    resolution: {integrity: sha512-9KQPoO6mZCi7jcIStSnlOWn2nEF3mNmyr3rIAsGnAbQKYbRLyqmeSc39EVgtxXVia+LMT8j3knZLAZAh+xLmrw==}
+  '@types/react-dom@19.2.3':
+    resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
       '@types/react': ^19.2.0
 
@@ -7273,10 +7273,10 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.2(@types/react@19.2.3))(@types/react@19.2.3)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)':
+  '@astrojs/react@4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)':
     dependencies:
       '@types/react': 19.2.3
-      '@types/react-dom': 19.2.2(@types/react@19.2.3)
+      '@types/react-dom': 19.2.3(@types/react@19.2.3)
       '@vitejs/plugin-react': 4.7.0(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.1))
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -9207,7 +9207,7 @@ snapshots:
       picocolors: 1.1.1
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.2(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
@@ -9215,7 +9215,7 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
     optionalDependencies:
       '@types/react': 19.2.3
-      '@types/react-dom': 19.2.2(@types/react@19.2.3)
+      '@types/react-dom': 19.2.3(@types/react@19.2.3)
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
@@ -9325,7 +9325,7 @@ snapshots:
     dependencies:
       parse-path: 7.1.0
 
-  '@types/react-dom@19.2.2(@types/react@19.2.3)':
+  '@types/react-dom@19.2.3(@types/react@19.2.3)':
     dependencies:
       '@types/react': 19.2.3
 
