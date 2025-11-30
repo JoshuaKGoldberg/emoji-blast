@@ -85,7 +85,7 @@ importers:
         version: 0.14.1
       prettier-plugin-curly:
         specifier: ^0.4.0
-        version: 0.4.0(prettier@3.7.3)
+        version: 0.4.1(prettier@3.7.3)
       prettier-plugin-packagejson:
         specifier: ^2.5.18
         version: 2.5.19(prettier@3.7.3)
@@ -5500,11 +5500,11 @@ packages:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
 
-  prettier-plugin-curly@0.4.0:
-    resolution: {integrity: sha512-URhXSCdeYs+hWFyFS5NDrRBarFU5RV7X9C00LuUKmjFDqD2wxJJWZU+wmkgN50jyn97TWgqI2XrE6rX2AdGgZg==}
+  prettier-plugin-curly@0.4.1:
+    resolution: {integrity: sha512-Xc7zatoD0/08zYFv+hwnlqT5ekM81DCbBr73CWAsr1Fmx7qLQT/M0wfPx6w/+zfnmXH009xYvjzLUPcwzq7Fbw==}
     engines: {node: '>=18'}
     peerDependencies:
-      prettier: ^2 || ^3
+      prettier: ^3
 
   prettier-plugin-packagejson@2.5.19:
     resolution: {integrity: sha512-Qsqp4+jsZbKMpEGZB1UP1pxeAT8sCzne2IwnKkr+QhUe665EXUo3BAvTf1kAPCqyMv9kg3ZmO0+7eOni/C6Uag==}
@@ -13597,7 +13597,7 @@ snapshots:
       prettier: 3.7.3
       sass-formatter: 0.7.9
 
-  prettier-plugin-curly@0.4.0(prettier@3.7.3):
+  prettier-plugin-curly@0.4.1(prettier@3.7.3):
     dependencies:
       prettier: 3.7.3
 
