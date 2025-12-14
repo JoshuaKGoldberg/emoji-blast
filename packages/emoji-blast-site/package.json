@@ -14,7 +14,7 @@
 		"@astrojs/react": "^4.3.0",
 		"@astrojs/starlight": "^0.37.0",
 		"@konami-emoji-blast/astro": "workspace:",
-		"@types/node": "^24.0.13",
+		"@types/node": "^25.0.0",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
 		"astro": "^5.11.0",
