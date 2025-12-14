@@ -52,7 +52,7 @@
 		"knip": "^5.61.3",
 		"lint-staged": "^16.1.2",
 		"markdownlint": "^0.40.0",
-		"markdownlint-cli": "^0.46.0",
+		"markdownlint-cli": "^0.47.0",
 		"npm-package-json-lint": "^9.0.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1",
