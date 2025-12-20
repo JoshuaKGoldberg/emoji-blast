@@ -145,7 +145,7 @@ importers:
         version: 2.1.1
       dedent:
         specifier: ^1.6.0
-        version: 1.7.0
+        version: 1.7.1
       emoji-blast:
         specifier: 'workspace:'
         version: link:../emoji-blast
@@ -3473,8 +3473,8 @@ packages:
   decode-named-character-reference@1.2.0:
     resolution: {integrity: sha512-c6fcElNV6ShtZXmsgNgFFV5tVX2PaV4g+MOAkb8eXHvn6sryJBrZa9r0zV6+dtTyoCKxtDy5tyQ5ZwQuidtd+Q==}
 
-  dedent@1.7.0:
-    resolution: {integrity: sha512-HGFtf8yhuhGhqO07SV79tRp+br4MnbdjeVxotpn1QBl30pcLLCQjX5b2295ll0fv8RKDKsmWYrl05usHM9CewQ==}
+  dedent@1.7.1:
+    resolution: {integrity: sha512-9JmrhGZpOlEgOLdQgSm0zxFaYoQon408V1v49aqTWuXENVlnCuY9JBZcXZiCsZQWDjTm5Qf/nIvAy77mXDAjEg==}
     peerDependencies:
       babel-plugin-macros: ^3.1.0
     peerDependenciesMeta:
@@ -10929,7 +10929,7 @@ snapshots:
     dependencies:
       character-entities: 2.0.2
 
-  dedent@1.7.0: {}
+  dedent@1.7.1: {}
 
   deep-eql@5.0.2: {}
 
