@@ -1,5 +1,6 @@
 {
 	"name": "root",
+	"version": "0.1.0",
 	"private": true,
 	"description": "Blasts emoji like fireworks all up in your HTML page. 🎆",
 	"repository": {
