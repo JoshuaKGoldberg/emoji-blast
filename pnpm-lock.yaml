@@ -76,7 +76,7 @@ importers:
         version: 0.47.0
       npm-package-json-lint:
         specifier: ^9.0.0
-        version: 9.0.0(typescript@5.9.3)
+        version: 9.1.0(typescript@5.9.3)
       prettier:
         specifier: ^3.6.2
         version: 3.7.4
@@ -5213,8 +5213,8 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
-  npm-package-json-lint@9.0.0:
-    resolution: {integrity: sha512-bmyraQyO9wAyFwyr+ouMrbv3mFY/UZY8nlBorgqfTw735QtVfAUBKs7GrO/rvJByoKnnwzQIlIFq9WXdfkSL0g==}
+  npm-package-json-lint@9.1.0:
+    resolution: {integrity: sha512-EM+c1FSgncwyNpBRf+Wl92zCfrtBiHZFZE+ncqQEqsW/tLTcHX/GUHCDdPzI0XFKBZHvz+h3C+Ov3VfwJfW9Dw==}
     engines: {node: '>=20.0.0', npm: '>=10.0.0'}
     hasBin: true
 
@@ -13250,7 +13250,7 @@ snapshots:
 
   normalize-range@0.1.2: {}
 
-  npm-package-json-lint@9.0.0(typescript@5.9.3):
+  npm-package-json-lint@9.1.0(typescript@5.9.3):
     dependencies:
       ajv: 6.12.6
       ajv-errors: 1.0.1(ajv@6.12.6)
@@ -13267,7 +13267,7 @@ snapshots:
       semver: 7.7.3
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      type-fest: 4.41.0
+      type-fest: 5.3.1
       validate-npm-package-name: 6.0.2
     transitivePeerDependencies:
       - supports-color
