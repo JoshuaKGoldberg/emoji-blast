@@ -124,7 +124,7 @@ importers:
         version: 4.4.2(@types/node@25.0.3)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.2)
       '@astrojs/starlight':
         specifier: ^0.37.0
-        version: 0.37.2(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
+        version: 0.37.2(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
       '@konami-emoji-blast/astro':
         specifier: 'workspace:'
         version: link:../konami-emoji-blast-astro
@@ -139,7 +139,7 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       astro:
         specifier: ^5.11.0
-        version: 5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
+        version: 5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -189,7 +189,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^5.11.0
-        version: 5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
+        version: 5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
 
   packages/konami-emoji-blast-nuxt:
     dependencies:
@@ -2951,8 +2951,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
 
-  astro@5.16.7:
-    resolution: {integrity: sha512-Kfv7FKisFR+THvmojXWtvJGRCvQ4D9przguE9XdeUtS464ned6hvbgmyFDvPzyaNmDtkHGNpPwAQ9tgFcVqp+Q==}
+  astro@5.16.8:
+    resolution: {integrity: sha512-gzZE+epuCrNuxOa8/F1dzkllDOFvxWhGeobQKeBRIAef5sUpUKMHZo/8clse+02rYnKJCgwXBgjW4uTu9mqUUw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -7419,12 +7419,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.13(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))':
+  '@astrojs/mdx@4.3.13(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.10
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -7471,17 +7471,17 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/starlight@0.37.2(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))':
+  '@astrojs/starlight@0.37.2(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.10
-      '@astrojs/mdx': 4.3.13(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
+      '@astrojs/mdx': 4.3.13(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
       '@astrojs/sitemap': 3.6.1
       '@pagefind/default-ui': 1.4.0
       '@types/hast': 3.0.4
       '@types/js-yaml': 4.0.9
       '@types/mdast': 4.0.4
-      astro: 5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
-      astro-expressive-code: 0.41.5(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
+      astro: 5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
+      astro-expressive-code: 0.41.5(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.3
       hast-util-select: 6.0.4
@@ -10291,12 +10291,12 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.41.5(astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)):
+  astro-expressive-code@0.41.5(astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)):
     dependencies:
-      astro: 5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
       rehype-expressive-code: 0.41.5
 
-  astro@5.16.7(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2):
+  astro@5.16.8(@types/node@25.0.3)(db0@0.3.4)(ioredis@5.8.2)(jiti@2.6.1)(rollup@4.55.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
