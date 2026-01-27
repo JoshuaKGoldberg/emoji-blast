@@ -45,8 +45,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-package-json:
-        specifier: ^0.79.0
-        version: 0.79.0(@types/estree@1.0.8)(eslint@9.39.2(jiti@2.6.1))(jsonc-eslint-parser@2.4.2)
+        specifier: ^0.88.0
+        version: 0.88.2(@types/estree@1.0.8)(eslint@9.39.2(jiti@2.6.1))(jsonc-eslint-parser@2.4.2)
       eslint-plugin-perfectionist:
         specifier: ^5.0.0
         version: 5.4.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -3976,8 +3976,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-package-json@0.79.0:
-    resolution: {integrity: sha512-SoPKPcCPslzOBrD0wgHMazNG76sLvWoULwViBYr6a3b02F3XPOY1tGzaScUGn3EjapdmGmkohyKB1zixQtCVxA==}
+  eslint-plugin-package-json@0.88.2:
+    resolution: {integrity: sha512-KCpzuc0sI/7Kzt+QBsSbq+e8ClpoiTuoID7D2WxQe2r3XB+2SSPkqqr9M9oLfUjQDsn3oROAnb5lP2yh+oBfVg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -5554,9 +5554,9 @@ packages:
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
-  package-json-validator@0.58.0:
-    resolution: {integrity: sha512-2l6UmK6eV6YcHhSu9RzxUY3Tve/MyqNOL7+1vTPRe8f2RdxT3L/sw2tlMNJEurwAT5D1frGbqbo0GPjb+uf9RQ==}
-    engines: {node: ^20.19.0 || >=22.12.0}
+  package-json-validator@0.60.0:
+    resolution: {integrity: sha512-3BBkeFHm3O1VsazTSIN8+AGAl/eJQvTvWquECchRszIW6SC3aJ/fZHwZkpsmJlt7FMjTMNEgz+EhamVn94wgFw==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     hasBin: true
 
   package-manager-detector@0.2.11:
@@ -6561,6 +6561,7 @@ packages:
   tar@7.5.6:
     resolution: {integrity: sha512-xqUeu2JAIJpXyvskvU3uvQW8PAmHrtXp2KDuMJwQqW8Sqq0CaZBAQ+dKS3RBXVhU4wC5NjAdKrmh84241gO9cA==}
     engines: {node: '>=18'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
 
   term-size@2.2.1:
     resolution: {integrity: sha512-wK0Ri4fOGjv/XPy8SBHZChl8CM7uMc5VML7SqiQ0zG7+J5Vr+RMQDoHa2CNT6KHUnTGIXH34UDMkPzAUyapBZg==}
@@ -11502,7 +11503,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-package-json@0.79.0(@types/estree@1.0.8)(eslint@9.39.2(jiti@2.6.1))(jsonc-eslint-parser@2.4.2):
+  eslint-plugin-package-json@0.88.2(@types/estree@1.0.8)(eslint@9.39.2(jiti@2.6.1))(jsonc-eslint-parser@2.4.2):
     dependencies:
       '@altano/repository-tools': 2.0.1
       change-case: 5.4.4
@@ -11511,7 +11512,7 @@ snapshots:
       eslint: 9.39.2(jiti@2.6.1)
       eslint-fix-utils: 0.4.0(@types/estree@1.0.8)(eslint@9.39.2(jiti@2.6.1))
       jsonc-eslint-parser: 2.4.2
-      package-json-validator: 0.58.0
+      package-json-validator: 0.60.0
       semver: 7.7.3
       sort-object-keys: 2.1.0
       sort-package-json: 3.6.0
@@ -13874,7 +13875,7 @@ snapshots:
 
   package-json-from-dist@1.0.1: {}
 
-  package-json-validator@0.58.0:
+  package-json-validator@0.60.0:
     dependencies:
       semver: 7.7.3
       validate-npm-package-license: 3.0.4
