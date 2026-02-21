@@ -55,7 +55,7 @@ importers:
         version: 3.0.0(eslint@10.0.0(jiti@2.6.1))
       eslint-plugin-yml:
         specifier: ^3.0.0
-        version: 3.2.0(@eslint/markdown@7.5.1)(eslint@10.0.0(jiti@2.6.1))
+        version: 3.2.1(@eslint/markdown@7.5.1)(eslint@10.0.0(jiti@2.6.1))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -4025,8 +4025,8 @@ packages:
     peerDependencies:
       eslint: '>=9.38.0'
 
-  eslint-plugin-yml@3.2.0:
-    resolution: {integrity: sha512-69gbDR+2IqaGJHyTXJ/FKJsv5QL3wKCfI2Z/rGjXwM88RxAqSOtM/AmF/YPhSWdHwezE8xyZbvDVnzgUPbO4ag==}
+  eslint-plugin-yml@3.2.1:
+    resolution: {integrity: sha512-/oFj7MWk56AKLelLSUb7zN1OKDI9kR+uKEzbf/sGu7Bov0tJs3qwtMcu+VCcEtFAFD7KZe0LSYhyy0Uq8hKF9g==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24.0.0}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -11581,7 +11581,7 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
-  eslint-plugin-yml@3.2.0(@eslint/markdown@7.5.1)(eslint@10.0.0(jiti@2.6.1)):
+  eslint-plugin-yml@3.2.1(@eslint/markdown@7.5.1)(eslint@10.0.0(jiti@2.6.1)):
     dependencies:
       '@eslint/core': 1.1.0
       '@eslint/plugin-kit': 0.6.0
