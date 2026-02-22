@@ -49,7 +49,7 @@
 		"eslint-plugin-regexp": "^3.0.0",
 		"eslint-plugin-yml": "^3.0.0",
 		"husky": "^9.1.7",
-		"jsonc-eslint-parser": "^2.4.0",
+		"jsonc-eslint-parser": "^3.0.0",
 		"knip": "^5.61.3",
 		"lint-staged": "^16.1.2",
 		"markdownlint": "^0.40.0",
