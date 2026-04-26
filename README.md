@@ -22,7 +22,7 @@ It consists of the following packages:
 
 - [`emoji-blast`](./packages/emoji-blast/README.md): Core library to blast emoji like fireworks all up in your HTML page.
   🎆
-- [`emoji-blast-site`](./packages/emoji-blast-site/README.md): Demo and docs website at <a href="https://emojiblast.dev">emojiblast.dev</a>.
+- [`site`](./packages/site/README.md): Demo and docs website at <a href="https://emojiblast.dev">emojiblast.dev</a>.
   🏄
 - [`konami-emoji-blast`](./packages/konami-emoji-blast/README.md): Hooks up <a href="https://github.com/Haeresis/konami-code-js">konami-code-js</a> to trigger `emoji-blast`.
   🎇

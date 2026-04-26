@@ -9,7 +9,7 @@ To preview the site locally:
 
 ```shell
 pnpm build
-cd packages/emoji-blast-site
+cd packages/site
 pnpm dev
 ```
 
