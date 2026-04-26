@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@types/konami-code-js": "^0.8.3",
-		"ts-loader": "^9.5.2",
-		"webpack": "^5.100.0"
+		"ts-loader": "^9.5.7",
+		"webpack": "^5.106.2"
 	}
 }
