@@ -10,20 +10,20 @@
 		"start": "astro dev"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.4",
-		"@astrojs/react": "^5.0.0",
-		"@astrojs/starlight": "^0.38.2",
+		"@astrojs/check": "^0.9.8",
+		"@astrojs/react": "^5.0.4",
+		"@astrojs/starlight": "^0.38.4",
 		"@konami-emoji-blast/astro": "workspace:",
-		"@types/node": "^25.0.0",
-		"@types/react": "^19.1.8",
-		"@types/react-dom": "^19.1.6",
-		"astro": "^6.1.8",
+		"@types/node": "^25.6.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"astro": "^6.1.9",
 		"clsx": "^2.1.1",
-		"dedent": "^1.6.0",
+		"dedent": "^1.7.2",
 		"emoji-blast": "workspace:",
 		"konami-emoji-blast": "workspace:",
-		"react": "^19.1.0",
-		"react-dom": "^19.1.0",
-		"typescript": "^5.8.3"
+		"react": "^19.2.5",
+		"react-dom": "^19.2.5",
+		"typescript": "^6.0.3"
 	}
 }

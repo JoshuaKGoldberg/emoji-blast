@@ -29,7 +29,7 @@ interface ActivelyDraggedEmoji {
 
 export const grabAndToss = ((): EmojiEvents => {
 	let activelyDraggedEmoji: ActivelyDraggedEmoji | undefined = undefined;
-	let sampleInterval: NodeJS.Timeout;
+	let sampleInterval: number | undefined;
 
 	const onDrag = ({ clientX: x, clientY: y }: PointerEvent) => {
 		if (!activelyDraggedEmoji) {
