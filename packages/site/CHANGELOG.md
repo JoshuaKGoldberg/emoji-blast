@@ -1,4 +1,4 @@
-# emoji-blast-site
+# site
 
 ## 0.0.2
 

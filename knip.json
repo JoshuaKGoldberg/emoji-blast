@@ -6,7 +6,7 @@
 			"entry": ["src/mains/*.ts!"],
 			"project": ["src/**/*.ts!"]
 		},
-		"packages/emoji-blast-site": {
+		"packages/site": {
 			"entry": [
 				"src/**/*.astro!",
 				"src/**/*.mdx!",

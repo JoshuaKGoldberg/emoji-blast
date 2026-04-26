@@ -9,7 +9,7 @@ export default defineConfig({
 				"dist",
 				"lib",
 				"packages/konami-emoji-blast-typedoc",
-				"packages/emoji-blast-site",
+				"packages/site",
 			],
 			include: ["packages/*/src"],
 			reporter: ["html", "lcov"],

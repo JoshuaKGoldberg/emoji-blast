@@ -22,7 +22,7 @@ export default defineConfig(
 		"packages/*/dist",
 		"packages/*/lib",
 		"packages/*/webpack.config.*",
-		"packages/emoji-blast-site/src/env.d.ts",
+		"packages/site/src/env.d.ts",
 		"pnpm-*.yaml",
 	]),
 	{ linterOptions: { reportUnusedDisableDirectives: "error" } },
