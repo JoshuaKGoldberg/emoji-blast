@@ -1,43 +1,51 @@
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
 import eslint from "@eslint/js";
+import markdown from "@eslint/markdown";
 import vitest from "@vitest/eslint-plugin";
+import eslintPluginAstro from "eslint-plugin-astro";
 import jsdoc from "eslint-plugin-jsdoc";
 import jsonc from "eslint-plugin-jsonc";
-import markdown from "eslint-plugin-markdown";
 import packageJson from "eslint-plugin-package-json";
 import perfectionist from "eslint-plugin-perfectionist";
 import * as regexp from "eslint-plugin-regexp";
 import yml from "eslint-plugin-yml";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig(
-	{
-		ignores: [
-			"**/.astro",
-			"**/.nuxt",
-			"**/*.snap",
-			"**/node_modules",
-			"coverage",
-			"packages/*/dist",
-			"packages/*/lib",
-			"packages/*/webpack.config.*",
-			"packages/emoji-blast-site/src/env.d.ts",
-			"pnpm-*.yaml",
-		],
-	},
+	globalIgnores([
+		"**/.astro",
+		"**/.nuxt",
+		"**/*.snap",
+		"**/node_modules",
+		"coverage",
+		"packages/*/dist",
+		"packages/*/lib",
+		"packages/*/webpack.config.*",
+		"packages/emoji-blast-site/src/env.d.ts",
+		"pnpm-*.yaml",
+	]),
 	{ linterOptions: { reportUnusedDisableDirectives: "error" } },
-	eslint.configs.recommended,
-	comments.recommended,
-	jsdoc.configs["flat/contents-typescript-error"],
-	jsdoc.configs["flat/logical-typescript-error"],
-	jsdoc.configs["flat/stylistic-typescript-error"],
-	jsonc.configs["flat/recommended-with-json"],
-	markdown.configs.recommended,
-	perfectionist.configs["recommended-natural"],
-	regexp.configs["flat/recommended"],
+	{
+		extends: [eslintPluginAstro.configs.recommended],
+		files: ["**/*.astro"],
+		languageOptions: {
+			parserOptions: {
+				parser: "@typescript-eslint/parser",
+			},
+		},
+	},
 	{
 		extends: [
+			eslint.configs.recommended,
+			comments.recommended,
+			jsdoc.configs["flat/contents-typescript-error"],
+			jsdoc.configs["flat/logical-typescript-error"],
+			jsdoc.configs["flat/stylistic-typescript-error"],
+			jsonc.configs["flat/recommended-with-json"],
+			markdown.configs.recommended,
+			perfectionist.configs["recommended-natural"],
+			regexp.configs["flat/recommended"],
 			tseslint.configs.strictTypeChecked,
 			tseslint.configs.stylisticTypeChecked,
 		],
@@ -51,6 +59,7 @@ export default defineConfig(
 						"packages/*/*.config.*s",
 						"packages/*/bin/index.js",
 					],
+					extraFileExtensions: [".astro"],
 					maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 10,
 				},
 			},
@@ -64,9 +73,6 @@ export default defineConfig(
 				"error",
 				{ allowNumber: true },
 			],
-
-			// https://github.com/gajus/eslint-plugin-jsdoc/issues/1433
-			"jsdoc/match-description": "off",
 
 			// Stylistic concerns that don't interfere with Prettier
 			"logical-assignment-operators": [
@@ -86,10 +92,13 @@ export default defineConfig(
 	{
 		extends: [packageJson.configs.recommended],
 		files: ["**/package.json"],
+		// TODO: Enable these!
 		rules: {
-			// https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/issues/1092
 			"package-json/require-description": "off",
-			"package-json/require-version": "off",
+			"package-json/require-exports": "off",
+			"package-json/require-files": "off",
+			"package-json/require-sideEffects": "off",
+			"package-json/specify-peers-locally": "off",
 		},
 	},
 	{

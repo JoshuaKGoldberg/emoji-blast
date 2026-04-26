@@ -20,13 +20,20 @@
 This is the monorepo for the `emoji-blast` project.
 It consists of the following packages:
 
-- [`emoji-blast`](./packages/emoji-blast/README.md): Core library to blast emoji like fireworks all up in your HTML page. 🎆
-- [`emoji-blast-site`](./packages/emoji-blast-site/README.md): Demo and docs website at <a href="https://emojiblast.dev">emojiblast.dev</a>. 🏄
-- [`konami-emoji-blast`](./packages/konami-emoji-blast/README.md): Hooks up <a href="https://github.com/Haeresis/konami-code-js">konami-code-js</a> to trigger `emoji-blast`. 🎇
-- [`@konami-emoji-blast/astro`](./packages/konami-emoji-blast-astro/README.md): Integration for `konami-emoji-blast` in <a href="https://astro.build">Astro</a>. 🚀
-- [`@konami-emoji-blast/nuxt`](./packages/konami-emoji-blast-nuxt/README.md): Integration for `konami-emoji-blast` in <a href="https:/nuxt.com">Nuxt</a>. 🗻
-- [`@konami-emoji-blast/react`](./packages/konami-emoji-blast-react/README.md): Integration for `konami-emoji-blast` in <a href="https:/react.dev">React</a>. ⚛️
-- [`@konami-emoji-blast/typedoc`](./packages/konami-emoji-blast-typedoc/README.md): Integration for `konami-emoji-blast` in <a href="https://typedoc.org">TypeDoc</a>. 🗂️
+- [`emoji-blast`](./packages/emoji-blast/README.md): Core library to blast emoji like fireworks all up in your HTML page.
+  🎆
+- [`emoji-blast-site`](./packages/emoji-blast-site/README.md): Demo and docs website at <a href="https://emojiblast.dev">emojiblast.dev</a>.
+  🏄
+- [`konami-emoji-blast`](./packages/konami-emoji-blast/README.md): Hooks up <a href="https://github.com/Haeresis/konami-code-js">konami-code-js</a> to trigger `emoji-blast`.
+  🎇
+- [`@konami-emoji-blast/astro`](./packages/konami-emoji-blast-astro/README.md): Integration for `konami-emoji-blast` in <a href="https://astro.build">Astro</a>.
+  🚀
+- [`@konami-emoji-blast/nuxt`](./packages/konami-emoji-blast-nuxt/README.md): Integration for `konami-emoji-blast` in <a href="https:/nuxt.com">Nuxt</a>.
+  🗻
+- [`@konami-emoji-blast/react`](./packages/konami-emoji-blast-react/README.md): Integration for `konami-emoji-blast` in <a href="https:/react.dev">React</a>.
+  ⚛️
+- [`@konami-emoji-blast/typedoc`](./packages/konami-emoji-blast-typedoc/README.md): Integration for `konami-emoji-blast` in <a href="https://typedoc.org">TypeDoc</a>.
+  🗂️
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md) and [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
 Thanks! 💖
@@ -36,7 +43,6 @@ Thanks! 💖
 <!-- spellchecker: disable -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tbody>
     <tr>
@@ -66,7 +72,6 @@ Thanks! 💖
   </tbody>
 </table>
 
-<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
