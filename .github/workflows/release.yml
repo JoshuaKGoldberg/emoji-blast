@@ -12,7 +12,7 @@ jobs:
       - run: pnpm build:all
       - run: pnpm build:release:all
       - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ""
         name: Create Release Pull Request
         uses: changesets/action@v1
