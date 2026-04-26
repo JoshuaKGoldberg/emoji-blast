@@ -36,7 +36,8 @@ It consists of the following packages:
   🗂️
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md) and [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
-Thanks! 💖
+Thanks!
+🎆
 
 ## Contributors
 
