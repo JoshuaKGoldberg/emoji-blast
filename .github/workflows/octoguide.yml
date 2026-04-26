@@ -1,0 +1,45 @@
+jobs:
+  octoguide:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: OctoGuide/bot@e32639b1839e810d13613f21f417ebf6e90b821a # 0.21.3
+        with:
+          config: strict
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          include-associations: "FIRST_TIMER,FIRST_TIME_CONTRIBUTOR,CONTRIBUTOR"
+
+name: OctoGuide
+
+on:
+  discussion:
+    types:
+      - created
+      - edited
+  discussion_comment:
+    types:
+      - created
+      - deleted
+      - edited
+  issue_comment:
+    types:
+      - created
+      - deleted
+      - edited
+  issues:
+    types:
+      - edited
+      - opened
+  pull_request_review_comment:
+    types:
+      - created
+      - deleted
+      - edited
+  pull_request_target:
+    types:
+      - edited
+      - opened
+
+permissions:
+  discussions: write
+  issues: write
+  pull-requests: write
