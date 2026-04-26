@@ -1,5 +1,11 @@
 # @konami-emoji-blast/nuxt
 
+## 1.1.0
+
+### Minor Changes
+
+- 8db6849: Remove now-unnecessary CJS exports
+
 ## 1.0.0
 
 ### Patch Changes
