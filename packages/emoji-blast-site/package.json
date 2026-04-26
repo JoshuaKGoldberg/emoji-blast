@@ -17,7 +17,7 @@
 		"@types/node": "^25.0.0",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
-		"astro": "^5.11.0",
+		"astro": "^6.0.0",
 		"clsx": "^2.1.1",
 		"dedent": "^1.6.0",
 		"emoji-blast": "workspace:",
