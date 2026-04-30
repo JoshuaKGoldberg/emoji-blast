@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/astro",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Hooks up konami-code-js to trigger emoji-blast in Astro. 🎇",
 	"keywords": [
 		"astro-component",
