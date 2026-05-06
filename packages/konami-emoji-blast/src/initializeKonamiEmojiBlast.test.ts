@@ -2,7 +2,7 @@ import { describe, expect, it, MockInstance, vi } from "vitest";
 
 import {
 	initializeKonamiEmojiBlast,
-	OnKonamiCodeActivated,
+	type OnKonamiCodeActivated,
 } from "./initializeKonamiEmojiBlast.js";
 
 let mockKonamiCode: { disable: MockInstance; mockLaunch: () => void };

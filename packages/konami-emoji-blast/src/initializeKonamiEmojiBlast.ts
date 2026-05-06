@@ -1,7 +1,7 @@
 import {
 	emojiBlasts,
-	EmojiBlastsHandler,
-	EmojiBlastsSettings,
+	type EmojiBlastsHandler,
+	type EmojiBlastsSettings,
 } from "emoji-blast";
 
 // https://github.com/JoshuaKGoldberg/emoji-blast/issues/822#issuecomment-2532742672
@@ -33,7 +33,20 @@ export type KonamiEmojiBlastOptions = {
 };
 
 /**
- * @returns Function that stops emojis when called.
+ * Initializes the Konami code listener to trigger emoji blasts.
+ *
+ * @param optionsOrOnActivated Either a callback triggered on activation,
+ * or full options bag.
+ * @returns A cleanup function to disable the listener and cancel active explosions.
+ * @example
+ * // callback
+ * const stop = initializeKonamiEmojiBlast(() => console.log("Activated!"));
+ *
+ * // options bag
+ * const stop = initializeKonamiEmojiBlast({
+ * 	onKonamiCodeActivated: () => console.log("Activated!"),
+ * 	emojiBlastSettings: { emojis: ["🐙", "✨"] }
+ * });
  */
 export const initializeKonamiEmojiBlast = (
 	optionsOrOnActivated?:
