@@ -18,11 +18,12 @@ export type OnKonamiCodeActivated = () => void;
 /**
  * Options bag to attach custom settings and event callbacks.
  */
-export type KonamiEmojiBlastOptions = {
+export interface KonamiEmojiBlastOptions {
 	/**
 	 * Triggered when the Konami code (↑ ↑ ↓ ↓ ← → ← → B A) is entered and blasting has begun.
 	 */
 	onKonamiCodeActivated?: OnKonamiCodeActivated;
+
 	/**
 	 * Settings for the resulting emoji blasts, such as emoji choice,
 	 * physics, and frequency.
@@ -30,11 +31,10 @@ export type KonamiEmojiBlastOptions = {
 	 * Proxies {@link EmojiBlastsSettings}
 	 */
 	emojiBlastSettings?: Partial<EmojiBlastsSettings>;
-};
+}
 
 /**
  * Initializes the Konami code listener to trigger emoji blasts.
- *
  * @param optionsOrOnActivated Either a callback triggered on activation,
  * or full options bag.
  * @returns A cleanup function to disable the listener and cancel active explosions.
@@ -53,11 +53,11 @@ export const initializeKonamiEmojiBlast = (
 		| OnKonamiCodeActivated
 		| Partial<KonamiEmojiBlastOptions>,
 ) => {
-	const { onKonamiCodeActivated, emojiBlastSettings } =
+	const { emojiBlastSettings, onKonamiCodeActivated } =
 		typeof optionsOrOnActivated === "function"
 			? {
-					onKonamiCodeActivated: optionsOrOnActivated,
 					emojiBlastSettings: undefined,
+					onKonamiCodeActivated: optionsOrOnActivated,
 				}
 			: (optionsOrOnActivated ?? {});
 
