@@ -7,7 +7,7 @@ import { demoGroups } from "./src/data/demos.ts";
 
 export default defineConfig({
 	integrations: [
-		konamiEmojiBlast(),
+		konamiEmojiBlast({ test123: "testing!!!" }),
 		react(),
 		starlight({
 			components: {

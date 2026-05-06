@@ -20,7 +20,8 @@ export const initializeKonamiEmojiBlast = (onActivate?: () => void) => {
 			explosions.cancel();
 			explosions = undefined;
 		} else {
-			explosions = emojiBlasts();
+			console.log("activated konami");
+			explosions = emojiBlasts({ emojis: ["⚠️"] });
 			onActivate?.();
 		}
 	});
