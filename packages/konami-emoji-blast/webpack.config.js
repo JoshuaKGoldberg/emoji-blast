@@ -10,7 +10,6 @@ export default {
 	entry: {
 		global: "./src/mains/global.ts",
 		now: "./src/mains/now.ts",
-		test: "./src/mains/test.ts",
 	},
 	mode: "production",
 	module: {

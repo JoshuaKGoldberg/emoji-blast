@@ -1,6 +1,9 @@
 import { describe, expect, it, MockInstance, vi } from "vitest";
 
-import { initializeKonamiEmojiBlast } from "./initializeKonamiEmojiBlast.js";
+import {
+	initializeKonamiEmojiBlast,
+	OnKonamiCodeActivated,
+} from "./initializeKonamiEmojiBlast.js";
 
 let mockKonamiCode: { disable: MockInstance; mockLaunch: () => void };
 
@@ -49,7 +52,7 @@ describe("initializeKonamiEmojiBlast", () => {
 	});
 
 	it("stops emoji blasts and konami listening when the returned function is called", () => {
-		const stop = initializeKonamiEmojiBlast(vi.fn());
+		const stop = initializeKonamiEmojiBlast(vi.fn() as OnKonamiCodeActivated);
 
 		mockKonamiCode.mockLaunch();
 
