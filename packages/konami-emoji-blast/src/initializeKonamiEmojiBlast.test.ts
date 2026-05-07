@@ -52,7 +52,7 @@ describe("initializeKonamiEmojiBlast", () => {
 	});
 
 	it("stops emoji blasts and konami listening when the returned function is called", () => {
-		const stop = initializeKonamiEmojiBlast(vi.fn() as OnKonamiCodeActivated);
+		const stop = initializeKonamiEmojiBlast(vi.fn<OnKonamiCodeActivated>());
 
 		mockKonamiCode.mockLaunch();
 
