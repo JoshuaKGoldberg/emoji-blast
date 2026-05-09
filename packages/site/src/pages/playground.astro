@@ -1,0 +1,29 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import EditorWrapper from "~/components/EditorWrapper";
+---
+
+<div>
+	<div style={{ position: "absolute" }}>
+		<StarlightPage
+			frontmatter={{
+				title: "Playground",
+				template: "splash",
+			}}
+		/>
+	</div>
+	<div class="editor">
+		<EditorWrapper client:only="react" />
+	</div>
+</div>
+
+<style is:global>
+	body {
+		padding: 0;
+		margin: 0;
+	}
+	.editor {
+		margin-top: 66px;
+		height: 100vh;
+	}
+</style>
