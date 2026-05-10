@@ -4,20 +4,43 @@ import { useState } from "react";
 import * as EmojiLib from "emoji-blast";
 import emojiBlastFnTypes from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { transform } from "sucrase";
+import { useTheme } from "~/hooks/useTheme";
 
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 
-emojiBlast();
+// 🦉 Welcome to the emoji-blast playground!
+// Try hovering over the 'emojiBlast' function or the option fields.
+
+emojiBlast({
+  emojiCount: 8,
+  uniqueness: 2,
+  emojis: ["✨", "🔥", "🚀"],
+  physics: {
+    gravity: 0.4,
+    initialVelocities: {
+      rotation: { max: 20, min: -20 },
+    },
+  },
+});
 `;
 
-export const EditorWrapper = () => {
+export const PlaygroundEditor = () => {
 	const [code, setCode] = useState(DEFAULT_EDITOR_CONTENT);
 	const run = () => {
 		const compiled = transform(code, {
 			transforms: ["typescript", "imports"],
 		}).code;
 
-		const fn = new Function("require", compiled);
+		const forbidden = [
+			"window",
+			"document",
+			"fetch",
+			"localStorage",
+			"sessionStorage",
+			"globalThis",
+			"self",
+		];
+		const fn = new Function("require", ...forbidden, compiled);
 
 		const customRequire = (moduleName: string) => {
 			if (moduleName === "emoji-blast") {
@@ -26,7 +49,22 @@ export const EditorWrapper = () => {
 			throw new Error(`Module "${moduleName}" not found in sandbox.`);
 		};
 
-		fn(customRequire);
+		const proxies = forbidden.map(
+			(blockedTargetName) =>
+				new Proxy(
+					{},
+					{
+						get() {
+							alert(
+								`Access to property of ${blockedTargetName} prohibited in emoji-blast playground`,
+							);
+							return null;
+						},
+					},
+				),
+		);
+
+		fn.call(null, customRequire, ...proxies);
 	};
 
 	const handleBeforeMount = (monaco: Monaco) => {
@@ -47,14 +85,38 @@ export const EditorWrapper = () => {
 		);
 	};
 
+	const theme = useTheme();
+	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
+
 	return (
-		<>
+		<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+			<div
+				style={{
+					margin: "12px",
+					display: "flex",
+					justifyContent: "space-between",
+				}}
+			>
+				<Button
+					style={{ paddingInline: "18px", paddingBlock: "2px" }}
+					onClick={run}
+					as="button"
+				>
+					Run Code
+				</Button>
+				<a
+					href="https://www.npmjs.com/package/emoji-blast/v/0.11.0"
+					target="_blank"
+				>
+					v0.11.0
+				</a>
+			</div>
 			<Editor
 				value={code}
 				beforeMount={handleBeforeMount}
 				onChange={(v) => setCode(v ?? "")}
 				language="typescript"
-				theme="vs-dark"
+				theme={monacoTheme}
 				options={{
 					minimap: { enabled: false },
 					fontSize: 16,
@@ -62,17 +124,6 @@ export const EditorWrapper = () => {
 					tabSize: 2,
 				}}
 			/>
-			<Button
-				onClick={run}
-				as="button"
-				style={{
-					position: "absolute",
-					top: 12,
-					right: 12,
-				}}
-			>
-				Run
-			</Button>
-		</>
+		</div>
 	);
 };
