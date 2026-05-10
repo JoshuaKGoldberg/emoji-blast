@@ -6,6 +6,11 @@ import emojiBlastFnTypes from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { transform } from "sucrase";
 import { useTheme } from "~/hooks/useTheme";
 
+const EMOJI_BLAST_PACKAGE = {
+	version: "0.11.0",
+	url: "https://www.npmjs.com/package/emoji-blast/v/0.11.0",
+};
+
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 
 // 🦉 Welcome to the emoji-blast playground!
@@ -104,11 +109,8 @@ export const PlaygroundEditor = () => {
 				>
 					Run Code
 				</Button>
-				<a
-					href="https://www.npmjs.com/package/emoji-blast/v/0.11.0"
-					target="_blank"
-				>
-					v0.11.0
+				<a href={EMOJI_BLAST_PACKAGE.url} target="_blank">
+					{EMOJI_BLAST_PACKAGE.version}
 				</a>
 			</div>
 			<Editor
