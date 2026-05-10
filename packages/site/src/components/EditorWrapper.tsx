@@ -1,8 +1,9 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import { Button } from "./Button";
 import { useState } from "react";
-import { emojiBlast } from "emoji-blast";
+import * as EmojiLib from "emoji-blast";
 import emojiBlastFnTypes from "emoji-blast/lib/emojiBlast.d.ts?raw";
+import { transform } from "sucrase";
 
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 
@@ -12,9 +13,20 @@ emojiBlast();
 export const EditorWrapper = () => {
 	const [code, setCode] = useState(DEFAULT_EDITOR_CONTENT);
 	const run = () => {
-		const cleanCode = code.replace(/import\s+.*from\s+['"].*['"];?/g, "");
-		const fn = new Function("emojiBlast", cleanCode);
-		fn(emojiBlast);
+		const compiled = transform(code, {
+			transforms: ["typescript", "imports"],
+		}).code;
+
+		const fn = new Function("require", compiled);
+
+		const customRequire = (moduleName: string) => {
+			if (moduleName === "emoji-blast") {
+				return EmojiLib;
+			}
+			throw new Error(`Module "${moduleName}" not found in sandbox.`);
+		};
+
+		fn(customRequire);
 	};
 
 	const handleBeforeMount = (monaco: Monaco) => {

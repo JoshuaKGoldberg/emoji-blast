@@ -3,15 +3,13 @@ import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import { EditorWrapper } from "~/components/EditorWrapper";
 ---
 
-<div>
-	<div style={{ position: "absolute" }}>
-		<StarlightPage
-			frontmatter={{
-				title: "Playground",
-				template: "splash",
-			}}
-		/>
-	</div>
+<div class="pg-container">
+	<StarlightPage
+		frontmatter={{
+			title: "Playground",
+			template: "splash",
+		}}
+	/>
 	<div class="editor">
 		<EditorWrapper client:only="react" />
 	</div>
@@ -22,9 +20,14 @@ import { EditorWrapper } from "~/components/EditorWrapper";
 		padding: 0;
 		margin: 0;
 	}
+	.page {
+		min-height: 0;
+	}
+	.main-pane {
+		display: none;
+	}
 	.editor {
 		position: relative;
-		margin-top: 66px;
-		height: 100vh;
+		height: 100px;
 	}
 </style>
