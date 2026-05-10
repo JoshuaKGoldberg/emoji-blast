@@ -2,7 +2,7 @@ import Editor, { type Monaco } from "@monaco-editor/react";
 import { Button } from "./Button";
 import { useState } from "react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
-import { useTheme } from "~/hooks/useTheme";
+import { useStarlightTheme } from "~/hooks/useStarlightTheme";
 import { executePlaygroundCode } from "~/utils/executePlaygroundCode";
 
 const EMOJI_BLAST_PACKAGE = {
@@ -49,16 +49,16 @@ export const PlaygroundEditor = () => {
 		);
 	};
 
-	const theme = useTheme();
+	const theme = useStarlightTheme();
 	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
 
 	return (
 		<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
 			<div
 				style={{
-					margin: "12px",
 					display: "flex",
 					justifyContent: "space-between",
+					margin: "12px",
 				}}
 			>
 				<Button

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-type Theme = "dark" | "light";
+type StarlightTheme = "dark" | "light";
 
-export const useTheme = () => {
-	const [theme, setTheme] = useState<Theme>("dark");
+export const useStarlightTheme = () => {
+	const [theme, setTheme] = useState<StarlightTheme>("dark");
 
 	const setThemeWithFallback = (rawThemeAttr: string | null) => {
 		if (!rawThemeAttr) {
