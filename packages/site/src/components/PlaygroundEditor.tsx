@@ -6,7 +6,7 @@ import { useStarlightTheme } from "~/hooks/useStarlightTheme";
 import { executePlaygroundCode } from "~/utils/executePlaygroundCode";
 
 const EMOJI_BLAST_PACKAGE = {
-	version: "0.11.0",
+	version: "v0.11.0",
 	url: "https://www.npmjs.com/package/emoji-blast/v/0.11.0",
 };
 
