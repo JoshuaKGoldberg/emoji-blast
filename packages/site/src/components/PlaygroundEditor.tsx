@@ -1,10 +1,9 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import { Button } from "./Button";
 import { useState } from "react";
-import * as EmojiLib from "emoji-blast";
-import emojiBlastFnTypes from "emoji-blast/lib/emojiBlast.d.ts?raw";
-import { transform } from "sucrase";
+import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { useTheme } from "~/hooks/useTheme";
+import { executePlaygroundCode } from "~/utils/executePlaygroundCode";
 
 const EMOJI_BLAST_PACKAGE = {
 	version: "0.11.0",
@@ -31,46 +30,6 @@ emojiBlast({
 
 export const PlaygroundEditor = () => {
 	const [code, setCode] = useState(DEFAULT_EDITOR_CONTENT);
-	const run = () => {
-		const compiled = transform(code, {
-			transforms: ["typescript", "imports"],
-		}).code;
-
-		const forbidden = [
-			"window",
-			"document",
-			"fetch",
-			"localStorage",
-			"sessionStorage",
-			"globalThis",
-			"self",
-		];
-		const fn = new Function("require", ...forbidden, compiled);
-
-		const customRequire = (moduleName: string) => {
-			if (moduleName === "emoji-blast") {
-				return EmojiLib;
-			}
-			throw new Error(`Module "${moduleName}" not found in sandbox.`);
-		};
-
-		const proxies = forbidden.map(
-			(blockedTargetName) =>
-				new Proxy(
-					{},
-					{
-						get() {
-							alert(
-								`Access to property of ${blockedTargetName} prohibited in emoji-blast playground`,
-							);
-							return null;
-						},
-					},
-				),
-		);
-
-		fn.call(null, customRequire, ...proxies);
-	};
 
 	const handleBeforeMount = (monaco: Monaco) => {
 		const compilerOptions = {
@@ -85,7 +44,7 @@ export const PlaygroundEditor = () => {
 		);
 
 		monaco.languages.typescript.typescriptDefaults.addExtraLib(
-			`declare module "emoji-blast" { ${emojiBlastFnTypes} }`,
+			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
 	};
@@ -104,7 +63,7 @@ export const PlaygroundEditor = () => {
 			>
 				<Button
 					style={{ paddingInline: "18px", paddingBlock: "2px" }}
-					onClick={run}
+					onClick={() => executePlaygroundCode(code)}
 					as="button"
 				>
 					Run Code
