@@ -1,6 +1,6 @@
 ---
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-import EditorWrapper from "~/components/EditorWrapper";
+import { EditorWrapper } from "~/components/EditorWrapper";
 ---
 
 <div>
@@ -23,6 +23,7 @@ import EditorWrapper from "~/components/EditorWrapper";
 		margin: 0;
 	}
 	.editor {
+		position: relative;
 		margin-top: 66px;
 		height: 100vh;
 	}
