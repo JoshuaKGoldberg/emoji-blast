@@ -3,9 +3,9 @@ import { Button } from "./Button";
 import { useState } from "react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { useStarlightTheme } from "~/hooks/useStarlightTheme";
-import { executePlaygroundCode } from "~/utils/executePlaygroundCode";
+import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 
-const EMOJI_BLAST_PACKAGE = {
+const EMOJI_BLAST_PACKAGE_METADATA = {
 	version: "v0.11.0",
 	url: "https://www.npmjs.com/package/emoji-blast/v/0.11.0",
 };
@@ -29,9 +29,9 @@ emojiBlast({
 `;
 
 export const PlaygroundEditor = () => {
-	const [code, setCode] = useState(DEFAULT_EDITOR_CONTENT);
+	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 
-	const handleBeforeMount = (monaco: Monaco) => {
+	const setupMonaco = (monaco: Monaco) => {
 		const compilerOptions = {
 			strict: true,
 			target: monaco.languages.typescript.ScriptTarget.ESNext,
@@ -63,19 +63,19 @@ export const PlaygroundEditor = () => {
 			>
 				<Button
 					style={{ paddingInline: "18px", paddingBlock: "2px" }}
-					onClick={() => executePlaygroundCode(code)}
+					onClick={() => runPlaygroundCode(editorValue)}
 					as="button"
 				>
 					Run Code
 				</Button>
-				<a href={EMOJI_BLAST_PACKAGE.url} target="_blank">
-					{EMOJI_BLAST_PACKAGE.version}
+				<a href={EMOJI_BLAST_PACKAGE_METADATA.url} target="_blank">
+					{EMOJI_BLAST_PACKAGE_METADATA.version}
 				</a>
 			</div>
 			<Editor
-				value={code}
-				beforeMount={handleBeforeMount}
-				onChange={(v) => setCode(v ?? "")}
+				value={editorValue}
+				beforeMount={setupMonaco}
+				onChange={(v) => setEditorValue(v ?? "")}
 				language="typescript"
 				theme={monacoTheme}
 				options={{

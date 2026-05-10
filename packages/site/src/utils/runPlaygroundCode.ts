@@ -1,7 +1,7 @@
 import { transform } from "sucrase";
 import * as EmojiBlastLib from "emoji-blast";
 
-const BLOCKED = [
+const FORBIDDEN_GLOBALS = [
 	"window",
 	"document",
 	"fetch",
@@ -9,26 +9,30 @@ const BLOCKED = [
 	"sessionStorage",
 	"globalThis",
 	"self",
-];
+] as const;
 
-export const executePlaygroundCode = (code: string) => {
-	const compiled = transform(code, {
+export const runPlaygroundCode = (code: string) => {
+	const { code: transpiledCode } = transform(code, {
 		transforms: ["typescript", "imports"],
-	}).code;
+	});
 
-	const fn = new Function("require", ...BLOCKED, compiled);
+	const executableModule = new Function(
+		"require",
+		...FORBIDDEN_GLOBALS,
+		transpiledCode,
+	);
 
-	const customRequire = (moduleName: string) => {
+	const mockRequire = (moduleName: string) => {
 		if (moduleName === "emoji-blast") {
 			return EmojiBlastLib;
 		}
 		throw new Error(`Module "${moduleName}" not found in sandbox.`);
 	};
 
-	fn.call(
+	executableModule.call(
 		null,
-		customRequire,
-		...BLOCKED.map(
+		mockRequire,
+		...FORBIDDEN_GLOBALS.map(
 			(blockedTargetName) =>
 				new Proxy(
 					{},
