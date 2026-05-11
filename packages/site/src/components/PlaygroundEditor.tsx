@@ -1,13 +1,15 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
-import { Button } from "./Button";
-import { useState } from "react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
+import { useState } from "react";
+
 import { useStarlightTheme } from "~/hooks/useStarlightTheme";
 import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 
+import { Button } from "./Button";
+
 const EMOJI_BLAST_PACKAGE_METADATA = {
-	version: "v0.11.0",
 	url: "https://www.npmjs.com/package/emoji-blast/v/0.11.0",
+	version: "v0.11.0",
 };
 
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
@@ -32,18 +34,26 @@ export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 
 	const setupMonaco = (monaco: Monaco) => {
-		const compilerOptions = {
-			strict: true,
-			target: monaco.languages.typescript.ScriptTarget.ESNext,
-			module: monaco.languages.typescript.ModuleKind.ESNext,
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+		const tsLanguageService = monaco.languages.typescript;
+
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+		const { typescript } = tsLanguageService as any;
+
+		// 3. Set your compiler options safely on 'defaults'
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		typescript.defaults.setCompilerOptions({
 			allowNonTsExtensions: true,
-		};
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+			module: typescript.ScriptTarget.ESNext,
+			strict: true,
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+			target: typescript.ScriptTarget.ESNext,
+		});
 
-		monaco.languages.typescript.typescriptDefaults.setCompilerOptions(
-			compilerOptions,
-		);
-
-		monaco.languages.typescript.typescriptDefaults.addExtraLib(
+		// 4. Inject your type definitions
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		typescript.defaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
@@ -53,7 +63,7 @@ export const PlaygroundEditor = () => {
 	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
 
 	return (
-		<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+		<div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
 			<div
 				style={{
 					display: "flex",
@@ -62,9 +72,11 @@ export const PlaygroundEditor = () => {
 				}}
 			>
 				<Button
-					style={{ paddingInline: "18px", paddingBlock: "2px" }}
-					onClick={() => runPlaygroundCode(editorValue)}
 					as="button"
+					onClick={() => {
+						runPlaygroundCode(editorValue);
+					}}
+					style={{ paddingBlock: "2px", paddingInline: "18px" }}
 				>
 					Run Code
 				</Button>
@@ -73,17 +85,19 @@ export const PlaygroundEditor = () => {
 				</a>
 			</div>
 			<Editor
-				value={editorValue}
 				beforeMount={setupMonaco}
-				onChange={(v) => setEditorValue(v ?? "")}
 				language="typescript"
-				theme={monacoTheme}
+				onChange={(v) => {
+					setEditorValue(v ?? "");
+				}}
 				options={{
-					minimap: { enabled: false },
-					fontSize: 16,
 					automaticLayout: true,
+					fontSize: 16,
+					minimap: { enabled: false },
 					tabSize: 2,
 				}}
+				theme={monacoTheme}
+				value={editorValue}
 			/>
 		</div>
 	);

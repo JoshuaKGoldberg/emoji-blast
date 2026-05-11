@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"moduleResolution": "node10",
 		"baseUrl": ".",
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",

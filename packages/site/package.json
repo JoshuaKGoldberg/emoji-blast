@@ -27,5 +27,8 @@
 		"react-dom": "^19.2.5",
 		"sucrase": "^3.35.1",
 		"typescript": "^6.0.3"
+	},
+	"devDependencies": {
+		"monaco-editor": "^0.55.1"
 	}
 }

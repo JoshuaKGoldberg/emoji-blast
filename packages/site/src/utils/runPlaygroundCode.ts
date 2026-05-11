@@ -1,5 +1,5 @@
-import { transform } from "sucrase";
 import * as EmojiBlastLib from "emoji-blast";
+import { transform } from "sucrase";
 
 const FORBIDDEN_GLOBALS = [
 	"window",
@@ -16,6 +16,7 @@ export const runPlaygroundCode = (code: string) => {
 		transforms: ["typescript", "imports"],
 	});
 
+	// eslint-disable-next-line @typescript-eslint/no-implied-eval
 	const executableModule = new Function(
 		"require",
 		...FORBIDDEN_GLOBALS,
