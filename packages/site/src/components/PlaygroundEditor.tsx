@@ -37,24 +37,23 @@ export const PlaygroundEditor = () => {
 	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
 	// https://github.com/microsoft/monaco-editor/issues/5133
 	const setupMonaco = (monaco: Monaco) => {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-		const tsLanguageService = monaco.languages.typescript;
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+		const ts = monaco.languages.typescript as any;
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-		const { typescript } = tsLanguageService as any;
-
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-		typescript.defaults.setCompilerOptions({
+		const compilerOptions = {
 			allowNonTsExtensions: true,
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-			module: typescript.ScriptTarget.ESNext,
+			module: ts.ModuleKind.ESNext,
 			strict: true,
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-			target: typescript.ScriptTarget.ESNext,
-		});
+			target: ts.ScriptTarget.ESNext,
+		};
 
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-		typescript.defaults.addExtraLib(
+		ts.typescriptDefaults.setCompilerOptions(compilerOptions);
+
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		ts.typescriptDefaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
