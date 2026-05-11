@@ -33,13 +33,16 @@ emojiBlast({
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 
+	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
+	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
+	// https://github.com/microsoft/monaco-editor/issues/5133
 	const setupMonaco = (monaco: Monaco) => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 		const tsLanguageService = monaco.languages.typescript;
 
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
 		const { typescript } = tsLanguageService as any;
 
-		// 3. Set your compiler options safely on 'defaults'
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		typescript.defaults.setCompilerOptions({
 			allowNonTsExtensions: true,
@@ -50,7 +53,6 @@ export const PlaygroundEditor = () => {
 			target: typescript.ScriptTarget.ESNext,
 		});
 
-		// 4. Inject your type definitions
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		typescript.defaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
