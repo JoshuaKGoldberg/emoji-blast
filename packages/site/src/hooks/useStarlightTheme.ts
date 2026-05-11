@@ -5,9 +5,10 @@ type StarlightTheme = "dark" | "light";
 export const useStarlightTheme = () => {
 	const [theme, setTheme] = useState<StarlightTheme>("dark");
 
-	const setThemeWithFallback = (rawThemeAttr: string | null) => {
+	const setThemeWithFallback = (rawThemeAttr: null | string) => {
 		if (!rawThemeAttr) {
-			return setTheme("dark");
+			setTheme("dark");
+			return;
 		}
 		if (rawThemeAttr !== "dark" && rawThemeAttr !== "light") {
 			throw new Error("invalid theme data");
@@ -25,11 +26,13 @@ export const useStarlightTheme = () => {
 		});
 
 		observer.observe(document.documentElement, {
-			attributes: true,
 			attributeFilter: ["data-theme"],
+			attributes: true,
 		});
 
-		return () => observer.disconnect();
+		return () => {
+			observer.disconnect();
+		};
 	}, []);
 
 	return theme;
