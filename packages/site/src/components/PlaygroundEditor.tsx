@@ -36,28 +36,25 @@ export const PlaygroundEditor = () => {
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
 	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
 	// https://github.com/microsoft/monaco-editor/issues/5133
+	/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 	const setupMonaco = (monaco: Monaco) => {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
 		const ts = monaco.languages.typescript as any;
 
 		const compilerOptions = {
 			allowNonTsExtensions: true,
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 			module: ts.ModuleKind.ESNext,
 			strict: true,
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 			target: ts.ScriptTarget.ESNext,
 		};
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		ts.typescriptDefaults.setCompilerOptions(compilerOptions);
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		ts.typescriptDefaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
 	};
+	/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
 	const theme = useStarlightTheme();
 	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
