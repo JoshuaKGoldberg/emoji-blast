@@ -1,7 +1,7 @@
 {
 	"name": "use-starlight-theme",
 	"version": "0.0.1",
-	"description": "A hook for reactive theme toggling in Astro Starlight.",
+	"description": "React hook to track the current theme in Astro Starlight",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/JoshuaKGoldberg/emoji-blast",
