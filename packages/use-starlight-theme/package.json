@@ -1,0 +1,41 @@
+{
+	"name": "use-starlight-theme",
+	"version": "0.0.1",
+	"description": "A hook for reactive theme toggling in Astro Starlight.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JoshuaKGoldberg/emoji-blast",
+		"directory": "packages/use-starlight-theme"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "JoshuaKGoldberg",
+		"email": "npm@joshuakgoldberg.com"
+	},
+	"type": "module",
+	"main": "./lib/index.js",
+	"files": [
+		"dist/",
+		"lib/"
+	],
+	"scripts": {
+		"build": "tsup"
+	},
+	"devDependencies": {
+		"@types/react": "^18.0.0",
+		"react": "^18.0.0",
+		"tsup": "^8.5.1",
+		"typescript": "^5.0.0"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0 || ^19.0.0"
+	},
+	"peerDependenciesMeta": {
+		"react": {
+			"optional": false
+		}
+	},
+	"engines": {
+		"node": ">=18"
+	}
+}
