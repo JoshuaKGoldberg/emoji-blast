@@ -13,10 +13,9 @@
 		"email": "npm@joshuakgoldberg.com"
 	},
 	"type": "module",
-	"main": "./lib/index.js",
+	"main": "./dist/index.js",
 	"files": [
-		"dist/",
-		"lib/"
+		"dist/"
 	],
 	"scripts": {
 		"build": "tsup"
