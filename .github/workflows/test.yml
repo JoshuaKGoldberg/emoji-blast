@@ -7,7 +7,7 @@ jobs:
       - run: pnpm build
       - run: pnpm run test --coverage
       - name: Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
 
 name: Test
 
