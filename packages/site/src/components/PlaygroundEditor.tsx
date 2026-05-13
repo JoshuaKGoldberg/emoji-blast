@@ -1,7 +1,7 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
-import { useState } from "react";
 
+import { usePlaygroundState } from "~/hooks/usePlaygroundState";
 import { useStarlightTheme } from "~/hooks/useStarlightTheme";
 import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 
@@ -12,7 +12,7 @@ const EMOJI_BLAST_PACKAGE_METADATA = {
 	version: "v0.11.0",
 };
 
-const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
+export const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 
 // 🦉 Welcome to the emoji-blast playground!
 // Try hovering over the 'emojiBlast' function or the option fields.
@@ -31,7 +31,7 @@ emojiBlast({
 `;
 
 export const PlaygroundEditor = () => {
-	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
+	const [editorValue, setEditorValue] = usePlaygroundState();
 
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
 	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
