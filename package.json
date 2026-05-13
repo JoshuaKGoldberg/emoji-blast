@@ -49,7 +49,7 @@
 		"husky": "^9.1.7",
 		"jsonc-eslint-parser": "^3.1.0",
 		"knip": "^6.7.0",
-		"lint-staged": "^16.4.0",
+		"lint-staged": "^17.0.0",
 		"prettier": "^3.8.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-curly": "^0.4.1",
