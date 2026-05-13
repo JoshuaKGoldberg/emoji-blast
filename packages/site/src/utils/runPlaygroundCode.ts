@@ -38,7 +38,7 @@ export const runPlaygroundCode = (code: string) => {
 	const executableModule = new Function(
 		"require",
 		...FORBIDDEN_GLOBALS,
-		transpiledCode.replace(/^["']use strict["'];?\s*/, ""),
+		transpiledCode,
 	);
 
 	const mockRequire = (moduleName: string) => {
