@@ -9,8 +9,8 @@
 	},
 	"license": "MIT",
 	"author": {
-		"name": "JoshuaKGoldberg",
-		"email": "npm@joshuakgoldberg.com"
+		"name": "Yona Voss-Andreae",
+		"email": "yonavossandreae@gmail.com"
 	},
 	"type": "module",
 	"main": "./dist/index.js",
