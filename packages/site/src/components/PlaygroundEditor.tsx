@@ -1,8 +1,8 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { useState } from "react";
+import { useStarlightTheme } from "use-starlight-theme";
 
-import { useStarlightTheme } from "~/hooks/useStarlightTheme";
 import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 
 import { Button } from "./Button";
