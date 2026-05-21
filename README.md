@@ -5,7 +5,7 @@
 <p align="center">
 	<!-- prettier-ignore-start -->
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 20" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-20-21bb42.svg" /></a>
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 21" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-21-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/emoji-blast/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
@@ -72,6 +72,7 @@ Thanks!
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cylewaitforit"><img src="https://avatars.githubusercontent.com/u/54253392?v=4?s=100" width="100px;" alt="cylewaitforit"/><br /><sub><b>cylewaitforit</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=cylewaitforit" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenamerk"><img src="https://avatars.githubusercontent.com/u/7145275?v=4?s=100" width="100px;" alt="helenamerk"/><br /><sub><b>helenamerk</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/commits?author=helenamerk" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/joemcil"><img src="https://avatars.githubusercontent.com/u/126059816?v=4?s=100" width="100px;" alt="joemcil"/><br /><sub><b>joemcil</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/emoji-blast/issues?q=author%3Ajoemcil" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/teykamp"><img src="https://avatars.githubusercontent.com/u/46391052?v=4?s=100" width="100px;" alt="teykamp"/><br /><sub><b>teykamp</b></sub></a><br /><a href="#ideas-teykamp" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
