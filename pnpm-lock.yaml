@@ -40,7 +40,7 @@ importers:
         version: 1.7.0(eslint@10.5.0(jiti@2.7.0))
       eslint-plugin-jsdoc:
         specifier: ^63.0.0
-        version: 63.0.2(eslint@10.5.0(jiti@2.7.0))
+        version: 63.0.4(eslint@10.5.0(jiti@2.7.0))
       eslint-plugin-jsonc:
         specifier: ^3.1.2
         version: 3.2.0(eslint@10.5.0(jiti@2.7.0))
@@ -4196,8 +4196,8 @@ packages:
     peerDependencies:
       eslint: '>=8.57.0'
 
-  eslint-plugin-jsdoc@63.0.2:
-    resolution: {integrity: sha512-0TchoK1uS4VxHSo3P4CyWQ31Lm+6zsT+xkHMC5KbFKwgOf8YrXPf1Bl8EP7kpgw1wfe/Ui5jz5mSX7ou8WAVuw==}
+  eslint-plugin-jsdoc@63.0.4:
+    resolution: {integrity: sha512-CzfD5nlKm91L0b4DQq47ERIlL4s4cK5+iQJMI99MDvVWLz+SkwUSGYcIr8ZYsyRw2gQ2MSKsE2StbT1CctdG0A==}
     engines: {node: ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -11877,7 +11877,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-jsdoc@63.0.2(eslint@10.5.0(jiti@2.7.0)):
+  eslint-plugin-jsdoc@63.0.4(eslint@10.5.0(jiti@2.7.0)):
     dependencies:
       '@es-joy/jsdoccomment': 0.87.0
       '@es-joy/resolve.exports': 1.2.0
