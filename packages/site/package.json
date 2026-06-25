@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.8",
-		"@astrojs/react": "^5.0.4",
+		"@astrojs/react": "^6.0.0",
 		"@astrojs/starlight": "^0.38.4",
 		"@konami-emoji-blast/astro": "workspace:",
 		"@monaco-editor/react": "^4.7.0",
