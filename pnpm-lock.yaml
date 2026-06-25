@@ -97,7 +97,7 @@ importers:
     devDependencies:
       ts-loader:
         specifier: ^9.5.7
-        version: 9.6.1(typescript@6.0.3)(webpack@5.107.2)
+        version: 9.6.2(typescript@6.0.3)(webpack@5.107.2)
       webpack:
         specifier: ^5.106.2
         version: 5.107.2(webpack-cli@7.0.3)
@@ -119,7 +119,7 @@ importers:
         version: 0.8.3
       ts-loader:
         specifier: ^9.5.7
-        version: 9.6.1(typescript@6.0.3)(webpack@5.107.2)
+        version: 9.6.2(typescript@6.0.3)(webpack@5.107.2)
       webpack:
         specifier: ^5.106.2
         version: 5.107.2(webpack-cli@7.0.3)
@@ -6905,8 +6905,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  ts-loader@9.6.1:
-    resolution: {integrity: sha512-8FMHnmxtpncUAu0ZjkqpXnOTlwc9eY95esH8WVN94guTPPdkg2ofVdiVM5j8L2lmjiGerXd56zXb/D2JyVQPLg==}
+  ts-loader@9.6.2:
+    resolution: {integrity: sha512-R4iuczmtgxvtuI556s+hTZ6/7Ee03VCAk/l/M8LY1OAsUgB7YydsCxkgq9D9pKRaD7GJqUi2u8fp9zZP/ufjKA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       loader-utils: '*'
@@ -15409,12 +15409,10 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-loader@9.6.1(typescript@6.0.3)(webpack@5.107.2):
+  ts-loader@9.6.2(typescript@6.0.3)(webpack@5.107.2):
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.24.0
-      micromatch: 4.0.8
-      semver: 7.8.5
+      picomatch: 4.0.4
       source-map: 0.7.6
       typescript: 6.0.3
       webpack: 5.107.2(webpack-cli@7.0.3)
