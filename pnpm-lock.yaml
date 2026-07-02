@@ -82,7 +82,7 @@ importers:
         version: 3.0.2(prettier@3.8.4)
       prettier-plugin-sentences-per-line:
         specifier: ^0.2.3
-        version: 0.2.3(prettier@3.8.4)
+        version: 0.2.4(prettier@3.8.4)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -6455,8 +6455,8 @@ packages:
       prettier:
         optional: true
 
-  prettier-plugin-sentences-per-line@0.2.3:
-    resolution: {integrity: sha512-zuzFfs97g9xo0wE4hX/RbAaTWrbW0NgqiPXcW7LR4mzQInCHLuTx8W/t6S1IqHSwegHoxHIgJSKBq02AH7IQJw==}
+  prettier-plugin-sentences-per-line@0.2.4:
+    resolution: {integrity: sha512-1SSPJxwvekA6wVb4VqJYcVZw39Ak7Oy/IKd4qCGG48hO7oWg/DF0EWPo4PrEROy2LWLl3/U570NM7SurMKQNSA==}
     peerDependencies:
       prettier: ^3
 
@@ -6802,8 +6802,8 @@ packages:
     resolution: {integrity: sha512-1gnZf7DFcoIcajTjTwjwuDjzuz4PPcY2StKPlsGAQ1+YH20IRVrBaXSWmdjowTJ6u8Rc01PoYOGHXfP1mYcZNQ==}
     engines: {node: '>= 18'}
 
-  sentences-per-line@0.5.2:
-    resolution: {integrity: sha512-Ch7cTyoP+nEo5+iZozSAeJ4c8R3jglpFwQMoQ98dn7wOa0QhXJjgO1wrjZgQJahSDB30BXfJ2PEBrlfhx8vK8A==}
+  sentences-per-line@0.5.3:
+    resolution: {integrity: sha512-pXuRJ4bKjxEaRVi7ZbwJBF2THPShuLHvWjw9yCtyn5qNqgAfZ/sqPHJu9HS72TffLQwIFX+aSP61HuGGz+7Aww==}
     engines: {node: '>=22.14.0'}
 
   serialize-javascript@7.0.5:
@@ -15078,10 +15078,10 @@ snapshots:
     optionalDependencies:
       prettier: 3.8.4
 
-  prettier-plugin-sentences-per-line@0.2.3(prettier@3.8.4):
+  prettier-plugin-sentences-per-line@0.2.4(prettier@3.8.4):
     dependencies:
       prettier: 3.8.4
-      sentences-per-line: 0.5.2
+      sentences-per-line: 0.5.3
 
   prettier@2.8.8: {}
 
@@ -15525,7 +15525,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  sentences-per-line@0.5.2: {}
+  sentences-per-line@0.5.3: {}
 
   serialize-javascript@7.0.5: {}
 
