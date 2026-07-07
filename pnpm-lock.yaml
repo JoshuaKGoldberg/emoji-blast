@@ -100,10 +100,10 @@ importers:
         version: 9.6.2(typescript@6.0.3)(webpack@5.108.3)
       webpack:
         specifier: ^5.106.2
-        version: 5.108.3(esbuild@0.28.1)(webpack-cli@7.1.0)
+        version: 5.108.3(esbuild@0.28.1)(webpack-cli@7.2.0)
       webpack-cli:
         specifier: ^7.0.2
-        version: 7.1.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3)
+        version: 7.2.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3)
 
   packages/konami-emoji-blast:
     dependencies:
@@ -7846,8 +7846,8 @@ packages:
     resolution: {integrity: sha512-BMhLD/Sw+GbJC21C/UgyaZX41nPt8bUTg+jWyDeg7e7YN4xOM05YPSIXceACnXVtqyEw/LMClUQMtMZ+PGGpqQ==}
     engines: {node: '>=20'}
 
-  webpack-cli@7.1.0:
-    resolution: {integrity: sha512-pSJ5p5PkXRD88sfCq5Wo+coc42QykwRu5Md0DyESj0rT6PPPA2wTNabpHPKgqH8EMkfTDo3IWx3iiNXMu8XDBQ==}
+  webpack-cli@7.2.0:
+    resolution: {integrity: sha512-OfgnduZk4Cf9MzdtB6vBabAEF/LPANaev6GvOpCUfKy3EMJhuGk51T/d4i8klYzwksVKcAxN3EanL4Kdr7S8Yg==}
     engines: {node: '>=20.9.0'}
     hasBin: true
     peerDependencies:
@@ -7856,7 +7856,7 @@ packages:
       toml: ^3.0.0 || ^4.0.0
       webpack: ^5.101.0
       webpack-bundle-analyzer: ^4.0.0 || ^5.0.0
-      webpack-dev-server: ^5.0.0
+      webpack-dev-server: ^5.0.0 || ^6.0.0
     peerDependenciesMeta:
       js-yaml:
         optional: true
@@ -14056,7 +14056,7 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 4.3.3
       terser: 5.48.0
-      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.1.0)
+      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.2.0)
     optionalDependencies:
       esbuild: 0.28.1
 
@@ -15995,7 +15995,7 @@ snapshots:
       picomatch: 4.0.5
       source-map: 0.7.6
       typescript: 6.0.3
-      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.1.0)
+      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.2.0)
 
   tsconfck@3.1.6(typescript@6.0.3):
     optionalDependencies:
@@ -16601,7 +16601,7 @@ snapshots:
 
   webidl-conversions@8.0.1: {}
 
-  webpack-cli@7.1.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3):
+  webpack-cli@7.2.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3):
     dependencies:
       '@discoveryjs/json-ext': 1.1.0
       commander: 14.0.3
@@ -16610,7 +16610,7 @@ snapshots:
       import-local: 3.2.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.1.0)
+      webpack: 5.108.3(esbuild@0.28.1)(webpack-cli@7.2.0)
       webpack-merge: 6.0.1
     optionalDependencies:
       js-yaml: 4.3.0
@@ -16664,7 +16664,7 @@ snapshots:
       - postcss
       - uglify-js
 
-  webpack@5.108.3(esbuild@0.28.1)(webpack-cli@7.1.0):
+  webpack@5.108.3(esbuild@0.28.1)(webpack-cli@7.2.0):
     dependencies:
       '@types/estree': 1.0.9
       '@types/json-schema': 7.0.15
@@ -16689,7 +16689,7 @@ snapshots:
       watchpack: 2.5.2
       webpack-sources: 3.5.0
     optionalDependencies:
-      webpack-cli: 7.1.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3)
+      webpack-cli: 7.2.0(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.3)
     transitivePeerDependencies:
       - '@minify-html/node'
       - '@swc/core'
