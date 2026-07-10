@@ -55,7 +55,7 @@ importers:
         version: 3.1.1(eslint@10.6.0(jiti@2.7.0))
       eslint-plugin-yml:
         specifier: ^3.3.1
-        version: 3.5.0(eslint@10.6.0(jiti@2.7.0))
+        version: 3.6.0(eslint@10.6.0(jiti@2.7.0))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -4438,8 +4438,8 @@ packages:
     peerDependencies:
       eslint: '>=9.38.0'
 
-  eslint-plugin-yml@3.5.0:
-    resolution: {integrity: sha512-u2UkSIp/+th1wYCt0QWeCI6agf24dxX6PbFfCCN18gGQHmXh3Cn9D/U5OiP5RNYTEwjXCLusj1OJRK+zwdvFqQ==}
+  eslint-plugin-yml@3.6.0:
+    resolution: {integrity: sha512-8lSqBIiOJO8ms1gktdlNaVGm3zXQJiYeKhQmtIG66XzU58kFDOjQae4sufQEMGHC4bP8VxiaH3tjU5PpDB6euw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24.0.0}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7988,8 +7988,8 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
-  yaml-eslint-parser@2.0.0:
-    resolution: {integrity: sha512-h0uDm97wvT2bokfwwTmY6kJ1hp6YDFL0nRHwNKz8s/VD1FH/vvZjAKoMUE+un0eaYBSG7/c6h+lJTP+31tjgTw==}
+  yaml-eslint-parser@2.1.0:
+    resolution: {integrity: sha512-1zo9KRfp6vIAXBEhWAz09ex3hUwh3T+/6dGbGteHvNseA0Uk4FgQnPES55klZ6cDzSy9FpgKS0D/CoLUvCCj4w==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   yaml-language-server@1.20.0:
@@ -12385,7 +12385,7 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
-  eslint-plugin-yml@3.5.0(eslint@10.6.0(jiti@2.7.0)):
+  eslint-plugin-yml@3.6.0(eslint@10.6.0(jiti@2.7.0)):
     dependencies:
       '@eslint/core': 1.2.1
       '@eslint/plugin-kit': 0.7.2
@@ -12394,7 +12394,7 @@ snapshots:
       escape-string-regexp: 5.0.0
       eslint: 10.6.0(jiti@2.7.0)
       natural-compare: 1.4.0
-      yaml-eslint-parser: 2.0.0
+      yaml-eslint-parser: 2.1.0
 
   eslint-scope@5.1.1:
     dependencies:
@@ -16787,7 +16787,7 @@ snapshots:
 
   yallist@5.0.0: {}
 
-  yaml-eslint-parser@2.0.0:
+  yaml-eslint-parser@2.1.0:
     dependencies:
       eslint-visitor-keys: 5.0.1
       yaml: 2.9.0
