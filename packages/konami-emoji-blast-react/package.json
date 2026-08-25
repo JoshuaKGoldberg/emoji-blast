@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@testing-library/react": "^16.3.2",
 		"@types/react": "^19.2.14",
-		"@vitejs/plugin-react": "^5.2.0",
+		"@vitejs/plugin-react": "^6.0.0",
 		"jsdom": "^29.0.2",
 		"react": "^19.2.5",
 		"react-dom": "^19.2.5"
