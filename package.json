@@ -55,7 +55,7 @@
 		"prettier-plugin-curly": "^0.4.1",
 		"prettier-plugin-packagejson": "^3.0.2",
 		"prettier-plugin-sentences-per-line": "^0.2.3",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.0",
 		"typescript-eslint": "^8.59.0",
 		"vitest": "^4.1.5"
 	},
