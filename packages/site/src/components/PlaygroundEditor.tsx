@@ -1,5 +1,6 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
+import { version } from "emoji-blast/package.json";
 import { useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
@@ -8,8 +9,8 @@ import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 import { Button } from "./Button";
 
 const EMOJI_BLAST_PACKAGE_METADATA = {
-	url: "https://www.npmjs.com/package/emoji-blast/v/0.11.0",
-	version: "v0.11.0",
+	url: `https://www.npmjs.com/package/emoji-blast/v/${version}`,
+	version: `v${version}`,
 };
 
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
