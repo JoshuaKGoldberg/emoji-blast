@@ -17,6 +17,5 @@
 		"yaml"
 	],
 	"eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": ["inlines"]
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
