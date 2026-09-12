@@ -11,6 +11,7 @@ export default {
 		global: "./src/mains/global.ts",
 		now: "./src/mains/now.ts",
 		onclick: "./src/mains/onclick.ts",
+		sandbox: "./src/mains/sandbox.ts",
 		size: "./src/mains/size.ts",
 	},
 	mode: "production",

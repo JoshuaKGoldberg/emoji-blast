@@ -1,10 +1,19 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { transform } from "sucrase";
 import { useStarlightTheme } from "use-starlight-theme";
 
-import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
+import {
+	PlaygroundSandbox,
+	type PlaygroundSandboxHandle,
+} from "~/playground/PlaygroundSandbox";
+import {
+	buildShareUrl,
+	readCodeFromHash,
+	writeCodeToHash,
+} from "~/playground/urlState";
 
 import { Button } from "./Button";
 
@@ -12,6 +21,10 @@ const EMOJI_BLAST_PACKAGE_METADATA = {
 	url: `https://www.npmjs.com/package/emoji-blast/v/${version}`,
 	version: `v${version}`,
 };
+
+const HASH_WRITE_DELAY_MS = 400;
+
+const SHARE_LABEL_RESET_MS = 2000;
 
 const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 
@@ -31,8 +44,67 @@ emojiBlast({
 });
 `;
 
+const buttonStyle = { paddingBlock: "2px", paddingInline: "18px" };
+
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
+	const [error, setError] = useState<string | undefined>(undefined);
+	const [shareLabel, setShareLabel] = useState("Share");
+
+	const sandboxRef = useRef<PlaygroundSandboxHandle>(null);
+
+	// Shared snippets are loaded into the editor but never run on arrival: the
+	// sandbox is what makes them safe to run, and requiring a click means a link
+	// cannot execute anything on its own even if that sandbox ever gives way.
+	useEffect(() => {
+		void (async () => {
+			const shared = await readCodeFromHash();
+
+			if (shared !== undefined) {
+				setEditorValue(shared);
+			}
+		})();
+	}, []);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			void writeCodeToHash(
+				editorValue === DEFAULT_EDITOR_CONTENT ? undefined : editorValue,
+			);
+		}, HASH_WRITE_DELAY_MS);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, [editorValue]);
+
+	const runCode = () => {
+		setError(undefined);
+
+		let transpiled;
+
+		try {
+			transpiled = transform(editorValue, {
+				transforms: ["typescript", "imports"],
+			}).code;
+		} catch (caught) {
+			setError(caught instanceof Error ? caught.message : String(caught));
+			return;
+		}
+
+		sandboxRef.current?.run(transpiled);
+	};
+
+	const shareCode = () => {
+		void (async () => {
+			await navigator.clipboard.writeText(await buildShareUrl(editorValue));
+
+			setShareLabel("Copied!");
+			setTimeout(() => {
+				setShareLabel("Share");
+			}, SHARE_LABEL_RESET_MS);
+		})();
+	};
 
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
 	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
@@ -69,19 +141,29 @@ export const PlaygroundEditor = () => {
 					margin: "12px",
 				}}
 			>
-				<Button
-					as="button"
-					onClick={() => {
-						runPlaygroundCode(editorValue);
-					}}
-					style={{ paddingBlock: "2px", paddingInline: "18px" }}
-				>
-					Run Code
-				</Button>
+				<div style={{ display: "flex", gap: "8px" }}>
+					<Button as="button" onClick={runCode} style={buttonStyle}>
+						Run Code
+					</Button>
+					<Button as="button" onClick={shareCode} style={buttonStyle}>
+						{shareLabel}
+					</Button>
+				</div>
 				<a href={EMOJI_BLAST_PACKAGE_METADATA.url} target="_blank">
 					{EMOJI_BLAST_PACKAGE_METADATA.version}
 				</a>
 			</div>
+			{error !== undefined && (
+				<div
+					style={{
+						fontFamily: "Monospace",
+						marginInline: "12px",
+						overflowX: "auto",
+					}}
+				>
+					{error}
+				</div>
+			)}
 			<Editor
 				beforeMount={setupMonaco}
 				language="typescript"
@@ -97,6 +179,7 @@ export const PlaygroundEditor = () => {
 				theme={monacoTheme}
 				value={editorValue}
 			/>
+			<PlaygroundSandbox onError={setError} ref={sandboxRef} />
 		</div>
 	);
 };
