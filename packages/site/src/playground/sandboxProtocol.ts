@@ -17,8 +17,9 @@ export interface ParentMessage {
  * Messages the frame sends to the parent.
  */
 export interface SandboxMessage {
-	message: string;
-	type: "error";
+	/** What the snippet threw, or undefined if it ran without throwing. */
+	error: string | undefined;
+	type: "ran";
 }
 
 type ChannelMessage = ParentMessage | SandboxMessage;

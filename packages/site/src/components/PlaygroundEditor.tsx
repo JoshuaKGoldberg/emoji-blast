@@ -30,11 +30,12 @@ export const PlaygroundEditor = () => {
 	const [error, setError] = useState<string | undefined>(undefined);
 
 	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
-		onError: setError,
+		onRan: ({ error }) => {
+			setError(error);
+		},
 	});
 
 	const runCode = () => {
-		setError(undefined);
 		runCodeSnippet(editorValue);
 	};
 
@@ -73,7 +74,7 @@ export const PlaygroundEditor = () => {
 					margin: "12px",
 				}}
 			>
-				<div style={{ alignItems: "center", display: "flex" }}>
+				<div style={{ alignItems: "center", display: "flex", gap: "12px" }}>
 					<Button
 						as="button"
 						onClick={runCode}
@@ -81,7 +82,7 @@ export const PlaygroundEditor = () => {
 					>
 						Run Code
 					</Button>
-					{error !== undefined && (
+					{error && (
 						<div
 							style={{
 								backgroundColor: "red",
@@ -89,8 +90,6 @@ export const PlaygroundEditor = () => {
 								color: "white",
 								fontFamily: "Monospace",
 								fontWeight: "bold",
-								marginInline: "12px",
-								overflowX: "auto",
 								paddingInline: "6px",
 							}}
 						>
