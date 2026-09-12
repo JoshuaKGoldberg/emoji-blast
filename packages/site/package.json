@@ -30,6 +30,7 @@
 		"use-starlight-theme": "workspace:"
 	},
 	"devDependencies": {
+		"esbuild": "^0.27.4",
 		"monaco-editor": "^0.55.1"
 	}
 }

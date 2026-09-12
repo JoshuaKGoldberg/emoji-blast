@@ -23,7 +23,6 @@ export default defineConfig(
 		"packages/*/lib",
 		"packages/*/webpack.config.*",
 		"packages/site/src/env.d.ts",
-		"packages/site/src/playground/sandboxRunner.js",
 		"pnpm-*.yaml",
 	]),
 	{ linterOptions: { reportUnusedDisableDirectives: "error" } },

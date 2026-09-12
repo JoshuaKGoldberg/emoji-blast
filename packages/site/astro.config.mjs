@@ -3,6 +3,7 @@ import starlight from "@astrojs/starlight";
 import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
 import { defineConfig } from "astro/config";
 
+import { iifeBundle } from "./plugins/iifeBundle.ts";
 import { demoGroups } from "./src/data/demos.ts";
 
 export default defineConfig({
@@ -74,5 +75,8 @@ export default defineConfig({
 	redirects: {
 		apis: "apis/emoji-blast",
 		demos: "demos/basic",
+	},
+	vite: {
+		plugins: [iifeBundle()],
 	},
 });

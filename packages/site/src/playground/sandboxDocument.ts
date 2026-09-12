@@ -1,7 +1,4 @@
-import emojiBlastBundle from "emoji-blast/dist/sandbox.js?raw";
-
-import { MESSAGE_SOURCE } from "./sandboxProtocol";
-import sandboxRunner from "./sandboxRunner.js?raw";
+import sandboxRunner from "./sandboxRunner.ts?iife";
 
 /**
  * Content Security Policy for the sandboxed frame.
@@ -32,12 +29,12 @@ const contentSecurityPolicy = [
 /**
  * Document loaded into the playground's sandboxed iframe.
  *
- * Both scripts are inlined rather than loaded by URL. The frame's opaque origin
+ * The runner is inlined rather than loaded by URL. The frame's opaque origin
  * means module scripts are fetched in CORS mode with `Origin: null`, which this
  * static site cannot answer with an `Access-Control-Allow-Origin` header — so
- * ESM is unavailable and the library arrives as a classic-script IIFE instead.
- * Inlining it rather than pointing at a URL is what lets the policy above name
- * no host at all.
+ * ESM is unavailable and the runner arrives bundled with its dependencies as a
+ * classic-script IIFE instead. Inlining it rather than pointing at a URL is what
+ * lets the policy above name no host at all.
  */
 export const sandboxDocument = `<meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="${contentSecurityPolicy}" />
@@ -63,7 +60,5 @@ export const sandboxDocument = `<meta charset="utf-8" />
 		overflow: hidden;
 	}
 </style>
-<script>window.SANDBOX_MESSAGE_SOURCE = ${JSON.stringify(MESSAGE_SOURCE)};</script>
-<script>${emojiBlastBundle}</script>
 <script>${sandboxRunner}</script>
 `;

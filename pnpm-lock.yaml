@@ -263,6 +263,9 @@ importers:
         specifier: 'workspace:'
         version: link:../use-starlight-theme
     devDependencies:
+      esbuild:
+        specifier: ^0.27.4
+        version: 0.27.4
       monaco-editor:
         specifier: ^0.55.1
         version: 0.55.1
