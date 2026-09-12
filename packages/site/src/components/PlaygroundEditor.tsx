@@ -80,28 +80,35 @@ export const PlaygroundEditor = () => {
 					margin: "12px",
 				}}
 			>
-				<Button
-					as="button"
-					onClick={runCode}
-					style={{ paddingBlock: "2px", paddingInline: "18px" }}
-				>
-					Run Code
-				</Button>
+				<div style={{ alignItems: "center", display: "flex" }}>
+					<Button
+						as="button"
+						onClick={runCode}
+						style={{ paddingBlock: "2px", paddingInline: "18px" }}
+					>
+						Run Code
+					</Button>
+					{error !== undefined && (
+						<div
+							style={{
+								backgroundColor: "red",
+								borderRadius: "5px",
+								color: "white",
+								fontFamily: "Monospace",
+								fontWeight: "bold",
+								marginInline: "12px",
+								overflowX: "auto",
+								paddingInline: "6px",
+							}}
+						>
+							error: {error}
+						</div>
+					)}
+				</div>
 				<a href={EMOJI_BLAST_PACKAGE_METADATA.url} target="_blank">
 					{EMOJI_BLAST_PACKAGE_METADATA.version}
 				</a>
 			</div>
-			{error !== undefined && (
-				<div
-					style={{
-						fontFamily: "Monospace",
-						marginInline: "12px",
-						overflowX: "auto",
-					}}
-				>
-					{error}
-				</div>
-			)}
 			<Editor
 				beforeMount={setupMonaco}
 				language="typescript"
