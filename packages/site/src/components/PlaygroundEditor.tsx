@@ -21,13 +21,7 @@ const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 emojiBlast({
   emojiCount: 8,
   uniqueness: 2,
-  emojis: ["✨", "🔥", "🚀"],
-  physics: {
-    gravity: 0.4,
-    initialVelocities: {
-      rotation: { max: 20, min: -20 },
-    },
-  },
+  emojis: ["✨", "🔥", "🚀"]
 });
 `;
 
