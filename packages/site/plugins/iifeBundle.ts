@@ -5,8 +5,7 @@ import path from "node:path";
  * Resolves `import code from "./entry.ts?iife"` to the entry point bundled, with
  * its dependencies, into a single classic script, exported as a string.
  *
- * For documents that can only run inline classic scripts, like the playground's
- * opaque-origin sandbox, which cannot fetch module scripts.
+ * For documents that cannot fetch module scripts.
  */
 export const iifeBundle = () => ({
 	async load(this: { addWatchFile: (id: string) => void }, id: string) {
@@ -16,7 +15,10 @@ export const iifeBundle = () => ({
 			return undefined;
 		}
 
-		const { metafile, outputFiles } = await build({
+		const {
+			metafile,
+			outputFiles: [{ text }],
+		} = await build({
 			bundle: true,
 			entryPoints: [entryPoint],
 			format: "iife",
@@ -26,13 +28,12 @@ export const iifeBundle = () => ({
 			write: false,
 		});
 
-		// Vite only knows about the entry point, so edits to anything it imports
-		// wouldn't otherwise rebuild the bundle in dev.
+		// dev only: registers the bundle's inputs as dependencies, so editing one reruns this load
 		for (const input of Object.keys(metafile.inputs)) {
 			this.addWatchFile(path.resolve(input));
 		}
 
-		return `export default ${JSON.stringify(outputFiles[0].text)};`;
+		return `export default ${JSON.stringify(text)};`;
 	},
 	name: "iife-bundle",
 });
