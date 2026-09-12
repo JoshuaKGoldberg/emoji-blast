@@ -5,14 +5,15 @@ import { sandboxDocument } from "./sandboxDocument";
 import { readMessage, sendMessage } from "./sandboxProtocol";
 
 export interface PlaygroundSandboxOptions {
-	onError: (message: string) => void;
+	/** Called after each run, and again if snippet contains async code that throws */
+	onRan: (result: { error: string | undefined }) => void;
 }
 
 /**
  * Transparent full-viewport iframe for safely executing arbitrary code, and the
  * function that runs code in it.
  */
-export const usePlaygroundSandbox = ({ onError }: PlaygroundSandboxOptions) => {
+export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 	const frame = useRef<HTMLIFrameElement>(null);
 
 	const runCodeSnippet = (codeSnippet: string) => {
@@ -32,8 +33,8 @@ export const usePlaygroundSandbox = ({ onError }: PlaygroundSandboxOptions) => {
 
 		const message = readMessage(event.data);
 
-		if (message?.type === "error") {
-			onError(message.message);
+		if (message?.type === "ran") {
+			onRan({ error: message.error });
 		}
 	});
 

@@ -4,17 +4,16 @@ import { transform } from "sucrase";
 
 import { readMessage, sendMessage } from "./sandboxProtocol";
 
-const postError = (error: unknown) => {
-	sendMessage(parent, {
-		message:
-			error instanceof Error
-				? error.message
-				: typeof error === "string"
-					? error
-					: "Unknown error",
-		type: "error",
-	});
+const postRan = (error: string | undefined) => {
+	sendMessage(parent, { error, type: "ran" });
 };
+
+const toErrorMessage = (error: unknown) =>
+	error instanceof Error
+		? error.message
+		: typeof error === "string"
+			? error
+			: "Unknown error";
 
 const modules: Record<string, unknown> = {
 	"emoji-blast": emojiBlast,
@@ -52,16 +51,18 @@ window.addEventListener("message", (event: MessageEvent<unknown>) => {
 	if (message?.type === "run") {
 		try {
 			runCodeSnippet(message.codeSnippet);
+			postRan(undefined);
 		} catch (error) {
-			postError(error);
+			postRan(toErrorMessage(error));
 		}
 	}
 });
 
+// Errors the snippet throws later, such as from timers or emoji-blast callbacks
 window.addEventListener("error", (event) => {
-	postError(event.message);
+	postRan(event.message);
 });
 
 window.addEventListener("unhandledrejection", (event) => {
-	postError(event.reason);
+	postRan(toErrorMessage(event.reason));
 });
