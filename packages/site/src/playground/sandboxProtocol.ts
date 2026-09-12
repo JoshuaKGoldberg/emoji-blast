@@ -9,7 +9,7 @@ export const MESSAGE_SOURCE = "emoji-blast-playground";
  */
 export interface ParentMessage {
 	/** Raw editor contents; the frame transpiles them itself. */
-	code: string;
+	codeSnippet: string;
 	type: "run";
 }
 
