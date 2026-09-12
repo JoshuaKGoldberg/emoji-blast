@@ -101,7 +101,7 @@ export const PlaygroundEditor = () => {
 								paddingInline: "6px",
 							}}
 						>
-							error: {error}
+							[Error] {error}
 						</div>
 					)}
 				</div>
