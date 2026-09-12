@@ -16,9 +16,10 @@ export interface ParentMessage {
 /**
  * Messages the frame sends to the parent.
  */
-export type SandboxMessage =
-	| { message: string; type: "error" }
-	| { type: "ready" };
+export interface SandboxMessage {
+	message: string;
+	type: "error";
+}
 
 type ChannelMessage = ParentMessage | SandboxMessage;
 

@@ -65,5 +65,3 @@ window.addEventListener("error", (event) => {
 window.addEventListener("unhandledrejection", (event) => {
 	postError(event.reason);
 });
-
-sendMessage(parent, { type: "ready" });
