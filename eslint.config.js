@@ -23,7 +23,6 @@ export default defineConfig(
 		"packages/*/lib",
 		"packages/*/webpack.config.*",
 		"packages/site/src/env.d.ts",
-		// Inlined into the playground's sandbox as raw text, not compiled.
 		"packages/site/src/playground/sandboxRunner.js",
 		"pnpm-*.yaml",
 	]),

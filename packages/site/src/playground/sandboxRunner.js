@@ -1,22 +1,9 @@
-/**
- * Runtime for the playground's sandboxed iframe.
- *
- * Inlined verbatim into the frame's srcdoc as a classic <script>, so it must be
- * self-contained: no imports, no exports, no TypeScript. It is never processed
- * by Vite beyond `?raw`, which is why eslint.config.js ignores it — the
- * type-aware rules have no project to resolve it against.
- *
- * The frame has an opaque origin, so `parent` is cross-origin from here: every
- * postMessage must use "*" as the target origin, and the parent identifies us by
- * `event.source` rather than by origin, which is the string "null".
- *
- * `window.SANDBOX_MESSAGE_SOURCE` is injected by `sandboxDocument`, which is how
- * the channel's name stays defined in exactly one place.
- */
+/** Playground iframes runtime; inlined into frame's srcdoc */
 (() => {
 	const MESSAGE_SOURCE = window.SANDBOX_MESSAGE_SOURCE;
 
 	const post = (message) => {
+		// parent is cross-origin
 		parent.postMessage({ ...message, source: MESSAGE_SOURCE }, "*");
 	};
 
