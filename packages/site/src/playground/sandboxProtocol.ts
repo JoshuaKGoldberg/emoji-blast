@@ -1,40 +1,36 @@
-/**
- * Tags messages as belonging to this channel, so neither side confuses them
- * with unrelated postMessage traffic.
- */
+/** Message tag for channel */
 export const MESSAGE_SOURCE = "emoji-blast-playground";
 
-/**
- * Messages the parent sends to the frame.
- */
+/** Message parent sends to frame. */
 export interface ParentMessage {
-	/** Raw editor contents; the frame transpiles them itself. */
+	/** Raw editor contents */
 	codeSnippet: string;
-	type: "run";
 }
 
-/**
- * Messages the frame sends to the parent.
- */
+/** Message frame sends to parent. */
 export interface SandboxMessage {
 	/** What the snippet threw, or undefined if it ran without throwing. */
 	error: string | undefined;
-	type: "ran";
 }
 
-type ChannelMessage = ParentMessage | SandboxMessage;
-
-export const readMessage = (data: unknown) => {
+const readMessage = (data: unknown): object | undefined => {
 	if (typeof data !== "object" || data === null) {
 		return undefined;
 	}
 
-	const message = data as ChannelMessage & { source?: unknown };
-
-	return message.source === MESSAGE_SOURCE ? message : undefined;
+	return "source" in data && data.source === MESSAGE_SOURCE ? data : undefined;
 };
 
-export const sendMessage = (target: Window, message: ChannelMessage) => {
-	// The frame's opaque origin cannot be named, so "*" is the only possible target.
+export const readParentMessage = (data: unknown) =>
+	readMessage(data) as ParentMessage | undefined;
+
+export const readSandboxMessage = (data: unknown) =>
+	readMessage(data) as SandboxMessage | undefined;
+
+export const sendMessage = (
+	target: Window,
+	message: ParentMessage | SandboxMessage,
+) => {
+	// frame's origin is opaque, so target must be "*"
 	target.postMessage({ ...message, source: MESSAGE_SOURCE }, "*");
 };

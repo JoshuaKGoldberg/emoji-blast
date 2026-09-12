@@ -2,10 +2,10 @@
 import * as emojiBlast from "emoji-blast";
 import { transform } from "sucrase";
 
-import { readMessage, sendMessage } from "./sandboxProtocol";
+import { readParentMessage, sendMessage } from "./sandboxProtocol";
 
 const postRan = (error: string | undefined) => {
-	sendMessage(parent, { error, type: "ran" });
+	sendMessage(parent, { error });
 };
 
 const toErrorMessage = (error: unknown) =>
@@ -46,9 +46,9 @@ window.addEventListener("message", (event: MessageEvent<unknown>) => {
 		return;
 	}
 
-	const message = readMessage(event.data);
+	const message = readParentMessage(event.data);
 
-	if (message?.type === "run") {
+	if (message) {
 		try {
 			runCodeSnippet(message.codeSnippet);
 			postRan(undefined);
