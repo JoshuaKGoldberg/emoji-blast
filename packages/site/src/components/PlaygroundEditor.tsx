@@ -28,10 +28,15 @@ emojiBlast({
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 	const [error, setError] = useState<string | undefined>(undefined);
+	const [hasBlasted, setHasBlasted] = useState(false);
 
 	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
 		onRan: ({ error }) => {
 			setError(error);
+
+			if (error === undefined) {
+				setHasBlasted(true);
+			}
 		},
 	});
 
@@ -80,7 +85,7 @@ export const PlaygroundEditor = () => {
 						onClick={runCode}
 						style={{ paddingBlock: "2px", paddingInline: "18px" }}
 					>
-						Run Code
+						{hasBlasted ? "Blast Off!" : "Run Code"}
 					</Button>
 					{error && (
 						<div
