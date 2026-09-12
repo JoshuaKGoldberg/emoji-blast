@@ -29,12 +29,12 @@ const requireModule = (moduleName: string) => {
 };
 
 const run = (source: string) => {
-	// The imports transform turns import statements into require calls
+	// turns import statements into require calls
 	const { code } = transform(source, {
 		transforms: ["typescript", "imports"],
 	});
 
-	// eslint-disable-next-line @typescript-eslint/no-implied-eval -- running snippets is this frame's purpose
+	// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
 	const snippet = new Function("require", code) as (
 		require: typeof requireModule,
 	) => void;
