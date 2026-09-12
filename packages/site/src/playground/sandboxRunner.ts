@@ -1,4 +1,6 @@
-/** Playground iframe's runtime; bundled by `?iife` and inlined into frame's srcdoc */
+/**
+ * Playground iframe's runtime; bundled by `?iife` and inlined into frame's srcdoc
+ */
 import * as emojiBlast from "emoji-blast";
 import { transform } from "sucrase";
 
@@ -58,7 +60,6 @@ window.addEventListener("message", (event: MessageEvent<unknown>) => {
 	}
 });
 
-// Errors the snippet throws later, such as from timers or emoji-blast callbacks
 window.addEventListener("error", (event) => {
 	postRan(event.message);
 });
