@@ -28,18 +28,18 @@ const requireModule = (moduleName: string) => {
 	throw new Error(`Module "${moduleName}" not found in sandbox.`);
 };
 
-const run = (source: string) => {
+const runCodeSnippet = (codeSnippet: string) => {
 	// turns import statements into require calls
-	const { code } = transform(source, {
+	const { code: transpiledCodeSnippet } = transform(codeSnippet, {
 		transforms: ["typescript", "imports"],
 	});
 
 	// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
-	const snippet = new Function("require", code) as (
+	const executeCodeSnippet = new Function("require", transpiledCodeSnippet) as (
 		require: typeof requireModule,
 	) => void;
 
-	snippet(requireModule);
+	executeCodeSnippet(requireModule);
 };
 
 window.addEventListener("message", (event: MessageEvent<unknown>) => {
@@ -51,7 +51,7 @@ window.addEventListener("message", (event: MessageEvent<unknown>) => {
 
 	if (message?.type === "run") {
 		try {
-			run(message.code);
+			runCodeSnippet(message.codeSnippet);
 		} catch (error) {
 			postError(error);
 		}

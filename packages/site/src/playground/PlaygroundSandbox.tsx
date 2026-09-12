@@ -7,7 +7,7 @@ import { sandboxDocument } from "./sandboxDocument";
 import { readMessage, sendMessage } from "./sandboxProtocol";
 
 export interface PlaygroundSandboxHandle {
-	run: (code: string) => void;
+	run: (codeSnippet: string) => void;
 }
 
 export interface PlaygroundSandboxProps {
@@ -15,41 +15,31 @@ export interface PlaygroundSandboxProps {
 	ref?: React.Ref<PlaygroundSandboxHandle>;
 }
 
-const postCode = (frame: HTMLIFrameElement | null, code: string) => {
+const postCodeSnippet = (
+	frame: HTMLIFrameElement | null,
+	codeSnippet: string,
+) => {
 	if (frame?.contentWindow) {
-		sendMessage(frame.contentWindow, { code, type: "run" });
+		sendMessage(frame.contentWindow, { codeSnippet, type: "run" });
 	}
 };
 
-/**
- * Transparent full-viewport iframe that snippets execute inside.
- *
- * `sandbox="allow-scripts"` without `allow-same-origin` is what makes this safe:
- * the frame gets an opaque origin, so its `window`, `document`, and storage are
- * fully functional but belong to nobody. Withholding `allow-top-navigation`,
- * `allow-popups`, `allow-modals`, and `allow-forms` leaves it unable to navigate
- * the page, open windows, spam dialogs, or submit anywhere.
- */
+/** Transparent full-viewport iframe for safely executing arbitrary code. */
 export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
-	const frameRef = useRef<HTMLIFrameElement>(null);
-	const isReadyRef = useRef(false);
-	const pendingCodeRef = useRef<string | undefined>(undefined);
-	const onErrorRef = useRef(onError);
-
-	useEffect(() => {
-		onErrorRef.current = onError;
-	}, [onError]);
+	const frame = useRef<HTMLIFrameElement>(null);
+	const isFrameReady = useRef(false);
+	const pendingCodeSnippet = useRef<string | undefined>(undefined);
 
 	useImperativeHandle(
 		ref,
 		() => ({
-			run: (code) => {
+			run: (codeSnippet) => {
 				// Posting before the frame's scripts have parsed would be dropped, so
 				// hold the snippet until it announces itself.
-				if (isReadyRef.current) {
-					postCode(frameRef.current, code);
+				if (isFrameReady.current) {
+					postCodeSnippet(frame.current, codeSnippet);
 				} else {
-					pendingCodeRef.current = code;
+					pendingCodeSnippet.current = codeSnippet;
 				}
 			},
 		}),
@@ -60,7 +50,7 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 		const onMessage = (event: MessageEvent<unknown>) => {
 			// The frame's origin is the string "null", so identity has to come from
 			// the window reference rather than from the origin.
-			if (event.source !== frameRef.current?.contentWindow) {
+			if (event.source !== frame.current?.contentWindow) {
 				return;
 			}
 
@@ -68,15 +58,15 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 
 			switch (message?.type) {
 				case "error":
-					onErrorRef.current(message.message);
+					onError(message.message);
 					break;
 
 				case "ready":
-					isReadyRef.current = true;
+					isFrameReady.current = true;
 
-					if (pendingCodeRef.current !== undefined) {
-						postCode(frameRef.current, pendingCodeRef.current);
-						pendingCodeRef.current = undefined;
+					if (pendingCodeSnippet.current !== undefined) {
+						postCodeSnippet(frame.current, pendingCodeSnippet.current);
+						pendingCodeSnippet.current = undefined;
 					}
 					break;
 			}
@@ -87,12 +77,12 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 		return () => {
 			window.removeEventListener("message", onMessage);
 		};
-	}, []);
+	}, [onError]);
 
 	return (
 		<iframe
 			className={styles.sandbox}
-			ref={frameRef}
+			ref={frame}
 			sandbox="allow-scripts"
 			srcDoc={sandboxDocument}
 			title="emoji-blast playground output"
