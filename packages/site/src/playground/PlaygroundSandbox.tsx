@@ -4,7 +4,7 @@ import { useEffect, useImperativeHandle, useRef } from "react";
 
 import styles from "./PlaygroundSandbox.module.css";
 import { sandboxDocument } from "./sandboxDocument";
-import { MESSAGE_SOURCE, type SandboxMessage } from "./sandboxProtocol";
+import { readMessage, sendMessage } from "./sandboxProtocol";
 
 export interface PlaygroundSandboxHandle {
 	run: (code: string) => void;
@@ -15,25 +15,10 @@ export interface PlaygroundSandboxProps {
 	ref?: React.Ref<PlaygroundSandboxHandle>;
 }
 
-const postToFrame = (
-	frame: HTMLIFrameElement | null,
-	message: Record<string, unknown>,
-) => {
-	// An opaque origin cannot be named, so "*" is the only possible target.
-	frame?.contentWindow?.postMessage(
-		{ ...message, source: MESSAGE_SOURCE },
-		"*",
-	);
-};
-
-const readSandboxMessage = (data: unknown) => {
-	if (typeof data !== "object" || data === null) {
-		return undefined;
+const postCode = (frame: HTMLIFrameElement | null, code: string) => {
+	if (frame?.contentWindow) {
+		sendMessage(frame.contentWindow, { code, type: "run" });
 	}
-
-	const message = data as SandboxMessage & { source?: unknown };
-
-	return message.source === MESSAGE_SOURCE ? message : undefined;
 };
 
 /**
@@ -62,7 +47,7 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 				// Posting before the frame's scripts have parsed would be dropped, so
 				// hold the snippet until it announces itself.
 				if (isReadyRef.current) {
-					postToFrame(frameRef.current, { code, type: "run" });
+					postCode(frameRef.current, code);
 				} else {
 					pendingCodeRef.current = code;
 				}
@@ -79,7 +64,7 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 				return;
 			}
 
-			const message = readSandboxMessage(event.data);
+			const message = readMessage(event.data);
 
 			switch (message?.type) {
 				case "error":
@@ -90,10 +75,7 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 					isReadyRef.current = true;
 
 					if (pendingCodeRef.current !== undefined) {
-						postToFrame(frameRef.current, {
-							code: pendingCodeRef.current,
-							type: "run",
-						});
+						postCode(frameRef.current, pendingCodeRef.current);
 						pendingCodeRef.current = undefined;
 					}
 					break;

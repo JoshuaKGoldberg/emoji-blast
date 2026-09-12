@@ -2,7 +2,6 @@ import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
 import { useRef, useState } from "react";
-import { transform } from "sucrase";
 import { useStarlightTheme } from "use-starlight-theme";
 
 import {
@@ -43,19 +42,7 @@ export const PlaygroundEditor = () => {
 
 	const runCode = () => {
 		setError(undefined);
-
-		let transpiled;
-
-		try {
-			transpiled = transform(editorValue, {
-				transforms: ["typescript", "imports"],
-			}).code;
-		} catch (caught) {
-			setError(caught instanceof Error ? caught.message : String(caught));
-			return;
-		}
-
-		sandboxRef.current?.run(transpiled);
+		sandboxRef.current?.run(editorValue);
 	};
 
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
