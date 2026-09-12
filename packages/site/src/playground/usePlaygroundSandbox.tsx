@@ -2,7 +2,7 @@ import { useEffect, useEffectEvent, useRef } from "react";
 
 import styles from "./PlaygroundSandbox.module.css";
 import { sandboxDocument } from "./sandboxDocument";
-import { readMessage, sendMessage } from "./sandboxProtocol";
+import { readSandboxMessage, sendMessage } from "./sandboxProtocol";
 
 export interface PlaygroundSandboxOptions {
 	/** Called after each run, and again if snippet contains async code that throws */
@@ -20,7 +20,7 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		const frameWindow = frame.current?.contentWindow;
 
 		if (frameWindow) {
-			sendMessage(frameWindow, { codeSnippet, type: "run" });
+			sendMessage(frameWindow, { codeSnippet });
 		}
 	};
 
@@ -31,9 +31,9 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 			return;
 		}
 
-		const message = readMessage(event.data);
+		const message = readSandboxMessage(event.data);
 
-		if (message?.type === "ran") {
+		if (message) {
 			onRan({ error: message.error });
 		}
 	});
