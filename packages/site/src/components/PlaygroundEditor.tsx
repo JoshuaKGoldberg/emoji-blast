@@ -1,13 +1,10 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
-import {
-	PlaygroundSandbox,
-	type PlaygroundSandboxHandle,
-} from "~/playground/PlaygroundSandbox";
+import { usePlaygroundSandbox } from "~/playground/usePlaygroundSandbox";
 
 import { Button } from "./Button";
 
@@ -38,11 +35,13 @@ export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 	const [error, setError] = useState<string | undefined>(undefined);
 
-	const sandboxRef = useRef<PlaygroundSandboxHandle>(null);
+	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
+		onError: setError,
+	});
 
 	const runCode = () => {
 		setError(undefined);
-		sandboxRef.current?.run(editorValue);
+		runCodeSnippet(editorValue);
 	};
 
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
@@ -124,7 +123,7 @@ export const PlaygroundEditor = () => {
 				theme={monacoTheme}
 				value={editorValue}
 			/>
-			<PlaygroundSandbox onError={setError} ref={sandboxRef} />
+			{sandbox}
 		</div>
 	);
 };

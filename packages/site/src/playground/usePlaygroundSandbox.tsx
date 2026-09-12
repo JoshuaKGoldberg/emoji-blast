@@ -1,18 +1,11 @@
-import type React from "react";
-
-import { useEffect, useImperativeHandle, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import styles from "./PlaygroundSandbox.module.css";
 import { sandboxDocument } from "./sandboxDocument";
 import { readMessage, sendMessage } from "./sandboxProtocol";
 
-export interface PlaygroundSandboxHandle {
-	run: (codeSnippet: string) => void;
-}
-
-export interface PlaygroundSandboxProps {
+export interface PlaygroundSandboxOptions {
 	onError: (message: string) => void;
-	ref?: React.Ref<PlaygroundSandboxHandle>;
 }
 
 const postCodeSnippet = (
@@ -24,27 +17,24 @@ const postCodeSnippet = (
 	}
 };
 
-/** Transparent full-viewport iframe for safely executing arbitrary code. */
-export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
+/**
+ * Transparent full-viewport iframe for safely executing arbitrary code, and the
+ * function that runs code in it.
+ */
+export const usePlaygroundSandbox = ({ onError }: PlaygroundSandboxOptions) => {
 	const frame = useRef<HTMLIFrameElement>(null);
 	const isFrameReady = useRef(false);
 	const pendingCodeSnippet = useRef<string | undefined>(undefined);
 
-	useImperativeHandle(
-		ref,
-		() => ({
-			run: (codeSnippet) => {
-				// Posting before the frame's scripts have parsed would be dropped, so
-				// hold the snippet until it announces itself.
-				if (isFrameReady.current) {
-					postCodeSnippet(frame.current, codeSnippet);
-				} else {
-					pendingCodeSnippet.current = codeSnippet;
-				}
-			},
-		}),
-		[],
-	);
+	const runCodeSnippet = (codeSnippet: string) => {
+		// Posting before the frame's scripts have parsed would be dropped, so
+		// hold the snippet until it announces itself.
+		if (isFrameReady.current) {
+			postCodeSnippet(frame.current, codeSnippet);
+		} else {
+			pendingCodeSnippet.current = codeSnippet;
+		}
+	};
 
 	useEffect(() => {
 		const onMessage = (event: MessageEvent<unknown>) => {
@@ -79,7 +69,7 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 		};
 	}, [onError]);
 
-	return (
+	const sandbox = (
 		<iframe
 			className={styles.sandbox}
 			ref={frame}
@@ -88,4 +78,6 @@ export const PlaygroundSandbox = ({ onError, ref }: PlaygroundSandboxProps) => {
 			title="emoji-blast playground output"
 		/>
 	);
+
+	return { runCodeSnippet, sandbox };
 };
