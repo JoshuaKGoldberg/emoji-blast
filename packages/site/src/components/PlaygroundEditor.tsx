@@ -1,10 +1,13 @@
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
-import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
+import {
+	PlaygroundSandbox,
+	type PlaygroundSandboxHandle,
+} from "~/playground/PlaygroundSandbox";
 
 import { Button } from "./Button";
 
@@ -33,6 +36,14 @@ emojiBlast({
 
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
+	const [error, setError] = useState<string | undefined>(undefined);
+
+	const sandboxRef = useRef<PlaygroundSandboxHandle>(null);
+
+	const runCode = () => {
+		setError(undefined);
+		sandboxRef.current?.run(editorValue);
+	};
 
 	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
 	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
@@ -71,9 +82,7 @@ export const PlaygroundEditor = () => {
 			>
 				<Button
 					as="button"
-					onClick={() => {
-						runPlaygroundCode(editorValue);
-					}}
+					onClick={runCode}
 					style={{ paddingBlock: "2px", paddingInline: "18px" }}
 				>
 					Run Code
@@ -82,6 +91,17 @@ export const PlaygroundEditor = () => {
 					{EMOJI_BLAST_PACKAGE_METADATA.version}
 				</a>
 			</div>
+			{error !== undefined && (
+				<div
+					style={{
+						fontFamily: "Monospace",
+						marginInline: "12px",
+						overflowX: "auto",
+					}}
+				>
+					{error}
+				</div>
+			)}
 			<Editor
 				beforeMount={setupMonaco}
 				language="typescript"
@@ -97,6 +117,7 @@ export const PlaygroundEditor = () => {
 				theme={monacoTheme}
 				value={editorValue}
 			/>
+			<PlaygroundSandbox onError={setError} ref={sandboxRef} />
 		</div>
 	);
 };
