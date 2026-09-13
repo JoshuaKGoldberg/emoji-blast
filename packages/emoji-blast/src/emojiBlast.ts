@@ -114,6 +114,7 @@ export const defaultPhysics: EmojiPhysics = {
 	},
 	framerate: 60,
 	gravity: 0.35,
+	gravityAngle: 180,
 	initialVelocities: {
 		rotation: {
 			max: 7,
