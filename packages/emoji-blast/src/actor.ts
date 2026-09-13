@@ -51,9 +51,14 @@ export interface EmojiPhysics {
 	framerate: number;
 
 	/**
-	 * How much to increase y-velocity downward each tick.
+	 * Acceleration magnitude to apply in the gravity angle's direction each tick.
 	 */
 	gravity: number;
+
+	/**
+	 * Direction to apply gravity in, in degrees clockwise from straight up (e.g. 180 is straight down).
+	 */
+	gravityAngle: number;
 
 	/**
 	 * Initial velocity ranges for individual emojis.
@@ -155,6 +160,11 @@ export interface EmojiUpdates {
 	 * Gravitation changes, if it should change.
 	 */
 	gravity?: number;
+
+	/**
+	 * Gravity angle changes, if it should change.
+	 */
+	gravityAngle?: number;
 }
 
 /**
@@ -199,9 +209,14 @@ export class EmojiActor {
 	#velocity: EmojiVelocity;
 
 	/**
-	 * Change amounts for elements y-axis
+	 * Acceleration magnitude applied in the gravity angle's direction each tick.
 	 */
 	#gravity: number;
+
+	/**
+	 * Direction gravity is applied in, in degrees clockwise from straight up.
+	 */
+	#gravityAngle: number;
 
 	/**
 	 * Attached element kept in the DOM.
@@ -233,6 +248,7 @@ export class EmojiActor {
 		};
 
 		this.#gravity = randomInRange(settings.physics.gravity);
+		this.#gravityAngle = randomInRange(settings.physics.gravityAngle);
 
 		this.updateElement();
 		settings.process?.(this.element);
@@ -264,7 +280,10 @@ export class EmojiActor {
 		}
 
 		this.#velocity.rotation *= this.#physics.rotationDeceleration;
-		this.#velocity.y += this.#gravity;
+
+		const rad = (this.#gravityAngle * Math.PI) / 180;
+		this.#velocity.x += this.#gravity * Math.sin(rad);
+		this.#velocity.y -= this.#gravity * Math.cos(rad);
 
 		this.#position.rotation += this.#velocity.rotation;
 		this.#position.x +=
@@ -354,6 +373,10 @@ export class EmojiActor {
 		if (updates.gravity !== undefined) {
 			this.#gravity = updates.gravity;
 		}
+
+		if (updates.gravityAngle !== undefined) {
+			this.#gravityAngle = updates.gravityAngle;
+		}
 	}
 
 	/**
@@ -371,10 +394,17 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Change amounts for element's y-axis.
+	 * Acceleration magnitude applied in the gravity angle's direction each tick.
 	 */
 	public get gravity(): Readonly<number> {
 		return this.#gravity;
+	}
+
+	/**
+	 * Direction gravity is applied in, in degrees clockwise from straight up.
+	 */
+	public get gravityAngle(): Readonly<number> {
+		return this.#gravityAngle;
 	}
 
 	/**
