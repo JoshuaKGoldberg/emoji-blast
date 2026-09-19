@@ -11,8 +11,6 @@ jobs:
       - run: pnpm build
       - run: pnpm build:all
       - run: pnpm build:release:all
-      # No NPM_TOKEN: packages are published with npm trusted publishing (OIDC).
-      # https://docs.npmjs.com/trusted-publishers
       - env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         name: Create Release Pull Request or Publish
