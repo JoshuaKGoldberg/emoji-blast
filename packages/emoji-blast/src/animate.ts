@@ -65,14 +65,13 @@ export function animate(
 
 		const timeElapsed = timeCurrent - timeStart;
 
-		for (let i = 0; i < actors.length; i += 1) {
+		// Iterating backwards lets us splice without adjusting the index.
+		for (let i = actors.length - 1; i >= 0; i -= 1) {
 			const actor = actors[i];
 
 			if (actor.act(timeElapsed)) {
 				actor.dispose();
 				actors.splice(i, 1);
-				i -= 1;
-				continue;
 			}
 		}
 
