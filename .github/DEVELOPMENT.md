@@ -88,4 +88,29 @@ See its documentation in [its own `README.md`](packages/site/README.md).
 
 ## Releases
 
-Releases are managed by [changesets](https://github.com/changesets/changesets).
+Releases are managed by [changesets](https://github.com/changesets/changesets) and published automatically from CI.
+
+### Adding a Changeset
+
+Any PR that changes a published package should include a changeset describing the change.
+Run the CLI and follow its prompts to select the package(s) and semver bump:
+
+```shell
+pnpm changeset
+```
+
+That creates a Markdown file in `.changeset/` that is committed alongside the PR.
+Changes that don't need a release (docs, tests, tooling) don't need a changeset.
+
+### Publishing
+
+The [`Release` workflow](./workflows/release.yml) runs on every push to `main`:
+
+1. If there are pending changesets, [`changesets/action`](https://github.com/changesets/action) opens or updates a _Version Packages_ PR that bumps versions and updates `CHANGELOG.md` files.
+2. Merging that PR runs the workflow again, which publishes the bumped packages to npm with `pnpm changeset publish`, pushes git tags, and creates GitHub releases.
+
+Publishing authenticates with [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so no npm token is stored in the repository.
+Each package must have a trusted publisher configured on npmjs.com pointing at this repository's `release.yml` workflow.
+
+> Brand-new packages can't be created through trusted publishing.
+> The first version of a new package must be published manually (`pnpm publish` from its directory), after which the trusted publisher can be set up in the package's npm settings.
