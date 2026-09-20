@@ -85,7 +85,7 @@ const more: DemoGroup = {
 			blaster: () => {
 				emojiBlast({
 					physics: {
-						gravity: -0.35,
+						gravity: { acceleration: -0.35 },
 						initialVelocities: {
 							y: { max: 14, min: 11.7 },
 						},
@@ -94,6 +94,27 @@ const more: DemoGroup = {
 			},
 			blurb: "emojiBlast with inverted gravity.",
 			title: "Inverse Gravity",
+		},
+		{
+			blaster: () => {
+				emojiBlast({
+					physics: {
+						gravity: { angle: 90 },
+						initialVelocities: {
+							x: {
+								max: -7,
+								min: -21,
+							},
+							y: {
+								max: 7,
+								min: -7,
+							},
+						},
+					},
+				});
+			},
+			blurb: "emojiBlast with gravity at a 90-degree angle.",
+			title: "90° Gravity Angle",
 		},
 		{
 			blaster: () => {
@@ -118,7 +139,7 @@ const more: DemoGroup = {
 					emojis: ["🌀"],
 					physics: {
 						fontSize: { max: 48, min: 20 },
-						gravity: 0.1,
+						gravity: { acceleration: 0.1 },
 						initialVelocities: {
 							rotation: { max: -14, min: -14 },
 						},
@@ -136,7 +157,7 @@ const more: DemoGroup = {
 					emojis: ["🚴‍♀️", "🚴", "🚴‍♂️"],
 					physics: {
 						fontSize: 68,
-						gravity: 0,
+						gravity: { acceleration: 0 },
 						initialVelocities: {
 							rotation: 0,
 							x: { max: -35, min: -20 },
@@ -185,7 +206,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["🚀"],
 						physics: {
 							fontSize: 45,
-							gravity: 0,
+							gravity: { acceleration: 0 },
 							initialVelocities: {
 								x: 12,
 								y: -10,
@@ -207,7 +228,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["☁️"],
 						physics: {
 							fontSize: { max: 50, min: 38 },
-							gravity: 0.1,
+							gravity: { acceleration: 0.1 },
 							initialVelocities: {
 								x: { max: 7, min: -7 },
 								y: { max: -2, min: -5 },
@@ -229,7 +250,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["✨"],
 						physics: {
 							fontSize: { max: 30, min: 10 },
-							gravity: 0.2,
+							gravity: { acceleration: 0.2 },
 							initialVelocities: {
 								x: { max: 20, min: -15 },
 								y: { max: 20, min: -15 },
@@ -310,7 +331,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["❤️‍🔥"],
 						physics: {
 							fontSize: 35,
-							gravity: 0.15,
+							gravity: { acceleration: 0.15 },
 							initialVelocities: {
 								x: randXVelocity,
 								y: randYVelocity,
@@ -341,7 +362,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["💧"],
 						physics: {
 							fontSize: { max: 30, min: 18 },
-							gravity: randGravity,
+							gravity: { acceleration: randGravity },
 							initialVelocities: {
 								rotation: 0,
 								x: 0,
@@ -386,7 +407,7 @@ const shenanigans: DemoGroup = {
 							emojis: [rainbow],
 							physics: {
 								fontSize: 35,
-								gravity: 0.08,
+								gravity: { acceleration: 0.08 },
 								initialVelocities: {
 									rotation: 0,
 									x: 20,
@@ -414,7 +435,7 @@ const shenanigans: DemoGroup = {
 							emojis: ["☁️"],
 							physics: {
 								fontSize: 65,
-								gravity: 0.08,
+								gravity: { acceleration: 0.08 },
 								initialVelocities: {
 									rotation: 0,
 									x: 20,
@@ -458,7 +479,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["⭐️"],
 						physics: {
 							fontSize: { max: 32, min: 20 },
-							gravity: 0.05,
+							gravity: { acceleration: 0.05 },
 							initialVelocities: {
 								x: 45,
 								y: -10,
@@ -478,7 +499,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["✨"],
 						physics: {
 							fontSize: size,
-							gravity: 0.05,
+							gravity: { acceleration: 0.05 },
 							initialVelocities: {
 								rotation: 0,
 								x: 45,
@@ -549,7 +570,7 @@ const shenanigans: DemoGroup = {
 							emojis: ["✨"],
 							physics: {
 								fontSize: 20,
-								gravity: 0,
+								gravity: { acceleration: 0 },
 								initialVelocities: {
 									rotation: 0,
 									x: xCoordinate,
@@ -589,7 +610,7 @@ const shenanigans: DemoGroup = {
 						emojiBlast({
 							emojis: [randEmoji],
 							physics: {
-								gravity: 0.2,
+								gravity: { acceleration: 0.2 },
 								initialVelocities: {
 									rotation: 0,
 									x: { max: 10, min: -10 },
@@ -642,7 +663,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["🛸"],
 						physics: {
 							fontSize: 75,
-							gravity: 0,
+							gravity: { acceleration: 0 },
 							initialVelocities: {
 								rotation: 0,
 								x: vel[0],
@@ -665,7 +686,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["🐄"],
 						physics: {
 							fontSize: 35,
-							gravity: 0,
+							gravity: { acceleration: 0 },
 							initialVelocities: {
 								rotation: 0,
 								x: 0,
@@ -688,7 +709,7 @@ const shenanigans: DemoGroup = {
 						emojis: ["🌪️"],
 						physics: {
 							fontSize: 120,
-							gravity: 0,
+							gravity: { acceleration: 0 },
 							initialVelocities: {
 								rotation: 0,
 								x: 0,
