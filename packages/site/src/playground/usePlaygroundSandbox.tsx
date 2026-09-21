@@ -1,8 +1,8 @@
-import { useEffect, useEffectEvent, useRef } from "react";
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 
 import styles from "./PlaygroundSandbox.module.css";
-import { sandboxDocument } from "./sandboxDocument";
-import { readSandboxMessage, sendMessage } from "./sandboxProtocol";
+import { createSandboxDocument } from "./sandboxDocument";
+import { createSandboxChannel } from "./sandboxProtocol";
 
 export interface PlaygroundSandboxOptions {
 	/** Called after each run, and again if snippet contains async code that throws */
@@ -16,11 +16,15 @@ export interface PlaygroundSandboxOptions {
 export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 	const frame = useRef<HTMLIFrameElement>(null);
 
+	const [nonce] = useState(crypto.randomUUID());
+
+	const channel = useMemo(() => createSandboxChannel(nonce), [nonce]);
+
 	const runCodeSnippet = (codeSnippet: string) => {
 		const frameWindow = frame.current?.contentWindow;
 
 		if (frameWindow) {
-			sendMessage(frameWindow, { codeSnippet });
+			channel.send(frameWindow, { codeSnippet });
 		}
 	};
 
@@ -31,7 +35,7 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 			return;
 		}
 
-		const message = readSandboxMessage(event.data);
+		const message = channel.read.sandbox(event.data);
 
 		if (message) {
 			onRan({ error: message.error });
@@ -51,7 +55,7 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 			className={styles.sandbox}
 			ref={frame}
 			sandbox="allow-scripts"
-			srcDoc={sandboxDocument}
+			srcDoc={createSandboxDocument(nonce)}
 			title="emoji-blast playground output"
 		/>
 	);
