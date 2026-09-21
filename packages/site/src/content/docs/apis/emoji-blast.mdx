@@ -202,7 +202,8 @@ emojiBlast({
 Runtime change constants for emoji element movements.
 These default to a sane set of ranges for random numbers that give the appearance of fireworks-like blasts.
 
-These values must be passed in as `number`s, with defaults as _(`value`)_ here:
+These values can be configured as follows, with defaults as _(`value`)_ here.
+The `acceleration` and `angle` properties of `gravity` are optional:
 
 - `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
 - `gravity`:

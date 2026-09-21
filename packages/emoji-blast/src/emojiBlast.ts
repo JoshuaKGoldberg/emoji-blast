@@ -152,6 +152,12 @@ export const defaultPosition = () => ({
  * Launches a blast of emojis across the page! 🎆
  */
 export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
+	if (typeof settings.physics?.gravity === "number") {
+		throw new TypeError(
+			"physics.gravity is now an object: use { acceleration: <number> } instead of a bare number.",
+		);
+	}
+
 	const {
 		className = defaultClassName,
 		container: containerSetting = defaultCreateContainer,

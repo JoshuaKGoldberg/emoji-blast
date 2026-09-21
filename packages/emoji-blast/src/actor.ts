@@ -219,6 +219,13 @@ export class EmojiActor {
 	#gravity: EmojiGravity;
 
 	/**
+	 * Per-tick x and y velocity changes computed from #gravity.
+	 * These are cached rather than recomputed each tick because the
+	 * acceleration and angle only change when #update is given new gravity.
+	 */
+	#gravityVelocity: { x: number; y: number } = { x: 0, y: 0 };
+
+	/**
 	 * Attached element kept in the DOM.
 	 */
 	public readonly element: HTMLSpanElement;
@@ -252,9 +259,24 @@ export class EmojiActor {
 			angle: randomInRange(settings.physics.gravity.angle),
 		};
 
+		this.#updateGravityVelocity();
 		this.updateElement();
 		settings.process?.(this.element);
 		settings.container.appendChild(this.element);
+	}
+
+	/**
+	 * Recomputes cached per-tick velocity changes from the current gravity.
+	 *
+	 * Angles are stored in degrees clockwise from straight up, so they're
+	 * converted to radians and flipped on y, where the page grows downwards.
+	 */
+	#updateGravityVelocity() {
+		const radians = (this.#gravity.angle * Math.PI) / 180;
+		this.#gravityVelocity = {
+			x: this.#gravity.acceleration * Math.sin(radians),
+			y: -this.#gravity.acceleration * Math.cos(radians),
+		};
 	}
 
 	/**
@@ -283,9 +305,8 @@ export class EmojiActor {
 
 		this.#velocity.rotation *= this.#physics.rotationDeceleration;
 
-		const radians = (this.#gravity.angle * Math.PI) / 180;
-		this.#velocity.x += this.#gravity.acceleration * Math.sin(radians);
-		this.#velocity.y -= this.#gravity.acceleration * Math.cos(radians);
+		this.#velocity.x += this.#gravityVelocity.x;
+		this.#velocity.y += this.#gravityVelocity.y;
 
 		this.#position.rotation += this.#velocity.rotation;
 		this.#position.x +=
@@ -380,6 +401,8 @@ export class EmojiActor {
 			if (updates.gravity.angle !== undefined) {
 				this.#gravity.angle = updates.gravity.angle;
 			}
+
+			this.#updateGravityVelocity();
 		}
 	}
 
