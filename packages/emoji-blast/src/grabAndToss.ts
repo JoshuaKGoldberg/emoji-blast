@@ -22,7 +22,7 @@ const SAMPLE_RATE_Hz = 200;
 
 interface ActivelyDraggedEmoji {
 	actor: EmojiActor;
-	gravity: number;
+	gravityAcceleration: number;
 	lastPosition: { x: number; y: number };
 	samplePoints: { x: number; y: number }[];
 }
@@ -80,7 +80,9 @@ export const grabAndToss = ((): EmojiEvents => {
 			(decayedSamplePointTotal.y / samplePoints.length) * TOSS_SENSITIVITY;
 
 		activelyDraggedEmoji.actor.update({
-			gravity: activelyDraggedEmoji.gravity,
+			gravity: {
+				acceleration: activelyDraggedEmoji.gravityAcceleration,
+			},
 			velocity: {
 				x: clampValue(xVelocity, [-MAX_VELOCITY, MAX_VELOCITY]),
 				y: clampValue(yVelocity, [-MAX_VELOCITY, MAX_VELOCITY]),
@@ -104,13 +106,13 @@ export const grabAndToss = ((): EmojiEvents => {
 
 			activelyDraggedEmoji = {
 				actor,
-				gravity: actor.gravity,
+				gravityAcceleration: actor.gravity.acceleration,
 				lastPosition: startingCoordinates,
 				samplePoints: [],
 			};
 
 			actor.update({
-				gravity: 0,
+				gravity: { acceleration: 0 },
 				velocity: { x: 0, y: 0 },
 			});
 

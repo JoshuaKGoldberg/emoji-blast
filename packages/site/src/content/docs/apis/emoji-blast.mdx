@@ -202,10 +202,13 @@ emojiBlast({
 Runtime change constants for emoji element movements.
 These default to a sane set of ranges for random numbers that give the appearance of fireworks-like blasts.
 
-These values must be passed in as `number`s, with defaults as _(`value`)_ here:
+These values can be configured as follows, with defaults as _(`value`)_ here.
+The `acceleration` and `angle` properties of `gravity` are optional:
 
 - `framerate` _(`60`)_: Expected frames per second to adjust position and velocity changes by.
-- `gravity` _(`0.35`)_: How much to increase y-velocity downward each tick.
+- `gravity`:
+  - `acceleration` _(`0.35`)_: How much to increase velocity in the gravity angle's direction each tick.
+  - `angle` _(`180`)_: Direction to apply gravity in, in degrees clockwise from straight up (e.g. `180` is straight down).
 - `rotationDeceleration` _(`0.98`)_: How much to decrease rotation amount each tick.
 
 These values may be randomized, so you can provide them as a const `number` or `{ max: number, min: number }` for a random integer within, inclusive.
@@ -244,7 +247,7 @@ Inverting gravity:
 ```javascript
 emojiBlast({
 	physics: {
-		gravity: -0.35,
+		gravity: { acceleration: -0.35 },
 		initialVelocities: {
 			y: {
 				max: 14,
@@ -255,18 +258,38 @@ emojiBlast({
 });
 ```
 
+90° Gravity Angle:
+
+```javascript
+emojiBlast({
+	physics: {
+		gravity: { angle: 90 },
+		initialVelocities: {
+			x: {
+				max: -7,
+				min: -21,
+			},
+			y: {
+				max: 7,
+				min: -7,
+			},
+		},
+	},
+});
+```
+
 Alternately, the `defaultPhysics` object is exported, so you can base your physics constants off it:
 
 ```javascript
-import { emojiBlasts, defaultPhysics } from "emoji-blast";
+import { emojiBlast, defaultPhysics } from "emoji-blast";
 
 emojiBlast({
 	physics: {
-		gravity: -defaultPhysics.gravity,
+		gravity: { acceleration: -defaultPhysics.gravity.acceleration },
 		initialVelocities: {
 			y: {
-				max: -defaultPhysics.initialVelocities.max,
-				min: -defaultPhysics.initialVelocities.min,
+				max: -defaultPhysics.initialVelocities.y.max,
+				min: -defaultPhysics.initialVelocities.y.min,
 			},
 		},
 	},
