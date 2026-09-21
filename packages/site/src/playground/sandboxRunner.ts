@@ -1,69 +1,71 @@
-/**
- * Playground iframe's runtime; bundled by `?iife` and inlined into frame's srcdoc
- */
 import * as emojiBlast from "emoji-blast";
 import { transform } from "sucrase";
 
-import { readParentMessage, sendMessage } from "./sandboxProtocol";
+import { createSandboxChannel } from "./sandboxProtocol";
 
-const postRan = (error: string | undefined) => {
-	sendMessage(parent, { error });
-};
+export const createSandboxRunner = (nonce: string) => {
+	const channel = createSandboxChannel(nonce);
 
-const toErrorMessage = (error: unknown) =>
-	error instanceof Error
-		? error.message
-		: typeof error === "string"
-			? error
-			: "Unknown error";
+	const postRan = (error: string | undefined) => {
+		channel.send(parent, { error });
+	};
 
-const modules: Record<string, unknown> = {
-	"emoji-blast": emojiBlast,
-};
+	const toErrorMessage = (error: unknown) =>
+		error instanceof Error
+			? error.message
+			: typeof error === "string"
+				? error
+				: "Unknown error";
 
-const requireModule = (moduleName: string) => {
-	if (moduleName in modules) {
-		return modules[moduleName];
-	}
+	const modules: Record<string, unknown> = {
+		"emoji-blast": emojiBlast,
+	};
 
-	throw new Error(`Module "${moduleName}" not found in sandbox.`);
-};
+	const requireModule = (moduleName: string) => {
+		if (moduleName in modules) {
+			return modules[moduleName];
+		}
 
-const runCodeSnippet = (codeSnippet: string) => {
-	// turns import statements into require calls
-	const { code: transpiledCodeSnippet } = transform(codeSnippet, {
-		transforms: ["typescript", "imports"],
+		throw new Error(`Module "${moduleName}" not found in sandbox.`);
+	};
+
+	const runCodeSnippet = (codeSnippet: string) => {
+		// turns import statements into require calls
+		const { code: transpiledCodeSnippet } = transform(codeSnippet, {
+			transforms: ["typescript", "imports"],
+		});
+
+		// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
+		const executeCodeSnippet = new Function(
+			"require",
+			transpiledCodeSnippet,
+		) as (require: typeof requireModule) => void;
+
+		executeCodeSnippet(requireModule);
+	};
+
+	window.addEventListener("message", (event: MessageEvent<unknown>) => {
+		if (event.source !== parent) {
+			return;
+		}
+
+		const message = channel.read.parent(event.data);
+
+		if (message) {
+			try {
+				runCodeSnippet(message.codeSnippet);
+				postRan(undefined);
+			} catch (error) {
+				postRan(toErrorMessage(error));
+			}
+		}
 	});
 
-	// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
-	const executeCodeSnippet = new Function("require", transpiledCodeSnippet) as (
-		require: typeof requireModule,
-	) => void;
+	window.addEventListener("error", (event) => {
+		postRan(event.message);
+	});
 
-	executeCodeSnippet(requireModule);
+	window.addEventListener("unhandledrejection", (event) => {
+		postRan(toErrorMessage(event.reason));
+	});
 };
-
-window.addEventListener("message", (event: MessageEvent<unknown>) => {
-	if (event.source !== parent) {
-		return;
-	}
-
-	const message = readParentMessage(event.data);
-
-	if (message) {
-		try {
-			runCodeSnippet(message.codeSnippet);
-			postRan(undefined);
-		} catch (error) {
-			postRan(toErrorMessage(error));
-		}
-	}
-});
-
-window.addEventListener("error", (event) => {
-	postRan(event.message);
-});
-
-window.addEventListener("unhandledrejection", (event) => {
-	postRan(toErrorMessage(event.reason));
-});

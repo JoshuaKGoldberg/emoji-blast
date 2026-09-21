@@ -13,24 +13,45 @@ export interface SandboxMessage {
 	error: string | undefined;
 }
 
-const readMessage = (data: unknown): object | undefined => {
-	if (typeof data !== "object" || data === null) {
-		return undefined;
-	}
+export const createSandboxChannel = (nonce: string) => {
+	const NONCE_FIELD = "nonce";
 
-	return "source" in data && data.source === MESSAGE_SOURCE ? data : undefined;
-};
+	const readMessage = (data: unknown): object | undefined => {
+		if (typeof data !== "object" || data === null) {
+			return undefined;
+		}
 
-export const readParentMessage = (data: unknown) =>
-	readMessage(data) as ParentMessage | undefined;
+		if (!(NONCE_FIELD in data) || data.nonce !== nonce) {
+			throw new Error("Missing or bad nonce");
+		}
 
-export const readSandboxMessage = (data: unknown) =>
-	readMessage(data) as SandboxMessage | undefined;
+		return "source" in data && data.source === MESSAGE_SOURCE
+			? data
+			: undefined;
+	};
 
-export const sendMessage = (
-	target: Window,
-	message: ParentMessage | SandboxMessage,
-) => {
-	// frame's origin is opaque, so target must be "*"
-	target.postMessage({ ...message, source: MESSAGE_SOURCE }, "*");
+	const sendMessage = (
+		target: Window,
+		message: ParentMessage | SandboxMessage,
+	) => {
+		// frame's origin is opaque, so target must be "*"
+		target.postMessage(
+			{ ...message, [NONCE_FIELD]: nonce, source: MESSAGE_SOURCE },
+			"*",
+		);
+	};
+
+	const readParentMessage = (data: unknown) =>
+		readMessage(data) as ParentMessage | undefined;
+
+	const readSandboxMessage = (data: unknown) =>
+		readMessage(data) as SandboxMessage | undefined;
+
+	return {
+		read: {
+			parent: readParentMessage,
+			sandbox: readSandboxMessage,
+		},
+		send: sendMessage,
+	};
 };
