@@ -1,3 +1,9 @@
+## 0.11.1
+
+### Patch Changes
+
+- 8e25e1d: Iterate actors backwards in the animation tick so out-of-bounds actors can be spliced without index bookkeeping.
+
 # 0.10.0 (2024-03-28)
 
 ## 0.11.0
