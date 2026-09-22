@@ -32,6 +32,7 @@
 	"scripts": {
 		"prebuild": "nuxi prepare",
 		"build": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+		"prebuild:release": "nuxi prepare",
 		"build:release": "nuxt-module-build build",
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
