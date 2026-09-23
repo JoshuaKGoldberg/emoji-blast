@@ -110,6 +110,8 @@ export const PlaygroundEditor = () => {
 				language="typescript"
 				onChange={(v) => {
 					setEditorValue(v ?? "");
+					setError(undefined);
+					setHasBlasted(false);
 				}}
 				options={{
 					automaticLayout: true,
