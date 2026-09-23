@@ -33,9 +33,7 @@ export const PlaygroundEditor = () => {
 	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
 		onRan: ({ error }) => {
 			setError(error);
-			if (!error) {
-				setHasBlasted(true);
-			}
+			setHasBlasted(!error);
 		},
 	});
 
