@@ -3,19 +3,27 @@ import { transform } from "sucrase";
 
 import { createSandboxChannel } from "./sandboxProtocol";
 
+const ERROR_FALLBACK = "Unknown error";
+
+const toErrorMessage = (error: unknown) => {
+	if (error instanceof Error) {
+		return error.message || ERROR_FALLBACK;
+	}
+	if (typeof error === "string") {
+		return error || ERROR_FALLBACK;
+	}
+	return ERROR_FALLBACK;
+};
+
+const toEventErrorMessage = (event: ErrorEvent) =>
+	toErrorMessage(event.error ?? event.message);
+
 export const createSandboxRunner = (nonce: string) => {
 	const channel = createSandboxChannel(nonce);
 
 	const postRan = (error: string | undefined) => {
 		channel.send(parent, { error });
 	};
-
-	const toErrorMessage = (error: unknown) =>
-		error instanceof Error
-			? error.message
-			: typeof error === "string"
-				? error
-				: "Unknown error";
 
 	const modules: Record<string, unknown> = {
 		"emoji-blast": emojiBlast,
@@ -67,15 +75,10 @@ export const createSandboxRunner = (nonce: string) => {
 		}
 	});
 
-	const toEventErrorMessage = (event: Event) =>
-		event instanceof ErrorEvent && event.message
-			? event.message
-			: "Unknown error";
-
 	window.addEventListener("error", (event) => {
 		const errorMessage = toEventErrorMessage(event);
 		if (running) {
-			errorReported = toEventErrorMessage(event);
+			errorReported = errorMessage;
 			return;
 		}
 		postRan(errorMessage);
