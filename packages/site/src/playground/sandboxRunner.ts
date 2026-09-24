@@ -44,25 +44,41 @@ export const createSandboxRunner = (nonce: string) => {
 		executeCodeSnippet(requireModule);
 	};
 
+	let errorReported: string | undefined;
+	let running = false;
+
 	window.addEventListener("message", (event: MessageEvent<unknown>) => {
 		if (event.source !== parent) {
 			return;
 		}
 
 		const message = channel.read.parent(event.data);
-
 		if (message) {
 			try {
+				errorReported = undefined;
+				running = true;
 				runCodeSnippet(message.codeSnippet);
-				postRan(undefined);
+				postRan(errorReported);
 			} catch (error) {
 				postRan(toErrorMessage(error));
+			} finally {
+				running = false;
 			}
 		}
 	});
 
+	const toEventErrorMessage = (event: Event) =>
+		event instanceof ErrorEvent && event.message
+			? event.message
+			: "Unknown error";
+
 	window.addEventListener("error", (event) => {
-		postRan(event.message);
+		const errorMessage = toEventErrorMessage(event);
+		if (running) {
+			errorReported = toEventErrorMessage(event);
+			return;
+		}
+		postRan(errorMessage);
 	});
 
 	window.addEventListener("unhandledrejection", (event) => {
