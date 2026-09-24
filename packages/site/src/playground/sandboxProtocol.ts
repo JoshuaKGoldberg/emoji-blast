@@ -41,11 +41,31 @@ export const createSandboxChannel = (nonce: string) => {
 		);
 	};
 
-	const readParentMessage = (data: unknown) =>
-		readMessage(data) as ParentMessage | undefined;
+	const readParentMessage = (data: unknown): ParentMessage | undefined => {
+		const message = readMessage(data);
 
-	const readSandboxMessage = (data: unknown) =>
-		readMessage(data) as SandboxMessage | undefined;
+		if (!message || !("codeSnippet" in message)) {
+			return undefined;
+		}
+
+		if (typeof message.codeSnippet !== "string") {
+			return undefined;
+		}
+
+		return { codeSnippet: message.codeSnippet };
+	};
+
+	const readSandboxMessage = (data: unknown): SandboxMessage | undefined => {
+		const message = readMessage(data);
+
+		if (!message || !("error" in message)) {
+			return undefined;
+		}
+
+		return message.error === undefined || typeof message.error === "string"
+			? { error: message.error }
+			: undefined;
+	};
 
 	return {
 		read: {
