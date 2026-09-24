@@ -16,7 +16,7 @@ export interface PlaygroundSandboxOptions {
 export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 	const frame = useRef<HTMLIFrameElement>(null);
 
-	const [nonce] = useState(crypto.randomUUID());
+	const [nonce] = useState(() => crypto.randomUUID());
 
 	const channel = useMemo(() => createSandboxChannel(nonce), [nonce]);
 
