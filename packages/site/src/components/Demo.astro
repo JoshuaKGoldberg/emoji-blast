@@ -25,10 +25,10 @@ const lines = demo.blaster
 const code = dedent(lines.slice(1, lines.length - 1).join("\n"));
 ---
 
-<div class="demo" id={slugify(demo.title)}>
+<div class="demo">
 	<div class="demo-first">
 		<div class="demo-text">
-			<h2>{title}</h2>
+			<h2 id={slugify(demo.title)}>{title}</h2>
 			<p>{demo.blurb}</p>
 		</div>
 		<DemoButton
