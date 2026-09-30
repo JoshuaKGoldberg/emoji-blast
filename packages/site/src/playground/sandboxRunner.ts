@@ -25,7 +25,7 @@ export const createSandboxRunner = (nonce: string) => {
 	const parentWindow = parent;
 
 	const postRan = (error: string | undefined) => {
-		channel.send(parentWindow, { error });
+		channel.send.sandbox(parentWindow, { error });
 	};
 
 	const modules: Record<string, unknown> = {
@@ -92,6 +92,6 @@ export const createSandboxRunner = (nonce: string) => {
 	});
 
 	window.addEventListener("pagehide", () => {
-		channel.send(parentWindow, { navigatedAway: true });
+		channel.send.sandbox(parentWindow, { navigatedAway: true });
 	});
 };

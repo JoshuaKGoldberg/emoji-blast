@@ -31,22 +31,16 @@ export const createSandboxChannel = (nonce: string) => {
 			return undefined;
 		}
 
-		if (
-			!("nonce" in data) ||
-			typeof data.nonce !== "string" ||
-			data.nonce !== nonce
-		) {
-			return undefined;
-		}
-
 		return data;
 	};
 
-	const sendMessage = (
-		target: Window,
-		message: ParentMessage | SandboxMessage,
-	) => {
-		// frame's origin is opaque, so target must be "*"
+	// frame's origin is opaque, so target must be "*"
+	const sendParentMessage = (target: Window, message: ParentMessage) => {
+		// no nonce, so that snippets reading the parent's messages can't learn it
+		target.postMessage({ ...message, source: MESSAGE_SOURCE }, "*");
+	};
+
+	const sendSandboxMessage = (target: Window, message: SandboxMessage) => {
 		target.postMessage({ ...message, nonce, source: MESSAGE_SOURCE }, "*");
 	};
 
@@ -67,7 +61,12 @@ export const createSandboxChannel = (nonce: string) => {
 	const readSandboxMessage = (data: unknown): SandboxMessage | undefined => {
 		const message = readMessage(data);
 
-		if (!message) {
+		if (
+			!message ||
+			!("nonce" in message) ||
+			typeof message.nonce !== "string" ||
+			message.nonce !== nonce
+		) {
 			return undefined;
 		}
 
@@ -89,6 +88,9 @@ export const createSandboxChannel = (nonce: string) => {
 			parent: readParentMessage,
 			sandbox: readSandboxMessage,
 		},
-		send: sendMessage,
+		send: {
+			parent: sendParentMessage,
+			sandbox: sendSandboxMessage,
+		},
 	};
 };

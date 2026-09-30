@@ -24,7 +24,7 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		const frameWindow = frame.current?.contentWindow;
 
 		if (frameWindow) {
-			channel.send(frameWindow, { codeSnippet });
+			channel.send.parent(frameWindow, { codeSnippet });
 		}
 	};
 
