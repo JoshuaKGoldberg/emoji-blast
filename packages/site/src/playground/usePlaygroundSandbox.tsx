@@ -64,7 +64,13 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		}
 
 		runTimeout.clear();
-		onRan({ error: message.error });
+
+		if (message.error) {
+			resetSandbox(message.error);
+			return;
+		}
+
+		onRan({ error: undefined });
 	});
 
 	useEffect(() => {
