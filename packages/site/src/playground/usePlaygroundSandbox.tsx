@@ -21,14 +21,18 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 
 	const channel = useMemo(() => createSandboxChannel(nonce), [nonce]);
 
+	const resetSandbox = () => {
+		setNonce(crypto.randomUUID());
+		onRan({ error: "Snippet navigated the sandbox away, so it was reset." });
+	};
+
 	const onFrameLoad = (frameNonce: string) => {
 		if (loadedNonce.current !== frameNonce) {
 			loadedNonce.current = frameNonce;
 			return;
 		}
 
-		setNonce(crypto.randomUUID());
-		onRan({ error: "Snippet navigated the sandbox away, so it was reset." });
+		resetSandbox();
 	};
 
 	const runCodeSnippet = (codeSnippet: string) => {
@@ -40,17 +44,22 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 	};
 
 	const onMessage = useEffectEvent((event: MessageEvent<unknown>) => {
-		// The frame's origin is the string "null", so identity has to come from
-		// the window reference rather than from the origin.
+		const message = channel.read.sandbox(event.data);
+
+		if (!message) {
+			return;
+		}
+
+		if ("navigatedAway" in message) {
+			resetSandbox();
+			return;
+		}
+
 		if (event.source !== frame.current?.contentWindow) {
 			return;
 		}
 
-		const message = channel.read.sandbox(event.data);
-
-		if (message) {
-			onRan({ error: message.error });
-		}
+		onRan({ error: message.error });
 	});
 
 	useEffect(() => {

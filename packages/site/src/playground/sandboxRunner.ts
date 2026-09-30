@@ -21,8 +21,11 @@ const toEventErrorMessage = (event: ErrorEvent) =>
 export const createSandboxRunner = (nonce: string) => {
 	const channel = createSandboxChannel(nonce);
 
+	// captured before any snippet runs, since snippets can reassign window.parent
+	const parentWindow = parent;
+
 	const postRan = (error: string | undefined) => {
-		channel.send(parent, { error });
+		channel.send(parentWindow, { error });
 	};
 
 	const modules: Record<string, unknown> = {
@@ -56,7 +59,7 @@ export const createSandboxRunner = (nonce: string) => {
 	let running = false;
 
 	window.addEventListener("message", (event: MessageEvent<unknown>) => {
-		if (event.source !== parent) {
+		if (event.source !== parentWindow) {
 			return;
 		}
 
@@ -86,5 +89,9 @@ export const createSandboxRunner = (nonce: string) => {
 
 	window.addEventListener("unhandledrejection", (event) => {
 		postRan(toErrorMessage(event.reason));
+	});
+
+	window.addEventListener("pagehide", () => {
+		channel.send(parentWindow, { navigatedAway: true });
 	});
 };

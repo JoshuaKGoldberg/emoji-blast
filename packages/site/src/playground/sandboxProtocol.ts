@@ -7,11 +7,19 @@ export interface ParentMessage {
 	codeSnippet: string;
 }
 
-/** Message frame sends to parent. */
-export interface SandboxMessage {
+/** Message frame sends to parent after running a snippet. */
+export interface SandboxRanMessage {
 	/** What the snippet threw, or undefined if it ran without throwing. */
 	error: string | undefined;
 }
+
+/** Message frame sends to parent when a navigation is replacing it. */
+export interface SandboxNavigatedAwayMessage {
+	navigatedAway: true;
+}
+
+/** Message frame sends to parent. */
+export type SandboxMessage = SandboxNavigatedAwayMessage | SandboxRanMessage;
 
 export const createSandboxChannel = (nonce: string) => {
 	const readMessage = (data: unknown): object | undefined => {
@@ -23,11 +31,15 @@ export const createSandboxChannel = (nonce: string) => {
 			return undefined;
 		}
 
-		return "nonce" in data &&
-			typeof data.nonce === "string" &&
-			data.nonce === nonce
-			? data
-			: undefined;
+		if (
+			!("nonce" in data) ||
+			typeof data.nonce !== "string" ||
+			data.nonce !== nonce
+		) {
+			return undefined;
+		}
+
+		return data;
 	};
 
 	const sendMessage = (
@@ -55,7 +67,15 @@ export const createSandboxChannel = (nonce: string) => {
 	const readSandboxMessage = (data: unknown): SandboxMessage | undefined => {
 		const message = readMessage(data);
 
-		if (!message || !("error" in message)) {
+		if (!message) {
+			return undefined;
+		}
+
+		if ("navigatedAway" in message && message.navigatedAway === true) {
+			return { navigatedAway: true };
+		}
+
+		if (!("error" in message)) {
 			return undefined;
 		}
 
