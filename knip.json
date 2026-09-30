@@ -8,12 +8,13 @@
 		},
 		"packages/site": {
 			"entry": [
+				"plugins/*.ts",
 				"src/**/*.astro!",
 				"src/**/*.mdx!",
 				"src/**/*.ts!",
 				"src/**/*.tsx!"
 			],
-			"project": ["src/**/*.ts!", "src/**/*.tsx!"]
+			"project": ["plugins/*.ts", "src/**/*.ts!", "src/**/*.tsx!"]
 		},
 		"packages/konami-emoji-blast": {
 			"entry": ["src/mains/*.ts!"],

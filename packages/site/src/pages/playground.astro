@@ -3,25 +3,33 @@ import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import { PlaygroundEditor } from "~/components/PlaygroundEditor";
 ---
 
-<div class="playground-container">
-	<StarlightPage
-		frontmatter={{
-			title: "Playground",
-			template: "splash",
-		}}
-	/>
-	<div class="editor">
-		<PlaygroundEditor client:only="react" />
-	</div>
+<StarlightPage
+	frontmatter={{
+		title: "Playground",
+		template: "splash",
+		head: [
+			{
+				// blocks the sandbox from navigating itself to any URL
+				attrs: {
+					content: "frame-src 'none'",
+					"http-equiv": "Content-Security-Policy",
+				},
+				tag: "meta",
+			},
+		],
+	}}
+/>
+
+<div class="editor">
+	<PlaygroundEditor client:only="react" />
 </div>
 
 <style is:global>
 	html,
 	body {
-		height: 100%;
 		overflow: hidden;
 	}
-	.playground-container {
+	body {
 		display: flex;
 		flex-direction: column;
 		height: 100svh;

@@ -1,0 +1,10 @@
+/* Emoji aren't interactive here: grab-and-toss needs pointer forwarding across the frame boundary. */
+.sandbox {
+	border: 0;
+	height: 100%;
+	inset: 0;
+	pointer-events: none;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
