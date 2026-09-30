@@ -17,23 +17,8 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 	const frame = useRef<HTMLIFrameElement>(null);
 
 	const [nonce, setNonce] = useState(() => crypto.randomUUID());
-	const loadedNonce = useRef<string>(undefined);
 
 	const channel = useMemo(() => createSandboxChannel(nonce), [nonce]);
-
-	const resetSandbox = () => {
-		setNonce(crypto.randomUUID());
-		onRan({ error: "Snippet navigated the sandbox away, so it was reset." });
-	};
-
-	const onFrameLoad = (frameNonce: string) => {
-		if (loadedNonce.current !== frameNonce) {
-			loadedNonce.current = frameNonce;
-			return;
-		}
-
-		resetSandbox();
-	};
 
 	const runCodeSnippet = (codeSnippet: string) => {
 		const frameWindow = frame.current?.contentWindow;
@@ -51,7 +36,8 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		}
 
 		if ("navigatedAway" in message) {
-			resetSandbox();
+			setNonce(crypto.randomUUID());
+			onRan({ error: "Snippet navigated the sandbox away, so it was reset." });
 			return;
 		}
 
@@ -74,9 +60,6 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		<iframe
 			className={styles.sandbox}
 			key={nonce}
-			onLoad={() => {
-				onFrameLoad(nonce);
-			}}
 			ref={frame}
 			sandbox="allow-scripts"
 			srcDoc={createSandboxDocument(nonce)}
