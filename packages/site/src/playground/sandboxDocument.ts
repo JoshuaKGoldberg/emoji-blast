@@ -33,7 +33,6 @@ export const createSandboxDocument = (
 <script>${sandboxRunnerScript}</script>
 <script>
 	sandboxRunner.createSandboxRunner("${nonce}");
-	// hides the nonce from snippets reading the frame's DOM
 	document.currentScript.remove();
 </script>
 `;
