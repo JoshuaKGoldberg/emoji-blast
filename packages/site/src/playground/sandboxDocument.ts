@@ -3,6 +3,7 @@ import sandboxRunnerScript from "./sandboxRunner.ts?iife";
 const contentSecurityPolicy = [
 	// blocks fetches and resource loads from any host
 	"default-src 'none'",
+	"webrtc 'block'",
 	// inline runs the inlined runner; eval allows its `new Function`
 	"script-src 'unsafe-inline' 'unsafe-eval'",
 	// allows this document's inline <style>
