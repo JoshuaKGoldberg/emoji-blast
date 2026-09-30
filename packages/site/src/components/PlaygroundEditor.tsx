@@ -23,7 +23,7 @@ emojiBlast({
   uniqueness: 2,
   emojis: ["✨", "🔥", "🚀"],
   physics: {
-    gravity: 0.4,
+    gravity: { acceleration: 0.4 },
     initialVelocities: {
       rotation: { max: 20, min: -20 },
     },
