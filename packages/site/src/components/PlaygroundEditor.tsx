@@ -25,6 +25,17 @@ emojiBlast({
 });
 `;
 
+const MAX_ERROR_LENGTH = 200;
+
+const truncateText = (text: string, maxLength: number) => {
+	// split by code point, so an emoji in the text isn't cut in half
+	const characters = Array.from(text);
+
+	return characters.length > maxLength
+		? `${characters.slice(0, maxLength - 1).join("")}…`
+		: text;
+};
+
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 	const [error, setError] = useState<string | undefined>(undefined);
@@ -95,7 +106,7 @@ export const PlaygroundEditor = () => {
 								paddingInline: "6px",
 							}}
 						>
-							[Error] {error}
+							[Error] {truncateText(error, MAX_ERROR_LENGTH)}
 						</div>
 					)}
 				</div>
