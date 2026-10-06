@@ -17,7 +17,6 @@
 		},
 		"packages/konami-emoji-blast": {
 			"entry": ["src/mains/*.ts!"],
-			"ignoreDependencies": ["webpack-cli"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-astro": {
