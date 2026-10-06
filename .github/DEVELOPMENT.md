@@ -30,7 +30,7 @@ You should also see suggestions from TypeScript in your editor.
 ### Individual Packages
 
 Note that some individual packages also have their own `build` command.
-Each package `build` runs [webpack](https://webpack.js.org) to build source files from `src/` into output files in `dist/`.
+Each package `build` runs [esbuild](https://esbuild.github.io) to build source files from `src/` into output files in `dist/`.
 
 You can run them all from the root with:
 

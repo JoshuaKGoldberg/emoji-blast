@@ -26,7 +26,7 @@
 		"lib/"
 	],
 	"scripts": {
-		"build": "webpack"
+		"build": "esbuild src/mains/global.ts src/mains/now.ts --bundle --format=iife --minify --outdir=dist --target=es2022 --banner:js=\"/*! konami-emoji-blast: https://github.com/JoshuaKGoldberg/emoji-blast/tree/main/packages/konami-emoji-blast. MIT licensed. */\""
 	},
 	"dependencies": {
 		"emoji-blast": "workspace:",
@@ -34,7 +34,6 @@
 	},
 	"devDependencies": {
 		"@types/konami-code-js": "^0.8.3",
-		"ts-loader": "^9.5.7",
-		"webpack": "^5.106.2"
+		"esbuild": "^0.28.2"
 	}
 }

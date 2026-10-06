@@ -19,12 +19,10 @@
 		"lib/"
 	],
 	"scripts": {
-		"build": "webpack"
+		"build": "esbuild src/mains/global.ts src/mains/now.ts src/mains/onclick.ts src/mains/size.ts --bundle --format=iife --minify --outdir=dist --target=es2022 --banner:js=\"/*! emoji-blast: https://github.com/JoshuaKGoldberg/emoji-blast/tree/main/packages/emoji-blast. MIT licensed. */\""
 	},
 	"devDependencies": {
-		"ts-loader": "^9.5.7",
-		"webpack": "^5.106.2",
-		"webpack-cli": "^7.0.2"
+		"esbuild": "^0.28.2"
 	},
 	"engines": {
 		"node": ">=18"

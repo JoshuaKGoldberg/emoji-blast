@@ -4,9 +4,9 @@
 
 ## Building
 
-Each corresponds to a Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `src/mains/*.ts` by the same name.
+Each corresponds to an [esbuild entry point](https://esbuild.github.io/api/#entry-points) under `src/mains/*.ts` by the same name.
 
-Run [webpack](https://webpack.js.org) to build source files from `src/` into output files in `dist/`:
+Run [esbuild](https://esbuild.github.io) to build source files from `src/` into output files in `dist/`:
 
 ```shell
 pnpm build

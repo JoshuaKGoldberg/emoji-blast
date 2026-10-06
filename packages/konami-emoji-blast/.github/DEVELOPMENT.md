@@ -4,7 +4,7 @@
 
 ## Building
 
-Run [webpack](https://webpack.js.org) to build source files from Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `src/mains/*.ts` to `dist/*.js` bundles of the same name.
+Run [esbuild](https://esbuild.github.io) to build source files from [entry points](https://esbuild.github.io/api/#entry-points) under `src/mains/*.ts` to `dist/*.js` bundles of the same name.
 
 ```shell
 pnpm build

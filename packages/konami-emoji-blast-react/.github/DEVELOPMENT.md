@@ -4,14 +4,5 @@
 
 ## Building
 
-Run [webpack](https://webpack.js.org) to build source files from Webpack ["entry point"](https://webpack.js.org/concepts/entry-points) under `src/mains/*.ts` to `dist/*.js` bundles of the same name.
-
-```shell
-pnpm build
-```
-
-Add `--watch` to run the builder in a watch mode:
-
-```shell
-pnpm build --watch
-```
+This package doesn't have its own `build` command.
+The root-level `pnpm build` runs [TypeScript](https://www.typescriptlang.org) to build source files from `src/` into output files in `lib/`.
