@@ -23,4 +23,19 @@ describe("KonamiEmojiBlast", () => {
 
 		expect(onActivate).toHaveBeenCalledOnce();
 	});
+
+	it("calls the latest onActivate after the prop changes", async () => {
+		const original = vi.fn();
+		const updated = vi.fn();
+
+		const wrapper = mount(KonamiEmojiBlast, {
+			props: { onActivate: original },
+		});
+		await wrapper.setProps({ onActivate: updated });
+
+		mockUseKonamiEmojiBlast.mock.calls[0][0]?.();
+
+		expect(original).not.toHaveBeenCalled();
+		expect(updated).toHaveBeenCalledOnce();
+	});
 });

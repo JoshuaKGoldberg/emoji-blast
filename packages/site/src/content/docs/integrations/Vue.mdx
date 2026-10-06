@@ -4,7 +4,7 @@ title: Vue
 
 **[`@konami-emoji-blast/vue`](https://www.npmjs.com/package/@konami-emoji-blast/vue)** provides a Vue component and composable.
 
-These act as convenience wrappers around [`konami-emoji-blast`](../konami-emoji-blast).
+These act as convenience wrappers around [`konami-emoji-blast`](../../apis/konami-emoji-blast/).
 You can always call `konami-emoji-blast`'s functions directly instead.
 
 First install the `@konami-emoji-blast/vue` package as a dependency:
@@ -15,13 +15,13 @@ npm i @konami-emoji-blast/vue
 
 :::tip
 Using [Nuxt](https://nuxt.com)?
-See [Integrations > Nuxt](../nuxt) for a Nuxt module that loads `konami-emoji-blast` on all pages of your site.
+See [Integrations > Nuxt](../nuxt/) for a Nuxt module that loads `konami-emoji-blast` on all pages of your site.
 :::
 
 ## `useKonamiEmojiBlast`
 
 The preferred usage for Vue is with a provided `useKonamiEmojiBlast` composable.
-Call it in the `setup` of a root-level component in your app to call [`initializeKonamiEmojiBlast`](../../api/konami-emoji-blast#initializekonamiemojiblast) when the component is mounted.
+Call it in the `setup` of a root-level component in your app to call [`initializeKonamiEmojiBlast`](../../apis/konami-emoji-blast/#initializekonamiemojiblast) when the component is mounted.
 It will be cleaned up when the component is unmounted.
 
 ```vue
@@ -81,7 +81,17 @@ import { KonamiEmojiBlast } from "@konami-emoji-blast/vue";
 It may take an optional `onActivate` prop, which can also be passed as an `@activate` listener:
 
 ```vue
-<KonamiEmojiBlast @activate="() => console.log('Commence blasting! 🎆')" />
+<script setup lang="ts">
+import { KonamiEmojiBlast } from "@konami-emoji-blast/vue";
+
+function onActivate() {
+	console.log("Commence blasting! 🎆");
+}
+</script>
+
+<template>
+	<KonamiEmojiBlast @activate="onActivate" />
+</template>
 ```
 
 :::tip

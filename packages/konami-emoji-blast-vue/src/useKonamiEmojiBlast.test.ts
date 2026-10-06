@@ -1,6 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import { defineComponent } from "vue";
+import { createSSRApp, defineComponent } from "vue";
+import { renderToString } from "vue/server-renderer";
 
 import { useKonamiEmojiBlast } from "./useKonamiEmojiBlast.js";
 
@@ -12,16 +13,17 @@ vi.mock("konami-emoji-blast", () => ({
 	},
 }));
 
-const mountWithComposable = (onActivate?: () => void) =>
-	mount(
-		defineComponent({
-			setup() {
-				useKonamiEmojiBlast(onActivate);
+const createComposableComponent = (onActivate?: () => void) =>
+	defineComponent({
+		setup() {
+			useKonamiEmojiBlast(onActivate);
 
-				return () => null;
-			},
-		}),
-	);
+			return () => null;
+		},
+	});
+
+const mountWithComposable = (onActivate?: () => void) =>
+	mount(createComposableComponent(onActivate));
 
 describe("useKonamiEmojiBlast", () => {
 	it("calls initializeKonamiEmojiBlast with onActivate on mount", () => {
@@ -32,6 +34,12 @@ describe("useKonamiEmojiBlast", () => {
 		expect(mockInitializeKonamiEmojiBlast).toHaveBeenCalledExactlyOnceWith(
 			onActivate,
 		);
+	});
+
+	it("does not call initializeKonamiEmojiBlast during server rendering", async () => {
+		await renderToString(createSSRApp(createComposableComponent()));
+
+		expect(mockInitializeKonamiEmojiBlast).not.toHaveBeenCalled();
 	});
 
 	it("calls the cleanup from initializeKonamiEmojiBlast on unmount", () => {
