@@ -1,0 +1,89 @@
+---
+title: Vue
+---
+
+**[`@konami-emoji-blast/vue`](https://www.npmjs.com/package/@konami-emoji-blast/vue)** provides a Vue component and composable.
+
+These act as convenience wrappers around [`konami-emoji-blast`](../konami-emoji-blast).
+You can always call `konami-emoji-blast`'s functions directly instead.
+
+First install the `@konami-emoji-blast/vue` package as a dependency:
+
+```shell
+npm i @konami-emoji-blast/vue
+```
+
+:::tip
+Using [Nuxt](https://nuxt.com)?
+See [Integrations > Nuxt](../nuxt) for a Nuxt module that loads `konami-emoji-blast` on all pages of your site.
+:::
+
+## `useKonamiEmojiBlast`
+
+The preferred usage for Vue is with a provided `useKonamiEmojiBlast` composable.
+Call it in the `setup` of a root-level component in your app to call [`initializeKonamiEmojiBlast`](../../api/konami-emoji-blast#initializekonamiemojiblast) when the component is mounted.
+It will be cleaned up when the component is unmounted.
+
+```vue
+<script setup lang="ts">
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/vue";
+
+useKonamiEmojiBlast();
+</script>
+
+<template>
+	<main>Hello, world!</main>
+</template>
+```
+
+Then, pressing the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) on your Vue app should trigger fireworks blasts of emoji on the page.
+Yay! 🎆
+
+### `useKonamiEmojiBlast` Options
+
+`useKonamiEmojiBlast` may take a single optional parameter, `onActivate`.
+
+#### `onActivate`
+
+A function to run whenever the user inputs the Konami Code.
+
+```vue
+<script setup lang="ts">
+import { useKonamiEmojiBlast } from "@konami-emoji-blast/vue";
+
+useKonamiEmojiBlast(() => {
+	console.log("Commence blasting! 🎆");
+});
+</script>
+
+<template>
+	<main>Hello, world!</main>
+</template>
+```
+
+## `KonamiEmojiBlast`
+
+If you'd rather use a component, a `KonamiEmojiBlast` component is provided too:
+
+```vue
+<script setup lang="ts">
+import { KonamiEmojiBlast } from "@konami-emoji-blast/vue";
+</script>
+
+<template>
+	<main>
+		<KonamiEmojiBlast />
+		Hello, world!
+	</main>
+</template>
+```
+
+It may take an optional `onActivate` prop, which can also be passed as an `@activate` listener:
+
+```vue
+<KonamiEmojiBlast @activate="() => console.log('Commence blasting! 🎆')" />
+```
+
+:::tip
+The component just calls the composable internally.
+:::

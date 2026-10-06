@@ -33,6 +33,9 @@
 		"packages/konami-emoji-blast-typedoc": {
 			"ignoreDependencies": ["konami-emoji-blast"],
 			"project": ["src/**/*.ts!"]
+		},
+		"packages/konami-emoji-blast-vue": {
+			"project": ["src/**/*.ts!"]
 		}
 	}
 }
