@@ -32,6 +32,8 @@ It consists of the following packages:
   🗻
 - [`@konami-emoji-blast/react`](./packages/konami-emoji-blast-react/README.md): Integration for `konami-emoji-blast` in <a href="https:/react.dev">React</a>.
   ⚛️
+- [`@konami-emoji-blast/vue`](./packages/konami-emoji-blast-vue/README.md): Integration for `konami-emoji-blast` in <a href="https://vuejs.org">Vue</a>.
+  💚
 - [`@konami-emoji-blast/typedoc`](./packages/konami-emoji-blast-typedoc/README.md): Integration for `konami-emoji-blast` in <a href="https://typedoc.org">TypeDoc</a>.
   🗂️
 

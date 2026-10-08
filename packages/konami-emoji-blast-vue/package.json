@@ -1,0 +1,39 @@
+{
+	"name": "@konami-emoji-blast/vue",
+	"version": "0.0.0",
+	"description": "Integration for konami-emoji-blast in Vue. 💚",
+	"keywords": [
+		"konami",
+		"konami code",
+		"emoji-blast",
+		"konami-emoji-blast",
+		"easter egg",
+		"vue",
+		"composables"
+	],
+	"homepage": "https://emojiblast.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKGoldberg/emoji-blast.git",
+		"directory": "packages/konami-emoji-blast-vue"
+	},
+	"license": "MIT",
+	"author": "Josh Goldberg",
+	"type": "module",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"files": [
+		"lib/"
+	],
+	"dependencies": {
+		"konami-emoji-blast": "workspace:"
+	},
+	"devDependencies": {
+		"@vue/test-utils": "^2.4.6",
+		"jsdom": "^29.0.2",
+		"vue": "^3.5.33"
+	},
+	"peerDependencies": {
+		"vue": "^3.5"
+	}
+}
