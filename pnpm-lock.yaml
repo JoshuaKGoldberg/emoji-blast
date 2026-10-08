@@ -251,9 +251,6 @@ importers:
       emoji-blast:
         specifier: 'workspace:'
         version: link:../emoji-blast
-      konami-emoji-blast:
-        specifier: 'workspace:'
-        version: link:../konami-emoji-blast
       react:
         specifier: ^19.2.5
         version: 19.2.5
