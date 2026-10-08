@@ -1,3 +1,5 @@
+import type * as MonacoEditor from "monaco-editor";
+
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
@@ -34,28 +36,23 @@ emojiBlast({
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 
-	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
-	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
-	// https://github.com/microsoft/monaco-editor/issues/5133
-	/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 	const setupMonaco = (monaco: Monaco) => {
-		const ts = monaco.languages.typescript as any;
+		// @monaco-editor/react's Monaco type doesn't include the top-level language
+		// namespaces that monaco-editor moved out of monaco.languages in v0.55.
+		const { typescript } = monaco as typeof MonacoEditor;
 
-		const compilerOptions = {
+		typescript.typescriptDefaults.setCompilerOptions({
 			allowNonTsExtensions: true,
-			module: ts.ModuleKind.ESNext,
+			module: typescript.ModuleKind.ESNext,
 			strict: true,
-			target: ts.ScriptTarget.ESNext,
-		};
+			target: typescript.ScriptTarget.ESNext,
+		});
 
-		ts.typescriptDefaults.setCompilerOptions(compilerOptions);
-
-		ts.typescriptDefaults.addExtraLib(
+		typescript.typescriptDefaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
 	};
-	/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
 	const theme = useStarlightTheme();
 	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
