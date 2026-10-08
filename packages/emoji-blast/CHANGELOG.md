@@ -1,3 +1,9 @@
+## 0.12.1
+
+### Patch Changes
+
+- 5352d64: Build browser bundles in `dist/` with esbuild instead of webpack
+
 ## 0.12.0
 
 ### Minor Changes
