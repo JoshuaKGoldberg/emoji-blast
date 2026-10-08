@@ -29,7 +29,7 @@ export function konamiEmojiBlast(
 				injectScript(
 					"page",
 					`
-						import { initializeKonamiEmojiBlast } from "konami-emoji-blast";
+						import { initializeKonamiEmojiBlast } from "@konami-emoji-blast/astro/client";
 
 						initializeKonamiEmojiBlast(${optionsJson});
 					`,

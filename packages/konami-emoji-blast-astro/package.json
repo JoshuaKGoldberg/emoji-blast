@@ -21,13 +21,25 @@
 	"license": "MIT",
 	"author": "Josh Goldberg",
 	"type": "module",
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"default": "./lib/index.js"
+		},
+		"./client": {
+			"types": "./lib/client.d.ts",
+			"default": "./lib/client.js"
+		}
+	},
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"dependencies": {
+		"konami-emoji-blast": "workspace:"
+	},
 	"devDependencies": {
 		"astro": "^6.1.9"
 	},
 	"peerDependencies": {
-		"astro": "^2 || ^3 || ^4 || ^5.0.0 || ^6.0.0",
-		"konami-emoji-blast": "workspace:"
+		"astro": "^2 || ^3 || ^4 || ^5.0.0 || ^6.0.0"
 	}
 }
