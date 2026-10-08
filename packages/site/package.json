@@ -29,6 +29,6 @@
 		"use-starlight-theme": "workspace:"
 	},
 	"devDependencies": {
-		"monaco-editor": "^0.55.1"
+		"monaco-editor": "^0.57.0"
 	}
 }
