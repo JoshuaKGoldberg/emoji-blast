@@ -22,8 +22,6 @@ export function konamiEmojiBlast(
 	return {
 		hooks: {
 			"astro:config:setup"({ injectScript, updateConfig }) {
-				// The injected script imports konami-emoji-blast by resolved path, which
-				// Vite won't pre-bundle, so its CommonJS dependency must be included.
 				updateConfig({
 					vite: {
 						optimizeDeps: {
@@ -39,9 +37,6 @@ export function konamiEmojiBlast(
 				};
 				const optionsJson = JSON.stringify(serializableOptions);
 
-				// Resolving from this package means konami-emoji-blast doesn't need to
-				// be a direct dependency of the user's project.
-				// https://github.com/JoshuaKGoldberg/emoji-blast/issues/969
 				const konamiEmojiBlastUrl = JSON.stringify(
 					import.meta.resolve("konami-emoji-blast"),
 				);
