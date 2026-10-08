@@ -37,8 +37,6 @@ export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
 
 	const setupMonaco = (monaco: Monaco) => {
-		// @monaco-editor/react's Monaco type doesn't include the top-level language
-		// namespaces that monaco-editor moved out of monaco.languages in v0.55.
 		const { typescript } = monaco as typeof MonacoEditor;
 
 		typescript.typescriptDefaults.setCompilerOptions({
