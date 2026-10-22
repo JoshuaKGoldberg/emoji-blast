@@ -1,11 +1,11 @@
 import type * as MonacoEditor from "monaco-editor";
 
 import Editor, { type Monaco } from "@monaco-editor/react";
-import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
 import { useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
+import { EMOJI_BLAST_MODULE_DECLARATION } from "~/utils/emojiBlastModuleDeclaration";
 import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
 
 import { Button } from "./Button";
@@ -47,7 +47,7 @@ export const PlaygroundEditor = () => {
 		});
 
 		typescript.typescriptDefaults.addExtraLib(
-			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
+			EMOJI_BLAST_MODULE_DECLARATION,
 			"file:///emoji-blast-types.d.ts",
 		);
 	};
