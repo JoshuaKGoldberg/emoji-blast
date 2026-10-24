@@ -17,8 +17,8 @@
 		"clsx",
 		"Codecademy",
 		"composables",
-		"emojiblast.dev",
 		"emojiblast",
+		"emojiblast.dev",
 		"emojiblasts",
 		"emojisplosion",
 		"esbuild",
@@ -42,6 +42,7 @@
 		"typecheck",
 		"vite",
 		"Voss",
+		"webrtc",
 		"Yona"
 	]
 }

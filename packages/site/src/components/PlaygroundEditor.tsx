@@ -6,7 +6,7 @@ import { version } from "emoji-blast/package.json";
 import { useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
-import { runPlaygroundCode } from "~/utils/runPlaygroundCode";
+import { usePlaygroundSandbox } from "~/playground/usePlaygroundSandbox";
 
 import { Button } from "./Button";
 
@@ -33,8 +33,32 @@ emojiBlast({
 });
 `;
 
+const MAX_ERROR_LENGTH = 200;
+
+const truncateText = (text: string, maxLength: number) => {
+	// split by code point, so an emoji in the text isn't cut in half
+	const characters = Array.from(text);
+
+	return characters.length > maxLength
+		? `${characters.slice(0, maxLength - 1).join("")}…`
+		: text;
+};
+
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
+	const [error, setError] = useState<string | undefined>(undefined);
+	const [hasBlasted, setHasBlasted] = useState(false);
+
+	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
+		onRan: ({ error }) => {
+			setError(error);
+			setHasBlasted(!error);
+		},
+	});
+
+	const runCode = () => {
+		runCodeSnippet(editorValue);
+	};
 
 	const setupMonaco = (monaco: Monaco) => {
 		const { typescript } = monaco as typeof MonacoEditor;
@@ -64,15 +88,29 @@ export const PlaygroundEditor = () => {
 					margin: "12px",
 				}}
 			>
-				<Button
-					as="button"
-					onClick={() => {
-						runPlaygroundCode(editorValue);
-					}}
-					style={{ paddingBlock: "2px", paddingInline: "18px" }}
-				>
-					Run Code
-				</Button>
+				<div style={{ alignItems: "center", display: "flex", gap: "12px" }}>
+					<Button
+						as="button"
+						onClick={runCode}
+						style={{ paddingBlock: "2px", paddingInline: "18px" }}
+					>
+						{hasBlasted ? "Blast Off!" : "Run Code"}
+					</Button>
+					{error && (
+						<div
+							style={{
+								backgroundColor: "red",
+								borderRadius: "5px",
+								color: "white",
+								fontFamily: "Monospace",
+								fontWeight: "bold",
+								paddingInline: "6px",
+							}}
+						>
+							[Error] {truncateText(error, MAX_ERROR_LENGTH)}
+						</div>
+					)}
+				</div>
 				<a href={EMOJI_BLAST_PACKAGE_METADATA.url} target="_blank">
 					{EMOJI_BLAST_PACKAGE_METADATA.version}
 				</a>
@@ -82,6 +120,8 @@ export const PlaygroundEditor = () => {
 				language="typescript"
 				onChange={(v) => {
 					setEditorValue(v ?? "");
+					setError(undefined);
+					setHasBlasted(false);
 				}}
 				options={{
 					automaticLayout: true,
@@ -92,6 +132,7 @@ export const PlaygroundEditor = () => {
 				theme={monacoTheme}
 				value={editorValue}
 			/>
+			{sandbox}
 		</div>
 	);
 };
