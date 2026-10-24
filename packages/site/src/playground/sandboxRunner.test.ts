@@ -2,12 +2,16 @@ import * as emojiBlast from "emoji-blast";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { MESSAGE_SOURCE } from "./sandboxProtocol";
-import "./sandboxRunner";
+import { createSandboxRunner } from "./sandboxRunner";
+
+const nonce = "test-nonce";
 
 // Outside a frame, jsdom's `parent` is the window itself
 const postMessage = vi
 	.spyOn(window, "postMessage")
 	.mockImplementation(() => undefined);
+
+createSandboxRunner(nonce);
 
 const dispatchMessage = (
 	data: unknown,
@@ -20,11 +24,14 @@ const runCodeSnippet = (codeSnippet: string) => {
 	dispatchMessage({ codeSnippet, source: MESSAGE_SOURCE });
 };
 
+const posted = (message: object) =>
+	[{ ...message, nonce, source: MESSAGE_SOURCE }, "*"] as const;
+
 afterEach(() => {
 	Reflect.deleteProperty(window, "snippetResult");
 });
 
-describe("sandboxRunner", () => {
+describe("createSandboxRunner", () => {
 	it("runs TypeScript snippets that import emoji-blast and reports no error", () => {
 		runCodeSnippet(
 			[
@@ -39,8 +46,7 @@ describe("sandboxRunner", () => {
 			ran: true,
 		});
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{ error: undefined, source: MESSAGE_SOURCE },
-			"*",
+			...posted({ error: undefined }),
 		);
 	});
 
@@ -48,20 +54,28 @@ describe("sandboxRunner", () => {
 		runCodeSnippet(`throw new Error("boom");`);
 
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{ error: "boom", source: MESSAGE_SOURCE },
-			"*",
+			...posted({ error: "boom" }),
 		);
+	});
+
+	it.each([
+		[`throw "boom";`, "boom"],
+		[`throw new Error("");`, "Unknown error"],
+		[`throw "";`, "Unknown error"],
+		[`throw 123;`, "Unknown error"],
+	])("reports thrown values that aren't errors: %s", (codeSnippet, error) => {
+		runCodeSnippet(codeSnippet);
+
+		expect(postMessage).toHaveBeenCalledExactlyOnceWith(...posted({ error }));
 	});
 
 	it("reports syntax errors", () => {
 		runCodeSnippet(`const = ;`);
 
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{
+			...posted({
 				error: expect.stringContaining("Unexpected token") as string,
-				source: MESSAGE_SOURCE,
-			},
-			"*",
+			}),
 		);
 	});
 
@@ -69,11 +83,17 @@ describe("sandboxRunner", () => {
 		runCodeSnippet(`import leftPad from "left-pad";\nleftPad();`);
 
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{
-				error: `Module "left-pad" not found in sandbox.`,
-				source: MESSAGE_SOURCE,
-			},
-			"*",
+			...posted({ error: `Module "left-pad" not found in sandbox.` }),
+		);
+	});
+
+	it("reports errors from error events during a run as the run's error", () => {
+		runCodeSnippet(
+			`window.dispatchEvent(new ErrorEvent("error", { error: new Error("during") }));`,
+		);
+
+		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
+			...posted({ error: "during" }),
 		);
 	});
 
@@ -101,12 +121,21 @@ describe("sandboxRunner", () => {
 
 	it("reports errors thrown later by async code", () => {
 		window.dispatchEvent(
+			new ErrorEvent("error", { error: new Error("later") }),
+		);
+
+		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
+			...posted({ error: "later" }),
+		);
+	});
+
+	it("falls back to the error event's message when it has no error", () => {
+		window.dispatchEvent(
 			new ErrorEvent("error", { message: "Uncaught Error: later" }),
 		);
 
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{ error: "Uncaught Error: later", source: MESSAGE_SOURCE },
-			"*",
+			...posted({ error: "Uncaught Error: later" }),
 		);
 	});
 
@@ -119,8 +148,15 @@ describe("sandboxRunner", () => {
 		);
 
 		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
-			{ error: "rejected", source: MESSAGE_SOURCE },
-			"*",
+			...posted({ error: "rejected" }),
+		);
+	});
+
+	it("reports when the frame is navigated away", () => {
+		window.dispatchEvent(new Event("pagehide"));
+
+		expect(postMessage).toHaveBeenCalledExactlyOnceWith(
+			...posted({ navigatedAway: true }),
 		);
 	});
 });

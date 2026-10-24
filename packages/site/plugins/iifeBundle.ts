@@ -3,9 +3,7 @@ import path from "node:path";
 
 /**
  * Resolves `import code from "./entry.ts?iife"` to the entry point bundled, with
- * its dependencies, into a single classic script, exported as a string.
- *
- * For documents that cannot fetch module scripts.
+ * its dependencies, into a single classic script.
  */
 export const iifeBundle = () => ({
 	async load(this: { addWatchFile: (id: string) => void }, id: string) {
@@ -22,6 +20,7 @@ export const iifeBundle = () => ({
 			bundle: true,
 			entryPoints: [entryPoint],
 			format: "iife",
+			globalName: path.parse(entryPoint).name,
 			metafile: true,
 			minify: true,
 			platform: "browser",

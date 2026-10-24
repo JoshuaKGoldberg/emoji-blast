@@ -21,6 +21,7 @@
 		"emojiblast.dev",
 		"emojiblasts",
 		"emojisplosion",
+		"esbuild",
 		"frontmatter",
 		"gameplay",
 		"Gradeff",
@@ -42,6 +43,7 @@
 		"typecheck",
 		"vite",
 		"Voss",
+		"webrtc",
 		"Yona"
 	]
 }

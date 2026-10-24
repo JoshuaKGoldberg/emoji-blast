@@ -1,8 +1,9 @@
-import sandboxRunner from "./sandboxRunner.ts?iife";
+import sandboxRunnerScript from "./sandboxRunner.ts?iife";
 
 const contentSecurityPolicy = [
 	// blocks fetches and resource loads from any host
 	"default-src 'none'",
+	"webrtc 'block'",
 	// inline runs the inlined runner; eval allows its `new Function`
 	"script-src 'unsafe-inline' 'unsafe-eval'",
 	// allows this document's inline <style>
@@ -13,7 +14,9 @@ const contentSecurityPolicy = [
 	"form-action 'none'",
 ].join("; ");
 
-export const sandboxDocument = `<meta charset="utf-8" />
+export const createSandboxDocument = (
+	nonce: string,
+) => `<meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="${contentSecurityPolicy}" />
 <style>
 	html {
@@ -28,5 +31,9 @@ export const sandboxDocument = `<meta charset="utf-8" />
 		overflow: hidden;
 	}
 </style>
-<script>${sandboxRunner}</script>
+<script>${sandboxRunnerScript}</script>
+<script>
+	sandboxRunner.createSandboxRunner("${nonce}");
+	document.currentScript.remove();
+</script>
 `;

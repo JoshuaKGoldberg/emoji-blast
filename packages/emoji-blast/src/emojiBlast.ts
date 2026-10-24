@@ -44,7 +44,7 @@ export interface EmojiBlastSettings {
 	/**
 	 * Runtime change constants for emoji element movements.
 	 */
-	physics: MakePartial<EmojiPhysics, "initialVelocities">;
+	physics: MakePartial<EmojiPhysics, "gravity" | "initialVelocities">;
 
 	/**
 	 * How to determine where to place blasts of emojis around the page.
@@ -113,7 +113,10 @@ export const defaultPhysics: EmojiPhysics = {
 		min: 14,
 	},
 	framerate: 60,
-	gravity: 0.35,
+	gravity: {
+		acceleration: 0.35,
+		angle: 180,
+	},
 	initialVelocities: {
 		rotation: {
 			max: 7,
@@ -149,6 +152,12 @@ export const defaultPosition = () => ({
  * Launches a blast of emojis across the page! 🎆
  */
 export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
+	if (typeof settings.physics?.gravity === "number") {
+		throw new TypeError(
+			"physics.gravity is now an object: use { acceleration: <number> } instead of a bare number.",
+		);
+	}
+
 	const {
 		className = defaultClassName,
 		container: containerSetting = defaultCreateContainer,
@@ -167,6 +176,10 @@ export const emojiBlast = (settings: Partial<EmojiBlastSettings> = {}) => {
 	const physics = {
 		...defaultPhysics,
 		...settings.physics,
+		gravity: {
+			...defaultPhysics.gravity,
+			...(settings.physics !== undefined ? settings.physics.gravity : {}),
+		},
 		initialVelocities: {
 			...defaultPhysics.initialVelocities,
 			...(settings.physics !== undefined

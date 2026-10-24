@@ -26,8 +26,7 @@ beforeAll(async () => {
 		entry,
 		[
 			`import { greeting } from "./dependency";`,
-			`const message: string = greeting;`,
-			`Object.assign(globalThis, { message });`,
+			`export const message: string = greeting;`,
 		].join("\n"),
 	);
 });
@@ -62,7 +61,7 @@ describe("iifeBundle", () => {
 		vm.runInNewContext(code, context);
 
 		expect(code).not.toMatch(/\b(?:import|export)\b/);
-		expect(context).toEqual({ message: "hello" });
+		expect(context).toEqual({ entry: { message: "hello" } });
 	});
 
 	it("recognizes the iife query alongside other query params", async () => {

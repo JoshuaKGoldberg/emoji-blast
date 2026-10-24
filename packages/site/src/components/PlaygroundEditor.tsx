@@ -1,3 +1,5 @@
+import type * as MonacoEditor from "monaco-editor";
+
 import Editor, { type Monaco } from "@monaco-editor/react";
 import emojiBlastTypeSource from "emoji-blast/lib/emojiBlast.d.ts?raw";
 import { version } from "emoji-blast/package.json";
@@ -21,9 +23,26 @@ const DEFAULT_EDITOR_CONTENT = `import { emojiBlast } from "emoji-blast";
 emojiBlast({
   emojiCount: 8,
   uniqueness: 2,
-  emojis: ["✨", "🔥", "🚀"]
+  emojis: ["✨", "🔥", "🚀"],
+  physics: {
+    gravity: { acceleration: 0.4 },
+    initialVelocities: {
+      rotation: { max: 20, min: -20 },
+    },
+  },
 });
 `;
+
+const MAX_ERROR_LENGTH = 200;
+
+const truncateText = (text: string, maxLength: number) => {
+	// split by code point, so an emoji in the text isn't cut in half
+	const characters = Array.from(text);
+
+	return characters.length > maxLength
+		? `${characters.slice(0, maxLength - 1).join("")}…`
+		: text;
+};
 
 export const PlaygroundEditor = () => {
 	const [editorValue, setEditorValue] = useState(DEFAULT_EDITOR_CONTENT);
@@ -33,9 +52,7 @@ export const PlaygroundEditor = () => {
 	const { runCodeSnippet, sandbox } = usePlaygroundSandbox({
 		onRan: ({ error }) => {
 			setError(error);
-			if (!error) {
-				setHasBlasted(true);
-			}
+			setHasBlasted(!error);
 		},
 	});
 
@@ -43,28 +60,21 @@ export const PlaygroundEditor = () => {
 		runCodeSnippet(editorValue);
 	};
 
-	// TODO monaco-editor v0.55.1 is going through some migrations that are affecting
-	// the stability of the type surface. Scheduled to be fixed in v0.56.0 though!
-	// https://github.com/microsoft/monaco-editor/issues/5133
-	/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 	const setupMonaco = (monaco: Monaco) => {
-		const ts = monaco.languages.typescript as any;
+		const { typescript } = monaco as typeof MonacoEditor;
 
-		const compilerOptions = {
+		typescript.typescriptDefaults.setCompilerOptions({
 			allowNonTsExtensions: true,
-			module: ts.ModuleKind.ESNext,
+			module: typescript.ModuleKind.ESNext,
 			strict: true,
-			target: ts.ScriptTarget.ESNext,
-		};
+			target: typescript.ScriptTarget.ESNext,
+		});
 
-		ts.typescriptDefaults.setCompilerOptions(compilerOptions);
-
-		ts.typescriptDefaults.addExtraLib(
+		typescript.typescriptDefaults.addExtraLib(
 			`declare module "emoji-blast" { ${emojiBlastTypeSource} }`,
 			"file:///emoji-blast-types.d.ts",
 		);
 	};
-	/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
 	const theme = useStarlightTheme();
 	const monacoTheme = theme === "dark" ? "vs-dark" : "light";
@@ -97,7 +107,7 @@ export const PlaygroundEditor = () => {
 								paddingInline: "6px",
 							}}
 						>
-							[Error] {error}
+							[Error] {truncateText(error, MAX_ERROR_LENGTH)}
 						</div>
 					)}
 				</div>
@@ -110,6 +120,8 @@ export const PlaygroundEditor = () => {
 				language="typescript"
 				onChange={(v) => {
 					setEditorValue(v ?? "");
+					setError(undefined);
+					setHasBlasted(false);
 				}}
 				options={{
 					automaticLayout: true,

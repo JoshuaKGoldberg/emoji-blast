@@ -51,9 +51,9 @@ export interface EmojiPhysics {
 	framerate: number;
 
 	/**
-	 * How much to increase y-velocity downward each tick.
+	 * Acceleration and direction to apply as gravity each tick.
 	 */
-	gravity: number;
+	gravity: EmojiGravity;
 
 	/**
 	 * Initial velocity ranges for individual emojis.
@@ -79,6 +79,21 @@ export interface EmojiPhysics {
 	 * How much to decrease rotation amount each tick.
 	 */
 	rotationDeceleration: number;
+}
+
+/**
+ * Acceleration magnitude and direction to apply as gravity.
+ */
+export interface EmojiGravity {
+	/**
+	 * Acceleration magnitude to apply in the gravity angle's direction each tick.
+	 */
+	acceleration: number;
+
+	/**
+	 * Direction to apply gravity in, in degrees clockwise from straight up (e.g. 180 is straight down).
+	 */
+	angle: number;
 }
 
 /**
@@ -152,9 +167,9 @@ export interface EmojiUpdates {
 	velocity?: Partial<EmojiVelocity>;
 
 	/**
-	 * Gravitation changes, if it should change.
+	 * Gravity changes, if they should change.
 	 */
-	gravity?: number;
+	gravity?: Partial<EmojiGravity>;
 }
 
 /**
@@ -199,9 +214,16 @@ export class EmojiActor {
 	#velocity: EmojiVelocity;
 
 	/**
-	 * Change amounts for elements y-axis
+	 * Acceleration and direction applied as gravity each tick.
 	 */
-	#gravity: number;
+	#gravity: EmojiGravity;
+
+	/**
+	 * Per-tick x and y velocity changes computed from #gravity.
+	 * These are cached rather than recomputed each tick because the
+	 * acceleration and angle only change when #update is given new gravity.
+	 */
+	#gravityVelocity: { x: number; y: number } = { x: 0, y: 0 };
 
 	/**
 	 * Attached element kept in the DOM.
@@ -232,11 +254,29 @@ export class EmojiActor {
 			y: randomInRange(settings.physics.initialVelocities.y),
 		};
 
-		this.#gravity = randomInRange(settings.physics.gravity);
+		this.#gravity = {
+			acceleration: randomInRange(settings.physics.gravity.acceleration),
+			angle: randomInRange(settings.physics.gravity.angle),
+		};
 
+		this.#updateGravityVelocity();
 		this.updateElement();
 		settings.process?.(this.element);
 		settings.container.appendChild(this.element);
+	}
+
+	/**
+	 * Recomputes cached per-tick velocity changes from the current gravity.
+	 *
+	 * Angles are stored in degrees clockwise from straight up, so they're
+	 * converted to radians and flipped on y, where the page grows downwards.
+	 */
+	#updateGravityVelocity() {
+		const radians = (this.#gravity.angle * Math.PI) / 180;
+		this.#gravityVelocity = {
+			x: this.#gravity.acceleration * Math.sin(radians),
+			y: -this.#gravity.acceleration * Math.cos(radians),
+		};
 	}
 
 	/**
@@ -264,7 +304,9 @@ export class EmojiActor {
 		}
 
 		this.#velocity.rotation *= this.#physics.rotationDeceleration;
-		this.#velocity.y += this.#gravity;
+
+		this.#velocity.x += this.#gravityVelocity.x;
+		this.#velocity.y += this.#gravityVelocity.y;
 
 		this.#position.rotation += this.#velocity.rotation;
 		this.#position.x +=
@@ -352,7 +394,15 @@ export class EmojiActor {
 		}
 
 		if (updates.gravity !== undefined) {
-			this.#gravity = updates.gravity;
+			if (updates.gravity.acceleration !== undefined) {
+				this.#gravity.acceleration = updates.gravity.acceleration;
+			}
+
+			if (updates.gravity.angle !== undefined) {
+				this.#gravity.angle = updates.gravity.angle;
+			}
+
+			this.#updateGravityVelocity();
 		}
 	}
 
@@ -371,9 +421,9 @@ export class EmojiActor {
 	}
 
 	/**
-	 * Change amounts for element's y-axis.
+	 * Acceleration and direction applied as gravity each tick.
 	 */
-	public get gravity(): Readonly<number> {
+	public get gravity(): Readonly<EmojiGravity> {
 		return this.#gravity;
 	}
 

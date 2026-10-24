@@ -1,69 +1,97 @@
-/**
- * Playground iframe's runtime; bundled by `?iife` and inlined into frame's srcdoc
- */
 import * as emojiBlast from "emoji-blast";
 import { transform } from "sucrase";
 
-import { readParentMessage, sendMessage } from "./sandboxProtocol";
+import { createSandboxChannel } from "./sandboxProtocol";
 
-const postRan = (error: string | undefined) => {
-	sendMessage(parent, { error });
-};
+const ERROR_FALLBACK = "Unknown error";
 
-const toErrorMessage = (error: unknown) =>
-	error instanceof Error
-		? error.message
-		: typeof error === "string"
-			? error
-			: "Unknown error";
-
-const modules: Record<string, unknown> = {
-	"emoji-blast": emojiBlast,
-};
-
-const requireModule = (moduleName: string) => {
-	if (moduleName in modules) {
-		return modules[moduleName];
+const toErrorMessage = (error: unknown) => {
+	if (error instanceof Error) {
+		return error.message || ERROR_FALLBACK;
 	}
-
-	throw new Error(`Module "${moduleName}" not found in sandbox.`);
+	if (typeof error === "string") {
+		return error || ERROR_FALLBACK;
+	}
+	return ERROR_FALLBACK;
 };
 
-const runCodeSnippet = (codeSnippet: string) => {
-	// turns import statements into require calls
-	const { code: transpiledCodeSnippet } = transform(codeSnippet, {
-		transforms: ["typescript", "imports"],
+const toEventErrorMessage = (event: ErrorEvent) =>
+	toErrorMessage(event.error ?? event.message);
+
+export const createSandboxRunner = (nonce: string) => {
+	const channel = createSandboxChannel(nonce);
+
+	// captured before any snippet runs, since snippets can reassign window.parent
+	const parentWindow = parent;
+
+	const postRan = (error: string | undefined) => {
+		channel.send.sandbox(parentWindow, { error });
+	};
+
+	const modules: Record<string, unknown> = {
+		"emoji-blast": emojiBlast,
+	};
+
+	const requireModule = (moduleName: string) => {
+		if (moduleName in modules) {
+			return modules[moduleName];
+		}
+
+		throw new Error(`Module "${moduleName}" not found in sandbox.`);
+	};
+
+	const runCodeSnippet = (codeSnippet: string) => {
+		// turns import statements into require calls
+		const { code: transpiledCodeSnippet } = transform(codeSnippet, {
+			transforms: ["typescript", "imports"],
+		});
+
+		// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
+		const executeCodeSnippet = new Function(
+			"require",
+			transpiledCodeSnippet,
+		) as (require: typeof requireModule) => void;
+
+		executeCodeSnippet(requireModule);
+	};
+
+	let errorReported: string | undefined;
+	let running = false;
+
+	window.addEventListener("message", (event: MessageEvent<unknown>) => {
+		if (event.source !== parentWindow) {
+			return;
+		}
+
+		const message = channel.read.parent(event.data);
+		if (message) {
+			try {
+				errorReported = undefined;
+				running = true;
+				runCodeSnippet(message.codeSnippet);
+				postRan(errorReported);
+			} catch (error) {
+				postRan(toErrorMessage(error));
+			} finally {
+				running = false;
+			}
+		}
 	});
 
-	// eslint-disable-next-line @typescript-eslint/no-implied-eval -- in iframe
-	const executeCodeSnippet = new Function("require", transpiledCodeSnippet) as (
-		require: typeof requireModule,
-	) => void;
-
-	executeCodeSnippet(requireModule);
-};
-
-window.addEventListener("message", (event: MessageEvent<unknown>) => {
-	if (event.source !== parent) {
-		return;
-	}
-
-	const message = readParentMessage(event.data);
-
-	if (message) {
-		try {
-			runCodeSnippet(message.codeSnippet);
-			postRan(undefined);
-		} catch (error) {
-			postRan(toErrorMessage(error));
+	window.addEventListener("error", (event) => {
+		const errorMessage = toEventErrorMessage(event);
+		if (running) {
+			errorReported = errorMessage;
+			return;
 		}
-	}
-});
+		postRan(errorMessage);
+	});
 
-window.addEventListener("error", (event) => {
-	postRan(event.message);
-});
+	window.addEventListener("unhandledrejection", (event) => {
+		postRan(toErrorMessage(event.reason));
+	});
 
-window.addEventListener("unhandledrejection", (event) => {
-	postRan(toErrorMessage(event.reason));
-});
+	window.addEventListener("pagehide", () => {
+		channel.send.sandbox(parentWindow, { navigatedAway: true });
+	});
+};
