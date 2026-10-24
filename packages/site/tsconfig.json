@@ -8,5 +8,6 @@
 		},
 		"target": "esnext"
 	},
+	"exclude": ["dist", "vitest.config.ts"],
 	"extends": "astro/tsconfigs/strict"
 }
