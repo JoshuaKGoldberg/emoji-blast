@@ -22,7 +22,6 @@
 		"clsx": "^2.1.1",
 		"dedent": "^1.7.2",
 		"emoji-blast": "workspace:",
-		"konami-emoji-blast": "workspace:",
 		"react": "^19.2.5",
 		"react-dom": "^19.2.5",
 		"sucrase": "^3.35.1",
@@ -31,6 +30,6 @@
 	},
 	"devDependencies": {
 		"esbuild": "^0.28.1",
-		"monaco-editor": "^0.55.1"
+		"monaco-editor": "^0.57.0"
 	}
 }

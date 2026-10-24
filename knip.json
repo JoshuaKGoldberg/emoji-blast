@@ -18,7 +18,6 @@
 		},
 		"packages/konami-emoji-blast": {
 			"entry": ["src/mains/*.ts!"],
-			"ignoreDependencies": ["webpack-cli"],
 			"project": ["src/**/*.ts!"]
 		},
 		"packages/konami-emoji-blast-astro": {
@@ -34,6 +33,9 @@
 		},
 		"packages/konami-emoji-blast-typedoc": {
 			"ignoreDependencies": ["konami-emoji-blast"],
+			"project": ["src/**/*.ts!"]
+		},
+		"packages/konami-emoji-blast-vue": {
 			"project": ["src/**/*.ts!"]
 		}
 	}

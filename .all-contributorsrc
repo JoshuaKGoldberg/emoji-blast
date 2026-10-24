@@ -12,7 +12,8 @@
         "bug",
         "tool",
         "ideas",
-        "doc"
+        "doc",
+        "infra"
       ],
       "login": "JoshuaKGoldberg",
       "name": "Josh Goldberg",
@@ -178,7 +179,8 @@
         "tool",
         "code",
         "bug",
-        "maintenance"
+        "maintenance",
+        "ideas"
       ]
     },
     {
@@ -214,7 +216,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/251443988?v=4",
       "profile": "https://github.com/dmitrmygit",
       "contributions": [
-        "code"
+        "code",
+        "bug"
       ]
     }
   ],

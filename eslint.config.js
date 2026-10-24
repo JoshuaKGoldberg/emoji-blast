@@ -21,7 +21,6 @@ export default defineConfig(
 		"coverage",
 		"packages/*/dist",
 		"packages/*/lib",
-		"packages/*/webpack.config.*",
 		"packages/site/src/env.d.ts",
 		"pnpm-*.yaml",
 	]),
