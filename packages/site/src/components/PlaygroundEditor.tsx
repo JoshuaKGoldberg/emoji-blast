@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useStarlightTheme } from "use-starlight-theme";
 
 import { usePlaygroundSandbox } from "~/playground/usePlaygroundSandbox";
-import { EMOJI_BLAST_MODULE_DECLARATION } from "~/utils/emojiBlastModuleDeclaration";
+import { EMOJI_BLAST_TYPE_FILES } from "~/utils/emojiBlastTypeFiles";
 
 import { Button } from "./Button";
 
@@ -66,14 +66,14 @@ export const PlaygroundEditor = () => {
 		typescript.typescriptDefaults.setCompilerOptions({
 			allowNonTsExtensions: true,
 			module: typescript.ModuleKind.ESNext,
+			moduleResolution: typescript.ModuleResolutionKind.NodeJs,
 			strict: true,
 			target: typescript.ScriptTarget.ESNext,
 		});
 
-		typescript.typescriptDefaults.addExtraLib(
-			EMOJI_BLAST_MODULE_DECLARATION,
-			"file:///emoji-blast-types.d.ts",
-		);
+		for (const { content, filePath } of EMOJI_BLAST_TYPE_FILES) {
+			typescript.typescriptDefaults.addExtraLib(content, filePath);
+		}
 	};
 
 	const theme = useStarlightTheme();
@@ -129,6 +129,9 @@ export const PlaygroundEditor = () => {
 					minimap: { enabled: false },
 					tabSize: 2,
 				}}
+				// Node module resolution searches node_modules from the importing
+				// file's directory, so the model must live next to the extra libs.
+				path="file:///index.ts"
 				theme={monacoTheme}
 				value={editorValue}
 			/>
