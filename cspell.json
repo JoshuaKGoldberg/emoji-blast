@@ -17,8 +17,8 @@
 		"clsx",
 		"Codecademy",
 		"composables",
-		"emojiblast.dev",
 		"emojiblast",
+		"emojiblast.dev",
 		"emojiblasts",
 		"emojisplosion",
 		"esbuild",
@@ -26,6 +26,7 @@
 		"gameplay",
 		"Gradeff",
 		"initializekonamiemojiblast",
+		"inlines",
 		"knip",
 		"Konami",
 		"Konamicode",
@@ -42,6 +43,7 @@
 		"typecheck",
 		"vite",
 		"Voss",
+		"webrtc",
 		"Yona"
 	]
 }
