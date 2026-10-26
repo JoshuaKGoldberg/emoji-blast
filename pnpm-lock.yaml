@@ -98,6 +98,9 @@ importers:
       esbuild:
         specifier: ^0.28.2
         version: 0.28.2
+      jsdom:
+        specifier: ^29.0.2
+        version: 29.0.2
 
   packages/konami-emoji-blast:
     dependencies:

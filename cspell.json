@@ -41,6 +41,7 @@
 		"spinnin",
 		"tsconfigs",
 		"typecheck",
+		"unstub",
 		"vite",
 		"Voss",
 		"webrtc",
