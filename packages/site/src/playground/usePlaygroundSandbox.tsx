@@ -3,11 +3,37 @@ import { flushSync } from "react-dom";
 
 import styles from "./PlaygroundSandbox.module.css";
 import { createSandboxDocument } from "./sandboxDocument";
-import { createSandboxChannel } from "./sandboxProtocol";
+import {
+	createSandboxChannel,
+	type ParentPointerEventType,
+	parentPointerEventTypes,
+	type SandboxCursor,
+} from "./sandboxProtocol";
 import { useTimeout } from "./useTimeout";
 
 /** How long the frame has to acknowledge a run before we reset it. */
 const RUN_TIMEOUT_MS = 500;
+
+/** Styled in playground.astro to show the cursor and block text selection. */
+const setSandboxCursor = (cursor: SandboxCursor | undefined) => {
+	if (cursor) {
+		document.documentElement.dataset.sandboxCursor = cursor;
+	} else {
+		delete document.documentElement.dataset.sandboxCursor;
+	}
+};
+
+/**
+ * While the pointer is over (or dragging) an emoji, a press belongs to the emoji,
+ * so keep the page from focusing, selecting text, or starting its own drag.
+ * The frame's reply to the forwarded press arrives too late to stop these.
+ */
+const blockPageGrab = (event: Event) => {
+	if (!document.documentElement.dataset.sandboxCursor) {
+		return;
+	}
+	event.preventDefault();
+};
 
 export interface PlaygroundSandboxOptions {
 	/** Called after each run, and again if snippet contains async code that throws */
@@ -46,6 +72,30 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 		}
 	};
 
+	// a reset frame can't report that its pointer left an emoji
+	useEffect(
+		() => () => {
+			setSandboxCursor(undefined);
+		},
+		[nonce],
+	);
+
+	const onPointerEvent = useEffectEvent((event: PointerEvent) => {
+		const frameWindow = frame.current?.contentWindow;
+
+		if (event.type === "pointerdown") {
+			blockPageGrab(event);
+		}
+
+		if (frameWindow) {
+			channel.send.parent(frameWindow, {
+				clientX: event.clientX,
+				clientY: event.clientY,
+				type: event.type as ParentPointerEventType,
+			});
+		}
+	});
+
 	const onMessage = useEffectEvent((event: MessageEvent<unknown>) => {
 		const message = channel.read.sandbox(event.data);
 
@@ -63,6 +113,11 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 			return;
 		}
 
+		if ("cursor" in message) {
+			setSandboxCursor(message.cursor);
+			return;
+		}
+
 		runTimeout.clear();
 
 		if (message.error) {
@@ -75,9 +130,17 @@ export const usePlaygroundSandbox = ({ onRan }: PlaygroundSandboxOptions) => {
 
 	useEffect(() => {
 		window.addEventListener("message", onMessage);
+		window.addEventListener("mousedown", blockPageGrab);
+		for (const type of parentPointerEventTypes) {
+			window.addEventListener(type, onPointerEvent);
+		}
 
 		return () => {
 			window.removeEventListener("message", onMessage);
+			window.removeEventListener("mousedown", blockPageGrab);
+			for (const type of parentPointerEventTypes) {
+				window.removeEventListener(type, onPointerEvent);
+			}
 		};
 	}, []);
 

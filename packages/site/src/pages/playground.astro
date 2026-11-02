@@ -44,4 +44,13 @@ import { PlaygroundEditor } from "~/components/PlaygroundEditor";
 		position: relative;
 		flex-grow: 1;
 	}
+	html[data-sandbox-cursor] * {
+		user-select: none !important;
+	}
+	html[data-sandbox-cursor="grab"] * {
+		cursor: grab !important;
+	}
+	html[data-sandbox-cursor="grabbing"] * {
+		cursor: grabbing !important;
+	}
 </style>
