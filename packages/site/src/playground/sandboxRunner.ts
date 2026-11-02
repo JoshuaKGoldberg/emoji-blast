@@ -1,7 +1,11 @@
 import * as emojiBlast from "emoji-blast";
 import { transform } from "sucrase";
 
-import { createSandboxChannel } from "./sandboxProtocol";
+import {
+	createSandboxChannel,
+	type ParentPointerEventType,
+	type SandboxCursor,
+} from "./sandboxProtocol";
 
 const ERROR_FALLBACK = "Unknown error";
 
@@ -26,6 +30,30 @@ export const createSandboxRunner = (nonce: string) => {
 
 	const postRan = (error: string | undefined) => {
 		channel.send.sandbox(parentWindow, { error });
+	};
+
+	let isPointerDown = false;
+	let cursor: SandboxCursor | undefined;
+
+	// the frame ignores pointer events, so the parent has to show its cursor
+	const postCursor = (type: ParentPointerEventType, target: Element | null) => {
+		let next: SandboxCursor | undefined;
+		if (type === "pointerdown" && target?.tagName === "BUTTON") {
+			next = "grabbing";
+			isPointerDown = true;
+		} else if (type === "pointermove") {
+			if (isPointerDown) {
+				next = "grabbing";
+			} else if (target?.tagName === "BUTTON") {
+				next = "grab";
+			}
+		} else if (type === "pointerup") {
+			isPointerDown = false;
+		}
+		if (next !== cursor) {
+			cursor = next;
+			channel.send.sandbox(parentWindow, { cursor });
+		}
 	};
 
 	const modules: Record<string, unknown> = {
@@ -64,7 +92,10 @@ export const createSandboxRunner = (nonce: string) => {
 		}
 
 		const message = channel.read.parent(event.data);
-		if (message) {
+		if (!message) {
+			return;
+		}
+		if ("codeSnippet" in message) {
 			try {
 				errorReported = undefined;
 				running = true;
@@ -75,6 +106,19 @@ export const createSandboxRunner = (nonce: string) => {
 			} finally {
 				running = false;
 			}
+		} else {
+			const target = document.elementFromPoint(
+				message.clientX,
+				message.clientY,
+			);
+			const event = new PointerEvent(message.type, {
+				bubbles: true,
+				cancelable: true,
+				clientX: message.clientX,
+				clientY: message.clientY,
+			});
+			(target ?? document).dispatchEvent(event);
+			postCursor(message.type, target);
 		}
 	});
 
