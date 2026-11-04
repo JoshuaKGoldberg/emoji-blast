@@ -23,7 +23,8 @@
 	"types": "lib/index.d.ts",
 	"files": [
 		"dist/",
-		"lib/"
+		"lib/",
+		"!lib/**/*.test.*"
 	],
 	"scripts": {
 		"build": "esbuild src/mains/global.ts src/mains/now.ts --bundle --format=iife --minify --outdir=dist --target=es2022 --banner:js=\"/*! konami-emoji-blast: https://github.com/JoshuaKGoldberg/emoji-blast/tree/main/packages/konami-emoji-blast. MIT licensed. */\""
