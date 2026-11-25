@@ -1,6 +1,6 @@
 {
 	"name": "@konami-emoji-blast/vue",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Integration for konami-emoji-blast in Vue. 💚",
 	"keywords": [
 		"konami",
