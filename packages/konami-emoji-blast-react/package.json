@@ -22,6 +22,10 @@
 	"type": "module",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"files": [
+		"lib/",
+		"!lib/**/*.test.*"
+	],
 	"dependencies": {
 		"konami-emoji-blast": "workspace:"
 	},
