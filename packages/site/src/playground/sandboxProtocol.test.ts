@@ -49,6 +49,37 @@ describe("createSandboxChannel", () => {
 				expect(channel.read.parent(data)).toBeUndefined();
 			},
 		);
+
+		it("returns the pointer event from data tagged with the channel's source", () => {
+			expect(
+				channel.read.parent({
+					clientX: 12,
+					clientY: 34,
+					extra: true,
+					source: MESSAGE_SOURCE,
+					type: "pointermove",
+				}),
+			).toEqual({ clientX: 12, clientY: 34, type: "pointermove" });
+		});
+
+		it.each([
+			{ clientX: 12, clientY: 34 },
+			{ clientX: 12, clientY: 34, type: 123 },
+			{ clientY: 34, type: "pointermove" },
+			{ clientX: "12", clientY: 34, type: "pointermove" },
+			{ clientX: 12, type: "pointermove" },
+			{ clientX: 12, clientY: "34", type: "pointermove" },
+		])("returns undefined for malformed pointer events: %o", (data) => {
+			expect(
+				channel.read.parent({ ...data, source: MESSAGE_SOURCE }),
+			).toBeUndefined();
+		});
+
+		it("returns undefined for pointer events not tagged with the channel's source", () => {
+			expect(
+				channel.read.parent({ clientX: 12, clientY: 34, type: "pointermove" }),
+			).toBeUndefined();
+		});
 	});
 
 	describe("read.sandbox", () => {
@@ -69,6 +100,39 @@ describe("createSandboxChannel", () => {
 					source: MESSAGE_SOURCE,
 				}),
 			).toEqual({ navigatedAway: true });
+		});
+
+		it.each(["grab", "grabbing", undefined])(
+			"returns cursor messages with the channel's nonce: %s",
+			(cursor) => {
+				expect(
+					channel.read.sandbox({ cursor, nonce, source: MESSAGE_SOURCE }),
+				).toEqual({ cursor });
+			},
+		);
+
+		it.each(["pointer", "", null, 123])(
+			"returns undefined for cursor messages with an unknown cursor: %s",
+			(cursor) => {
+				expect(
+					channel.read.sandbox({
+						cursor,
+						error: "boom",
+						nonce,
+						source: MESSAGE_SOURCE,
+					}),
+				).toBeUndefined();
+			},
+		);
+
+		it("returns undefined for cursor messages without the channel's nonce", () => {
+			expect(
+				channel.read.sandbox({
+					cursor: "grab",
+					nonce: "another-nonce",
+					source: MESSAGE_SOURCE,
+				}),
+			).toBeUndefined();
 		});
 
 		it.each([undefined, null, MESSAGE_SOURCE, 123])(
@@ -113,6 +177,26 @@ describe("createSandboxChannel", () => {
 
 			expect(postMessage).toHaveBeenCalledExactlyOnceWith(
 				{ codeSnippet: "emojiBlast();", source: MESSAGE_SOURCE },
+				"*",
+			);
+		});
+
+		it("posts pointer events tagged with the channel's source", () => {
+			const { postMessage, target } = createTarget();
+
+			channel.send.parent(target, {
+				clientX: 12,
+				clientY: 34,
+				type: "pointerdown",
+			});
+
+			expect(postMessage).toHaveBeenCalledExactlyOnceWith(
+				{
+					clientX: 12,
+					clientY: 34,
+					source: MESSAGE_SOURCE,
+					type: "pointerdown",
+				},
 				"*",
 			);
 		});

@@ -84,6 +84,8 @@ const dispatchSandboxMessage = (
 	dispatchMessage({ ...message, nonce, source: MESSAGE_SOURCE }, source);
 };
 
+const getSandboxCursor = () => document.documentElement.dataset.sandboxCursor;
+
 describe("usePlaygroundSandbox", () => {
 	it("renders a scripts-only sandboxed iframe with the sandbox document", () => {
 		render(<Harness onRan={vi.fn()} />);
@@ -257,18 +259,93 @@ describe("usePlaygroundSandbox", () => {
 		expect(latestOnRan).toHaveBeenCalledExactlyOnceWith({ error: undefined });
 	});
 
-	it("removes its message listener on unmount", () => {
+	it.each([
+		["pointerdown", fireEvent.pointerDown],
+		["pointermove", fireEvent.pointerMove],
+		["pointerup", fireEvent.pointerUp],
+	] as const)(
+		"forwards %s events on the page to the frame's window",
+		(type, fire) => {
+			const onRan = vi.fn();
+			render(<Harness onRan={onRan} />);
+
+			const postMessage = vi
+				.spyOn(getFrame().frameWindow, "postMessage")
+				.mockImplementation(() => undefined);
+
+			fire(window, { clientX: 12, clientY: 34 });
+
+			expect(postMessage).toHaveBeenCalledExactlyOnceWith(
+				{ clientX: 12, clientY: 34, source: MESSAGE_SOURCE, type },
+				"*",
+			);
+		},
+	);
+
+	it("forwards pointer events to the new frame after a reset", () => {
+		const onRan = vi.fn();
+		render(<Harness onRan={onRan} />);
+
+		const previousPostMessage = vi
+			.spyOn(getFrame().frameWindow, "postMessage")
+			.mockImplementation(() => undefined);
+
+		dispatchSandboxMessage({ error: "boom" });
+
+		const postMessage = vi
+			.spyOn(getFrame().frameWindow, "postMessage")
+			.mockImplementation(() => undefined);
+
+		fireEvent.pointerMove(window, { clientX: 12, clientY: 34 });
+
+		expect(previousPostMessage).not.toHaveBeenCalled();
+		expect(postMessage).toHaveBeenCalledOnce();
+	});
+
+	it.each(["grab", "grabbing"])(
+		"shows the %s cursor the frame reports, then clears it",
+		(cursor) => {
+			const onRan = vi.fn();
+			render(<Harness onRan={onRan} />);
+
+			dispatchSandboxMessage({ cursor });
+
+			expect(getSandboxCursor()).toBe(cursor);
+
+			dispatchSandboxMessage({ cursor: undefined });
+
+			expect(getSandboxCursor()).toBeUndefined();
+		},
+	);
+
+	it("clears the cursor when the frame is reset", () => {
+		const onRan = vi.fn();
+		render(<Harness onRan={onRan} />);
+
+		dispatchSandboxMessage({ cursor: "grabbing" });
+		dispatchSandboxMessage({ error: "boom" });
+
+		expect(getSandboxCursor()).toBeUndefined();
+	});
+
+	it.each([
+		"message",
+		"pointerdown",
+		"pointermove",
+		"pointerup",
+		"mousedown",
+	] as const)("removes its %s listener on unmount", (eventType) => {
 		const addEventListener = vi.spyOn(window, "addEventListener");
 		const removeEventListener = vi.spyOn(window, "removeEventListener");
 		const { unmount } = render(<Harness onRan={vi.fn()} />);
 
 		const listener = addEventListener.mock.calls.find(
-			([type]) => type === "message",
+			([type]) => type === eventType,
 		)?.[1];
 
 		unmount();
 
 		expect(listener).toBeDefined();
-		expect(removeEventListener).toHaveBeenCalledWith("message", listener);
+		expect(removeEventListener).toHaveBeenCalledWith(eventType, listener);
 	});
 });
